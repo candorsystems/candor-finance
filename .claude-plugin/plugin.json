@@ -1,0 +1,20 @@
+{
+  "name": "candor-finance",
+  "version": "0.1.0",
+  "description": "Give Claude a durable financial workspace, evidence-first finance methods, and authenticated Candor tools.",
+  "author": {
+    "name": "Candor",
+    "email": "support@candor.money",
+    "url": "https://candor.money"
+  },
+  "homepage": "https://candor.money",
+  "repository": "https://github.com/candorsystems/candor-finance",
+  "license": "Proprietary",
+  "keywords": [
+    "finance",
+    "personal-finance",
+    "financial-workspace",
+    "mcp",
+    "agent-skills"
+  ]
+}
