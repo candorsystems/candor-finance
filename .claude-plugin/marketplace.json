@@ -1,5 +1,6 @@
 {
   "name": "candor",
+  "description": "Official Candor finance skills and authenticated agent tools.",
   "owner": { "name": "Candor", "email": "support@candor.money" },
   "plugins": [
     {
