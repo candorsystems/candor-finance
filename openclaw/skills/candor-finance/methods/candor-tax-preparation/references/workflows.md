@@ -54,7 +54,7 @@ candor corrections create TRANSACTION_ID --category CATEGORY --reason "Preserve 
 candor transactions get TRANSACTION_ID --reason "Verify the effective tax-record correction" --task-key TASK_KEY
 ```
 
-Use `transactions split set --file SPLIT.json` for a user-supplied exact
+Use `candor transactions split set --file SPLIT.json` for a user-supplied exact
 allocation. For repeated evidence, create a narrow rule, preview its entire
 bounded tax-year match set, then apply only if every material match and
 exclusion is understood. Preserve the application batch for reversal.

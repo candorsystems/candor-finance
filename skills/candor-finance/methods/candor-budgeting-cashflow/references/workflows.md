@@ -3,8 +3,8 @@
 # Budgeting and cash-flow workflows
 
 Use exact calendar dates and replace every uppercase placeholder. Keep one
-stable `--task-key` across a continuing investigation and pass the returned
-action id as `--parent-action` when a later command continues that action.
+stable `task_key` across a continuing investigation and pass the returned
+action id as `parent_action` when a later operation continues that action.
 
 ## Reconstruct a period
 

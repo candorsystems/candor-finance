@@ -1,7 +1,7 @@
 ---
 name: candor-finance
 description: Operate the user's Candor financial workspace as your own financial memory and instrumentation, covering source-neutral records, durable budgets and goals, agent-recorded financial impact, reason-bearing action history, and progressive finance methods. Use when a task touches the user's money, records, prior Candor decisions, or approved financial state.
-compatibility: Requires Candor CLI 0.3.48 or newer, or the Candor MCP server, and an authenticated Candor workspace.
+compatibility: Requires the Candor operation surface supplied by the installed package (Candor CLI 0.3.48 or newer when CLI-backed) and an authenticated Candor workspace.
 metadata:
   author: Candor
   version: "0.1.0"
@@ -20,12 +20,14 @@ in angle brackets as substitutions: read a referenced JSON file locally and
 pass its object inline. Call `candor_schema({ operation: "OPERATION_ID" })`
 before changing an unfamiliar projected call or when you need its full schema.
 
+The compact MCP surface is `candor_open`, `candor_schema`, `candor_query`, `candor_get`, `candor_write`, `candor_connections`, `candor_account`, `candor_changes`, `candor_snapshot`, `candor_visualize`.
+
 
 # Candor Finance
 
-This file is already loaded as a native skill from the Candor plugin or managed
-CLI package. It is the operating method. Every supported Candor environment
-provides native skills; remote MCP supplies tools and data, not instructions.
+This file is already loaded from the selected Candor package. It is the
+operating method. The package supplies its declared operation surface; that
+surface transports tools and data, not instructions.
 
 ## Your job
 
@@ -75,7 +77,7 @@ If the records cannot answer a material question, state the practical limit in
 the user's terms and continue with what can be established. Never turn a data
 gap into a conclusion.
 
-Remote MCP keeps small responses inline. When any tool returns
+Candor keeps small responses inline. When any tool returns
 `delivery: "resource"`, download its short-lived `resource_link` to a relative
 file in your current writable working directory and verify `artifact.digest`.
 The descriptor already gives you the analysis root as
@@ -227,10 +229,8 @@ candor_get({
 })
 ```
 
-The compact MCP surface is `candor_open`, `candor_schema`,
-`candor_query`, `candor_get`, `candor_write`, `candor_connections`,
-`candor_account`, `candor_changes`, `candor_snapshot`, and `candor_visualize`.
-JSON is canonical; Markdown is a bounded continuation-friendly projection.
+Use the operation surface supplied by the selected package. JSON is canonical;
+Markdown is a bounded continuation-friendly projection.
 
 ## Completion check
 

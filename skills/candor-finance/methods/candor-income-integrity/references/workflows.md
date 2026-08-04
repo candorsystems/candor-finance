@@ -59,7 +59,7 @@ Complete when the baseline is an observed series rather than an assumed payday.
      "task_key": "TASK_KEY"
    })
    candor_changes({
-     "domain": "transactions",
+     "domain": "income",
      "limit": 100,
      "reason": "Inspect recent changes affecting the expected payment",
      "task_key": "TASK_KEY"

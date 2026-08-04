@@ -1,6 +1,6 @@
 {
   "name": "candor-finance-cli",
-  "version": "0.1.1",
+  "version": "0.1.5",
   "description": "Give OpenClaw Candor finance methods backed by the local Candor CLI.",
   "author": {
     "name": "Candor",

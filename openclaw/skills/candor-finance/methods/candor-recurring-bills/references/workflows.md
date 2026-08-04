@@ -14,9 +14,9 @@
    Narrow on the request, not on the returned page. Candidates rank across
    every cashflow role and the endpoint has no cursor, so a vault with enough
    higher-ranked transfers, debt payments, or inflows can push every
-   subscription-shaped expense off the only page you get. `--direction
-   outflow --cashflow-role expense` filters before the limit applies; drop
-   either flag when you want the wider set. Then rank by `frequency`,
+   subscription-shaped expense off the only page you get. The filters
+   `direction: "outflow"` and `cashflow_role: "expense"` apply before the limit;
+   drop either input when you want the wider set. Then rank by `frequency`,
    `amount_variance_ratio`, and `observed_count`. Each candidate also carries
    the exact merchant-scoped drill-down for its own evidence.
 

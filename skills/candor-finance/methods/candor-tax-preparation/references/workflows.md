@@ -122,7 +122,7 @@ candor_get({
 })
 ```
 
-Use `transactions split set --file SPLIT.json` for a user-supplied exact
+Use `candor_write({"operation":"transactions.split.set","input":"<contents of SPLIT.json>"})` for a user-supplied exact
 allocation. For repeated evidence, create a narrow rule, preview its entire
 bounded tax-year match set, then apply only if every material match and
 exclusion is understood. Preserve the application batch for reversal.

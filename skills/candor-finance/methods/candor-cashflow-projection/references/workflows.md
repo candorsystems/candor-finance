@@ -86,7 +86,7 @@
    Saved expectations only reuse themselves if you read them. A planned
    purchase or expected bonus recorded on an earlier run lives in notes, not in
    recurring items, and omitting it makes the projection optimistic. Bound the
-   read to the horizon with `--after` and `--before`. This read reports
+   read to the horizon with the `after` and `before` inputs. This read reports
    `truncated` but offers no cursor, so if it is still truncated, narrow the
    horizon or say which expectations you could not confirm rather than
    projecting over an unknown remainder.

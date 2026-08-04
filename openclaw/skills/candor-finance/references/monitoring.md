@@ -38,7 +38,7 @@ harness:
 ```text
 Quietly check the user's financial workspace.
 
-1. Run `candor pulse`.
+1. Run the package's workspace pulse operation: `candor pulse`.
 2. If the call fails or its contract is invalid, report the scheduled-run
    failure through the harness. Never treat failure as no attention.
 3. If `attention` is `none`, emit the harness-native silent-success token and

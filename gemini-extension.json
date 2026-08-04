@@ -1,6 +1,6 @@
 {
   "name": "candor-finance",
-  "version": "0.1.1",
+  "version": "0.1.5",
   "description": "Give Gemini a durable financial workspace, evidence-first finance methods, and authenticated Candor tools.",
   "mcpServers": {
     "candor": {
