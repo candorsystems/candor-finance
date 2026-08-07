@@ -7,17 +7,9 @@
       "name": "candor-finance",
       "source": "./",
       "description": "Give Claude a durable financial workspace, evidence-first finance methods, and authenticated Candor tools.",
-      "version": "0.1.5",
+      "version": "0.1.9",
       "category": "productivity",
       "tags": ["finance", "personal-finance", "mcp", "agent-skills"]
-    },
-    {
-      "name": "candor-finance-cli",
-      "source": "./openclaw",
-      "description": "Give OpenClaw Candor finance methods backed by the local Candor CLI.",
-      "version": "0.1.5",
-      "category": "productivity",
-      "tags": ["finance", "personal-finance", "cli", "agent-skills"]
     }
   ]
 }

@@ -1,5 +1,12 @@
 {
   "mcpServers": {
-    "candor": { "type": "http", "url": "https://api.candor.money/mcp" }
+    "candor": {
+      "headers": {
+        "Candor-Agent-Package-Route": "claude-code-marketplace",
+        "Candor-Agent-Package-Version": "0.1.9"
+      },
+      "type": "http",
+      "url": "https://api.candor.money/mcp"
+    }
   }
 }

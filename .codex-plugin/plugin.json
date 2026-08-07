@@ -1,6 +1,6 @@
 {
   "name": "candor-finance",
-  "version": "0.1.5",
+  "version": "0.1.9",
   "description": "Give ChatGPT and Codex a durable financial workspace, evidence-first finance methods, and authenticated Candor tools.",
   "author": {
     "name": "Candor",
@@ -18,7 +18,16 @@
     "agent-skills"
   ],
   "skills": "./skills/",
-  "mcpServers": "./.mcp.json",
+  "mcpServers": {
+    "candor": {
+      "http_headers": {
+        "Candor-Agent-Package-Route": "codex-marketplace",
+        "Candor-Agent-Package-Version": "0.1.9"
+      },
+      "type": "http",
+      "url": "https://api.candor.money/mcp"
+    }
+  },
   "interface": {
     "displayName": "Candor Finance",
     "shortDescription": "Watch over and improve your financial life",

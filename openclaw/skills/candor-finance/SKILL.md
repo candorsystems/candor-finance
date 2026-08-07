@@ -5,10 +5,10 @@ compatibility: Requires the Candor operation surface supplied by the installed p
 metadata:
   author: Candor
   version: "0.1.0"
-  candor-skill-version: "2026-08-03"
+  candor-skill-version: "2026-08-06"
   candor-cli: ">=0.3.48 <0.4.0"
   candor-introduced-in: "2026-07-23"
-  candor-updated-in: "2026-08-03"
+  candor-updated-in: "2026-08-06"
 ---
 
 ## Execute recipes through the Candor CLI
@@ -184,9 +184,13 @@ re-check note.
 
 ## First use and monitoring
 
-Account access, connection, and paid activation use their returned browser
-handoffs. Say what each consent page asks and why; never ask the user to paste a
-credential into chat. Preserve an incomplete handoff's exact recovery action.
+Account access and source connection use their returned browser handoffs.
+Subscription selection and administration happen only in Candor's private web
+control plane at `https://app.candor.money`. When Candor returns a `safe_url` or
+`recovery_url`, say what the user must complete and pass that exact link through
+verbatim; do not invent a billing URL or call a billing operation. Never ask the
+user to paste a credential, payment detail, or verification code into chat.
+Preserve an incomplete handoff's exact recovery action.
 
 After the first full opening and immediate financial task are complete, ask
 once whether the user wants quiet background checks. Defer this invitation if

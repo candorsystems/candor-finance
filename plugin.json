@@ -1,7 +1,8 @@
 {
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "candor-finance",
   "version": "0.1.9",
-  "description": "Give Claude a durable financial workspace, evidence-first finance methods, and authenticated Candor tools.",
+  "description": "Give an AI agent a durable financial workspace, evidence-first finance methods, and authenticated Candor tools.",
   "author": {
     "name": "Candor",
     "email": "support@candor.money",
@@ -9,7 +10,7 @@
   },
   "homepage": "https://candor.money",
   "repository": "https://github.com/candorsystems/candor-finance",
-  "license": "Proprietary",
+  "license": "LicenseRef-Candor-Proprietary",
   "keywords": [
     "finance",
     "personal-finance",

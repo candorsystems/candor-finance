@@ -3,12 +3,13 @@ name: candor-finance
 description: Operate the user's Candor financial workspace as your own financial memory and instrumentation, covering source-neutral records, durable budgets and goals, agent-recorded financial impact, reason-bearing action history, and progressive finance methods. Use when a task touches the user's money, records, prior Candor decisions, or approved financial state.
 compatibility: Requires the Candor operation surface supplied by the installed package (Candor CLI 0.3.48 or newer when CLI-backed) and an authenticated Candor workspace.
 metadata:
+  candor-package-version: "0.1.9"
   author: Candor
   version: "0.1.0"
-  candor-skill-version: "2026-08-03"
+  candor-skill-version: "2026-08-06"
   candor-cli: ">=0.3.48 <0.4.0"
   candor-introduced-in: "2026-07-23"
-  candor-updated-in: "2026-08-03"
+  candor-updated-in: "2026-08-06"
 ---
 
 ## Execute recipes through native MCP
@@ -19,6 +20,13 @@ MCP tool and argument shape from Candor's shared operation catalog. Treat values
 in angle brackets as substitutions: read a referenced JSON file locally and
 pass its object inline. Call `candor_schema({ operation: "OPERATION_ID" })`
 before changing an unfamiliar projected call or when you need its full schema.
+
+The package identifies its version and bootstrap route on each MCP request.
+When `candor_open` returns `agent_package_update_available`, finish only work
+that remains compatible, run its exact `agent_package.update` next actions in
+order, then reload or start a new session when directed. A missing package
+version means the native package must be installed or refreshed from Candor's
+live bootstrap route; never treat a bare MCP connection as a complete setup.
 
 The compact MCP surface is `candor_open`, `candor_schema`, `candor_query`, `candor_get`, `candor_write`, `candor_connections`, `candor_account`, `candor_changes`, `candor_snapshot`, `candor_visualize`.
 
@@ -188,9 +196,13 @@ re-check note.
 
 ## First use and monitoring
 
-Account access, connection, and paid activation use their returned browser
-handoffs. Say what each consent page asks and why; never ask the user to paste a
-credential into chat. Preserve an incomplete handoff's exact recovery action.
+Account access and source connection use their returned browser handoffs.
+Subscription selection and administration happen only in Candor's private web
+control plane at `https://app.candor.money`. When Candor returns a `safe_url` or
+`recovery_url`, say what the user must complete and pass that exact link through
+verbatim; do not invent a billing URL or call a billing operation. Never ask the
+user to paste a credential, payment detail, or verification code into chat.
+Preserve an incomplete handoff's exact recovery action.
 
 After the first full opening and immediate financial task are complete, ask
 once whether the user wants quiet background checks. Defer this invitation if
