@@ -50,13 +50,19 @@
    valuation time instead of inventing them. Put a displayed portfolio total in
    `balances.closing` and its date in `balances.as_of`.
    Candor uses that dated total for reconciliation, balance history, and net
-   worth. For a unit-priced position, when exact value, per-unit price, and
-   valuation time are available, compute `quantity = value / price` and submit
-   `quantity_source: derived` with `price_source_locator`, `as_of`, and P0 `type`
-   `stock`, `equity`, `etf`, `fund`, or `mutual fund`; leave quantity unknown
-   when any input is absent or the instrument requires a contract multiplier or
-   face-value convention. Omitted positions are never changed, so express every
-   intended update or removal as its own holding operation.
+   worth. For a current USD value-only US `stock`, `equity`, or `etf`, opt into
+   cache-powered quantity estimation with `estimate_quantity: true`, `symbol`,
+   `market: US`, `type`, and `value`; omit quantity, price, price provenance,
+   and `as_of` because Candor supplies them in preview. This is useful when the
+   stored quantity should support later `quantity * market_price` valuation.
+   Inspect the estimated quantity and quote time before apply. If exact value,
+   per-unit price, and valuation time are independently available, the agent
+   may instead compute `quantity = value / price` and submit
+   `quantity_source: derived` with complete provenance. Leave quantity unknown
+   for historical value-only evidence and instruments requiring a contract
+   multiplier, NAV, or face-value convention. Omitted positions are never
+   changed, so express every intended update or removal as its own holding
+   operation.
 
 Complete this stage when every proposed record maps to one established account
 and the manifest states what period the evidence actually covers.

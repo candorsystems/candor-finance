@@ -5,10 +5,10 @@ compatibility: Requires the Candor operation surface supplied by the installed p
 metadata:
   author: Candor
   version: "0.1.0"
-  candor-skill-version: "2026-08-06"
+  candor-skill-version: "2026-08-07"
   candor-cli: ">=0.3.48 <0.4.0"
   candor-introduced-in: "2026-07-23"
-  candor-updated-in: "2026-08-06"
+  candor-updated-in: "2026-08-07"
 ---
 
 ## Execute recipes through the Candor CLI
