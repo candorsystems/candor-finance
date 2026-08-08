@@ -60,9 +60,15 @@
    may instead compute `quantity = value / price` and submit
    `quantity_source: derived` with complete provenance. Leave quantity unknown
    for historical value-only evidence and instruments requiring a contract
-   multiplier, NAV, or face-value convention. Omitted positions are never
-   changed, so express every intended update or removal as its own holding
-   operation.
+   multiplier, NAV, or face-value convention. Inspect each returned row-keyed
+   estimation outcome; a missing quote deliberately leaves only that position
+   value-only. Incremental imports never change omitted positions, so express
+   every intended update or removal as its own holding operation. When the
+   evidence is a complete same-time snapshot of an existing manual account,
+   set `holdings_scope: complete`, name its `source_account_id`, include a dated
+   closing balance, and give every holding the same `as_of`. Preview must turn
+   omitted active positions into explicit reversible removals. Never use
+   complete scope for partial evidence or a provider-backed account.
 
 Complete this stage when every proposed record maps to one established account
 and the manifest states what period the evidence actually covers.
@@ -92,9 +98,10 @@ and the manifest states what period the evidence actually covers.
    ```
 
 3. Inspect the returned batch id, target identity, period, create, replace,
-   remove, and skip counts, duplicate matches, conflicts, holding-value
-   reconciliation, and row errors. Reconcile those totals to the source before
-   continuing.
+   remove, and skip counts, duplicate matches, conflicts, row-keyed estimation
+   outcomes, holding-value reconciliation, and row errors. For complete scope,
+   account for every inferred removal. Reconcile those totals to the source
+   before continuing.
 
 Complete when the preview explains every source row and no unresolved mismatch
 could change the target, money, dates, or coverage.
@@ -132,6 +139,7 @@ could change the target, money, dates, or coverage.
    candor_get({
      "operation": "holdings.list",
      "args": {
+       "source_account_id": "SOURCE_ACCOUNT_ID",
        "limit": 100
      },
      "reason": "Verify canonical holdings created from supplied evidence",
@@ -159,7 +167,9 @@ could change the target, money, dates, or coverage.
 
 3. Compare canonical account ownership, holding identity, quantities when
    present, values, dates when known, currencies, transaction descriptions, and
-   record counts to the approved preview. Report exceptions in user terms.
+   record counts to the approved preview. Follow each returned `next_cursor`
+   until `has_more` is false before declaring the account complete. Report
+   exceptions in user terms.
 
 Complete only when the separate read matches the approved preview.
 

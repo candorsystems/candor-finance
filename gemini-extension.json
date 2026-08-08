@@ -1,12 +1,12 @@
 {
   "name": "candor-finance",
-  "version": "0.1.10",
+  "version": "0.1.11",
   "description": "Give Gemini a durable financial workspace, evidence-first finance methods, and authenticated Candor tools.",
   "mcpServers": {
     "candor": {
       "headers": {
         "Candor-Agent-Package-Route": "gemini-extension",
-        "Candor-Agent-Package-Version": "0.1.10"
+        "Candor-Agent-Package-Version": "0.1.11"
       },
       "httpUrl": "https://api.candor.money/mcp",
       "description": "Candor personal-finance workspace"

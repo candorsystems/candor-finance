@@ -60,7 +60,10 @@ money, row actions, and resulting records have been verified.
   valuation, send `estimate_quantity: true`, `symbol`, `market: US`, `type`, and
   `value` while omitting quantity, price, price provenance, and `as_of`. Candor
   uses the shared current-price cache and returns the estimated quantity, quote,
-  provenance, and observation time in preview; inspect them before apply. For a
+  provenance, and observation time in preview. It refreshes large requests in
+  bounded internal chunks and returns a row-keyed `estimated` or `value_only`
+  outcome; an unavailable quote preserves that row as value-only. Inspect every
+  outcome before apply. For a
   unit-priced position with an exact independently sourced same-time price, the
   agent may instead calculate quantity and send `quantity_source: derived` plus
   `price_source_locator`, `as_of`, and a supported type. Do not estimate from a
@@ -68,8 +71,13 @@ money, row actions, and resulting records have been verified.
   private assets, funds, or other quotes that require a multiplier, NAV, or
   face-value convention. Otherwise leave quantity absent; never substitute
   zero or one.
-- Omitted positions are never changed. Update or remove each intended position
-  explicitly.
+- In the default incremental scope, omitted positions are never changed. Update
+  or remove each intended position explicitly. For evidence that is a complete
+  same-time snapshot of an existing manual account, `holdings_scope: complete`
+  may be used with that `source_account_id`, a dated closing balance, and every
+  row at the same `as_of`; preview must show omitted active positions as
+  reversible removals before apply. Never use complete scope on provider-backed
+  accounts or partial evidence.
 - Put a displayed portfolio total in `balances.closing` for reconciliation and
   include its date in `balances.as_of`. That dated total is also the account
   balance observation for balance history and net-worth reads. Never invent the
@@ -95,7 +103,8 @@ money, row actions, and resulting records have been verified.
   are explicit.
 - The target account is established independently of free-form document text.
 - Preview row counts, holding create/replace/remove actions, value
-  reconciliation, and exceptions were inspected before apply.
+  reconciliation, estimation outcomes, and exceptions were inspected before
+  apply.
 - Applied or reverted records were verified through a separate read.
 
 ## Candor query recipes

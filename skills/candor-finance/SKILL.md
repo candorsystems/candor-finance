@@ -3,7 +3,7 @@ name: candor-finance
 description: Operate the user's Candor financial workspace as your own financial memory and instrumentation, covering source-neutral records, durable budgets and goals, agent-recorded financial impact, reason-bearing action history, and progressive finance methods. Use when a task touches the user's money, records, prior Candor decisions, or approved financial state.
 compatibility: Requires the Candor operation surface supplied by the installed package (Candor CLI 0.3.48 or newer when CLI-backed) and an authenticated Candor workspace.
 metadata:
-  candor-package-version: "0.1.10"
+  candor-package-version: "0.1.11"
   author: Candor
   version: "0.1.0"
   candor-skill-version: "2026-08-07"

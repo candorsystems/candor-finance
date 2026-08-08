@@ -27,11 +27,10 @@
    })
    ```
 
-   `balances list` is bounded and reports neither a cursor nor truncation.
-   Compare the row count against the account count from `coverage get` and
-   `accounts list`. If balances cover fewer accounts than exist, stop and say
-   so: a missing cash or liability account changes the starting state and
-   therefore every figure that follows.
+   Follow the `accounts list` and `balances list` cursors to completion before
+   comparing their account coverage. If balances cover fewer accounts than
+   exist, stop and say so: a missing cash or liability account changes the
+   starting state and therefore every figure that follows.
 
 2. Collect the committed obligations and inflows for the horizon:
 
@@ -117,12 +116,10 @@
    Treat any other cadence, including `irregular` and `unknown`, as undated and
    report those obligations separately rather than assuming a date. Say that
    dated occurrences are derived estimates, not scheduled dates.
-5. Confirm completeness before summing. `recurring list` is capped and does
-   not report truncation, so compare its count against the obligations you
-   expect and say so when the horizon may be missing items. Follow the
-   `transactions list` cursor to the end of the horizon rather than treating
-   the first page as the full set. An omitted obligation always makes a
-   projection optimistic, which is the dangerous direction.
+5. Confirm completeness before summing. Follow both the `recurring list` and
+   `transactions list` cursors to the end rather than treating either first
+   page as the full set. An omitted obligation always makes a projection
+   optimistic, which is the dangerous direction.
 6. Deduplicate before summing. A recurring item whose next occurrence already
    appears as a pending or future-dated transaction is one obligation. Apply each
    leg of an internal transfer to its own account using each item's
