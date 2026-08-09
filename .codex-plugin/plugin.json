@@ -1,6 +1,6 @@
 {
   "name": "candor-finance",
-  "version": "0.1.11",
+  "version": "0.1.14",
   "description": "Give ChatGPT and Codex a durable financial workspace, evidence-first finance methods, and authenticated Candor tools.",
   "author": {
     "name": "Candor",
@@ -22,7 +22,7 @@
     "candor": {
       "http_headers": {
         "Candor-Agent-Package-Route": "codex-marketplace",
-        "Candor-Agent-Package-Version": "0.1.11"
+        "Candor-Agent-Package-Version": "0.1.14"
       },
       "type": "http",
       "url": "https://api.candor.money/mcp"

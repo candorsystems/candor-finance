@@ -1,6 +1,6 @@
 {
   "name": "candor-finance",
-  "version": "0.1.11",
+  "version": "0.1.14",
   "description": "Give Claude a durable financial workspace, evidence-first finance methods, and authenticated Candor tools.",
   "author": {
     "name": "Candor",

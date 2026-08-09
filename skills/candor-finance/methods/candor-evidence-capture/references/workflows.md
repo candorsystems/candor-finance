@@ -53,7 +53,10 @@
    worth. For a current USD value-only US `stock`, `equity`, or `etf`, opt into
    cache-powered quantity estimation with `estimate_quantity: true`, `symbol`,
    `market: US`, `type`, and `value`; omit quantity, price, price provenance,
-   and `as_of` because Candor supplies them in preview. This is useful when the
+   and include `as_of` as a fallback when the source value has a known
+   valuation time. Omit it only when that time is unknown. An unavailable quote
+   retains the fallback time on the value-only row; a successful estimate uses
+   the quote observation time instead. This is useful when the
    stored quantity should support later `quantity * market_price` valuation.
    Inspect the estimated quantity and quote time before apply. If exact value,
    per-unit price, and valuation time are independently available, the agent
@@ -68,7 +71,8 @@
    set `holdings_scope: complete`, name its `source_account_id`, include a dated
    closing balance, and give every holding the same `as_of`. Preview must turn
    omitted active positions into explicit reversible removals. Never use
-   complete scope for partial evidence or a provider-backed account.
+   complete scope with `estimate_quantity`, for partial evidence, or for a
+   provider-backed account.
 
 Complete this stage when every proposed record maps to one established account
 and the manifest states what period the evidence actually covers.

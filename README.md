@@ -30,4 +30,5 @@ step and passes that exact URL through verbatim.
 - [Terms](https://candor.money/terms)
 - [Security](https://candor.money/security)
 
-Copyright 2026 Candor Systems, Inc. All rights reserved. See [LICENSE](LICENSE).
+Except for the scoped MIT-0 OpenClaw skill subtree, Copyright 2026 Candor
+Systems, Inc. All rights reserved. See [LICENSE](LICENSE).

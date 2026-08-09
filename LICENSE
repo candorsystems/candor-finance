@@ -7,6 +7,11 @@ the Candor service. No permission is granted to copy, modify, redistribute,
 sublicense, sell, or create derivative works from this package except as
 expressly authorized in writing by Candor Systems, Inc.
 
+This license does not apply to the generated
+`openclaw/skills/candor-finance/` subtree. That subtree is distributed under
+the scoped MIT-0 license included within it so ClawHub can host and redistribute
+the OpenClaw skill without changing the license of any other package artifact.
+
 This package is provided "AS IS", without warranty of any kind, express or
 implied, including warranties of merchantability, fitness for a particular
 purpose, and noninfringement.

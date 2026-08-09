@@ -5,10 +5,10 @@ compatibility: Requires the Candor operation surface supplied by the installed p
 metadata:
   author: Candor
   version: "0.1.0"
-  candor-skill-version: "2026-08-07"
+  candor-skill-version: "2026-08-08"
   candor-cli: ">=0.3.48 <0.4.0"
   candor-introduced-in: "2026-07-23"
-  candor-updated-in: "2026-08-07"
+  candor-updated-in: "2026-08-08"
 ---
 
 ## Execute recipes through the Candor CLI
@@ -19,6 +19,10 @@ this skill through the local shell. Do not look for Candor MCP tools, install a
 second managed skill copy, or hand commands back to the user. If the CLI is
 missing, return to Candor's live bootstrap manifest and complete this route's
 exact installer before continuing.
+
+ClawHub distributes this skill at no charge under MIT-0. Operating the Candor
+service requires an authenticated workspace and paid access; subscription
+selection and administration stay in Candor's private web control plane.
 
 
 # Candor Finance

@@ -58,12 +58,15 @@ money, row actions, and resulting records have been verified.
   value-only position is valid. When its value is current, it is a USD-listed
   `stock`, `equity`, or `etf`, and a reusable quantity would enable future live
   valuation, send `estimate_quantity: true`, `symbol`, `market: US`, `type`, and
-  `value` while omitting quantity, price, price provenance, and `as_of`. Candor
+  `value` while omitting quantity, price, and price provenance. When the source
+  value has a known valuation time, also send `as_of` as a fallback; omit it
+  only when that time is unknown. Candor
   uses the shared current-price cache and returns the estimated quantity, quote,
   provenance, and observation time in preview. It refreshes large requests in
   bounded internal chunks and returns a row-keyed `estimated` or `value_only`
-  outcome; an unavailable quote preserves that row as value-only. Inspect every
-  outcome before apply. For a
+  outcome; an unavailable quote preserves that row as value-only with the
+  fallback `as_of`, while a successful estimate uses the quote observation
+  time. Inspect every outcome before apply. For a
   unit-priced position with an exact independently sourced same-time price, the
   agent may instead calculate quantity and send `quantity_source: derived` plus
   `price_source_locator`, `as_of`, and a supported type. Do not estimate from a
@@ -76,8 +79,9 @@ money, row actions, and resulting records have been verified.
   same-time snapshot of an existing manual account, `holdings_scope: complete`
   may be used with that `source_account_id`, a dated closing balance, and every
   row at the same `as_of`; preview must show omitted active positions as
-  reversible removals before apply. Never use complete scope on provider-backed
-  accounts or partial evidence.
+  reversible removals before apply. Do not combine complete scope with
+  `estimate_quantity`, or use complete scope on provider-backed accounts or
+  partial evidence.
 - Put a displayed portfolio total in `balances.closing` for reconciliation and
   include its date in `balances.as_of`. That dated total is also the account
   balance observation for balance history and net-worth reads. Never invent the

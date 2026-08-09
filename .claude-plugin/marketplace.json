@@ -7,7 +7,7 @@
       "name": "candor-finance",
       "source": "./",
       "description": "Give Claude a durable financial workspace, evidence-first finance methods, and authenticated Candor tools.",
-      "version": "0.1.11",
+      "version": "0.1.14",
       "category": "productivity",
       "tags": ["finance", "personal-finance", "mcp", "agent-skills"]
     }
