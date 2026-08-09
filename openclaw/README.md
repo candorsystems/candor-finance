@@ -6,5 +6,5 @@ ClawHub. That scoped MIT-0 subtree installs the `candor-finance` skill and
 operates through the public `candor` executable. Do not publish this parent
 directory or its proprietary adapter metadata.
 
-Subscription setup and administration stay in the private Candor web control
-plane. Support: https://candor.money/support
+Manage your Candor account and subscription on secure Candor pages. Support:
+https://candor.money/support

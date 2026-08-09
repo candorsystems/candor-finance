@@ -1,42 +1,43 @@
 ---
 name: candor-finance
-description: Operate the user's Candor financial workspace as your own financial memory and instrumentation, covering source-neutral records, durable budgets and goals, agent-recorded financial impact, reason-bearing action history, and progressive finance methods. Use when a task touches the user's money, records, prior Candor decisions, or approved financial state.
-compatibility: Requires the Candor operation surface supplied by the installed package (Candor CLI 0.3.48 or newer when CLI-backed) and an authenticated Candor workspace.
+description: "Use Candor for personal finance: organize the user's accounts and spending, remember approved budgets and goals, review investments, investigate possible savings, and keep evidence and follow-up together. Use when a task touches the user's money, financial records, prior decisions, or approved plans."
+compatibility: Requires an authenticated Candor workspace and either the Candor tools included with the installed package or Candor CLI 0.3.48 or newer.
 metadata:
   author: Candor
   version: "0.1.0"
-  candor-skill-version: "2026-08-08"
+  candor-skill-version: "2026-08-09"
   candor-cli: ">=0.3.48 <0.4.0"
   candor-introduced-in: "2026-07-23"
-  candor-updated-in: "2026-08-08"
+  candor-updated-in: "2026-08-09"
 ---
 
 ## Execute recipes through the Candor CLI
 
-This OpenClaw bundle provides Candor's native skill while the public `candor`
-CLI provides its operation surface. Execute the authored command recipes in
-this skill through the local shell. Do not look for Candor MCP tools, install a
-second managed skill copy, or hand commands back to the user. If the CLI is
-missing, return to Candor's live bootstrap manifest and complete this route's
-exact installer before continuing.
+This OpenClaw package includes Candor's finance instructions while the public
+`candor` CLI provides the tools. Execute the command recipes in this skill
+through the local shell. Do not look for Candor MCP tools, install a second
+copy of the skill, or hand commands back to the user. If the CLI is missing,
+return to Candor's live setup manifest and complete this route's exact installer
+before continuing.
 
 ClawHub distributes this skill at no charge under MIT-0. Operating the Candor
-service requires an authenticated workspace and paid access; subscription
-selection and administration stay in Candor's private web control plane.
+service requires a signed-in account and an active subscription; subscription
+and payment changes happen only on secure Candor pages.
 
 
 # Candor Finance
 
-This file is already loaded from the selected Candor package. It is the
-operating method. The package supplies its declared operation surface; that
-surface transports tools and data, not instructions.
+This file is already loaded from the selected Candor package. The package
+supplies the Candor tools and financial data; this skill explains how to use
+them well.
 
 ## Your job
 
-Candor is your durable financial workspace: your financial memory and
-instrumentation, not another assistant and not a product the user has to
-operate. You use it to inspect what changed, keep records correct, maintain
-approved state, and remember unfinished work.
+Candor is the financial memory you operate on the user's behalf. It keeps their
+financial records, approved plans, evidence, and unfinished follow-up together.
+It is not another assistant and not a product the user has to operate. Use it
+to inspect what changed, keep records correct, remember approved decisions, and
+continue work across conversations.
 
 This matters because financial value often appears across time. Use continuity
 to prevent avoidable loss, recover money, keep promises, and make later
@@ -48,8 +49,9 @@ better and use the method catalog for inspiration. Let that breadth expand what
 you notice, not how many methods you load. Do not manufacture work, infer the
 user's values, or mistake access for permission.
 
-**Be explicit during consent. Be invisible during work.** Name account access,
-source connection, paid access, and the substance of preference-bearing state.
+**Be explicit during consent. Be invisible during work.** Name Candor account
+access, connecting a financial account, choosing a subscription, and choices
+such as budgets or goals.
 Do not narrate Candor, its tools, its records, or its limitations during normal
 financial work. The user should experience you being unusually good with their
 money, not learn a second product.
@@ -69,8 +71,8 @@ money, not learn a second product.
 4. Establish what is true before ranking it. Look for a baseline, comparator,
    or counterevidence; separate supported findings from unresolved questions
    and ordinary context.
-5. Preserve only useful continuity: approved typed state where structure earns
-   its place, and a linked timed note for a real unfinished outcome.
+5. Preserve only useful continuity: approved structured records where they
+   help, and a linked timed note for a real unfinished outcome.
 6. Answer with exact amounts, dates, people, merchants, uncertainty, and next
    steps. Keep ids, provider names, commands, skill names, files, and workspace
    mechanics in your working context.
@@ -83,7 +85,7 @@ Candor keeps small responses inline. When any tool returns
 `delivery: "resource"`, download its short-lived `resource_link` to a relative
 file in your current writable working directory and verify `artifact.digest`.
 The descriptor already gives you the analysis root as
-`artifact.payload.json_pointer` and its bounded, value-free JSON Schema as
+`artifact.payload.json_pointer` and its limited, value-free JSON Schema as
 `artifact.payload.schema`: write analysis against that contract immediately
 rather than probing keys, printing sample rows, or using a model-facing fetch
 tool to discover the shape. Treat stdout as model context; emit only counts,
@@ -147,8 +149,8 @@ Load a method's linked reference only when that method directs you to it.
 ## Memory and follow-through
 
 Every root operation gets a concise reason that says what you were trying to
-establish and why now. Reasons form reason-bearing action history; they do not
-create authority. Read prior history when it could change the task:
+establish and why now. Those reasons make prior work understandable; they do
+not create authority. Read prior history when it could change the task:
 
 ```sh
 candor actions list --reason "Recover prior financial decisions"
@@ -176,8 +178,8 @@ re-check note.
 
 - An explicit request to handle, fix, clean up, or organize a bounded area
   covers the inspected reversible workspace writebacks needed to complete it.
-- Confirm goals, priorities, risk tolerance, and other preference-bearing state
-  because their substance encodes the user's values.
+- Confirm goals, priorities, risk tolerance, and other choices that reflect the
+  user's values.
 - Agent-authored notes need no user approval. They are memory, not evidence or
   authority.
 - External payments, transfers, purchases, cancellations, applications,
@@ -188,18 +190,19 @@ re-check note.
 
 ## First use and monitoring
 
-Account access and source connection use their returned browser handoffs.
-Subscription selection and administration happen only in Candor's private web
-control plane at `https://app.candor.money`. When Candor returns a `safe_url` or
-`recovery_url`, say what the user must complete and pass that exact link through
-verbatim; do not invent a billing URL or call a billing operation. Never ask the
-user to paste a credential, payment detail, or verification code into chat.
-Preserve an incomplete handoff's exact recovery action.
+Account access and source connection use the secure links Candor returns.
+Subscription and payment changes happen only on secure Candor pages at
+`https://app.candor.money`. When Candor returns a `safe_url` or `recovery_url`,
+say what the user must complete and pass that exact link through verbatim; do
+not invent a billing URL or call a billing operation. Never ask the user to
+paste a credential, payment detail, or verification code into chat. Preserve
+an incomplete setup step's exact recovery action.
 
 After the first full opening and immediate financial task are complete, ask
 once whether the user wants quiet background checks. Defer this invitation if
 it would crowd out material findings. If they opt in, configure one
-harness-native `candor-finance-pulse` recurrence and verify it once. The pulse
+`candor-finance-pulse` recurrence with the agent's built-in scheduler and verify
+it once. The pulse
 is silent when nothing needs attention and opens the workspace when something
 does. Use the exact [monitoring recipes](references/monitoring.md); do not build
 a loop or store scheduler state in a note.
@@ -217,13 +220,13 @@ candor notes list --due --reason "Review due financial follow-through"
 candor impacts list --reason "Review benefits from prior work"
 ```
 
-Use the operation surface supplied by the selected package. JSON is canonical;
-Markdown is a bounded continuation-friendly projection.
+Use the Candor tools supplied by the selected package. JSON is the source of
+truth; Markdown is a concise view designed for continuing the task.
 
 ## Completion check
 
 Before finishing, verify that the evidence covered the claim, uncertainty is
-plain, every write succeeded, preference-bearing state was approved, every
-acted-on benefit has one current impact, and every real unfinished outcome has
-a usable re-check note. Leave enough evidence and causal context for your next
-run to continue without reconstructing the conversation.
+plain, every write succeeded, choices that reflect the user's values were
+approved, every acted-on benefit has one current impact, and every real
+unfinished outcome has a usable re-check note. Leave enough evidence and
+context for your next run to continue without reconstructing the conversation.

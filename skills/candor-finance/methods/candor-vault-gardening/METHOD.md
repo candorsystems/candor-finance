@@ -100,8 +100,8 @@ unless the user asks how the cleanup worked.
   repairs in that area.
 - A role-backed exclusion from recurring expenses is factual cleanup within
   that task scope. Confirming a user's intended budget treatment or priority is
-  preference-bearing state and remains a separate question.
-- Confirm the substance of preference-bearing state separately. How the user
+  a choice that reflects the user's values and remains a separate question.
+- Confirm choices that reflect the user's values separately. How the user
   wants money grouped and which distinctions matter encode the user's values,
   so ask rather than imposing a maintenance taxonomy.
 - Ask when the user's intended category or recurring meaning is missing, the

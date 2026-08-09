@@ -1,7 +1,7 @@
 {
   "name": "candor-finance",
-  "version": "0.1.14",
-  "description": "Give Claude a durable financial workspace, evidence-first finance methods, and authenticated Candor tools.",
+  "version": "0.1.15",
+  "description": "Help Claude with personal finance by organizing accounts, spending, budgets, goals, investments, and follow-through.",
   "author": {
     "name": "Candor",
     "email": "support@candor.money",
@@ -13,8 +13,8 @@
   "keywords": [
     "finance",
     "personal-finance",
-    "financial-workspace",
-    "mcp",
-    "agent-skills"
+    "budgeting",
+    "money-management",
+    "financial-planning"
   ]
 }

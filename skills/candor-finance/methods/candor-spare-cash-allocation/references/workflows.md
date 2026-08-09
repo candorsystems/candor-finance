@@ -140,7 +140,7 @@ preference question and preserve the conditional frame.
 
 After the user approves a target or allocation, inspect the current goal or
 budget contract and write only that approved state. Re-read it and preserve the
-causal action for history. This does not move money.
+action that produced it for history. This does not move money.
 
 Any transfer, payment, purchase, application, or trade is a separate external
 action. Recover or ask for authority, carry it out only through the available

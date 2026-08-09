@@ -119,7 +119,7 @@ the user asks how the evidence was obtained.
 - An explicit request to fix, correct, or clean up recurring items grants
   task-scoped authority for the inspected, reversible writebacks needed to make
   the projection accurate. Do not ask again for each record.
-- Confirm the substance of preference-bearing state separately. What counts as
+- Confirm choices that reflect the user's values separately. What counts as
   an acceptable buffer, which spending is discretionary, and how much shortfall
   risk is tolerable encode the user's values, so ask rather than assuming them.
 - Ask when the needed preference is missing, the affected set is broad or

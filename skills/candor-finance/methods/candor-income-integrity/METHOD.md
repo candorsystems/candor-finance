@@ -86,7 +86,7 @@ user asks how the check was performed.
 - Investigating expected income needs no state-changing approval.
 - An explicit request to fix or organize a bounded misclassification grants
   task-scoped authority for the inspected, reversible internal correction.
-- Confirm the substance of preference-bearing state separately. Which income
+- Confirm choices that reflect the user's values separately. Which income
   distinctions should drive planning encode the user's values, so ask rather
   than inferring them from deposit cadence.
 - Ask before encoding a reusable payer rule when the intended meaning is not

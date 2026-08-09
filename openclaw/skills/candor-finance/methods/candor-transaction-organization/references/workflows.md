@@ -27,7 +27,7 @@
    candor corrections create TRANSACTION_ID --category CATEGORY --reason "Apply the user-approved transaction correction" --task-key TASK_KEY --parent-action ACTION_ID
    ```
 
-6. Re-read the transaction and preserve the causal action and prior state for
+6. Re-read the transaction and preserve the action that changed it and the prior value for
    reversal.
 
 Complete when the effective record matches the user's confirmed interpretation

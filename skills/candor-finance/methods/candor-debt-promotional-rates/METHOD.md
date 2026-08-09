@@ -76,7 +76,7 @@ the user asks how the evidence was obtained.
   promotional-rate area grants task-scoped authority for the inspected,
   reversible Candor writebacks needed to finish it. Do not ask again for each
   record.
-- Confirm the substance of preference-bearing state separately. A payoff
+- Confirm choices that reflect the user's values separately. A payoff
   priority, accepted interest cost, or ordering tradeoff encodes the user's
   values, so ask rather than inferring it from balances and rates.
 - Ask when the needed preference is missing, the affected set is broad or

@@ -1,15 +1,21 @@
 {
   "name": "candor",
-  "description": "Official Candor finance skills and authenticated agent tools.",
+  "description": "Official Candor tools for helping an AI agent understand and organize your money.",
   "owner": { "name": "Candor", "email": "support@candor.money" },
   "plugins": [
     {
       "name": "candor-finance",
       "source": "./",
-      "description": "Give Claude a durable financial workspace, evidence-first finance methods, and authenticated Candor tools.",
-      "version": "0.1.14",
+      "description": "Help Claude with personal finance by organizing accounts, spending, budgets, goals, investments, and follow-through.",
+      "version": "0.1.15",
       "category": "productivity",
-      "tags": ["finance", "personal-finance", "mcp", "agent-skills"]
+      "tags": [
+        "finance",
+        "personal-finance",
+        "budgeting",
+        "money-management",
+        "financial-planning"
+      ]
     }
   ]
 }

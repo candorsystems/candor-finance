@@ -144,7 +144,7 @@ asks how the evidence was handled.
 - An explicit request to add, import, ingest, or test the supplied evidence
   grants task-scoped authority for validation, preview, the inspected apply,
   verification, and a requested or necessary revert.
-- Confirm the substance of preference-bearing state separately. Which evidence
+- Confirm choices that reflect the user's values separately. Which evidence
   should remain canonical and how conflicts should be resolved encode the
   user's values, so ask rather than deciding from file structure alone.
 - Ask when account identity is ambiguous, the file expands beyond the stated

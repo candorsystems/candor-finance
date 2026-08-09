@@ -44,7 +44,7 @@ and coverage gaps are explicit.
    - cash-equivalent value from subjective travel value; and
    - unmodeled merchant coding or redemption uncertainty.
 4. Present a routing plan as a draft behavior choice. Ask before recording any
-   preference-bearing rule or note.
+   rule or note that reflects the user's values.
 
 Complete when the incremental value versus the current course is reproducible
 and the user can see fees, caps, effort, uncertainty, and behavioral risks.

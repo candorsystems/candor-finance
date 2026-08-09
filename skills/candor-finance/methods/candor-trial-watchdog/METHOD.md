@@ -23,7 +23,7 @@ financial outcome is observed.
 ## Non-goals
 
 - Assuming a card authorization proves the final price or billing cadence.
-- Promising background monitoring when the harness cannot schedule a future run.
+- Promising background monitoring when the agent cannot schedule a future run.
 - Cancelling, changing, or contacting a merchant without authority for that
   external action.
 
@@ -43,7 +43,7 @@ financial outcome is observed.
   time is when a posted charge or confirmed non-charge should be observable.
   Unknown price or cadence becomes an explicit outcome branch in the note, not
   a prerequisite for creating it.
-- On revisit, open the due note, rerun its bounded recipe, compare exact new
+- On revisit, open the due note, rerun its limited check, compare exact new
   evidence with the baseline, and inspect merchant and amount variants.
 - Resolve the watched event after observing a posted conversion charge, a
   verified cancellation or non-conversion, or another conclusive outcome.
@@ -71,7 +71,7 @@ financial outcome is observed.
 ## Caveats
 
 - Due notes surface work; they do not execute it. Promise a dated check only
-  when the harness can schedule the revisit.
+  when the agent can schedule the revisit.
 - Pending transactions, authorizations, and merchant-name drift can make the
   first observation inconclusive.
 
@@ -95,7 +95,7 @@ commands, status literals, or workspace mechanics unless asked.
   note and subsequent evidence checks; it does not authorize cancellation.
 - An explicit request to organize the resulting recurring item grants bounded,
   task-scoped authority for reversible internal writeback after inspection.
-- Confirm the substance of preference-bearing state separately. Whether the
+- Confirm choices that reflect the user's values separately. Whether the
   service is worth keeping and what price is acceptable encode the user's
   values, so ask rather than deciding from the first charge.
 - Merchant contact, cancellation, purchase, plan change, or dispute needs

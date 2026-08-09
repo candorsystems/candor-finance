@@ -71,7 +71,7 @@ the user asks how the evidence was obtained.
   transaction set grants task-scoped authority for inspected, reversible
   corrections and rules. Do not ask the user to approve the same interpretation
   record by record.
-- Confirm the substance of preference-bearing state separately. How the user
+- Confirm choices that reflect the user's values separately. How the user
   wants their money grouped, and which distinctions matter to them, encode
   their values, so ask rather than imposing a scheme from merchant data.
 - Ask when the intended category or meaning is missing, the affected set is

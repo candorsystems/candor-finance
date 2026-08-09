@@ -63,7 +63,7 @@ the user asks how the evidence was obtained.
 - An explicit request to handle, fix, clean up, or organize a bounded portfolio
   or fee area grants task-scoped authority for the inspected, reversible Candor
   writebacks needed to finish it. Do not ask again for each record.
-- Confirm the substance of preference-bearing state separately. Risk tolerance,
+- Confirm choices that reflect the user's values separately. Risk tolerance,
   allocation targets, and accepted cost tradeoffs encode the user's values, so
   ask rather than inferring them from current holdings.
 - Ask when the needed preference is missing, the affected set is broad or

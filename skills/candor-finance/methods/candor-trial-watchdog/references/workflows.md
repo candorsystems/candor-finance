@@ -76,7 +76,7 @@ The note must include:
    what to do next.
 
 Set `revisit_at` to when the posted outcome should first be visible. If the
-harness has a scheduler, schedule a run for that point before promising a date.
+agent has a scheduler, schedule a run for that point before promising a date.
 Otherwise promise the check for the next session on or after that date.
 
 ## Revisit and resolve

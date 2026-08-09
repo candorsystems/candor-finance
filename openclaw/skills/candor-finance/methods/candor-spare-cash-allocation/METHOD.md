@@ -92,7 +92,7 @@ record ids, or workspace boundaries unless asked.
 - Investigating and comparing options needs no state-changing approval.
 - An explicit request to handle, fix, clean up, or organize a bounded
   allocation area grants task-scoped authority for inspected, reversible
-  factual Candor writebacks; it does not approve preference-bearing state.
+  factual Candor writebacks; it does not approve choices that reflect the user's values.
 - Confirm the substance of a reserve target, allocation, payoff priority, or
   goal before storing it because those choices encode the user's values.
 - Transfers, payments, purchases, applications, account changes, and trades

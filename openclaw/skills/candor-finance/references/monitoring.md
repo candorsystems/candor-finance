@@ -18,30 +18,31 @@ new financial actions.
 
 ## Stable recurrence
 
-Use the stable harness-native name `candor-finance-pulse`. Prefer, in order:
+Use the stable job name `candor-finance-pulse`. Prefer, in order:
 
 1. A durable heartbeat or scheduled wake that resumes the same conversation,
    thread, or persistent monitoring context.
 2. A durable isolated scheduled run when resumption is unavailable.
-3. No background monitoring when the harness cannot run authenticated Candor
+3. No background monitoring when the agent cannot run authenticated Candor
    commands unattended.
 
 Do not substitute a session-start reminder or a continuously running loop for
 a durable recurrence. Create one job, inspect the returned schedule and target,
 and invoke it once immediately as verification. If a job with the stable name
 already exists, inspect and update that job instead of creating a duplicate.
-Keep the job id and cadence in the harness. Never write them to a Candor note.
+Keep the job id and cadence in the agent's scheduler. Never write them to a
+Candor note.
 
 Use this job instruction, adapting only the silent-success token named by the
-harness:
+agent:
 
 ```text
 Quietly check the user's financial workspace.
 
 1. Run the package's workspace pulse operation: `candor pulse`.
 2. If the call fails or its contract is invalid, report the scheduled-run
-   failure through the harness. Never treat failure as no attention.
-3. If `attention` is `none`, emit the harness-native silent-success token and
+   failure through the agent's scheduler. Never treat failure as no attention.
+3. If `attention` is `none`, emit the agent's silent-success token and
    stop. Do not notify the user.
 4. If `attention` is `present`, run `candor open`, process and triage the
    briefing, and acknowledge its checkpoint only after processing it.
@@ -75,9 +76,9 @@ Use a cloud routine only when that environment already has authenticated
 access to Candor. Do not use `/loop`: it is session-scoped continuous work, not
 a durable background check-in.
 
-## Other harnesses
+## Other agents
 
-Use the closest durable native scheduler. Prefer a same-thread,
+Use the agent's closest built-in scheduler. Prefer a same-thread,
 same-conversation, or session-resuming target when available. Otherwise use an
 isolated run with the exact job instruction above. If unattended authenticated
 execution is unavailable, tell the user background monitoring was not
@@ -85,8 +86,8 @@ configured. Do not imply that an in-session reminder is durable monitoring.
 
 ## Maintenance
 
-Change or remove the stable harness job when the user changes their cadence or
-opts out. Harness-native run history and failure reporting are authoritative
+Change or remove the stable job when the user changes their cadence or
+opts out. The scheduler's run history and failure reporting are authoritative
 for scheduler health. Normal Candor visits should not check whether the job
-still exists; inspect it only when setup verification fails, the harness
-reports a scheduler problem, or the user asks to change monitoring.
+still exists; inspect it only when setup verification fails, the agent reports
+a scheduler problem, or the user asks to change monitoring.

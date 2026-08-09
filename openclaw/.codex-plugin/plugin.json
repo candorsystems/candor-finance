@@ -1,7 +1,7 @@
 {
   "name": "candor-finance",
-  "version": "0.1.14",
-  "description": "Give OpenClaw Candor finance methods backed by the local Candor CLI.",
+  "version": "0.1.15",
+  "description": "Help OpenClaw with personal finance by organizing accounts, spending, budgets, goals, investments, and follow-through.",
   "author": {
     "name": "Candor",
     "email": "support@candor.money",
@@ -10,6 +10,12 @@
   "homepage": "https://candor.money",
   "repository": "https://github.com/candorsystems/candor-finance",
   "license": "Proprietary",
-  "keywords": ["finance", "personal-finance", "cli", "agent-skills"],
+  "keywords": [
+    "finance",
+    "personal-finance",
+    "budgeting",
+    "money-management",
+    "financial-planning"
+  ],
   "skills": "./skills/"
 }

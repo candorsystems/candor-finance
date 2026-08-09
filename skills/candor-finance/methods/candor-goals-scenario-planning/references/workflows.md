@@ -129,5 +129,5 @@ the alternatives, and the exact approved version if one was stored.
    occurrence time.
 4. Re-read the goal and report progress against the current approved version.
 
-Complete when the progress event has a basis and causal action and is not
+Complete when the progress event cites its evidence and the action that produced it and is not
 double-counted.

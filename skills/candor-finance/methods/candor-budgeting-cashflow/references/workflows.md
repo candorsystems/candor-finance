@@ -117,7 +117,7 @@ existing goals, and the amount that remains unallocated in each currency.
 
 ## Propose or revise a budget
 
-1. Read the active budget, relevant goal versions, and their causal actions.
+1. Read the active budget, relevant goal versions, and the actions that changed them.
 2. Draft the proposed allocation outside Candor and show before/after amounts,
    rationale, tradeoffs, and effective period.
 3. Inspect the current write contract:
@@ -128,7 +128,7 @@ existing goals, and the amount that remains unallocated in each currency.
    })
    ```
 
-4. Ask for explicit approval of the exact draft. A budget is preference-bearing
+4. Ask for explicit approval of the exact draft. A budget reflects the user's values
    state, so the substance is the user's call. Only then write it:
 
    ```text

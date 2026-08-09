@@ -86,7 +86,7 @@ names, or workspace mechanics unless the user asks how the packet was built.
 
 - An explicit request to clean up or organize a bounded tax-year record set
   grants task-scoped authority for inspected, reversible internal organization.
-- Confirm the substance of preference-bearing state separately. Which factual
+- Confirm choices that reflect the user's values separately. Which factual
   groupings and distinctions matter to the user encode the user's values, so
   ask rather than imposing a tax-preparation scheme.
 - Ask when business purpose, allocation, category meaning, or the intended

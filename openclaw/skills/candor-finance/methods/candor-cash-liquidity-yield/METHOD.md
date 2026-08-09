@@ -72,7 +72,7 @@ the user asks how the evidence was obtained.
 - An explicit request to handle, fix, clean up, or organize a bounded cash or
   yield area grants task-scoped authority for the inspected, reversible Candor
   writebacks needed to finish it. Do not ask again for each record.
-- Confirm the substance of preference-bearing state separately. A target
+- Confirm choices that reflect the user's values separately. A target
   buffer, accepted liquidity risk, or institution preference encodes the user's
   values, so ask rather than inferring it from balances.
 - Ask when the needed preference is missing, the affected set is broad or

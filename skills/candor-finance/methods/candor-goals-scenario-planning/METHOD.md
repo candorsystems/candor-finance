@@ -25,7 +25,8 @@ approval to the user and their agent.
 
 ## Method
 
-- Read the current goal version and causal action before proposing a change.
+- Read the current goal version and the action that created it before proposing
+  a change.
 - Model base, conservative, and stretch paths with explicit dates and
   exact-money contributions.
 - Identify collisions with reserves, debt obligations, and other approved goals
@@ -41,7 +42,7 @@ approval to the user and their agent.
 
 - For goal creation, revision, reconciliation, and progress recording, read
   [the executable workflows](references/workflows.md).
-- Always read goal history and causal actions before proposing a replacement
+- Always read goal history and the actions that changed it before proposing a replacement
   version.
 
 ## Caveats

@@ -69,7 +69,7 @@
    })
    ```
 
-6. Re-read the transaction and preserve the causal action and prior state for
+6. Re-read the transaction and preserve the action that changed it and the prior value for
    reversal.
 
 Complete when the effective record matches the user's confirmed interpretation

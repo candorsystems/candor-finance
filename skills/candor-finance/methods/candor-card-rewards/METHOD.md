@@ -67,7 +67,7 @@ the user asks how the evidence was obtained.
 - An explicit request to handle, fix, clean up, or organize a bounded card or
   rewards area grants task-scoped authority for the inspected, reversible
   Candor writebacks needed to finish it. Do not ask again for each record.
-- Confirm the substance of preference-bearing state separately. A card
+- Confirm choices that reflect the user's values separately. A card
   preference, redemption choice, or accepted tradeoff encodes the user's
   values, so ask rather than inferring it from spending patterns.
 - Ask when the needed preference is missing, the affected set is broad or

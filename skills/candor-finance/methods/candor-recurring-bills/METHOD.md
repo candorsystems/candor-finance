@@ -105,7 +105,7 @@ the user asks how the evidence was obtained.
 - An explicit request to handle, fix, clean up, or organize recurring items
   grants task-scoped authority for inspected, reversible recurring policies and
   directly related transaction organization. Do not ask again for each item.
-- Confirm the substance of preference-bearing state separately. Whether a
+- Confirm choices that reflect the user's values separately. Whether a
   subscription is worth keeping, and what a price increase is worth tolerating,
   encode the user's values, so ask rather than deciding from cost alone.
 - Ask when the intended interpretation is missing, the affected set is broad or

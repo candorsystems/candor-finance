@@ -99,7 +99,7 @@ the user asks how the evidence was obtained.
 - An explicit request to fix, correct, or clean up a bounded set grants
   task-scoped authority for the inspected, reversible corrections needed to
   finish it. Do not ask again for each record.
-- Confirm the substance of preference-bearing state separately. Whether a
+- Confirm choices that reflect the user's values separately. Whether a
   charge is acceptable, worth disputing, or worth the user's time encodes their
   values, so ask rather than deciding it from the evidence alone.
 - Ask when the needed preference is missing, the affected set is broad or

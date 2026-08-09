@@ -65,7 +65,7 @@ the user asks how the evidence was obtained.
   or reimbursement area grants task-scoped authority for the inspected,
   reversible Candor writebacks needed to finish it. Do not ask again for each
   record.
-- Confirm the substance of preference-bearing state separately. An election
+- Confirm choices that reflect the user's values separately. An election
   amount, priority, or accepted tradeoff encodes the user's values, so ask
   rather than inferring it from the data.
 - Ask when the needed preference is missing, the affected set is broad or

@@ -61,7 +61,7 @@ the user asks how the evidence was obtained.
 - An explicit request to handle, fix, clean up, or organize a bounded insurance
   or plan-year area grants task-scoped authority for the inspected, reversible
   Candor writebacks needed to finish it. Do not ask again for each record.
-- Confirm the substance of preference-bearing state separately. Coverage
+- Confirm choices that reflect the user's values separately. Coverage
   choices, accepted risk, and deductible tradeoffs encode the user's values, so
   ask rather than inferring them from claims history.
 - Ask when the needed preference is missing, the affected set is broad or
