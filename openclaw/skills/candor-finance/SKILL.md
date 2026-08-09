@@ -4,11 +4,15 @@ description: "Use Candor for personal finance: organize the user's accounts and 
 compatibility: Requires an authenticated Candor workspace and either the Candor tools included with the installed package or Candor CLI 0.3.48 or newer.
 metadata:
   author: Candor
-  version: "0.1.0"
-  candor-skill-version: "2026-08-09"
+  version: 0.1.0
+  candor-skill-version: 2026-08-09
   candor-cli: ">=0.3.48 <0.4.0"
-  candor-introduced-in: "2026-07-23"
-  candor-updated-in: "2026-08-09"
+  candor-introduced-in: 2026-07-23
+  candor-updated-in: 2026-08-09
+  openclaw:
+    requires:
+      bins:
+        - candor
 ---
 
 ## Execute recipes through the Candor CLI
