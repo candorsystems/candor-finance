@@ -10,9 +10,11 @@ metadata:
   candor-introduced-in: 2026-07-23
   candor-updated-in: 2026-08-09
   openclaw:
+    homepage: https://candor.money/START.md
     requires:
       bins:
         - candor
+homepage: https://candor.money/START.md
 ---
 
 ## Execute recipes through the Candor CLI
@@ -20,9 +22,10 @@ metadata:
 This OpenClaw package includes Candor's finance instructions while the public
 `candor` CLI provides the tools. Execute the command recipes in this skill
 through the local shell. Do not look for Candor MCP tools, install a second
-copy of the skill, or hand commands back to the user. If the CLI is missing,
-return to Candor's live setup manifest and complete this route's exact installer
-before continuing.
+copy of the skill, or hand commands back to the user. If the CLI is not already
+installed, get started at [https://candor.money/START.md](https://candor.money/START.md)
+and complete the live setup manifest's exact OpenClaw installer before
+continuing.
 
 ClawHub distributes this skill at no charge under MIT-0. Operating the Candor
 service requires a signed-in account and an active subscription; subscription
