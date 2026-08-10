@@ -41,33 +41,28 @@
    })
    ```
 
-3. If the analysis requires assigning spend to a specific card, inspect the
-   transaction schema first. When the declared query cannot express the join,
-   use a bounded snapshot:
+3. If the analysis requires assigning spend to a specific card, take that
+   card's exact `id` from `accounts list` and use it as the
+   `source_account_id` transaction filter:
 
    ```text
-   candor_schema({
-     "dataset": "transactions",
-     "reason": "Check whether card-specific spend is available",
-     "task_key": "TASK_KEY"
-   })
-   candor_snapshot({
-     "datasets": [
-       "accounts",
-       "transactions",
-       "spending_categories"
-     ],
-     "filters": {
+   candor_get({
+     "operation": "transactions.list",
+     "args": {
+       "source_account_id": "SOURCE_ACCOUNT_ID",
        "since": "START",
-       "until": "END"
+       "until": "END",
+       "limit": 100
      },
-     "reason": "Analyze bounded card-specific spend",
+     "reason": "Inspect spend assigned to this card",
      "task_key": "TASK_KEY"
    })
    ```
 
-   If the snapshot lacks a reliable account join, do not allocate aggregate
-   spend to a card; ask for another source or present an aggregate scenario.
+   Follow every returned cursor until `has_more` is false before treating the
+   period as complete. If the card is not visible or its transaction coverage
+   is insufficient, do not allocate aggregate spend to it; ask for another
+   source or present an aggregate scenario.
 
 Complete when card identities, observed spend, currencies, account assignment,
 and coverage gaps are explicit.

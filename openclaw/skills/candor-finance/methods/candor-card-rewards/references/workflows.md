@@ -13,17 +13,18 @@
    candor merchants list --limit 100 --reason "Inspect material merchant spend" --task-key TASK_KEY
    ```
 
-3. If the analysis requires assigning spend to a specific card, inspect the
-   transaction schema first. When the declared query cannot express the join,
-   use a bounded snapshot:
+3. If the analysis requires assigning spend to a specific card, take that
+   card's exact `id` from `accounts list` and use it as the
+   `source_account_id` transaction filter:
 
    ```sh
-   candor data schema transactions --reason "Check whether card-specific spend is available" --task-key TASK_KEY
-   candor data snapshot --datasets accounts,transactions,spending_categories --since START --until END --output SNAPSHOT.sqlite --reason "Analyze bounded card-specific spend" --task-key TASK_KEY
+   candor transactions list --source-account-id SOURCE_ACCOUNT_ID --since START --until END --limit 100 --reason "Inspect spend assigned to this card" --task-key TASK_KEY
    ```
 
-   If the snapshot lacks a reliable account join, do not allocate aggregate
-   spend to a card; ask for another source or present an aggregate scenario.
+   Follow every returned cursor until `has_more` is false before treating the
+   period as complete. If the card is not visible or its transaction coverage
+   is insufficient, do not allocate aggregate spend to it; ask for another
+   source or present an aggregate scenario.
 
 Complete when card identities, observed spend, currencies, account assignment,
 and coverage gaps are explicit.

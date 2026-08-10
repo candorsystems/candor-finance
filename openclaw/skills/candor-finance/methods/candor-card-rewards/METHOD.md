@@ -39,8 +39,9 @@ credit decision to reward value alone.
 
 - For card inventory, current-card routing, and annual-fee or product-change
   reviews, read [the executable workflows](references/workflows.md).
-- Use a bounded snapshot only when the declared schemas expose the account join
-  needed for card-specific spend; otherwise keep the scenario aggregate.
+- Use the transaction account filter for card-specific spend. Reserve a bounded
+  snapshot for analysis that genuinely needs multiple declared datasets in one
+  artifact, not merely to assign transactions to a card.
 
 ## Caveats
 
