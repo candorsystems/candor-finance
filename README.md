@@ -12,7 +12,8 @@ This package includes the `candor-finance` Agent Skill and the secure Candor
 connection used by OpenAI/ChatGPT, Codex, Claude, and Gemini CLI. Standard
 `plugin.json`, `skills/`, and `mcp.json` files support clients that follow
 the [Agent Plugins 1.0.0](https://agent-plugins.org/specification) format, and
-agent-specific configuration is included where needed. OpenClaw and Hermes use
+`server.json` identifies the remote service in the official MCP Registry.
+Agent-specific configuration is included where needed. OpenClaw and Hermes use
 the Candor command-line app after the ClawHub release passes review. Candor
 continues to enforce sign-in, access, and every financial-data permission.
 

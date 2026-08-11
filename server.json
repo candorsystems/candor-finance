@@ -1,0 +1,15 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "money.candor/candor-finance",
+  "title": "Candor Finance",
+  "description": "Personal-finance workspace for AI agents: accounts, spending, budgets, goals, and investments.",
+  "version": "0.1.19",
+  "websiteUrl": "https://candor.money/START.md",
+  "repository": {
+    "url": "https://github.com/candorsystems/candor-finance",
+    "source": "github"
+  },
+  "remotes": [
+    { "type": "streamable-http", "url": "https://api.candor.money/mcp" }
+  ]
+}
