@@ -66,10 +66,17 @@
    multiplier, NAV, or face-value convention. Inspect each returned row-keyed
    estimation outcome; a missing quote deliberately leaves only that position
    value-only. Incremental imports never change omitted positions, so express
-   every intended update or removal as its own holding operation. When the
+   every intended update or removal as its own holding operation. An upsert
+   using a reused `row_key` updates only supplied fields and preserves omitted
+   fields. Observed value
+   and cost basis may be half-even quantized to currency precision and named in
+   `precision_adjusted_fields`; `manual_correction` rejects excess precision.
+   Use `statement_reconciled` only for faithfully transcribed and reconciled
+   broker or source evidence, not merely because MCP transported it. When the
    evidence is a complete same-time snapshot of an existing manual account,
    set `holdings_scope: complete`, name its `source_account_id`, include a dated
-   closing balance, and give every holding the same `as_of`. Preview must turn
+   closing balance, include quantity or value for every holding, and give every
+   holding the same `as_of`. Preview must turn
    omitted active positions into explicit reversible removals. Never use
    complete scope with `estimate_quantity`, for partial evidence, or for a
    provider-backed account.
@@ -226,10 +233,12 @@ appear as active canonical holdings or transactions.
 ## Change or remove a manual holding
 
 - To change a curated holding, submit a later import to the same
-  `source_account_id` and reuse its stable `row_key`; preview must show
-  `replace_holding` only for that account's position.
-- To remove a position from a manual account, first read `candor_get({"operation":"holdings.list"})`, then submit `operation: remove` with the exact `holding_id` and the
-  owning `source_account_id`. Preview must show `remove_holding`. Apply it,
-  verify the position is absent, and retain the new batch id so the change can
-  be reverted. This updates current holdings but does not create a trade or cash
-  movement. Do not remove provider-backed data through a curated import.
+  `source_account_id` and reuse its returned stable `row_key`. The upsert
+  changes only supplied fields; preview must target only that account's
+  position.
+- To remove a position from a manual account, first read `candor_get({"operation":"holdings.list"})`, then submit `operation: remove` with its exact `holding_id` or returned
+  `row_key` and the owning `source_account_id`. Preview must show
+  `remove_holding`. Apply it, verify the position is absent, and retain the new
+  batch id so the change can be reverted. This updates current holdings while
+  leaving historical balance snapshots intact; it creates neither a trade nor
+  cash movement. Do not remove provider-backed data through a curated import.

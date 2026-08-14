@@ -74,6 +74,13 @@ money, row actions, and resulting records have been verified.
   private assets, funds, or other quotes that require a multiplier, NAV, or
   face-value convention. Otherwise leave quantity absent; never substitute
   zero or one.
+- Treat `statement_reconciled` as an evidence claim, not a transport label: use
+  it only when broker or source evidence was faithfully transcribed and
+  reconciled. Use `agent_curated_unreconciled` for partial or unreconciled
+  evidence. Omitted extraction confidence appears as `unknown`; it neither
+  changes source authority nor becomes a canonical holding field. Observed
+  holding value and cost basis are half-even quantized to currency precision
+  with preview warnings; `manual_correction` rejects excess precision.
 - In the default incremental scope, omitted positions are never changed. Update
   or remove each intended position explicitly. For evidence that is a complete
   same-time snapshot of an existing manual account, `holdings_scope: complete`
@@ -95,10 +102,14 @@ money, row actions, and resulting records have been verified.
   finds a wrong target or mapping, or when the requested addition should not
   remain. Verify the reversal from both batch history and canonical data.
 - Update a manual position by reusing its stable account-scoped `row_key` in a
-  later upsert. Remove a position from the current manual account with
-  `operation: remove` and the exact canonical `holding_id`; this is
-  account-checked, audited, and reversible. It does not create a trade or cash
-  movement. Do not mutate provider-backed holdings through the curated channel.
+  later upsert. Only supplied fields change; omitted fields remain current.
+  This patch behavior applies to incremental imports; every holding in a
+  complete snapshot must include quantity or value. Remove a position from the
+  current manual account with `operation: remove` and either the exact canonical
+  `holding_id` or its returned `row_key`; this is account-checked, audited, and
+  reversible. Historical balance snapshots remain intact, and the removal
+  creates neither a trade nor cash movement. Do not mutate provider-backed
+  holdings through the curated channel.
 
 ## Evidence checklist
 
@@ -106,7 +117,7 @@ money, row actions, and resulting records have been verified.
 - Holding ownership, valuation time or its absence, and value reconciliation
   are explicit.
 - The target account is established independently of free-form document text.
-- Preview row counts, holding create/replace/remove actions, value
+- Preview row counts, holding create/update/remove actions, value
   reconciliation, estimation outcomes, and exceptions were inspected before
   apply.
 - Applied or reverted records were verified through a separate read.

@@ -3,7 +3,7 @@
   "name": "money.candor/candor-finance",
   "title": "Candor Finance",
   "description": "Personal-finance workspace for AI agents: accounts, spending, budgets, goals, and investments.",
-  "version": "0.1.19",
+  "version": "0.1.20",
   "websiteUrl": "https://candor.money/START.md",
   "repository": {
     "url": "https://github.com/candorsystems/candor-finance",
