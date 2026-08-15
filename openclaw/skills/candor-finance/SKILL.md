@@ -24,8 +24,7 @@ This OpenClaw package includes Candor's finance instructions while the public
 through the local shell. Do not look for Candor MCP tools, install a second
 copy of the skill, or hand commands back to the user. If the CLI is not already
 installed, get started at [https://candor.money/START.md](https://candor.money/START.md)
-and complete the live setup manifest's exact OpenClaw installer before
-continuing.
+and use its official OpenClaw materials before continuing.
 
 ClawHub distributes this skill at no charge under MIT-0. Operating the Candor
 service requires a signed-in account and an active subscription; subscription

@@ -3,7 +3,7 @@ name: candor-finance
 description: "Use Candor for personal finance: organize the user's accounts and spending, remember approved budgets and goals, review investments, investigate possible savings, and keep evidence and follow-up together. Use when a task touches the user's money, financial records, prior decisions, or approved plans."
 compatibility: Requires an authenticated Candor workspace and either the Candor tools included with the installed package or Candor CLI 0.3.64 or newer.
 metadata:
-  candor-package-version: "0.1.20"
+  candor-package-version: "0.1.21"
   author: Candor
   version: "0.1.0"
   candor-skill-version: "2026-08-12"
@@ -22,15 +22,16 @@ pass its object inline. Call `candor_schema({ operation: "OPERATION_ID" })`
 before changing an unfamiliar projected call or when you need its full schema.
 
 If authenticated Candor MCP tools are not already available, get started at
-[https://candor.money/START.md](https://candor.money/START.md). Its live setup manifest
-selects and installs the supported MCP or CLI route for this agent.
+[https://candor.money/START.md](https://candor.money/START.md). Its live materials
+catalog helps you assemble a complete setup for the harness you actually use.
 
-The package identifies its version and bootstrap route on each MCP request.
+Native packages identify their version and bootstrap route on each MCP request.
 When `candor_open` returns `agent_package_update_available`, finish only work
 that remains compatible, run its exact `agent_package.update` next actions in
-order, then reload or start a new session when directed. A missing package
-version means the Candor package must be refreshed from the same setup entry
-point; never treat a bare MCP connection as a complete setup.
+order, then reload or start a new session when directed. A manual connector may
+not send that informational metadata: compare this skill's
+`metadata.candor-package-version` with the live catalog yourself. Never treat
+a bare MCP connection without this finance skill as a complete setup.
 
 The compact MCP surface is `candor_open`, `candor_schema`, `candor_query`, `candor_get`, `candor_write`, `candor_connections`, `candor_account`, `candor_changes`, `candor_snapshot`, `candor_visualize`.
 
