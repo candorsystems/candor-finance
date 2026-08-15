@@ -21,10 +21,13 @@ homepage: https://candor.money/START.md
 
 This OpenClaw package includes Candor's finance instructions while the public
 `candor` CLI provides the tools. Execute the command recipes in this skill
-through the local shell. Do not look for Candor MCP tools, install a second
-copy of the skill, or hand commands back to the user. If the CLI is not already
-installed, get started at [https://candor.money/START.md](https://candor.money/START.md)
-and use its official OpenClaw materials before continuing.
+through the local shell. Do not look for Candor MCP tools or hand commands back
+to the user. The Candor CLI also maintains a digest-verified copy under
+`~/.agents/skills` for its release preflight. OpenClaw resolves a same-named
+workspace or shared package first, so these CLI-backed copies are compatible
+and deterministic. If setup or the managed copy is incomplete, get started at
+[https://candor.money/START.md](https://candor.money/START.md) and use its official
+OpenClaw materials before continuing.
 
 ClawHub distributes this skill at no charge under MIT-0. Operating the Candor
 service requires a signed-in account and an active subscription; subscription

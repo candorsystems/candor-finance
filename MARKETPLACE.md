@@ -27,10 +27,11 @@ changed and help you follow through.
   `mcp.json` portable package.
 - OpenAI/ChatGPT and Claude use the authenticated remote MCP plus the included
   Candor finance skill.
-- OpenClaw can use the CLI-backed skill directly from the public package while
-  ClawHub review is pending.
-- Hermes can use the same multi-file skill from the public package while a
-  centralized listing is pending.
+- OpenClaw can use the CLI-managed skill it already discovers under
+  `~/.agents/skills` while ClawHub review is pending.
+- Hermes can install the root multi-file MCP-native skill directly from GitHub
+  while a centralized listing is pending. A future ClawHub install uses the
+  separate CLI-backed projection.
 
 Billing operations are not exposed to the model. If account access is inactive,
 Candor returns a secure page where the user can finish account or subscription

@@ -14,10 +14,15 @@ connection used by OpenAI/ChatGPT, Codex, Claude, and Gemini CLI. Standard
 `plugin.json`, `skills/`, and `mcp.json` files support clients that follow
 the [Agent Plugins 1.0.0](https://agent-plugins.org/specification) format, and
 `server.json` identifies the remote service in the official MCP Registry.
-Agent-specific configuration is included where needed. OpenClaw, Hermes, and
-other shell-backed agents can combine the included finance skill with the
-Candor command-line app without waiting for a marketplace listing. Candor
-continues to enforce sign-in, access, and every financial-data permission.
+Agent-specific configuration is included where needed. OpenClaw's manual route
+uses the CLI-managed skill under `~/.agents/skills`; its future ClawHub route
+uses the dedicated CLI-backed skill under `openclaw/skills/`. The Candor CLI
+keeps its managed copy for release preflight in both cases, and OpenClaw's
+documented skill precedence makes the same-named CLI projections deterministic.
+Hermes can install the root MCP-native skill with its remote MCP client; a
+future Hermes ClawHub install instead uses the CLI-backed projection. Do not
+mix skill and tool projections. Candor continues to enforce sign-in, access,
+and every financial-data permission.
 
 Manage your Candor account and subscription at
 [app.candor.money](https://app.candor.money). When Candor gives the agent a
