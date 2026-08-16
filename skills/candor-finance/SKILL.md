@@ -3,13 +3,13 @@ name: candor-finance
 description: "Use Candor for personal finance: organize the user's accounts and spending, remember approved budgets and goals, review investments, investigate possible savings, and keep evidence and follow-up together. Use when a task touches the user's money, financial records, prior decisions, or approved plans."
 compatibility: Requires an authenticated Candor workspace and either the Candor tools included with the installed package or Candor CLI 0.3.64 or newer.
 metadata:
-  candor-package-version: "0.1.27"
+  candor-package-version: "0.1.28"
   author: Candor
   version: "0.1.0"
-  candor-skill-version: "2026-08-15"
+  candor-skill-version: "2026-08-16"
   candor-cli: ">=0.3.64 <0.4.0"
   candor-introduced-in: "2026-07-23"
-  candor-updated-in: "2026-08-15"
+  candor-updated-in: "2026-08-16"
 ---
 
 ## Execute recipes through native MCP
@@ -22,7 +22,7 @@ pass its object inline. Call `candor_schema({ operation: "OPERATION_ID" })`
 before changing an unfamiliar projected call or when you need its full schema.
 
 If authenticated Candor MCP tools are not already available, get started at
-[https://candor.money/START.md?v=0.1.27](https://candor.money/START.md?v=0.1.27). Its live materials
+[https://candor.money/START.md?v=0.1.28](https://candor.money/START.md?v=0.1.28). Its live materials
 catalog helps you assemble a complete setup for the harness you actually use.
 
 Native packages identify their version and bootstrap route on each MCP request.
@@ -92,8 +92,15 @@ the user's terms and continue with what can be established. Never turn a data
 gap into a conclusion.
 
 Candor keeps small responses inline. When any tool returns
-`delivery: "resource"`, download its short-lived `resource_link` to a relative
-file in your current writable working directory and verify `artifact.digest`.
+`delivery: "resource"`, inspect `data.delivery_options` and use exactly one
+supported path. When resource links work, download the short-lived
+`resource_link` to a relative file in your current writable working directory
+and verify `artifact.digest`. When resource links are unsupported and your
+client can materialize a large tool result into a private code sandbox without
+placing the full payload in model context, immediately repeat the identical
+tool call with `data.delivery_options.inline_response.retry_same_tool_with`.
+Preserve every other argument; do not reduce the query scope or page size as a
+delivery workaround.
 The descriptor already gives you the analysis root as
 `artifact.payload.json_pointer` and its limited, value-free JSON Schema as
 `artifact.payload.schema`: write analysis against that contract immediately
@@ -101,9 +108,9 @@ rather than probing keys, printing sample rows, or using a model-facing fetch
 tool to discover the shape. Treat stdout as model context; emit only counts,
 aggregates, and a capped set of candidate records needed for the next decision.
 Retry transient download failures with the sandbox's retry-capable HTTP client,
-then report the evidence gap if the resource remains unavailable. Do not
-reconstruct it through smaller inline pages. The resource is working evidence,
-not a user export.
+then use the supported inline option or report the evidence gap if the result
+remains unavailable. The delivered result is working evidence, not a user
+export.
 
 ## Choose a finance method
 
