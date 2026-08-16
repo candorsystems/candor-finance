@@ -15,7 +15,7 @@ changed and help you follow through.
 
 - Remote MCP: https://api.candor.money/mcp
 - Candor account: https://app.candor.money
-- Documentation: https://candor.money/START.md?v=0.1.25
+- Documentation: https://candor.money/START.md?v=0.1.26
 - Support: https://candor.money/support
 - Privacy: https://candor.money/privacy
 - Terms: https://candor.money/terms

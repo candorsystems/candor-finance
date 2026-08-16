@@ -1,6 +1,6 @@
 {
   "name": "candor-finance",
-  "version": "0.1.25",
+  "version": "0.1.26",
   "description": "Help ChatGPT and Codex with personal finance by organizing accounts, spending, budgets, goals, investments, and follow-through.",
   "author": {
     "name": "Candor",
@@ -22,7 +22,7 @@
     "candor": {
       "http_headers": {
         "Candor-Agent-Package-Route": "codex-marketplace",
-        "Candor-Agent-Package-Version": "0.1.25"
+        "Candor-Agent-Package-Version": "0.1.26"
       },
       "type": "http",
       "url": "https://api.candor.money/mcp",
