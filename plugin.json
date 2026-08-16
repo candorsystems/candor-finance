@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "candor-finance",
-  "version": "0.1.22",
+  "version": "0.1.23",
   "description": "Help your AI agent with personal finance by organizing accounts, spending, budgets, goals, investments, and follow-through.",
   "author": {
     "name": "Candor",

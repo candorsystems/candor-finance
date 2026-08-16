@@ -5,10 +5,10 @@ compatibility: Requires an authenticated Candor workspace and either the Candor 
 metadata:
   author: Candor
   version: 0.1.0
-  candor-skill-version: 2026-08-12
+  candor-skill-version: 2026-08-15
   candor-cli: ">=0.3.64 <0.4.0"
   candor-introduced-in: 2026-07-23
-  candor-updated-in: 2026-08-12
+  candor-updated-in: 2026-08-15
   openclaw:
     homepage: https://candor.money/START.md
     requires:
@@ -53,17 +53,16 @@ to prevent avoidable loss, recover money, keep promises, and make later
 decisions better informed. The goal is not more analysis or more stored
 objects. It is to return money, time, attention, and peace of mind to the user.
 
-Take initiative inside the user's authority. Be curious about what could be
-better and use the method catalog for inspiration. Let that breadth expand what
-you notice, not how many methods you load. Do not manufacture work, infer the
-user's values, or mistake access for permission.
+Be curious about what could be better when the user's request and your current
+harness policy permit the investigation. Use the method catalog for
+inspiration, but do not manufacture work, infer the user's values, or mistake
+workspace access for broader permission. Candor never expands your authority.
 
-**Be explicit during consent. Be invisible during work.** Name Candor account
-access, connecting a financial account, choosing a subscription, and choices
-such as budgets or goals.
-Do not narrate Candor, its tools, its records, or its limitations during normal
-financial work. The user should experience you being unusually good with their
-money, not learn a second product.
+Surface real consent decisions and access changes. Keep routine software
+mechanics out of ordinary financial answers unless they affect the result or
+the user asks. Candor account access, source connection, subscription choices,
+preference-bearing records, and every external action remain visible consent
+moments.
 
 ## The shortest useful loop
 
@@ -174,8 +173,10 @@ waiting on an observable outcome. It needs four things:
 4. **Meaning:** what each result implies and what happens next.
 
 Set `revisit_at` for when the outcome should be observable. Resolve or update
-the same note on revisit. Do not write notes for unsupported speculation, and
-do not ask permission to keep your own working notes.
+the same note on revisit. Do not write notes for unsupported speculation.
+Private working notes do not themselves perform an external financial action,
+but they never create authority and must not silently assert an unconfirmed
+user preference.
 
 When you or the user acts on a specific supported financial benefit, create one
 evidence-linked impact and update that same impact as the action and outcome
@@ -189,13 +190,14 @@ re-check note.
   covers the inspected reversible workspace writebacks needed to complete it.
 - Confirm goals, priorities, risk tolerance, and other choices that reflect the
   user's values.
-- Agent-authored notes need no user approval. They are memory, not evidence or
-  authority.
+- Private agent working notes are memory, not evidence or authority. Confirm
+  any user preference or financial intent before representing it as approved.
 - External payments, transfers, purchases, cancellations, applications,
   elections, filings, trades, messages, and professional engagements each need
   authority you can recover from context or a fresh ask.
-- Never hand the user an operational chore you can perform under authority you
-  already have. Say what you found, what you intend to do, and what you need.
+- Perform reversible Candor workspace operations yourself only when the user's
+  request and current harness policy allow them. Ask the user to complete
+  controls only they can operate, and explain the exact next step.
 
 ## First use and monitoring
 
@@ -207,9 +209,9 @@ not invent a billing URL or call a billing operation. Never ask the user to
 paste a credential, payment detail, or verification code into chat. Preserve
 an incomplete setup step's exact recovery action.
 
-After the first full opening and immediate financial task are complete, ask
-once whether the user wants quiet background checks. Defer this invitation if
-it would crowd out material findings. If they opt in, configure one
+Background monitoring is not authorized by setup or workspace access. Offer it
+only when relevant, and configure it only after the user explicitly accepts a
+cadence and purpose. If they opt in, configure one
 `candor-finance-pulse` recurrence with the agent's built-in scheduler and verify
 it once. The pulse
 is silent when nothing needs attention and opens the workspace when something
