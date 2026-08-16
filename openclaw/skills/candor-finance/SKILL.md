@@ -10,11 +10,11 @@ metadata:
   candor-introduced-in: 2026-07-23
   candor-updated-in: 2026-08-15
   openclaw:
-    homepage: https://candor.money/START.md?v=0.1.24
+    homepage: https://candor.money/START.md?v=0.1.25
     requires:
       bins:
         - candor
-homepage: https://candor.money/START.md?v=0.1.24
+homepage: https://candor.money/START.md?v=0.1.25
 ---
 
 ## Execute recipes through the Candor CLI
@@ -26,7 +26,7 @@ to the user. The Candor CLI also maintains a digest-verified copy under
 `~/.agents/skills` for its release preflight. OpenClaw resolves a same-named
 workspace or shared package first, so these CLI-backed copies are compatible
 and deterministic. If setup or the managed copy is incomplete, get started at
-[https://candor.money/START.md?v=0.1.24](https://candor.money/START.md?v=0.1.24) and use its official
+[https://candor.money/START.md?v=0.1.25](https://candor.money/START.md?v=0.1.25) and use its official
 OpenClaw materials before continuing.
 
 ClawHub distributes this skill at no charge under MIT-0. Operating the Candor
