@@ -1,6 +1,6 @@
 {
   "name": "candor-finance",
-  "version": "0.1.23",
+  "version": "0.1.24",
   "description": "Help Claude with personal finance by organizing accounts, spending, budgets, goals, investments, and follow-through.",
   "author": {
     "name": "Candor",
