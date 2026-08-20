@@ -43,20 +43,20 @@ loaded.
    })
    candor_get({
      "operation": "notes.list",
+     "reason": "Review due financial follow-up",
+     "task_key": "TASK_KEY",
      "args": {
        "due": true,
        "limit": 100
-     },
-     "reason": "Review due financial follow-up",
-     "task_key": "TASK_KEY"
+     }
    })
    candor_get({
      "operation": "actions.list",
+     "reason": "Recover recent financial decisions",
+     "task_key": "TASK_KEY",
      "args": {
        "limit": 50
-     },
-     "reason": "Recover recent financial decisions",
-     "task_key": "TASK_KEY"
+     }
    })
    ```
 
@@ -75,28 +75,28 @@ loaded.
    })
    candor_get({
      "operation": "recurring.candidates",
+     "reason": "Review recurring outflows",
+     "task_key": "TASK_KEY",
      "args": {
        "direction": "outflow",
        "limit": 100
-     },
-     "reason": "Review recurring outflows",
-     "task_key": "TASK_KEY"
+     }
    })
    candor_get({
      "operation": "budget.status",
+     "reason": "Review approved budget variance",
+     "task_key": "TASK_KEY",
      "args": {
        "period": "PERIOD"
-     },
-     "reason": "Review approved budget variance",
-     "task_key": "TASK_KEY"
+     }
    })
    candor_get({
      "operation": "goals.list",
+     "reason": "Review approved goal progress",
+     "task_key": "TASK_KEY",
      "args": {
        "limit": 100
-     },
-     "reason": "Review approved goal progress",
-     "task_key": "TASK_KEY"
+     }
    })
    candor_get({
      "operation": "portfolio.snapshot",

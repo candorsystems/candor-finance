@@ -15,29 +15,29 @@
    })
    candor_get({
      "operation": "recurring.list",
+     "reason": "Inspect reconciled recurring items",
+     "task_key": "TASK_KEY",
      "args": {
        "limit": 100
-     },
-     "reason": "Inspect reconciled recurring items",
-     "task_key": "TASK_KEY"
+     }
    })
    candor_get({
      "operation": "recurring.candidates",
+     "reason": "Inspect unconfirmed recurring candidates",
+     "task_key": "TASK_KEY",
      "args": {
        "direction": "outflow",
        "cashflow_role": "expense",
        "limit": 100
-     },
-     "reason": "Inspect unconfirmed recurring candidates",
-     "task_key": "TASK_KEY"
+     }
    })
    candor_query({
      "dataset": "account_terms",
+     "reason": "Cross-check contractual debt-payment due dates where relevant",
+     "task_key": "TASK_KEY",
      "filters": {
        "limit": 100
-     },
-     "reason": "Cross-check contractual debt-payment due dates where relevant",
-     "task_key": "TASK_KEY"
+     }
    })
    ```
 
@@ -60,14 +60,14 @@
    ```text
    candor_get({
      "operation": "transactions.list",
+     "reason": "Verify recurring evidence for MERCHANT",
+     "task_key": "TASK_KEY",
      "args": {
        "merchant": "MERCHANT",
        "since": "START",
        "until": "END",
        "limit": 100
-     },
-     "reason": "Verify recurring evidence for MERCHANT",
-     "task_key": "TASK_KEY"
+     }
    })
    ```
 
@@ -91,10 +91,10 @@
    })
    candor_write({
      "operation": "recurring.policy.set",
-     "input": "<contents of POLICY.json>",
      "reason": "Preserve the verified recurring interpretation",
      "task_key": "TASK_KEY",
-     "parent_action": "ACTION_ID"
+     "parent_action": "ACTION_ID",
+     "input": "<contents of POLICY.json>"
    })
    ```
 
@@ -135,10 +135,10 @@ decision-relevant annual effect are explicit.
    ```text
    candor_write({
      "operation": "notes.create",
-     "input": "<contents of NOTE.json>",
      "reason": "Track recurring-bill follow-through",
      "task_key": "TASK_KEY",
-     "parent_action": "ACTION_ID"
+     "parent_action": "ACTION_ID",
+     "input": "<contents of NOTE.json>"
    })
    ```
 

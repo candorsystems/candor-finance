@@ -4,7 +4,7 @@ The official personal finance package for [Candor](https://candor.money). It
 gives the AI agent you already use an organized view of accounts, spending,
 budgets, goals, investments, notes, and the decisions you approve.
 
-Paste [https://candor.money/START.md?v=0.1.28](https://candor.money/START.md?v=0.1.28) into your
+Paste [https://candor.money/START.md?v=0.1.29](https://candor.money/START.md?v=0.1.29) into your
 agent. It will inspect its own installation capabilities, choose or assemble a
 complete setup from Candor's official materials, request the normal
 installation and account-access approvals, and handle the rest.
@@ -28,7 +28,7 @@ Manage your Candor account and subscription at
 [app.candor.money](https://app.candor.money). When Candor gives the agent a
 secure account link, it explains the required step and opens that exact page.
 
-- [Installation materials and guides](https://candor.money/START.md?v=0.1.28)
+- [Installation materials and guides](https://candor.money/START.md?v=0.1.29)
 - [Connector support](https://candor.money/support)
 - [Privacy](https://candor.money/privacy)
 - [Terms](https://candor.money/terms)

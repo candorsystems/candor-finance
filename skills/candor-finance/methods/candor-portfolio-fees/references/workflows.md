@@ -14,19 +14,19 @@
    })
    candor_get({
      "operation": "accounts.list",
+     "reason": "Identify visible investment accounts",
+     "task_key": "TASK_KEY",
      "args": {
        "limit": 100
-     },
-     "reason": "Identify visible investment accounts",
-     "task_key": "TASK_KEY"
+     }
    })
    candor_get({
      "operation": "holdings.list",
+     "reason": "Inspect visible holdings",
+     "task_key": "TASK_KEY",
      "args": {
        "limit": 100
-     },
-     "reason": "Inspect visible holdings",
-     "task_key": "TASK_KEY"
+     }
    })
    candor_get({
      "operation": "portfolio.snapshot",
@@ -40,11 +40,11 @@
    })
    candor_query({
      "dataset": "investment_transactions",
+     "reason": "Inspect bounded investment activity",
+     "task_key": "TASK_KEY",
      "filters": {
        "limit": 100
-     },
-     "reason": "Inspect bounded investment activity",
-     "task_key": "TASK_KEY"
+     }
    })
    ```
 

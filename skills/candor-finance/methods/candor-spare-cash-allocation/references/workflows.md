@@ -15,19 +15,19 @@
    })
    candor_get({
      "operation": "accounts.list",
+     "reason": "Identify accounts relevant to the candidate cash",
+     "task_key": "TASK_KEY",
      "args": {
        "limit": 100
-     },
-     "reason": "Identify accounts relevant to the candidate cash",
-     "task_key": "TASK_KEY"
+     }
    })
    candor_get({
      "operation": "balances.list",
+     "reason": "Inspect current balances for the candidate cash",
+     "task_key": "TASK_KEY",
      "args": {
        "limit": 100
-     },
-     "reason": "Inspect current balances for the candidate cash",
-     "task_key": "TASK_KEY"
+     }
    })
    candor_get({
      "operation": "liquidity.summary",
@@ -43,36 +43,36 @@
    ```text
    candor_get({
      "operation": "transactions.summary",
+     "reason": "Estimate observed cash needs before allocation",
+     "task_key": "TASK_KEY",
      "args": {
        "since": "START",
        "until": "END"
-     },
-     "reason": "Estimate observed cash needs before allocation",
-     "task_key": "TASK_KEY"
+     }
    })
    candor_get({
      "operation": "recurring.list",
+     "reason": "Inspect recurring commitments before allocation",
+     "task_key": "TASK_KEY",
      "args": {
        "limit": 100
-     },
-     "reason": "Inspect recurring commitments before allocation",
-     "task_key": "TASK_KEY"
+     }
    })
    candor_get({
      "operation": "budget.status",
+     "reason": "Inspect approved budget commitments before allocation",
+     "task_key": "TASK_KEY",
      "args": {
        "period": "PERIOD"
-     },
-     "reason": "Inspect approved budget commitments before allocation",
-     "task_key": "TASK_KEY"
+     }
    })
    candor_get({
      "operation": "goals.list",
+     "reason": "Inspect approved goals before allocation",
+     "task_key": "TASK_KEY",
      "args": {
        "limit": 100
-     },
-     "reason": "Inspect approved goals before allocation",
-     "task_key": "TASK_KEY"
+     }
    })
    ```
 
@@ -91,19 +91,19 @@ candor_get({
 })
 candor_query({
   "dataset": "account_terms",
+  "reason": "Inspect verified rates and constraints for allocation options",
+  "task_key": "TASK_KEY",
   "filters": {
     "limit": 100
-  },
-  "reason": "Inspect verified rates and constraints for allocation options",
-  "task_key": "TASK_KEY"
+  }
 })
 candor_get({
   "operation": "budget.context",
+  "reason": "Inspect budget context for a possible allocation",
+  "task_key": "TASK_KEY",
   "args": {
     "period": "PERIOD"
-  },
-  "reason": "Inspect budget context for a possible allocation",
-  "task_key": "TASK_KEY"
+  }
 })
 ```
 

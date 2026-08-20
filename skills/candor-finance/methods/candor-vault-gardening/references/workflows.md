@@ -20,20 +20,20 @@
    })
    candor_get({
      "operation": "notes.list",
+     "reason": "Recover due record-maintenance follow-up",
+     "task_key": "TASK_KEY",
      "args": {
        "due": true,
        "limit": 100
-     },
-     "reason": "Recover due record-maintenance follow-up",
-     "task_key": "TASK_KEY"
+     }
    })
    candor_get({
      "operation": "actions.list",
+     "reason": "Recover recent record-maintenance decisions",
+     "task_key": "TASK_KEY",
      "args": {
        "limit": 100
-     },
-     "reason": "Recover recent record-maintenance decisions",
-     "task_key": "TASK_KEY"
+     }
    })
    ```
 
@@ -42,37 +42,37 @@
    ```text
    candor_get({
      "operation": "recurring.candidates",
+     "reason": "Inspect unresolved recurring candidates",
+     "task_key": "TASK_KEY",
      "args": {
        "limit": 100
-     },
-     "reason": "Inspect unresolved recurring candidates",
-     "task_key": "TASK_KEY"
+     }
    })
    candor_get({
      "operation": "rules.list",
+     "reason": "Inspect active transaction interpretation rules",
+     "task_key": "TASK_KEY",
      "args": {
        "limit": 100
-     },
-     "reason": "Inspect active transaction interpretation rules",
-     "task_key": "TASK_KEY"
+     }
    })
    candor_get({
      "operation": "corrections.list",
+     "reason": "Inspect existing transaction corrections",
+     "task_key": "TASK_KEY",
      "args": {
        "limit": 100
-     },
-     "reason": "Inspect existing transaction corrections",
-     "task_key": "TASK_KEY"
+     }
    })
    candor_get({
      "operation": "transactions.list",
+     "reason": "Inspect bounded transaction-quality issues",
+     "task_key": "TASK_KEY",
      "args": {
        "since": "START",
        "until": "END",
        "limit": 100
-     },
-     "reason": "Inspect bounded transaction-quality issues",
-     "task_key": "TASK_KEY"
+     }
    })
    ```
 
@@ -103,38 +103,38 @@ Representative correction flow:
 ```text
 candor_get({
   "operation": "transactions.get",
+  "reason": "Inspect the effective record before maintenance",
+  "task_key": "TASK_KEY",
   "args": {
     "transaction_id": "TRANSACTION_ID"
-  },
-  "reason": "Inspect the effective record before maintenance",
-  "task_key": "TASK_KEY"
+  }
 })
 candor_get({
   "operation": "corrections.list",
+  "reason": "Inspect existing interpretations before maintenance",
+  "task_key": "TASK_KEY",
   "args": {
     "transaction": "TRANSACTION_ID",
     "limit": 100
-  },
-  "reason": "Inspect existing interpretations before maintenance",
-  "task_key": "TASK_KEY"
+  }
 })
 candor_write({
   "operation": "corrections.create",
+  "reason": "Apply the bounded verified record repair",
+  "task_key": "TASK_KEY",
+  "parent_action": "ACTION_ID",
   "args": {
     "transaction_id": "TRANSACTION_ID",
     "category": "CATEGORY"
-  },
-  "reason": "Apply the bounded verified record repair",
-  "task_key": "TASK_KEY",
-  "parent_action": "ACTION_ID"
+  }
 })
 candor_get({
   "operation": "transactions.get",
+  "reason": "Verify the effective repaired record",
+  "task_key": "TASK_KEY",
   "args": {
     "transaction_id": "TRANSACTION_ID"
-  },
-  "reason": "Verify the effective repaired record",
-  "task_key": "TASK_KEY"
+  }
 })
 ```
 
@@ -143,24 +143,24 @@ Representative rule flow:
 ```text
 candor_write({
   "operation": "rules.preview",
+  "reason": "Preview the bounded maintenance rule",
+  "task_key": "TASK_KEY",
+  "parent_action": "ACTION_ID",
   "args": {
     "rule_id": "RULE_ID",
     "since": "START",
     "until": "END"
-  },
-  "reason": "Preview the bounded maintenance rule",
-  "task_key": "TASK_KEY",
-  "parent_action": "ACTION_ID"
+  }
 })
 candor_write({
   "operation": "rules.apply",
+  "reason": "Apply the reviewed bounded maintenance rule",
+  "task_key": "TASK_KEY",
+  "parent_action": "ACTION_ID",
   "args": {
     "rule_id": "RULE_ID",
     "preview": "PREVIEW_ID"
-  },
-  "reason": "Apply the reviewed bounded maintenance rule",
-  "task_key": "TASK_KEY",
-  "parent_action": "ACTION_ID"
+  }
 })
 ```
 

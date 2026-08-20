@@ -16,28 +16,28 @@
    })
    candor_get({
      "operation": "accounts.list",
+     "reason": "Inventory visible card accounts",
+     "task_key": "TASK_KEY",
      "args": {
        "limit": 100
-     },
-     "reason": "Inventory visible card accounts",
-     "task_key": "TASK_KEY"
+     }
    })
    candor_get({
      "operation": "spending_categories.list",
+     "reason": "Summarize observed category spend",
+     "task_key": "TASK_KEY",
      "args": {
        "since": "START",
        "until": "END"
-     },
-     "reason": "Summarize observed category spend",
-     "task_key": "TASK_KEY"
+     }
    })
    candor_get({
      "operation": "merchants.list",
+     "reason": "Inspect material merchant spend",
+     "task_key": "TASK_KEY",
      "args": {
        "limit": 100
-     },
-     "reason": "Inspect material merchant spend",
-     "task_key": "TASK_KEY"
+     }
    })
    ```
 
@@ -48,14 +48,14 @@
    ```text
    candor_get({
      "operation": "transactions.list",
+     "reason": "Inspect spend assigned to this card",
+     "task_key": "TASK_KEY",
      "args": {
        "source_account_id": "SOURCE_ACCOUNT_ID",
        "since": "START",
        "until": "END",
        "limit": 100
-     },
-     "reason": "Inspect spend assigned to this card",
-     "task_key": "TASK_KEY"
+     }
    })
    ```
 

@@ -19,11 +19,11 @@
    })
    candor_query({
      "dataset": "accounts",
+     "reason": "Resolve the target account for supplied evidence",
+     "task_key": "TASK_KEY",
      "filters": {
        "limit": 100
-     },
-     "reason": "Resolve the target account for supplied evidence",
-     "task_key": "TASK_KEY"
+     }
    })
    candor_get({
      "operation": "coverage.get",
@@ -91,9 +91,9 @@ and the manifest states what period the evidence actually covers.
    ```text
    candor_write({
      "operation": "imports.validate",
-     "input": "<contents of IMPORT.json>",
      "reason": "Validate the supplied financial evidence before preview",
-     "task_key": "TASK_KEY"
+     "task_key": "TASK_KEY",
+     "input": "<contents of IMPORT.json>"
    })
    ```
 
@@ -102,9 +102,9 @@ and the manifest states what period the evidence actually covers.
    ```text
    candor_write({
      "operation": "imports.preview",
-     "input": "<contents of IMPORT.json>",
      "reason": "Preview supplied evidence against the resolved account",
-     "task_key": "TASK_KEY"
+     "task_key": "TASK_KEY",
+     "input": "<contents of IMPORT.json>"
    })
    ```
 
@@ -125,14 +125,14 @@ could change the target, money, dates, or coverage.
    ```text
    candor_write({
      "operation": "imports.apply",
+     "reason": "Apply the verified supplied evidence",
+     "task_key": "TASK_KEY",
+     "parent_action": "PREVIEW_ACTION_ID",
      "args": {
        "import_batch_id": "IMPORT_BATCH_ID",
        "approval_note": "The inspected supplied evidence is approved for this bounded import.",
        "approved_by": "AGENT"
-     },
-     "reason": "Apply the verified supplied evidence",
-     "task_key": "TASK_KEY",
-     "parent_action": "PREVIEW_ACTION_ID"
+     }
    })
    ```
 
@@ -141,38 +141,38 @@ could change the target, money, dates, or coverage.
    ```text
    candor_get({
      "operation": "imports.get",
+     "reason": "Verify the applied evidence batch",
+     "task_key": "TASK_KEY",
      "args": {
        "import_batch_id": "IMPORT_BATCH_ID"
-     },
-     "reason": "Verify the applied evidence batch",
-     "task_key": "TASK_KEY"
+     }
    })
    candor_get({
      "operation": "holdings.list",
+     "reason": "Verify canonical holdings created from supplied evidence",
+     "task_key": "TASK_KEY",
      "args": {
        "source_account_id": "SOURCE_ACCOUNT_ID",
        "limit": 100
-     },
-     "reason": "Verify canonical holdings created from supplied evidence",
-     "task_key": "TASK_KEY"
+     }
    })
    candor_get({
      "operation": "transactions.list",
+     "reason": "Verify canonical transactions created from supplied evidence",
+     "task_key": "TASK_KEY",
      "args": {
        "since": "START",
        "until": "END",
        "limit": 100
-     },
-     "reason": "Verify canonical transactions created from supplied evidence",
-     "task_key": "TASK_KEY"
+     }
    })
    candor_get({
      "operation": "actions.list",
+     "reason": "Recover the evidence import audit trail",
+     "task_key": "TASK_KEY",
      "args": {
        "limit": 20
-     },
-     "reason": "Recover the evidence import audit trail",
-     "task_key": "TASK_KEY"
+     }
    })
    ```
 
@@ -192,38 +192,38 @@ wrong target or material mapping error:
 ```text
 candor_write({
   "operation": "imports.revert",
-  "args": {
-    "import_batch_id": "IMPORT_BATCH_ID"
-  },
   "reason": "Revert the bounded evidence import after recovery review",
   "task_key": "TASK_KEY",
-  "parent_action": "APPLY_ACTION_ID"
+  "parent_action": "APPLY_ACTION_ID",
+  "args": {
+    "import_batch_id": "IMPORT_BATCH_ID"
+  }
 })
 candor_get({
   "operation": "imports.get",
+  "reason": "Verify the evidence batch was reverted",
+  "task_key": "TASK_KEY",
   "args": {
     "import_batch_id": "IMPORT_BATCH_ID"
-  },
-  "reason": "Verify the evidence batch was reverted",
-  "task_key": "TASK_KEY"
+  }
 })
 candor_get({
   "operation": "holdings.list",
+  "reason": "Verify reverted holdings no longer affect the canonical portfolio",
+  "task_key": "TASK_KEY",
   "args": {
     "limit": 100
-  },
-  "reason": "Verify reverted holdings no longer affect the canonical portfolio",
-  "task_key": "TASK_KEY"
+  }
 })
 candor_get({
   "operation": "transactions.list",
+  "reason": "Verify imported records no longer affect canonical activity",
+  "task_key": "TASK_KEY",
   "args": {
     "since": "START",
     "until": "END",
     "limit": 100
-  },
-  "reason": "Verify imported records no longer affect canonical activity",
-  "task_key": "TASK_KEY"
+  }
 })
 ```
 

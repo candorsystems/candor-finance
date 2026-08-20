@@ -16,19 +16,19 @@
    })
    candor_get({
      "operation": "accounts.list",
+     "reason": "Identify visible cash accounts",
+     "task_key": "TASK_KEY",
      "args": {
        "limit": 100
-     },
-     "reason": "Identify visible cash accounts",
-     "task_key": "TASK_KEY"
+     }
    })
    candor_get({
      "operation": "balances.list",
+     "reason": "Inspect current visible balances",
+     "task_key": "TASK_KEY",
      "args": {
        "limit": 100
-     },
-     "reason": "Inspect current visible balances",
-     "task_key": "TASK_KEY"
+     }
    })
    candor_get({
      "operation": "liquidity.summary",
@@ -37,11 +37,11 @@
    })
    candor_query({
      "dataset": "account_terms",
+     "reason": "Inspect current deposit APYs and term provenance",
+     "task_key": "TASK_KEY",
      "filters": {
        "limit": 100
-     },
-     "reason": "Inspect current deposit APYs and term provenance",
-     "task_key": "TASK_KEY"
+     }
    })
    ```
 
@@ -63,20 +63,20 @@ times, currencies, and coverage gaps without calling any amount idle.
    ```text
    candor_get({
      "operation": "transactions.summary",
+     "reason": "Estimate observed cash needs",
+     "task_key": "TASK_KEY",
      "args": {
        "since": "START",
        "until": "END"
-     },
-     "reason": "Estimate observed cash needs",
-     "task_key": "TASK_KEY"
+     }
    })
    candor_get({
      "operation": "recurring.list",
+     "reason": "Inspect recurring cash commitments",
+     "task_key": "TASK_KEY",
      "args": {
        "limit": 100
-     },
-     "reason": "Inspect recurring cash commitments",
-     "task_key": "TASK_KEY"
+     }
    })
    candor_get({
      "operation": "debts.list",
@@ -85,19 +85,19 @@ times, currencies, and coverage gaps without calling any amount idle.
    })
    candor_get({
      "operation": "budget.context",
+     "reason": "Inspect approved cash allocations",
+     "task_key": "TASK_KEY",
      "args": {
        "period": "PERIOD"
-     },
-     "reason": "Inspect approved cash allocations",
-     "task_key": "TASK_KEY"
+     }
    })
    candor_get({
      "operation": "goals.list",
+     "reason": "Inspect approved reserve and savings goals",
+     "task_key": "TASK_KEY",
      "args": {
        "limit": 100
-     },
-     "reason": "Inspect approved reserve and savings goals",
-     "task_key": "TASK_KEY"
+     }
    })
    ```
 
@@ -137,10 +137,10 @@ obligations, assumptions, and coverage—not a generic rule of thumb.
    })
    candor_write({
      "operation": "notes.create",
-     "input": "<contents of NOTE.json>",
      "reason": "Remember sourced cash-yield terms for follow-up",
      "task_key": "TASK_KEY",
-     "parent_action": "ACTION_ID"
+     "parent_action": "ACTION_ID",
+     "input": "<contents of NOTE.json>"
    })
    ```
 

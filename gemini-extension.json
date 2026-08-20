@@ -1,12 +1,12 @@
 {
   "name": "candor-finance",
-  "version": "0.1.28",
+  "version": "0.1.29",
   "description": "Help Gemini with personal finance by organizing accounts, spending, budgets, goals, investments, and follow-through.",
   "mcpServers": {
     "candor": {
       "headers": {
         "Candor-Agent-Package-Route": "gemini-extension",
-        "Candor-Agent-Package-Version": "0.1.28"
+        "Candor-Agent-Package-Version": "0.1.29"
       },
       "httpUrl": "https://api.candor.money/mcp",
       "description": "Candor personal-finance workspace"

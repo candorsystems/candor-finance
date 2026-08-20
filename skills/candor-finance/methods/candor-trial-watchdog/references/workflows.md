@@ -15,24 +15,24 @@
    })
    candor_get({
      "operation": "transactions.list",
+     "reason": "Inspect the trial signup and authorization evidence",
+     "task_key": "TASK_KEY",
      "args": {
        "merchant": "MERCHANT",
        "since": "START",
        "until": "END",
        "limit": 100
-     },
-     "reason": "Inspect the trial signup and authorization evidence",
-     "task_key": "TASK_KEY"
+     }
    })
    candor_get({
      "operation": "recurring.candidates",
+     "reason": "Check for an existing merchant billing series",
+     "task_key": "TASK_KEY",
      "args": {
        "direction": "outflow",
        "cashflow_role": "expense",
        "limit": 100
-     },
-     "reason": "Check for an existing merchant billing series",
-     "task_key": "TASK_KEY"
+     }
    })
    ```
 
@@ -57,10 +57,10 @@ candor_schema({
 })
 candor_write({
   "operation": "notes.create",
-  "input": "<contents of NOTE.json>",
   "reason": "Track the trial through its first observable billing outcome",
   "task_key": "TASK_KEY",
-  "parent_action": "ACTION_ID"
+  "parent_action": "ACTION_ID",
+  "input": "<contents of NOTE.json>"
 })
 ```
 
@@ -87,19 +87,19 @@ Otherwise promise the check for the next session on or after that date.
    candor_open({})
    candor_get({
      "operation": "notes.list",
+     "reason": "Review due trial checks",
+     "task_key": "TASK_KEY",
      "args": {
        "due": true
-     },
-     "reason": "Review due trial checks",
-     "task_key": "TASK_KEY"
+     }
    })
    candor_get({
      "operation": "notes.get",
+     "reason": "Recover the trial baseline and recipe",
+     "task_key": "TASK_KEY",
      "args": {
        "note_id": "NOTE_ID"
-     },
-     "reason": "Recover the trial baseline and recipe",
-     "task_key": "TASK_KEY"
+     }
    })
    ```
 
@@ -112,12 +112,12 @@ Otherwise promise the check for the next session on or after that date.
    ```text
    candor_write({
      "operation": "notes.resolve",
-     "args": {
-       "note_id": "NOTE_ID"
-     },
      "reason": "Resolve the trial check after verifying the billing outcome",
      "task_key": "TASK_KEY",
-     "parent_action": "ACTION_ID"
+     "parent_action": "ACTION_ID",
+     "args": {
+       "note_id": "NOTE_ID"
+     }
    })
    ```
 

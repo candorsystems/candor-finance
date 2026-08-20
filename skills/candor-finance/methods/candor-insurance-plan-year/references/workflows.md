@@ -16,31 +16,31 @@
    })
    candor_get({
      "operation": "merchants.list",
+     "reason": "Find insurance and care merchants",
+     "task_key": "TASK_KEY",
      "args": {
        "limit": 100
-     },
-     "reason": "Find insurance and care merchants",
-     "task_key": "TASK_KEY"
+     }
    })
    candor_get({
      "operation": "transactions.list",
+     "reason": "Inspect plan-year insurance spending",
+     "task_key": "TASK_KEY",
      "args": {
        "merchant": "MERCHANT",
        "since": "START",
        "until": "END",
        "limit": 100
-     },
-     "reason": "Inspect plan-year insurance spending",
-     "task_key": "TASK_KEY"
+     }
    })
    candor_get({
      "operation": "spending_categories.list",
+     "reason": "Inspect related plan-year spending categories",
+     "task_key": "TASK_KEY",
      "args": {
        "since": "START",
        "until": "END"
-     },
-     "reason": "Inspect related plan-year spending categories",
-     "task_key": "TASK_KEY"
+     }
    })
    ```
 
@@ -84,10 +84,10 @@ context.
    ```text
    candor_write({
      "operation": "notes.create",
-     "input": "<contents of NOTE.json>",
      "reason": "Track insurance renewal review",
      "task_key": "TASK_KEY",
-     "parent_action": "ACTION_ID"
+     "parent_action": "ACTION_ID",
+     "input": "<contents of NOTE.json>"
    })
    ```
 

@@ -14,30 +14,30 @@
    })
    candor_get({
      "operation": "transactions.get",
+     "reason": "Inspect the questioned transaction",
+     "task_key": "TASK_KEY",
      "args": {
        "transaction_id": "TRANSACTION_ID"
-     },
-     "reason": "Inspect the questioned transaction",
-     "task_key": "TASK_KEY"
+     }
    })
    candor_get({
      "operation": "merchants.list",
+     "reason": "Inspect merchant history around the questioned charge",
+     "task_key": "TASK_KEY",
      "args": {
        "limit": 100
-     },
-     "reason": "Inspect merchant history around the questioned charge",
-     "task_key": "TASK_KEY"
+     }
    })
    candor_get({
      "operation": "transactions.list",
+     "reason": "Compare nearby merchant charges",
+     "task_key": "TASK_KEY",
      "args": {
        "merchant": "MERCHANT",
        "since": "START",
        "until": "END",
        "limit": 100
-     },
-     "reason": "Compare nearby merchant charges",
-     "task_key": "TASK_KEY"
+     }
    })
    ```
 
@@ -59,10 +59,10 @@
    ```text
    candor_write({
      "operation": "notes.create",
-     "input": "<contents of NOTE.json>",
      "reason": "Track whether the questioned charge resolves",
      "task_key": "TASK_KEY",
-     "parent_action": "ACTION_ID"
+     "parent_action": "ACTION_ID",
+     "input": "<contents of NOTE.json>"
    })
    ```
 
@@ -91,21 +91,21 @@ outcome carries its re-check note.
    ```text
    candor_get({
      "operation": "transactions.list",
+     "reason": "Search for the expected credit",
+     "task_key": "TASK_KEY",
      "args": {
        "since": "START",
        "until": "END",
        "limit": 100
-     },
-     "reason": "Search for the expected credit",
-     "task_key": "TASK_KEY"
+     }
    })
    candor_get({
      "operation": "recurring.list",
+     "reason": "Check whether related billing continued",
+     "task_key": "TASK_KEY",
      "args": {
        "limit": 100
-     },
-     "reason": "Check whether related billing continued",
-     "task_key": "TASK_KEY"
+     }
    })
    ```
 
@@ -122,10 +122,10 @@ outcome carries its re-check note.
    })
    candor_write({
      "operation": "notes.create",
-     "input": "<contents of NOTE.json>",
      "reason": "Track the expected recovery outcome",
      "task_key": "TASK_KEY",
-     "parent_action": "ACTION_ID"
+     "parent_action": "ACTION_ID",
+     "input": "<contents of NOTE.json>"
    })
    ```
 
@@ -149,13 +149,13 @@ outcome carries its re-check note.
    through Aug 10, no caveats). Payroll deposits post as ACME PAYROLL;
    reimbursements have posted separately as ACME EXP.
 
-   **Recipe:** `candor_get({"operation":"transactions.list","args":{"since":"2026-08-10","until":"RUN_DATE","limit":100},"reason":"Re-check the expected Denver reimbursement","task_key":"TASK_KEY"})`, where RUN_DATE is the date you are
+   **Recipe:** `candor_get({"operation":"transactions.list","reason":"Re-check the expected Denver reimbursement","task_key":"TASK_KEY","args":{"since":"2026-08-10","until":"RUN_DATE","limit":100}})`, where RUN_DATE is the date you are
    executing this recipe, so a credit that posted after the expected window
    still counts. Pass each returned `next_cursor` as the next operation's
    `cursor` input until `has_more` is false before
    treating the deposit as absent. Match on direction and payer identity,
    then confirm the destination account and posted status with
-   `candor_get({"operation":"transactions.get","args":{"transaction_id":"TRANSACTION_ID"},"reason":"Confirm the matched deposit account","task_key":"TASK_KEY"})`. Do not match on amount alone. If
+   `candor_get({"operation":"transactions.get","reason":"Confirm the matched deposit account","task_key":"TASK_KEY","args":{"transaction_id":"TRANSACTION_ID"}})`. Do not match on amount alone. If
    absent, check the expense portal status before concluding it is missing.
 
    **Meaning:** Deposit matched and posted (`pending` is false) for the
@@ -197,12 +197,12 @@ described with coverage caveats.
    ```text
    candor_write({
      "operation": "notes.resolve",
-     "args": {
-       "note_id": "NOTE_ID"
-     },
      "reason": "Resolve verified recovery follow-up",
      "task_key": "TASK_KEY",
-     "parent_action": "ACTION_ID"
+     "parent_action": "ACTION_ID",
+     "args": {
+       "note_id": "NOTE_ID"
+     }
    })
    ```
 

@@ -17,31 +17,31 @@
    })
    candor_get({
      "operation": "spending_categories.list",
+     "reason": "Find health-related spending cues",
+     "task_key": "TASK_KEY",
      "args": {
        "since": "START",
        "until": "END"
-     },
-     "reason": "Find health-related spending cues",
-     "task_key": "TASK_KEY"
+     }
    })
    candor_get({
      "operation": "transactions.list",
+     "reason": "Inspect potential benefit expenses",
+     "task_key": "TASK_KEY",
      "args": {
        "category": "CATEGORY",
        "since": "START",
        "until": "END",
        "limit": 100
-     },
-     "reason": "Inspect potential benefit expenses",
-     "task_key": "TASK_KEY"
+     }
    })
    candor_get({
      "operation": "accounts.list",
+     "reason": "Inspect visible benefit account types",
+     "task_key": "TASK_KEY",
      "args": {
        "limit": 100
-     },
-     "reason": "Inspect visible benefit account types",
-     "task_key": "TASK_KEY"
+     }
    })
    ```
 
@@ -70,13 +70,13 @@ deadlines are separated and every conclusion is source-attributable.
    ```text
    candor_get({
      "operation": "transactions.list",
+     "reason": "Search for the expected benefit reimbursement",
+     "task_key": "TASK_KEY",
      "args": {
        "since": "START",
        "until": "END",
        "limit": 100
-     },
-     "reason": "Search for the expected benefit reimbursement",
-     "task_key": "TASK_KEY"
+     }
    })
    ```
 
@@ -90,10 +90,10 @@ deadlines are separated and every conclusion is source-attributable.
    })
    candor_write({
      "operation": "notes.create",
-     "input": "<contents of NOTE.json>",
      "reason": "Track benefit reimbursement follow-up",
      "task_key": "TASK_KEY",
-     "parent_action": "ACTION_ID"
+     "parent_action": "ACTION_ID",
+     "input": "<contents of NOTE.json>"
    })
    ```
 

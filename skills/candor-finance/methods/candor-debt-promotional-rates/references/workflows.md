@@ -14,19 +14,19 @@
    })
    candor_get({
      "operation": "accounts.list",
+     "reason": "Identify visible debt accounts",
+     "task_key": "TASK_KEY",
      "args": {
        "limit": 100
-     },
-     "reason": "Identify visible debt accounts",
-     "task_key": "TASK_KEY"
+     }
    })
    candor_get({
      "operation": "balances.list",
+     "reason": "Inspect current debt balances",
+     "task_key": "TASK_KEY",
      "args": {
        "limit": 100
-     },
-     "reason": "Inspect current debt balances",
-     "task_key": "TASK_KEY"
+     }
    })
    candor_get({
      "operation": "debts.list",
@@ -35,11 +35,11 @@
    })
    candor_query({
      "dataset": "account_terms",
+     "reason": "Inspect effective debt terms and provenance",
+     "task_key": "TASK_KEY",
      "filters": {
        "limit": 100
-     },
-     "reason": "Inspect effective debt terms and provenance",
-     "task_key": "TASK_KEY"
+     }
    })
    ```
 
@@ -54,27 +54,27 @@
    ```text
    candor_get({
      "operation": "account_terms.assertion.preview",
-     "input": "<contents of ASSERTION.json>",
      "reason": "Preview an approved debt-term correction",
-     "task_key": "TASK_KEY"
+     "task_key": "TASK_KEY",
+     "input": "<contents of ASSERTION.json>"
    })
    candor_write({
      "operation": "account_terms.assertion.set",
-     "input": "<contents of ASSERTION.json>",
      "reason": "Store an approved debt-term correction",
      "task_key": "TASK_KEY",
-     "parent_action": "ACTION_ID"
+     "parent_action": "ACTION_ID",
+     "input": "<contents of ASSERTION.json>"
    })
    candor_get({
      "operation": "account_terms.assertion.history",
+     "reason": "Verify debt-term assertion history",
+     "task_key": "TASK_KEY",
+     "parent_action": "ACTION_ID",
      "args": {
        "account_identity_id": "ACCOUNT_IDENTITY_ID",
        "field": "FIELD",
        "limit": 25
-     },
-     "reason": "Verify debt-term assertion history",
-     "task_key": "TASK_KEY",
-     "parent_action": "ACTION_ID"
+     }
    })
    ```
 
@@ -84,13 +84,13 @@
    ```text
    candor_write({
      "operation": "account_terms.assertion.revert",
+     "reason": "Revert the approved debt-term correction",
+     "task_key": "TASK_KEY",
+     "parent_action": "ACTION_ID",
      "args": {
        "account_identity_id": "ACCOUNT_IDENTITY_ID",
        "field": "FIELD"
-     },
-     "reason": "Revert the approved debt-term correction",
-     "task_key": "TASK_KEY",
-     "parent_action": "ACTION_ID"
+     }
    })
    ```
 4. Surface debts missing terms or balances rather than assigning defaults.
@@ -105,29 +105,29 @@ terms, and omitted obligations are explicit.
    ```text
    candor_get({
      "operation": "budget.context",
+     "reason": "Inspect approved cash constraints for debt scenarios",
+     "task_key": "TASK_KEY",
      "args": {
        "period": "PERIOD"
-     },
-     "reason": "Inspect approved cash constraints for debt scenarios",
-     "task_key": "TASK_KEY"
+     }
    })
    candor_get({
      "operation": "goals.list",
+     "reason": "Inspect goals that interact with debt payoff",
+     "task_key": "TASK_KEY",
      "args": {
        "limit": 100
-     },
-     "reason": "Inspect goals that interact with debt payoff",
-     "task_key": "TASK_KEY"
+     }
    })
    candor_get({
      "operation": "transactions.list",
+     "reason": "Inspect observed debt payments",
+     "task_key": "TASK_KEY",
      "args": {
        "since": "START",
        "until": "END",
        "limit": 100
-     },
-     "reason": "Inspect observed debt payments",
-     "task_key": "TASK_KEY"
+     }
    })
    ```
 
@@ -165,10 +165,10 @@ alternatives, material uncertainty, and cash-flow conflicts.
    })
    candor_write({
      "operation": "notes.create",
-     "input": "<contents of NOTE.json>",
      "reason": "Track a verified promotional debt deadline",
      "task_key": "TASK_KEY",
-     "parent_action": "ACTION_ID"
+     "parent_action": "ACTION_ID",
+     "input": "<contents of NOTE.json>"
    })
    ```
 

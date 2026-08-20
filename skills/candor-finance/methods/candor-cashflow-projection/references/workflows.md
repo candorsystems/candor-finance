@@ -19,11 +19,11 @@
    })
    candor_get({
      "operation": "balances.list",
+     "reason": "Read current balances as the projection starting point",
+     "task_key": "TASK_KEY",
      "args": {
        "limit": 50
-     },
-     "reason": "Read current balances as the projection starting point",
-     "task_key": "TASK_KEY"
+     }
    })
    ```
 
@@ -37,21 +37,21 @@
    ```text
    candor_get({
      "operation": "recurring.list",
+     "reason": "Collect recurring obligations and inflows for the projection horizon",
+     "task_key": "TASK_KEY",
      "args": {
        "limit": 100
-     },
-     "reason": "Collect recurring obligations and inflows for the projection horizon",
-     "task_key": "TASK_KEY"
+     }
    })
    candor_get({
      "operation": "transactions.list",
+     "reason": "Include pending and future-dated transactions",
+     "task_key": "TASK_KEY",
      "args": {
        "since": "TODAY",
        "until": "HORIZON_END",
        "limit": 100
-     },
-     "reason": "Include pending and future-dated transactions",
-     "task_key": "TASK_KEY"
+     }
    })
    candor_get({
      "operation": "debts.list",
@@ -60,21 +60,21 @@
    })
    candor_query({
      "dataset": "account_terms",
+     "reason": "Read liability due dates and minimum payments",
+     "task_key": "TASK_KEY",
      "filters": {
        "limit": 100
-     },
-     "reason": "Read liability due dates and minimum payments",
-     "task_key": "TASK_KEY"
+     }
    })
    candor_get({
      "operation": "notes.list",
+     "reason": "Recover saved expectations that fall inside the horizon",
+     "task_key": "TASK_KEY",
      "args": {
        "after": "HORIZON_START_ISO",
        "before": "HORIZON_END_ISO",
        "limit": 100
-     },
-     "reason": "Recover saved expectations that fall inside the horizon",
-     "task_key": "TASK_KEY"
+     }
    })
    ```
 
@@ -153,10 +153,10 @@ low point with its date, and the obligations it could not model.
    })
    candor_write({
      "operation": "notes.create",
-     "input": "<contents of NOTE.json>",
      "reason": "Record the planned expense and its projected effect",
      "task_key": "TASK_KEY",
-     "parent_action": "ACTION_ID"
+     "parent_action": "ACTION_ID",
+     "input": "<contents of NOTE.json>"
    })
    ```
 

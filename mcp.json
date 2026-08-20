@@ -2,7 +2,9 @@
   "$schema": "https://agent-plugins.org/schemas/1.0.0/mcp.schema.json",
   "mcpServers": {
     "candor": {
-      "headers": { "Candor-Agent-Package-Version": "0.1.28" },
+      "headers": {
+        "Candor-Agent-Package-Version": "0.1.29"
+      },
       "type": "streamable-http",
       "url": "https://api.candor.money/mcp"
     }

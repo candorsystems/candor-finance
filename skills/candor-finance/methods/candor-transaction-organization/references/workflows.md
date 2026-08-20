@@ -10,36 +10,36 @@
    ```text
    candor_get({
      "operation": "transactions.get",
+     "reason": "Inspect the transaction before correction",
+     "task_key": "TASK_KEY",
      "args": {
        "transaction_id": "TRANSACTION_ID"
-     },
-     "reason": "Inspect the transaction before correction",
-     "task_key": "TASK_KEY"
+     }
    })
    candor_get({
      "operation": "corrections.list",
+     "reason": "Inspect existing transaction corrections",
+     "task_key": "TASK_KEY",
      "args": {
        "transaction": "TRANSACTION_ID",
        "limit": 100
-     },
-     "reason": "Inspect existing transaction corrections",
-     "task_key": "TASK_KEY"
+     }
    })
    candor_get({
      "operation": "transactions.split.get",
+     "reason": "Inspect any existing split",
+     "task_key": "TASK_KEY",
      "args": {
        "transaction_id": "TRANSACTION_ID"
-     },
-     "reason": "Inspect any existing split",
-     "task_key": "TASK_KEY"
+     }
    })
    candor_get({
      "operation": "actions.list",
+     "reason": "Recover transaction interpretation history",
+     "task_key": "TASK_KEY",
      "args": {
        "limit": 100
-     },
-     "reason": "Recover transaction interpretation history",
-     "task_key": "TASK_KEY"
+     }
    })
    ```
 
@@ -59,13 +59,13 @@
    })
    candor_write({
      "operation": "corrections.create",
+     "reason": "Apply the user-approved transaction correction",
+     "task_key": "TASK_KEY",
+     "parent_action": "ACTION_ID",
      "args": {
        "transaction_id": "TRANSACTION_ID",
        "category": "CATEGORY"
-     },
-     "reason": "Apply the user-approved transaction correction",
-     "task_key": "TASK_KEY",
-     "parent_action": "ACTION_ID"
+     }
    })
    ```
 
@@ -88,10 +88,10 @@ and no unrelated field changed.
    ```text
    candor_write({
      "operation": "transactions.split.set",
-     "input": "<contents of SPLIT.json>",
      "reason": "Store the user-approved transaction split",
      "task_key": "TASK_KEY",
-     "parent_action": "ACTION_ID"
+     "parent_action": "ACTION_ID",
+     "input": "<contents of SPLIT.json>"
    })
    ```
 
@@ -108,22 +108,22 @@ approved draft.
    ```text
    candor_get({
      "operation": "transactions.list",
+     "reason": "Bound candidate rule matches",
+     "task_key": "TASK_KEY",
      "args": {
        "merchant": "MERCHANT",
        "since": "START",
        "until": "END",
        "limit": 100
-     },
-     "reason": "Bound candidate rule matches",
-     "task_key": "TASK_KEY"
+     }
    })
    candor_get({
      "operation": "rules.list",
+     "reason": "Inspect existing interpretation rules",
+     "task_key": "TASK_KEY",
      "args": {
        "limit": 100
-     },
-     "reason": "Inspect existing interpretation rules",
-     "task_key": "TASK_KEY"
+     }
    })
    ```
 
@@ -138,14 +138,14 @@ approved draft.
    ```text
    candor_write({
      "operation": "rules.preview",
+     "reason": "Preview the proposed rule scope",
+     "task_key": "TASK_KEY",
+     "parent_action": "ACTION_ID",
      "args": {
        "rule_id": "RULE_ID",
        "since": "START",
        "until": "END"
-     },
-     "reason": "Preview the proposed rule scope",
-     "task_key": "TASK_KEY",
-     "parent_action": "ACTION_ID"
+     }
    })
    ```
 
@@ -156,13 +156,13 @@ approved draft.
    ```text
    candor_write({
      "operation": "rules.apply",
+     "reason": "Apply the bounded user-authorized merchant rule",
+     "task_key": "TASK_KEY",
+     "parent_action": "ACTION_ID",
      "args": {
        "rule_id": "RULE_ID",
        "preview": "PREVIEW_ID"
-     },
-     "reason": "Apply the bounded user-authorized merchant rule",
-     "task_key": "TASK_KEY",
-     "parent_action": "ACTION_ID"
+     }
    })
    ```
 

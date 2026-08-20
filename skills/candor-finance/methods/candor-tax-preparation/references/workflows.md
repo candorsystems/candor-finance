@@ -15,12 +15,12 @@
    })
    candor_get({
      "operation": "transactions.summary",
+     "reason": "Bound tax-year transaction activity",
+     "task_key": "TASK_KEY",
      "args": {
        "since": "YEAR-01-01",
        "until": "YEAR-12-31"
-     },
-     "reason": "Bound tax-year transaction activity",
-     "task_key": "TASK_KEY"
+     }
    })
    ```
 
@@ -50,29 +50,29 @@ Query bounded candidate groups and inspect the exact underlying transactions:
 ```text
 candor_get({
   "operation": "transactions.list",
+  "reason": "Inspect tax-preparation candidates in the bounded year",
+  "task_key": "TASK_KEY",
   "args": {
     "since": "YEAR-01-01",
     "until": "YEAR-12-31",
     "limit": 100
-  },
-  "reason": "Inspect tax-preparation candidates in the bounded year",
-  "task_key": "TASK_KEY"
+  }
 })
 candor_get({
   "operation": "corrections.list",
+  "reason": "Inspect existing transaction interpretations before tax organization",
+  "task_key": "TASK_KEY",
   "args": {
     "limit": 100
-  },
-  "reason": "Inspect existing transaction interpretations before tax organization",
-  "task_key": "TASK_KEY"
+  }
 })
 candor_get({
   "operation": "rules.list",
+  "reason": "Inspect existing rules affecting tax-year records",
+  "task_key": "TASK_KEY",
   "args": {
     "limit": 100
-  },
-  "reason": "Inspect existing rules affecting tax-year records",
-  "task_key": "TASK_KEY"
+  }
 })
 ```
 
@@ -96,29 +96,29 @@ write:
 ```text
 candor_get({
   "operation": "transactions.get",
+  "reason": "Inspect a tax-preparation candidate before correction",
+  "task_key": "TASK_KEY",
   "args": {
     "transaction_id": "TRANSACTION_ID"
-  },
-  "reason": "Inspect a tax-preparation candidate before correction",
-  "task_key": "TASK_KEY"
+  }
 })
 candor_write({
   "operation": "corrections.create",
+  "reason": "Preserve the verified tax-record organization",
+  "task_key": "TASK_KEY",
+  "parent_action": "ACTION_ID",
   "args": {
     "transaction_id": "TRANSACTION_ID",
     "category": "CATEGORY"
-  },
-  "reason": "Preserve the verified tax-record organization",
-  "task_key": "TASK_KEY",
-  "parent_action": "ACTION_ID"
+  }
 })
 candor_get({
   "operation": "transactions.get",
+  "reason": "Verify the effective tax-record correction",
+  "task_key": "TASK_KEY",
   "args": {
     "transaction_id": "TRANSACTION_ID"
-  },
-  "reason": "Verify the effective tax-record correction",
-  "task_key": "TASK_KEY"
+  }
 })
 ```
 
@@ -132,10 +132,10 @@ Store unresolved substantiation as a linked note instead of a guessed category:
 ```text
 candor_write({
   "operation": "notes.create",
-  "input": "<contents of NOTE.json>",
   "reason": "Track missing tax-record substantiation",
   "task_key": "TASK_KEY",
-  "parent_action": "ACTION_ID"
+  "parent_action": "ACTION_ID",
+  "input": "<contents of NOTE.json>"
 })
 ```
 

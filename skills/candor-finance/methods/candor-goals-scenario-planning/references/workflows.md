@@ -12,35 +12,35 @@
    ```text
    candor_get({
      "operation": "goals.list",
+     "reason": "Inspect existing goals before drafting a new one",
+     "task_key": "TASK_KEY",
      "args": {
        "limit": 100
-     },
-     "reason": "Inspect existing goals before drafting a new one",
-     "task_key": "TASK_KEY"
+     }
    })
    candor_get({
      "operation": "balances.list",
+     "reason": "Inspect visible starting resources",
+     "task_key": "TASK_KEY",
      "args": {
        "limit": 100
-     },
-     "reason": "Inspect visible starting resources",
-     "task_key": "TASK_KEY"
+     }
    })
    candor_get({
      "operation": "budget.context",
+     "reason": "Inspect approved allocation constraints",
+     "task_key": "TASK_KEY",
      "args": {
        "period": "PERIOD"
-     },
-     "reason": "Inspect approved allocation constraints",
-     "task_key": "TASK_KEY"
+     }
    })
    candor_get({
      "operation": "recurring.list",
+     "reason": "Inspect recurring commitments",
+     "task_key": "TASK_KEY",
      "args": {
        "limit": 100
-     },
-     "reason": "Inspect recurring commitments",
-     "task_key": "TASK_KEY"
+     }
    })
    ```
 
@@ -61,10 +61,10 @@
    ```text
    candor_write({
      "operation": "goals.create",
-     "input": "<contents of GOAL.json>",
      "reason": "Store the user-approved goal",
      "task_key": "TASK_KEY",
-     "parent_action": "ACTION_ID"
+     "parent_action": "ACTION_ID",
+     "input": "<contents of GOAL.json>"
    })
    ```
 
@@ -78,27 +78,27 @@ work ends as an explicitly unapproved scenario.
    ```text
    candor_get({
      "operation": "goals.get",
+     "reason": "Inspect the current goal",
+     "task_key": "TASK_KEY",
      "args": {
        "goal_id": "GOAL_ID"
-     },
-     "reason": "Inspect the current goal",
-     "task_key": "TASK_KEY"
+     }
    })
    candor_get({
      "operation": "goals.history",
+     "reason": "Recover prior goal versions",
+     "task_key": "TASK_KEY",
      "args": {
        "goal_id": "GOAL_ID"
-     },
-     "reason": "Recover prior goal versions",
-     "task_key": "TASK_KEY"
+     }
    })
    candor_get({
      "operation": "actions.list",
+     "reason": "Recover goal decision context",
+     "task_key": "TASK_KEY",
      "args": {
        "limit": 100
-     },
-     "reason": "Recover goal decision context",
-     "task_key": "TASK_KEY"
+     }
    })
    ```
 

@@ -25,21 +25,21 @@ action id as `parent_action` when a later operation continues that action.
    })
    candor_get({
      "operation": "transactions.summary",
+     "reason": "Summarize observed cash flow",
+     "task_key": "TASK_KEY",
      "args": {
        "since": "START",
        "until": "END"
-     },
-     "reason": "Summarize observed cash flow",
-     "task_key": "TASK_KEY"
+     }
    })
    candor_get({
      "operation": "spending_categories.list",
+     "reason": "Inspect spending composition",
+     "task_key": "TASK_KEY",
      "args": {
        "since": "START",
        "until": "END"
-     },
-     "reason": "Inspect spending composition",
-     "task_key": "TASK_KEY"
+     }
    })
    ```
 
@@ -48,14 +48,14 @@ action id as `parent_action` when a later operation continues that action.
    ```text
    candor_get({
      "operation": "transactions.list",
+     "reason": "Verify CATEGORY cash-flow treatment",
+     "task_key": "TASK_KEY",
      "args": {
        "category": "CATEGORY",
        "since": "START",
        "until": "END",
        "limit": 100
-     },
-     "reason": "Verify CATEGORY cash-flow treatment",
-     "task_key": "TASK_KEY"
+     }
    })
    ```
 
@@ -78,11 +78,11 @@ classification policy, and evidence handles.
    ```text
    candor_get({
      "operation": "recurring.list",
+     "reason": "Inspect recurring cash obligations",
+     "task_key": "TASK_KEY",
      "args": {
        "limit": 100
-     },
-     "reason": "Inspect recurring cash obligations",
-     "task_key": "TASK_KEY"
+     }
    })
    candor_get({
      "operation": "debts.list",
@@ -91,19 +91,19 @@ classification policy, and evidence handles.
    })
    candor_get({
      "operation": "budget.context",
+     "reason": "Compare the approved budget with observed cash flow",
+     "task_key": "TASK_KEY",
      "args": {
        "period": "PERIOD"
-     },
-     "reason": "Compare the approved budget with observed cash flow",
-     "task_key": "TASK_KEY"
+     }
    })
    candor_get({
      "operation": "goals.list",
+     "reason": "Inspect approved goals competing for cash",
+     "task_key": "TASK_KEY",
      "args": {
        "limit": 100
-     },
-     "reason": "Inspect approved goals competing for cash",
-     "task_key": "TASK_KEY"
+     }
    })
    ```
 
@@ -134,10 +134,10 @@ existing goals, and the amount that remains unallocated in each currency.
    ```text
    candor_write({
      "operation": "budget.create",
-     "input": "<contents of BUDGET.json>",
      "reason": "Store the user-approved budget",
      "task_key": "TASK_KEY",
-     "parent_action": "ACTION_ID"
+     "parent_action": "ACTION_ID",
+     "input": "<contents of BUDGET.json>"
    })
    ```
 

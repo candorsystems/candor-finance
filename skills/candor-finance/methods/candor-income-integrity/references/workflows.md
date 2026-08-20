@@ -15,23 +15,23 @@
    })
    candor_get({
      "operation": "recurring.candidates",
+     "reason": "Inspect recurring income-shaped deposits",
+     "task_key": "TASK_KEY",
      "args": {
        "direction": "inflow",
        "cashflow_role": "income",
        "limit": 100
-     },
-     "reason": "Inspect recurring income-shaped deposits",
-     "task_key": "TASK_KEY"
+     }
    })
    candor_get({
      "operation": "transactions.list",
+     "reason": "Inspect exact deposits around the expected income dates",
+     "task_key": "TASK_KEY",
      "args": {
        "since": "START",
        "until": "END",
        "limit": 100
-     },
-     "reason": "Inspect exact deposits around the expected income dates",
-     "task_key": "TASK_KEY"
+     }
    })
    ```
 
@@ -51,12 +51,12 @@ Complete when the baseline is an observed series rather than an assumed payday.
    ```text
    candor_get({
      "operation": "transactions.summary",
+     "reason": "Compare observed income across the relevant cycles",
+     "task_key": "TASK_KEY",
      "args": {
        "since": "START",
        "until": "END"
-     },
-     "reason": "Compare observed income across the relevant cycles",
-     "task_key": "TASK_KEY"
+     }
    })
    candor_changes({
      "domain": "income",
@@ -92,10 +92,10 @@ candor_schema({
 })
 candor_write({
   "operation": "notes.create",
-  "input": "<contents of NOTE.json>",
   "reason": "Track the unresolved expected income",
   "task_key": "TASK_KEY",
-  "parent_action": "ACTION_ID"
+  "parent_action": "ACTION_ID",
+  "input": "<contents of NOTE.json>"
 })
 ```
 
@@ -115,11 +115,11 @@ outcome is observed:
 ```text
 candor_write({
   "operation": "notes.resolve",
-  "args": {
-    "note_id": "NOTE_ID"
-  },
   "reason": "Resolve the income check after verifying the outcome",
   "task_key": "TASK_KEY",
-  "parent_action": "ACTION_ID"
+  "parent_action": "ACTION_ID",
+  "args": {
+    "note_id": "NOTE_ID"
+  }
 })
 ```
