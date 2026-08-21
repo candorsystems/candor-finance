@@ -3,13 +3,13 @@ name: candor-finance
 description: "Use Candor for personal finance: organize the user's accounts and spending, remember approved budgets and goals, review investments, investigate possible savings, and keep evidence and follow-up together. Use when a task touches the user's money, financial records, prior decisions, or approved plans."
 compatibility: Requires an authenticated Candor workspace and either the Candor tools included with the installed package or Candor CLI 0.3.64 or newer.
 metadata:
-  candor-package-version: "0.1.29"
+  candor-package-version: "0.1.30"
   author: Candor
   version: "0.1.0"
-  candor-skill-version: "2026-08-16"
+  candor-skill-version: "2026-08-20"
   candor-cli: ">=0.3.64 <0.4.0"
   candor-introduced-in: "2026-07-23"
-  candor-updated-in: "2026-08-16"
+  candor-updated-in: "2026-08-20"
 ---
 
 ## Execute recipes through native MCP
@@ -22,7 +22,7 @@ pass its object inline. Call `candor_schema({ operation: "OPERATION_ID" })`
 before changing an unfamiliar projected call or when you need its full schema.
 
 If authenticated Candor MCP tools are not already available, get started at
-[https://candor.money/START.md?v=0.1.29](https://candor.money/START.md?v=0.1.29). Its live materials
+[https://candor.money/START.md?v=0.1.30](https://candor.money/START.md?v=0.1.30). Its live materials
 catalog helps you assemble a complete setup for the harness you actually use.
 
 Native packages identify their version and bootstrap route on each MCP request.
@@ -212,13 +212,18 @@ re-check note.
 
 ## First use and monitoring
 
-Account access and source connection use the secure links Candor returns.
-Subscription and payment changes happen only on secure Candor pages at
+Account access uses the secure links Candor returns. Financial-source
+connection, credential repair, and disconnection happen only in the signed-in
+Candor web portal; never attempt them through MCP or CLI. When the user asks to
+add, reconnect, or disconnect an account and Candor has not returned a more
+specific secure URL, direct them to
+[Candor Settings](https://app.candor.money/settings). Subscription and payment
+changes also happen only on secure Candor pages at
 `https://app.candor.money`. When Candor returns a `safe_url` or `recovery_url`,
-say what the user must complete and pass that exact link through verbatim; do
-not invent a billing URL or call a billing operation. Never ask the user to
-paste a credential, payment detail, or verification code into chat. Preserve
-an incomplete setup step's exact recovery action.
+say what the user must complete and pass that exact link through verbatim; it
+takes precedence over the default Settings link. Never ask the user to paste a
+credential, payment detail, or verification code into chat. Preserve an
+incomplete setup step's exact recovery action.
 
 Background monitoring is not authorized by setup or workspace access. Offer it
 only when relevant, and configure it only after the user explicitly accepts a

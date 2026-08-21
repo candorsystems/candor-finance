@@ -5,16 +5,16 @@ compatibility: Requires an authenticated Candor workspace and either the Candor 
 metadata:
   author: Candor
   version: 0.1.0
-  candor-skill-version: 2026-08-16
+  candor-skill-version: 2026-08-20
   candor-cli: ">=0.3.64 <0.4.0"
   candor-introduced-in: 2026-07-23
-  candor-updated-in: 2026-08-16
+  candor-updated-in: 2026-08-20
   openclaw:
-    homepage: https://candor.money/START.md?v=0.1.29
+    homepage: https://candor.money/START.md?v=0.1.30
     requires:
       bins:
         - candor
-homepage: https://candor.money/START.md?v=0.1.29
+homepage: https://candor.money/START.md?v=0.1.30
 ---
 
 ## Execute recipes through the Candor CLI
@@ -26,7 +26,7 @@ to the user. The Candor CLI also maintains a digest-verified copy under
 `~/.agents/skills` for its release preflight. OpenClaw resolves a same-named
 workspace or shared package first, so these CLI-backed copies are compatible
 and deterministic. If setup or the managed copy is incomplete, get started at
-[https://candor.money/START.md?v=0.1.29](https://candor.money/START.md?v=0.1.29) and use its official
+[https://candor.money/START.md?v=0.1.30](https://candor.money/START.md?v=0.1.30) and use its official
 OpenClaw materials before continuing.
 
 ClawHub distributes this skill at no charge under MIT-0. Operating the Candor
@@ -208,13 +208,18 @@ re-check note.
 
 ## First use and monitoring
 
-Account access and source connection use the secure links Candor returns.
-Subscription and payment changes happen only on secure Candor pages at
+Account access uses the secure links Candor returns. Financial-source
+connection, credential repair, and disconnection happen only in the signed-in
+Candor web portal; never attempt them through MCP or CLI. When the user asks to
+add, reconnect, or disconnect an account and Candor has not returned a more
+specific secure URL, direct them to
+[Candor Settings](https://app.candor.money/settings). Subscription and payment
+changes also happen only on secure Candor pages at
 `https://app.candor.money`. When Candor returns a `safe_url` or `recovery_url`,
-say what the user must complete and pass that exact link through verbatim; do
-not invent a billing URL or call a billing operation. Never ask the user to
-paste a credential, payment detail, or verification code into chat. Preserve
-an incomplete setup step's exact recovery action.
+say what the user must complete and pass that exact link through verbatim; it
+takes precedence over the default Settings link. Never ask the user to paste a
+credential, payment detail, or verification code into chat. Preserve an
+incomplete setup step's exact recovery action.
 
 Background monitoring is not authorized by setup or workspace access. Offer it
 only when relevant, and configure it only after the user explicitly accepts a
