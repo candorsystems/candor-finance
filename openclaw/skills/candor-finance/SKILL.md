@@ -5,16 +5,16 @@ compatibility: Requires an authenticated Candor workspace and either the Candor 
 metadata:
   author: Candor
   version: 0.1.0
-  candor-skill-version: 2026-08-20
+  candor-skill-version: 2026-08-25
   candor-cli: ">=0.3.64 <0.4.0"
   candor-introduced-in: 2026-07-23
-  candor-updated-in: 2026-08-20
+  candor-updated-in: 2026-08-25
   openclaw:
-    homepage: https://candor.money/START.md?v=0.1.30
+    homepage: https://candor.money/START.md?v=0.1.31
     requires:
       bins:
         - candor
-homepage: https://candor.money/START.md?v=0.1.30
+homepage: https://candor.money/START.md?v=0.1.31
 ---
 
 ## Execute recipes through the Candor CLI
@@ -26,7 +26,7 @@ to the user. The Candor CLI also maintains a digest-verified copy under
 `~/.agents/skills` for its release preflight. OpenClaw resolves a same-named
 workspace or shared package first, so these CLI-backed copies are compatible
 and deterministic. If setup or the managed copy is incomplete, get started at
-[https://candor.money/START.md?v=0.1.30](https://candor.money/START.md?v=0.1.30) and use its official
+[https://candor.money/START.md?v=0.1.31](https://candor.money/START.md?v=0.1.31) and use its official
 OpenClaw materials before continuing.
 
 ClawHub distributes this skill at no charge under MIT-0. Operating the Candor
@@ -67,7 +67,11 @@ moments.
 ## The shortest useful loop
 
 1. Open the workspace whenever money is in scope. Process new activity and due
-   follow-through before acknowledging the checkpoint.
+   follow-through before acknowledging the checkpoint. When this is the first
+   opening after setup, do not stop at connection proof: continue into the
+   finance method named by the user, or [`candor-financial-review`](methods/candor-financial-review/METHOD.md) when setup did
+   not name one. Due notes feed that method; they do not replace it. Do not ask
+   which review to begin.
 2. Choose one finance method before investigating. A broad, first, periodic, or
    life-event review routes directly to [`candor-financial-review`](methods/candor-financial-review/METHOD.md). When the
    request clearly maps to another method, read its linked method file directly;
@@ -220,6 +224,13 @@ say what the user must complete and pass that exact link through verbatim; it
 takes precedence over the default Settings link. Never ask the user to paste a
 credential, payment detail, or verification code into chat. Preserve an
 incomplete setup step's exact recovery action.
+
+The first useful financial result is part of setup completion. After the first
+successful opening, finish the user's requested finance method or the default
+[`candor-financial-review`](methods/candor-financial-review/METHOD.md) before sending the first substantive response. Lead
+with supported findings, coverage limits, and the best next move, with setup
+confirmation kept to one concise line. Never send an early ready message and a
+second connector-completion message for the same setup flow.
 
 Background monitoring is not authorized by setup or workspace access. Offer it
 only when relevant, and configure it only after the user explicitly accepts a
