@@ -14,8 +14,8 @@
      "task_key": "TASK_KEY"
    })
    candor_get({
-     "operation": "transactions.summary",
-     "reason": "Bound tax-year transaction activity",
+     "operation": "transactions.list",
+     "reason": "Read tax-year transaction activity",
      "task_key": "TASK_KEY",
      "args": {
        "since": "YEAR-01-01",
@@ -32,11 +32,6 @@
    candor_schema({
      "dataset": "transactions",
      "reason": "Inspect effective transaction fields for tax preparation",
-     "task_key": "TASK_KEY"
-   })
-   candor_schema({
-     "dataset": "spending_categories",
-     "reason": "Inspect category semantics for tax preparation",
      "task_key": "TASK_KEY"
    })
    ```

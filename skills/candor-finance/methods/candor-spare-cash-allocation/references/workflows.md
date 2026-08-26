@@ -42,7 +42,7 @@
 
    ```text
    candor_get({
-     "operation": "transactions.summary",
+     "operation": "transactions.list",
      "reason": "Estimate observed cash needs before allocation",
      "task_key": "TASK_KEY",
      "args": {

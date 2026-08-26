@@ -9,8 +9,7 @@
    ```sh
    candor coverage get --reason "Check card and transaction coverage" --task-key TASK_KEY
    candor accounts list --limit 100 --reason "Inventory visible card accounts" --task-key TASK_KEY
-   candor spending-categories list --since START --until END --reason "Summarize observed category spend" --task-key TASK_KEY
-   candor merchants list --limit 100 --reason "Inspect material merchant spend" --task-key TASK_KEY
+   candor transactions list --since START --until END --limit 100 --reason "Inspect category and merchant spend" --task-key TASK_KEY
    ```
 
 3. If the analysis requires assigning spend to a specific card, take that

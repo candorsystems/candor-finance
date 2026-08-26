@@ -10,11 +10,11 @@ metadata:
   candor-introduced-in: 2026-07-23
   candor-updated-in: 2026-08-25
   openclaw:
-    homepage: https://candor.money/START.md?v=0.1.32
+    homepage: https://candor.money/START.md?v=0.1.33
     requires:
       bins:
         - candor
-homepage: https://candor.money/START.md?v=0.1.32
+homepage: https://candor.money/START.md?v=0.1.33
 ---
 
 ## Execute recipes through the Candor CLI
@@ -26,7 +26,7 @@ to the user. The Candor CLI also maintains a digest-verified copy under
 `~/.agents/skills` for its release preflight. OpenClaw resolves a same-named
 workspace or shared package first, so these CLI-backed copies are compatible
 and deterministic. If setup or the managed copy is incomplete, get started at
-[https://candor.money/START.md?v=0.1.32](https://candor.money/START.md?v=0.1.32) and use its official
+[https://candor.money/START.md?v=0.1.33](https://candor.money/START.md?v=0.1.33) and use its official
 OpenClaw materials before continuing.
 
 ClawHub distributes this skill at no charge under MIT-0. Operating the Candor
@@ -77,8 +77,7 @@ moments.
    request clearly maps to another method, read its linked method file directly;
    scan the catalog only when routing is unclear. Do not preload adjacent methods.
 3. Follow that method. Check coverage and freshness, inspect the relevant
-   schema, and query a bounded window. Honor pagination and the reported query
-   population. If the
+   schema, and query a bounded window. Honor pagination. If the
    request is broad, its review method owns the small systematic sweep. Finish
    that sweep before choosing the first lead or reading a deeper method file.
 4. Establish what is true before ranking it. Look for a baseline, comparator,
@@ -94,17 +93,10 @@ If the records cannot answer a material question, state the practical limit in
 the user's terms and continue with what can be established. Never turn a data
 gap into a conclusion.
 
-Every bounded or pageable read teaches its effective contract in
-`query_scope`. Read `query_scope.query` as the operation Candor actually ran
-and the semantic arguments it applied, including defaults. Read
-`query_scope.population.included_count` as the matching source records
-represented or analyzed in this result, not the number of aggregate rows.
-`total_available_count` is the exact matching population before delivery
-limits and cursors when Candor knows it; `null` means unknown, never zero.
-Follow `next_actions` to continue a pageable read. A list can succeed while
-more pages remain; a derived total returns `partial_success` when its bounded
-source would change the story. Do not infer completeness from the returned
-array length.
+Every bounded read returns ordinary records and native pagination. Any totals
+in that response cover exactly those returned records. Follow `next_actions`
+for the exact next page, a larger or narrower rerun, or record details. Do not
+infer that later pages are represented in the current response.
 
 Candor keeps small responses inline. When any tool returns
 `delivery: "resource"`, inspect `data.delivery_options` and use exactly one

@@ -8,9 +8,8 @@
 
    ```sh
    candor coverage get --reason "Check insurance-review coverage" --task-key TASK_KEY
-   candor merchants list --limit 100 --reason "Find insurance and care merchants" --task-key TASK_KEY
+   candor transactions list --since START --until END --limit 100 --reason "Find insurance and care transactions" --task-key TASK_KEY
    candor transactions list --merchant MERCHANT --since START --until END --limit 100 --reason "Inspect plan-year insurance spending" --task-key TASK_KEY
-   candor spending-categories list --since START --until END --reason "Inspect related plan-year spending categories" --task-key TASK_KEY
    ```
 
 3. Separate premiums, observed out-of-pocket spending, reimbursements, refunds,

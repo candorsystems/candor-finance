@@ -62,7 +62,7 @@ times, currencies, and coverage gaps without calling any amount idle.
 
    ```text
    candor_get({
-     "operation": "transactions.summary",
+     "operation": "transactions.list",
      "reason": "Estimate observed cash needs",
      "task_key": "TASK_KEY",
      "args": {

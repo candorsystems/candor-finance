@@ -30,7 +30,7 @@ times, currencies, and coverage gaps without calling any amount idle.
    budgets, and goals:
 
    ```sh
-   candor transactions summary --since START --until END --reason "Estimate observed cash needs" --task-key TASK_KEY
+   candor transactions list --since START --until END --reason "Estimate observed cash needs" --task-key TASK_KEY
    candor recurring list --limit 100 --reason "Inspect recurring cash commitments" --task-key TASK_KEY
    candor debts list --reason "Inspect visible debt obligations" --task-key TASK_KEY
    candor budget context --period PERIOD --reason "Inspect approved cash allocations" --task-key TASK_KEY

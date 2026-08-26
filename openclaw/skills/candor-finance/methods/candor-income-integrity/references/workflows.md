@@ -25,7 +25,7 @@ Complete when the baseline is an observed series rather than an assumed payday.
 1. Compare the expected cycle with prior cycles:
 
    ```sh
-   candor transactions summary --since START --until END --reason "Compare observed income across the relevant cycles" --task-key TASK_KEY
+   candor transactions list --since START --until END --reason "Compare observed income across the relevant cycles" --task-key TASK_KEY
    candor changes list --domain income --limit 100 --reason "Inspect recent changes affecting the expected payment" --task-key TASK_KEY
    ```
 

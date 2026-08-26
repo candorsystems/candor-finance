@@ -9,7 +9,6 @@ and jurisdictional rules before applying them to the user.
 ## Datasets
 
 - `transactions`
-- `spending_categories`
 - `accounts`
 - `goals`
 

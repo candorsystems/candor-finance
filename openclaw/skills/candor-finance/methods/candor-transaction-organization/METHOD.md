@@ -7,7 +7,6 @@ justifies a broader normalization rule.
 ## Datasets
 
 - `transactions`
-- `merchants`
 - `rules`
 - `actions`
 

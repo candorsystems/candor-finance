@@ -10,7 +10,6 @@ or of the user's desire to cancel a service.
 
 - `recurring`
 - `transactions`
-- `merchants`
 - `changes`
 - `actions`
 - `account_terms`

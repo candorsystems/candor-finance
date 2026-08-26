@@ -23,19 +23,12 @@
      }
    })
    candor_get({
-     "operation": "spending_categories.list",
-     "reason": "Summarize observed category spend",
+     "operation": "transactions.list",
+     "reason": "Inspect category and merchant spend",
      "task_key": "TASK_KEY",
      "args": {
        "since": "START",
-       "until": "END"
-     }
-   })
-   candor_get({
-     "operation": "merchants.list",
-     "reason": "Inspect material merchant spend",
-     "task_key": "TASK_KEY",
-     "args": {
+       "until": "END",
        "limit": 100
      }
    })

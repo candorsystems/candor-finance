@@ -11,7 +11,6 @@ effective result.
 
 - `coverage`
 - `transactions`
-- `merchants`
 - `recurring`
 - `rules`
 - `changes`

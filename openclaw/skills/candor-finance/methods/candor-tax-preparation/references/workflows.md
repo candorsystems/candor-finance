@@ -7,7 +7,7 @@
    ```sh
    candor open
    candor coverage get --reason "Verify account coverage for the requested tax year" --task-key TASK_KEY
-   candor transactions summary --since YEAR-01-01 --until YEAR-12-31 --reason "Bound tax-year transaction activity" --task-key TASK_KEY
+   candor transactions list --since YEAR-01-01 --until YEAR-12-31 --reason "Read tax-year transaction activity" --task-key TASK_KEY
    ```
 
 2. Identify excluded accounts, missing periods, stale connections, unsupported
@@ -16,7 +16,6 @@
 
    ```sh
    candor data schema transactions --reason "Inspect effective transaction fields for tax preparation" --task-key TASK_KEY
-   candor data schema spending_categories --reason "Inspect category semantics for tax preparation" --task-key TASK_KEY
    ```
 
 Complete when the packet has a defensible period and account boundary.

@@ -7,8 +7,6 @@ the user's priorities or silently turning a scenario into a budget.
 ## Datasets
 
 - `transactions`
-- `spending_categories`
-- `merchants`
 - `balances`
 - `budgets`
 - `goals`

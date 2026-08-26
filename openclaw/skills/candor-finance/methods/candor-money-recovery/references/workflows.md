@@ -7,7 +7,6 @@
    ```sh
    candor coverage get --reason "Check transaction coverage for the recovery review" --task-key TASK_KEY
    candor transactions get TRANSACTION_ID --reason "Inspect the questioned transaction" --task-key TASK_KEY
-   candor merchants list --limit 100 --reason "Inspect merchant history around the questioned charge" --task-key TASK_KEY
    candor transactions list --merchant MERCHANT --since START --until END --limit 100 --reason "Compare nearby merchant charges" --task-key TASK_KEY
    ```
 

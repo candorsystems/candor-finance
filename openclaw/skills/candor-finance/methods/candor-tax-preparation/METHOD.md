@@ -7,8 +7,6 @@ activity, user-supplied purpose, and professional tax conclusions.
 ## Datasets
 
 - `transactions`
-- `merchants`
-- `spending_categories`
 - `rules`
 - `coverage`
 - `actions`

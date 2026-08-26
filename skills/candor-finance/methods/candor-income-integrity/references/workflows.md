@@ -50,7 +50,7 @@ Complete when the baseline is an observed series rather than an assumed payday.
 
    ```text
    candor_get({
-     "operation": "transactions.summary",
+     "operation": "transactions.list",
      "reason": "Compare observed income across the relevant cycles",
      "task_key": "TASK_KEY",
      "args": {

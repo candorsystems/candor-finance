@@ -21,14 +21,6 @@
      }
    })
    candor_get({
-     "operation": "merchants.list",
-     "reason": "Inspect merchant history around the questioned charge",
-     "task_key": "TASK_KEY",
-     "args": {
-       "limit": 100
-     }
-   })
-   candor_get({
      "operation": "transactions.list",
      "reason": "Compare nearby merchant charges",
      "task_key": "TASK_KEY",

@@ -15,10 +15,12 @@
      "task_key": "TASK_KEY"
    })
    candor_get({
-     "operation": "merchants.list",
-     "reason": "Find insurance and care merchants",
+     "operation": "transactions.list",
+     "reason": "Find insurance and care transactions",
      "task_key": "TASK_KEY",
      "args": {
+       "since": "START",
+       "until": "END",
        "limit": 100
      }
    })
@@ -31,15 +33,6 @@
        "since": "START",
        "until": "END",
        "limit": 100
-     }
-   })
-   candor_get({
-     "operation": "spending_categories.list",
-     "reason": "Inspect related plan-year spending categories",
-     "task_key": "TASK_KEY",
-     "args": {
-       "since": "START",
-       "until": "END"
      }
    })
    ```

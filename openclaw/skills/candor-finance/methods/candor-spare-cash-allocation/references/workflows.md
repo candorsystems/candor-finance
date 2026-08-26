@@ -17,7 +17,7 @@
 3. Inspect obligations and approved state:
 
    ```sh
-   candor transactions summary --since START --until END --reason "Estimate observed cash needs before allocation" --task-key TASK_KEY
+   candor transactions list --since START --until END --reason "Estimate observed cash needs before allocation" --task-key TASK_KEY
    candor recurring list --limit 100 --reason "Inspect recurring commitments before allocation" --task-key TASK_KEY
    candor budget status --period PERIOD --reason "Inspect approved budget commitments before allocation" --task-key TASK_KEY
    candor goals list --limit 100 --reason "Inspect approved goals before allocation" --task-key TASK_KEY

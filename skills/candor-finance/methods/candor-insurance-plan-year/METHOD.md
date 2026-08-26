@@ -9,7 +9,6 @@ coverage scenarios.
 ## Datasets
 
 - `transactions`
-- `merchants`
 - `goals`
 
 ## Workspace resources

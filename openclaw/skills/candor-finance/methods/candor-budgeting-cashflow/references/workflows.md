@@ -13,8 +13,7 @@ action id as `parent_action` when a later operation continues that action.
    ```sh
    candor coverage get --reason "Check coverage for the cash-flow period" --task-key TASK_KEY
    candor data schema transactions --reason "Inspect transaction fields and filters" --task-key TASK_KEY
-   candor transactions summary --since START --until END --reason "Summarize observed cash flow" --task-key TASK_KEY
-   candor spending-categories list --since START --until END --reason "Inspect spending composition" --task-key TASK_KEY
+   candor transactions list --since START --until END --reason "Read observed cash flow" --task-key TASK_KEY
    ```
 
 3. Drill into material or ambiguous categories with bounded pages:

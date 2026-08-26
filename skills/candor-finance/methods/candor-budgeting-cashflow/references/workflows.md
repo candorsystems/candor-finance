@@ -24,17 +24,8 @@ action id as `parent_action` when a later operation continues that action.
      "task_key": "TASK_KEY"
    })
    candor_get({
-     "operation": "transactions.summary",
-     "reason": "Summarize observed cash flow",
-     "task_key": "TASK_KEY",
-     "args": {
-       "since": "START",
-       "until": "END"
-     }
-   })
-   candor_get({
-     "operation": "spending_categories.list",
-     "reason": "Inspect spending composition",
+     "operation": "transactions.list",
+     "reason": "Read observed cash flow",
      "task_key": "TASK_KEY",
      "args": {
        "since": "START",

@@ -16,12 +16,13 @@
      "task_key": "TASK_KEY"
    })
    candor_get({
-     "operation": "spending_categories.list",
+     "operation": "transactions.list",
      "reason": "Find health-related spending cues",
      "task_key": "TASK_KEY",
      "args": {
        "since": "START",
-       "until": "END"
+       "until": "END",
+       "limit": 100
      }
    })
    candor_get({

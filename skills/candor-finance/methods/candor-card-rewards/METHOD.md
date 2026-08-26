@@ -10,8 +10,6 @@ credit decision to reward value alone.
 
 - `accounts`
 - `transactions`
-- `spending_categories`
-- `merchants`
 
 ## Workspace resources
 

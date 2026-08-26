@@ -7,7 +7,6 @@ a hypothesis into a claim that money is owed or recovered.
 ## Datasets
 
 - `transactions`
-- `merchants`
 - `recurring`
 - `changes`
 - `actions`

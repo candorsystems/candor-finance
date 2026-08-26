@@ -9,7 +9,7 @@
 
    ```sh
    candor coverage get --reason "Check benefit-review coverage" --task-key TASK_KEY
-   candor spending-categories list --since START --until END --reason "Find health-related spending cues" --task-key TASK_KEY
+   candor transactions list --since START --until END --limit 100 --reason "Find health-related spending cues" --task-key TASK_KEY
    candor transactions list --category CATEGORY --since START --until END --limit 100 --reason "Inspect potential benefit expenses" --task-key TASK_KEY
    candor accounts list --limit 100 --reason "Inspect visible benefit account types" --task-key TASK_KEY
    ```
