@@ -3,7 +3,7 @@ name: candor-finance
 description: "Use Candor for personal finance: organize the user's accounts and spending, remember approved budgets and goals, review investments, investigate possible savings, and keep evidence and follow-up together. Use when a task touches the user's money, financial records, prior decisions, or approved plans."
 compatibility: Requires an authenticated Candor workspace and either the Candor tools included with the installed package or Candor CLI 0.3.64 or newer.
 metadata:
-  candor-package-version: "0.1.31"
+  candor-package-version: "0.1.32"
   author: Candor
   version: "0.1.0"
   candor-skill-version: "2026-08-25"
@@ -22,7 +22,7 @@ pass its object inline. Call `candor_schema({ operation: "OPERATION_ID" })`
 before changing an unfamiliar projected call or when you need its full schema.
 
 If authenticated Candor MCP tools are not already available, get started at
-[https://candor.money/START.md?v=0.1.31](https://candor.money/START.md?v=0.1.31). Its live materials
+[https://candor.money/START.md?v=0.1.32](https://candor.money/START.md?v=0.1.32). Its live materials
 catalog helps you assemble a complete setup for the harness you actually use.
 
 Native packages identify their version and bootstrap route on each MCP request.
@@ -79,7 +79,8 @@ moments.
    request clearly maps to another method, read its linked method file directly;
    scan the catalog only when routing is unclear. Do not preload adjacent methods.
 3. Follow that method. Check coverage and freshness, inspect the relevant
-   schema, and query a bounded window. Honor pagination and truncation. If the
+   schema, and query a bounded window. Honor pagination and the reported query
+   population. If the
    request is broad, its review method owns the small systematic sweep. Finish
    that sweep before choosing the first lead or reading a deeper method file.
 4. Establish what is true before ranking it. Look for a baseline, comparator,
@@ -94,6 +95,18 @@ moments.
 If the records cannot answer a material question, state the practical limit in
 the user's terms and continue with what can be established. Never turn a data
 gap into a conclusion.
+
+Every bounded or pageable read teaches its effective contract in
+`query_scope`. Read `query_scope.query` as the operation Candor actually ran
+and the semantic arguments it applied, including defaults. Read
+`query_scope.population.included_count` as the matching source records
+represented or analyzed in this result, not the number of aggregate rows.
+`total_available_count` is the exact matching population before delivery
+limits and cursors when Candor knows it; `null` means unknown, never zero.
+Follow `next_actions` to continue a pageable read. A list can succeed while
+more pages remain; a derived total returns `partial_success` when its bounded
+source would change the story. Do not infer completeness from the returned
+array length.
 
 Candor keeps small responses inline. When any tool returns
 `delivery: "resource"`, inspect `data.delivery_options` and use exactly one

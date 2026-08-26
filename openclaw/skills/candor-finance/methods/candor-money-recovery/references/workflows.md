@@ -93,8 +93,8 @@ outcome carries its re-check note.
    RUN_DATE --limit 100 --reason "Re-check the expected Denver
    reimbursement" --task-key TASK_KEY`, where RUN_DATE is the date you are
    executing this recipe, so a credit that posted after the expected window
-   still counts. Pass each returned `next_cursor` as the next operation's
-   `cursor` input until `has_more` is false before
+   still counts. Pass each returned `pagination.next_cursor` as the next
+   operation's `cursor` input until `pagination.has_more` is false before
    treating the deposit as absent. Match on direction and payer identity,
    then confirm the destination account and posted status with
    `candor transactions get TRANSACTION_ID --reason "Confirm the matched

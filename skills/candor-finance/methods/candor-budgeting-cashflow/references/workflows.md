@@ -59,7 +59,8 @@ action id as `parent_action` when a later operation continues that action.
    })
    ```
 
-   Follow returned cursors until the relevant bounded population is covered.
+   Follow `pagination.next_cursor` until `pagination.has_more` is false for
+   every pageable read before treating the relevant population as covered.
 4. Classify inflows, operating outflows, transfers, refunds, debt payments, and
    one-time items separately. Do not count both sides of an internal transfer.
    Net a refund only against the expense it actually reverses.

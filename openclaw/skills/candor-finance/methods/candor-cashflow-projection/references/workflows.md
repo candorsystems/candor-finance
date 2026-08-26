@@ -32,10 +32,11 @@
    Saved expectations only reuse themselves if you read them. A planned
    purchase or expected bonus recorded on an earlier run lives in notes, not in
    recurring items, and omitting it makes the projection optimistic. Bound the
-   read to the horizon with the `after` and `before` inputs. This read reports
-   `truncated` but offers no cursor, so if it is still truncated, narrow the
-   horizon or say which expectations you could not confirm rather than
-   projecting over an unknown remainder.
+   read to the horizon with the `after` and `before` inputs. Compare
+   `query_scope.population.included_count` with `total_available_count`. When
+   the total is `null` and the status is `partial_success`, narrow the horizon
+   or say which expectations you could not confirm rather than projecting over
+   an unknown remainder.
 
    `debts list` enriches visible balances with effective due dates, APRs, and
    minimums where known. Use `account_terms` for field-level provenance and

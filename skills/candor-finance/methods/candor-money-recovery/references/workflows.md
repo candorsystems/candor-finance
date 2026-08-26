@@ -151,8 +151,8 @@ outcome carries its re-check note.
 
    **Recipe:** `candor_get({"operation":"transactions.list","reason":"Re-check the expected Denver reimbursement","task_key":"TASK_KEY","args":{"since":"2026-08-10","until":"RUN_DATE","limit":100}})`, where RUN_DATE is the date you are
    executing this recipe, so a credit that posted after the expected window
-   still counts. Pass each returned `next_cursor` as the next operation's
-   `cursor` input until `has_more` is false before
+   still counts. Pass each returned `pagination.next_cursor` as the next
+   operation's `cursor` input until `pagination.has_more` is false before
    treating the deposit as absent. Match on direction and payer identity,
    then confirm the destination account and posted status with
    `candor_get({"operation":"transactions.get","reason":"Confirm the matched deposit account","task_key":"TASK_KEY","args":{"transaction_id":"TRANSACTION_ID"}})`. Do not match on amount alone. If

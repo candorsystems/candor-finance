@@ -106,9 +106,9 @@ could change the target, money, dates, or coverage.
 
 3. Compare canonical account ownership, holding identity, quantities when
    present, values, dates when known, currencies, transaction descriptions, and
-   record counts to the approved preview. Follow each returned `next_cursor`
-   until `has_more` is false before declaring the account complete. Report
-   exceptions in user terms.
+   record counts to the approved preview. Follow each returned
+   `pagination.next_cursor` until `pagination.has_more` is false before
+   declaring the account complete. Report exceptions in user terms.
 
 Complete only when the separate read matches the approved preview.
 

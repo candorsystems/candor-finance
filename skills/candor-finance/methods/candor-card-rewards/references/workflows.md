@@ -59,10 +59,10 @@
    })
    ```
 
-   Follow every returned cursor until `has_more` is false before treating the
-   period as complete. If the card is not visible or its transaction coverage
-   is insufficient, do not allocate aggregate spend to it; ask for another
-   source or present an aggregate scenario.
+   Follow `pagination.next_cursor` until `pagination.has_more` is false before
+   treating the period as complete. If the card is not visible or its
+   transaction coverage is insufficient, do not allocate aggregate spend to
+   it; ask for another source or present an aggregate scenario.
 
 Complete when card identities, observed spend, currencies, account assignment,
 and coverage gaps are explicit.
