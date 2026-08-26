@@ -1,13 +1,13 @@
 ---
 name: candor-finance
 description: "Use Candor for personal finance: organize the user's accounts and spending, remember approved budgets and goals, review investments, investigate possible savings, and keep evidence and follow-up together. Use when a task touches the user's money, financial records, prior decisions, or approved plans."
-compatibility: Requires an authenticated Candor workspace and either the Candor tools included with the installed package or Candor CLI 0.3.75 or newer.
+compatibility: Requires an authenticated Candor workspace and either the Candor tools included with the installed package or Candor CLI 0.3.76 or newer.
 metadata:
-  candor-package-version: "0.1.34"
+  candor-package-version: "0.1.35"
   author: Candor
   version: "0.1.0"
   candor-skill-version: "2026-08-26"
-  candor-cli: ">=0.3.75 <0.4.0"
+  candor-cli: ">=0.3.76 <0.4.0"
   candor-introduced-in: "2026-07-23"
   candor-updated-in: "2026-08-26"
 ---
@@ -22,7 +22,7 @@ pass its object inline. Call `candor_schema({ operation: "OPERATION_ID" })`
 before changing an unfamiliar projected call or when you need its full schema.
 
 If authenticated Candor MCP tools are not already available, get started at
-[https://candor.money/START.md?v=0.1.34](https://candor.money/START.md?v=0.1.34). Its live materials
+[https://candor.money/START.md?v=0.1.35](https://candor.money/START.md?v=0.1.35). Its live materials
 catalog helps you assemble a complete setup for the harness you actually use.
 
 Native packages identify their version and bootstrap route on each MCP request.
@@ -97,9 +97,11 @@ gap into a conclusion.
 
 Every bounded read returns compact working records and native pagination. Use
 the matching detail operation only for records that need deeper evidence. Any
-`page_totals` cover exactly the records on that page, never later pages or the
-whole requested window. Follow `next_actions` for the exact continuation. Do
-not infer that later pages are represented in the current response.
+cursor-based read keeps its records, deterministic calculations, and
+pagination together under `data.page`. Calculations cover exactly the records
+in that page, never later pages or the whole requested window. Follow
+`next_actions` for the exact continuation. Do not infer that later pages are
+represented in the current response.
 
 Candor keeps small responses inline. When any tool returns
 `delivery: "resource"`, inspect `data.delivery_options` and use exactly one
