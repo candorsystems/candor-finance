@@ -1,13 +1,13 @@
 ---
 name: candor-finance
 description: "Use Candor for personal finance: organize the user's accounts and spending, remember approved budgets and goals, review investments, investigate possible savings, and keep evidence and follow-up together. Use when a task touches the user's money, financial records, prior decisions, or approved plans."
-compatibility: Requires an authenticated Candor workspace and either the Candor tools included with the installed package or Candor CLI 0.3.76 or newer.
+compatibility: Requires an authenticated Candor workspace and either the Candor tools included with the installed package or Candor CLI 0.3.77 or newer.
 metadata:
-  candor-package-version: "0.1.35"
+  candor-package-version: "0.1.36"
   author: Candor
   version: "0.1.0"
   candor-skill-version: "2026-08-26"
-  candor-cli: ">=0.3.76 <0.4.0"
+  candor-cli: ">=0.3.77 <0.4.0"
   candor-introduced-in: "2026-07-23"
   candor-updated-in: "2026-08-26"
 ---
@@ -22,7 +22,7 @@ pass its object inline. Call `candor_schema({ operation: "OPERATION_ID" })`
 before changing an unfamiliar projected call or when you need its full schema.
 
 If authenticated Candor MCP tools are not already available, get started at
-[https://candor.money/START.md?v=0.1.35](https://candor.money/START.md?v=0.1.35). Its live materials
+[https://candor.money/START.md?v=0.1.36](https://candor.money/START.md?v=0.1.36). Its live materials
 catalog helps you assemble a complete setup for the harness you actually use.
 
 Native packages identify their version and bootstrap route on each MCP request.
@@ -68,27 +68,30 @@ moments.
 
 ## The shortest useful loop
 
-1. Open the workspace whenever money is in scope. Process new activity and due
-   follow-through before acknowledging the checkpoint. When this is the first
-   opening after setup, do not stop at connection proof: continue into the
-   finance method named by the user, or [`candor-financial-review`](methods/candor-financial-review/METHOD.md) when setup did
-   not name one. Due notes feed that method; they do not replace it. Do not ask
-   which review to begin.
-2. Choose one finance method before investigating. A broad, first, periodic, or
-   life-event review routes directly to [`candor-financial-review`](methods/candor-financial-review/METHOD.md). When the
-   request clearly maps to another method, read its linked method file directly;
-   scan the catalog only when routing is unclear. Do not preload adjacent methods.
-3. Follow that method. Check coverage and freshness, inspect the relevant
-   schema, and query a bounded window. Honor pagination. If the
-   request is broad, its review method owns the small systematic sweep. Finish
-   that sweep before choosing the first lead or reading a deeper method file.
-4. Establish what is true before ranking it. Look for a baseline, comparator,
-   or counterevidence; separate supported findings from unresolved questions
-   and ordinary context.
-5. Preserve only useful continuity: approved structured records where they
-   help, and a linked timed note for a real unfinished outcome.
-6. Answer with exact amounts, dates, people, merchants, uncertainty, and next
-   steps. Keep ids, provider names, commands, skill names, files, and workspace
+1. Open the workspace whenever money is in scope. Treat its direct fields as
+   your working orientation: `agent_context`, `context_needed`,
+   `financial_position`, `approved_state`, `new_since_checkpoint`, and
+   `attention`. Do not turn the opening itself into a daily report.
+2. Fulfill the user's request when one is active. Otherwise, use the recorded
+   context to choose one plausibly material factual lead and run one bounded
+   read-only Candor investigation. You do not need permission for that
+   investigation. Do not run a broad review merely because this is the first
+   opening.
+3. Use `context_needed` intelligently, not as a global gate. If one missing
+   topic would materially improve the current or likely next decision, ask one
+   natural question. Continue with what is knowable when it would not.
+4. When the request or surviving evidence maps to a finance method, read that
+   method and follow it. A broad, periodic, or life-event review routes to
+   [`candor-financial-review`](methods/candor-financial-review/METHOD.md); do not preload adjacent methods.
+5. Establish what is true before ranking it. Check coverage and freshness,
+   inspect the relevant schema, query a bounded window, honor pagination, and
+   look for a baseline, comparator, or counterevidence.
+6. After deliberately processing the exact opening, acknowledge its returned
+   checkpoint. Acknowledgement marks activity as seen; it does not resolve
+   attention or consume due notes.
+7. Preserve only useful continuity, then answer with exact amounts, dates,
+   people, merchants, uncertainty, and the useful implication for this user.
+   Keep ids, provider names, commands, skill names, files, and workspace
    mechanics in your working context.
 
 If the records cannot answer a material question, state the practical limit in
@@ -201,6 +204,14 @@ Private working notes do not themselves perform an external financial action,
 but they never create authority and must not silently assert an unconfirmed
 user preference.
 
+Use composable context notes for durable user context that future agents should
+receive on every opening. Tag the note with one or more exact topics returned by
+`context_needed`. An explicit user statement is enough to create or update that
+private context note; do not ask for a second confirmation. If the statement is
+ambiguous or you would be inferring a preference, ask first. Update or resolve
+the same note when the context changes. Do not tag ordinary working notes merely
+to make them prominent.
+
 When you or the user acts on a specific supported financial benefit, create one
 evidence-linked impact and update that same impact as the action and outcome
 develop. Keep potential and realized value separate; never annualize or blend
@@ -211,8 +222,9 @@ re-check note.
 
 - An explicit request to handle, fix, clean up, or organize a bounded area
   covers the inspected reversible workspace writebacks needed to complete it.
-- Confirm goals, priorities, risk tolerance, and other choices that reflect the
-  user's values.
+- An explicit user statement is sufficient authority to record the same
+  preference-bearing context or approved Candor state; do not add a second
+  confirmation step. Ask when the meaning or intended persistence is unclear.
 - Private agent working notes are memory, not evidence or authority. Confirm
   any user preference or financial intent before representing it as approved.
 - External payments, transfers, purchases, cancellations, applications,
@@ -238,11 +250,12 @@ credential, payment detail, or verification code into chat. Preserve an
 incomplete setup step's exact recovery action.
 
 The first useful financial result is part of setup completion. After the first
-successful opening, finish the user's requested finance method or the default
-[`candor-financial-review`](methods/candor-financial-review/METHOD.md) before sending the first substantive response. Lead
-with supported findings, coverage limits, and the best next move, with setup
-confirmation kept to one concise line. Never send an early ready message and a
-second connector-completion message for the same setup flow.
+successful opening, finish the user's requested finance method. If setup named
+no financial task, orient from the opening and investigate one contextually
+material factual lead instead of forcing a broad review or sending a workspace
+report. Lead with the supported implication, coverage limits, and best next
+move, with setup confirmation kept to one concise line. Never send an early
+ready message and a second connector-completion message for the same setup flow.
 
 Background monitoring is not authorized by setup or workspace access. Offer it
 only when relevant, and configure it only after the user explicitly accepts a
