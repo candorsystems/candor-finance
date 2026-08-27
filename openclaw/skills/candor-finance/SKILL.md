@@ -1,20 +1,20 @@
 ---
 name: candor-finance
 description: "Use Candor for personal finance: organize the user's accounts and spending, remember approved budgets and goals, review investments, investigate possible savings, and keep evidence and follow-up together. Use when a task touches the user's money, financial records, prior decisions, or approved plans."
-compatibility: Requires an authenticated Candor workspace and either the Candor tools included with the installed package or Candor CLI 0.3.77 or newer.
+compatibility: Requires an authenticated Candor workspace and either the Candor tools included with the installed package or Candor CLI 0.3.78 or newer.
 metadata:
   author: Candor
   version: 0.1.0
-  candor-skill-version: 2026-08-26
-  candor-cli: ">=0.3.77 <0.4.0"
+  candor-skill-version: 2026-08-27
+  candor-cli: ">=0.3.78 <0.4.0"
   candor-introduced-in: 2026-07-23
-  candor-updated-in: 2026-08-26
+  candor-updated-in: 2026-08-27
   openclaw:
-    homepage: https://candor.money/START.md?v=0.1.36
+    homepage: https://candor.money/START.md?v=0.1.38
     requires:
       bins:
         - candor
-homepage: https://candor.money/START.md?v=0.1.36
+homepage: https://candor.money/START.md?v=0.1.38
 ---
 
 ## Execute recipes through the Candor CLI
@@ -26,7 +26,7 @@ to the user. The Candor CLI also maintains a digest-verified copy under
 `~/.agents/skills` for its release preflight. OpenClaw resolves a same-named
 workspace or shared package first, so these CLI-backed copies are compatible
 and deterministic. If setup or the managed copy is incomplete, get started at
-[https://candor.money/START.md?v=0.1.36](https://candor.money/START.md?v=0.1.36) and use its official
+[https://candor.money/START.md?v=0.1.38](https://candor.money/START.md?v=0.1.38) and use its official
 OpenClaw materials before continuing.
 
 ClawHub distributes this skill at no charge under MIT-0. Operating the Candor
@@ -68,15 +68,19 @@ moments.
 
 1. Open the workspace whenever money is in scope. Treat its direct fields as
    your working orientation: `agent_context`, `context_needed`,
-   `financial_position`, `approved_state`, `new_since_checkpoint`, and
-   `attention`. Do not turn the opening itself into a daily report.
+   `untagged_notes`, `financial_position`, `approved_state`,
+   `new_since_checkpoint`, and `attention`. Do not turn the opening itself into
+   a daily report.
 2. Fulfill the user's request when one is active. Otherwise, use the recorded
    context to choose one plausibly material factual lead and run one bounded
    read-only Candor investigation. You do not need permission for that
    investigation. Do not run a broad review merely because this is the first
    opening.
-3. Use `context_needed` intelligently, not as a global gate. If one missing
-   topic would materially improve the current or likely next decision, ask one
+3. On a first opening, process the returned `untagged_notes` and their notes
+   continuation before asking a `context_needed` question. Tag only
+   explicit user context; never infer topic coverage from note prose. Then use
+   `context_needed` intelligently, not as a global gate. If one missing topic
+   would materially improve the current or likely next decision, ask one
    natural question. Continue with what is knowable when it would not.
 4. When the request or surviving evidence maps to a finance method, read that
    method and follow it. A broad, periodic, or life-event review routes to
