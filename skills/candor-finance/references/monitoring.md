@@ -78,6 +78,17 @@ Use a cloud routine only when that environment already has authenticated
 access to Candor. Do not use `/loop`: it is session-scoped continuous work, not
 a durable background check-in.
 
+## ChatGPT
+
+If scheduled runs in this environment can call authenticated Candor tools,
+create or update one scheduled task with the stable name. Scheduled tasks run
+isolated and carry no memory between runs, so this is the durable isolated
+fallback and the job instruction must stay self-contained. The platform caps
+cadence at hourly and can pause a task after repeated failures; treat an
+unexpected pause as a scheduled-run failure, not as no attention. If scheduled
+runs cannot reach Candor, tell the user background monitoring was not
+configured instead of scheduling a plain reminder.
+
 ## Other agents
 
 Use the agent's closest built-in scheduler. Prefer a same-thread,

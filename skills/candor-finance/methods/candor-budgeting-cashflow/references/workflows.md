@@ -133,7 +133,30 @@ existing goals, and the amount that remains unallocated in each currency.
    })
    ```
 
-5. Read the resulting budget status and preserve its action id.
+   When the user approves a change to a few lines of a plan that already
+   exists, revise those lines instead of restating the whole plan. Name only
+   the lines that change (and any categories to remove); Candor carries every
+   other line forward into the new approved version and returns the per-line
+   changes it made:
+
+   ```text
+   candor_schema({
+     "operation": "budget.update"
+   })
+   candor_write({
+     "operation": "budget.update",
+     "reason": "Raise the approved groceries line",
+     "task_key": "TASK_KEY",
+     "parent_action": "ACTION_ID",
+     "input": "<contents of BUDGET_UPDATE.json>"
+   })
+   ```
+
+5. Read the resulting budget status and preserve its action id. The status
+   states each line's spending and transaction count, the month's pace
+   (`days_elapsed`, `pace_expected_to_date`, `pace_variance_to_date`), and
+   `daily_actuals`. The dashboard's Budget page shows the same month as a
+   shared visual when the user wants to see it.
 
 Complete when the stored version exactly matches the approved draft, or when
 the analysis ends as an explicitly labeled unapproved scenario.

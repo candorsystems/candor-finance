@@ -72,7 +72,22 @@ existing goals, and the amount that remains unallocated in each currency.
    candor budget create --file BUDGET.json --reason "Store the user-approved budget" --task-key TASK_KEY --parent-action ACTION_ID
    ```
 
-5. Read the resulting budget status and preserve its action id.
+   When the user approves a change to a few lines of a plan that already
+   exists, revise those lines instead of restating the whole plan. Name only
+   the lines that change (and any categories to remove); Candor carries every
+   other line forward into the new approved version and returns the per-line
+   changes it made:
+
+   ```sh
+   candor catalog describe budget.update --json
+   candor budget update --file BUDGET_UPDATE.json --reason "Raise the approved groceries line" --task-key TASK_KEY --parent-action ACTION_ID
+   ```
+
+5. Read the resulting budget status and preserve its action id. The status
+   states each line's spending and transaction count, the month's pace
+   (`days_elapsed`, `pace_expected_to_date`, `pace_variance_to_date`), and
+   `daily_actuals`. The dashboard's Budget page shows the same month as a
+   shared visual when the user wants to see it.
 
 Complete when the stored version exactly matches the approved draft, or when
 the analysis ends as an explicitly labeled unapproved scenario.

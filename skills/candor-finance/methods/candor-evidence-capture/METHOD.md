@@ -54,7 +54,11 @@ money, row actions, and resulting records have been verified.
 - Preserve exact decimal strings, dates, source row keys, and the source's own
   distinctions between pending, posted, transfer, fee, and interest activity.
 - Preserve displayed holding identity, quantity, price, value, cost basis,
-  currency, valuation time, source locator, and extraction confidence. A
+  currency, valuation time, source locator, and extraction confidence. Always
+  send `market: US` with the `symbol` for a US-listed stock, ETF, or mutual
+  fund: it is what lets Candor quote the position every market day and value
+  the account at current prices; a holding imported without it keeps its
+  imported price. A
   value-only position is valid. When its value is current, it is a USD-listed
   `stock`, `equity`, or `etf`, and a reusable quantity would enable future live
   valuation, send `estimate_quantity: true`, `symbol`, `market: US`, `type`, and
@@ -90,9 +94,11 @@ money, row actions, and resulting records have been verified.
   `estimate_quantity`, or use complete scope on provider-backed accounts or
   partial evidence.
 - Put a displayed portfolio total in `balances.closing` for reconciliation and
-  include its date in `balances.as_of`. That dated total is also the account
-  balance observation for balance history and net-worth reads. Never invent the
-  date.
+  include its date in `balances.as_of`. That dated total is the account's
+  reported balance. An account that reports positions is worth its positions at
+  current prices, and the reported balance stays beside that figure as
+  `reported_balance`, so record cash, sweep, and money-market lines as
+  positions too or the value will omit them. Never invent the date.
 - Validate first. Preview second. Inspect row-level create, skip, conflict, and
   duplicate outcomes before seeking or recovering authority to apply.
 - Apply only within the user's explicit request to add or test the supplied

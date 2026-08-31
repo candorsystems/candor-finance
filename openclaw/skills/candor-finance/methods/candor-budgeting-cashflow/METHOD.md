@@ -29,6 +29,10 @@ the user's priorities or silently turning a scenario into a budget.
   items before calculating recurring capacity.
 - Compare observed facts with approved budget and goal versions. Present
   assumptions and scenarios rather than silently changing state.
+- Revise an existing plan line by line with `budget.update` once the user
+  approves the change; restate the whole plan with `budget.create` only when
+  the plan itself is new. Budget status carries each line's spending, the
+  month's pace against the plan, and unbudgeted categories.
 
 ## Evidence checklist
 

@@ -10,7 +10,8 @@ A first pass is complete only when you have:
 
 1. bounded coverage and freshness;
 2. combined the complete transaction scope; and
-3. run one program that emits one capped candidate list for each lens below.
+3. run the bundled sweep program over the combined pages so it emits
+   one capped candidate list for each lens below.
 
 Together the four lists are the compact candidate ledger. Each reports its
 total count and at most five candidates with source ids. Stdout is model
@@ -84,8 +85,9 @@ evidence calls for them.
 - Query one bounded transaction scope. When it has continuations, download and
   combine every page before analysis. Use the supplied JSON Pointer and JSON
   Schema directly; do not probe the wrapper or record shape.
-- Produce the completion contract's four lists in one code pass. Then test each
-  candidate and classify it as supported, unresolved, or ordinary context.
+- Produce the completion contract's four lists by running the bundled sweep
+  program on the downloaded pages. Then test each candidate and classify it as
+  supported, unresolved, or ordinary context.
 - Use `recurring` to test recurring candidates. Query other datasets only when
   a surviving candidate or the request makes them material.
 - After the sweep, rank surviving leads by defensible financial effect,
@@ -106,6 +108,12 @@ evidence calls for them.
 
 ## Candor query recipes
 
+- The sweep is [the bundled program](scripts/review-sweep.mjs): run it with
+  Node, passing every downloaded page file and until=END for the query
+  boundary. It classifies files by shape and prints only the capped ledger.
+  Add `balances` and `account_terms` pages when balance or term facts are
+  material. If it cannot run here, write an equivalent one-pass program to the
+  same contract.
 - This method is complete for a first pass. For a periodic review, life event,
   or formal recommendation handoff, read
   [the extended review workflows](references/workflows.md).

@@ -56,6 +56,59 @@
 Complete when the visible population, valuation times, unsupported positions,
 and coverage limitations are explicit.
 
+## Review value over time
+
+1. Read the investment value series and the per-holding daily records:
+
+   ```text
+   candor_get({
+     "operation": "metrics.history",
+     "reason": "Review investment value history",
+     "task_key": "TASK_KEY",
+     "args": {
+       "metric": "investment_value",
+       "range": "3m"
+     }
+   })
+   candor_query({
+     "dataset": "holding_valuations",
+     "reason": "Inspect daily holding valuations",
+     "task_key": "TASK_KEY",
+     "filters": {
+       "since": "2026-06-01",
+       "limit": 100
+     }
+   })
+   candor_query({
+     "dataset": "holding_valuations",
+     "reason": "Inspect one holding's value history",
+     "task_key": "TASK_KEY",
+     "filters": {
+       "holding_id": "HOLDING_ID",
+       "limit": 100
+     }
+   })
+   candor_changes({
+     "domain": "investments",
+     "reason": "Review position changes",
+     "task_key": "TASK_KEY"
+   })
+   ```
+
+2. Treat `price_source: observed` days as flat source values, not market
+   movement. Compare like with like: a series that mixes market and observed
+   days understates movement on the observed days.
+3. Describe a period figure as value change. Contributions, withdrawals,
+   dividends, and sales sit inside it until investment activity is reconciled,
+   so do not call it a return.
+4. For the latest session's move on a quoted holding, use `market_price`
+   against `market_previous_close` from the holdings read, and check
+   `market_price_as_of` before calling it today's move: off-hours the quote
+   is the prior session's close.
+
+Complete when each stated movement names its window, its price basis, and
+whether flows could be inside it.
+
 ## Review fund and advisory fees
 
 1. Confirm the exact security share class and account/advisor arrangement.

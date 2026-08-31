@@ -102,6 +102,14 @@ work ends as an explicitly unapproved scenario.
    })
    ```
 
+   The goal's `progress` states the facts a scenario starts from: `started_on`,
+   `days_elapsed` and `days_remaining`, `required_contribution` (what each
+   remaining period must add to meet the date at the approved cadence),
+   `projected_completion_date` at the approved contribution,
+   `observed_this_period`, and the running `series`. Compare the required and
+   approved contributions before proposing a change; the dashboard's Goals
+   page shows the same trajectory as a shared visual.
+
 2. Compare observed progress with the current version without silently changing
    target, timing, or contribution assumptions.
 3. Show the current course and revised alternatives, including which approved

@@ -7,6 +7,7 @@ allocation, and trading decisions to the user's agent under explicit authority.
 ## Datasets
 
 - `holdings`
+- `holding_valuations`
 - `investment_transactions`
 - `balances`
 - `actions`
@@ -23,6 +24,16 @@ allocation, and trading decisions to the user's agent under explicit authority.
 ## Method
 
 - Confirm holding coverage, valuation time, account type, and currency.
+- Read current value from `market_value` when a holding is quoted and from
+  `value` otherwise; `market_price_as_of` says how current the quote is, and
+  an account's `balance_basis` says whether its balance is market-valued.
+- Read value over time from `holding_valuations` (one record per holding per
+  day) and `candor metrics history --metric investment_value`. Holding
+  valuations start with the first nightly valuation after the account joined
+  (accounts that predate daily recording start when it began) and are never
+  backfilled; investment_value also anchors on earlier reported balances, so
+  its older points are the institution's figures rather than position
+  valuations.
 - Source fund expense ratios, advisory fees, and restrictions from current
   authoritative documents.
 - Calculate exposure and fee scenarios as facts. Leave suitability, allocation,
@@ -31,19 +42,26 @@ allocation, and trading decisions to the user's agent under explicit authority.
 ## Evidence checklist
 
 - Position quantities and prices have as-of timestamps.
+- A period figure from valuations is value change, not return: contributions,
+  withdrawals, dividends, and sales are inside it until investment activity is
+  reconciled.
 - External fee terms are current, attributed, and tied to the correct security or
   account.
 
 ## Candor query recipes
 
-- For portfolio coverage, fee review, cash drag, and concentration analysis,
-  read [the executable workflows](references/workflows.md).
+- For portfolio coverage, value history, fee review, cash drag, and
+  concentration analysis, read
+  [the executable workflows](references/workflows.md).
 - Verify the exact security share class or account arrangement before applying
   externally researched fee terms.
 
 ## Caveats
 
 - Visible holdings may be partial and market values change.
+- A holding without a listing symbol, or one imported without `market: US`,
+  keeps its source value: it does not move with market quotes, but it
+  changes whenever the source reports a new value.
 - Fee comparison is not investment advice or a trade recommendation.
 
 ## User-facing answer

@@ -50,7 +50,10 @@
    valuation time instead of inventing them. Put a displayed portfolio total in
    `balances.closing` and its date in `balances.as_of`.
    Candor uses that dated total for reconciliation, balance history, and net
-   worth. For a current USD value-only US `stock`, `equity`, or `etf`, opt into
+   worth. Send `market: US` with the `symbol` of every US-listed stock, ETF, or
+   mutual fund so the position is quoted daily and valued at current prices;
+   without it the holding keeps its imported price. For a current USD
+   value-only US `stock`, `equity`, or `etf`, opt into
    cache-powered quantity estimation with `estimate_quantity: true`, `symbol`,
    `market: US`, `type`, and `value`; omit quantity, price, price provenance,
    and include `as_of` as a fallback when the source value has a known
