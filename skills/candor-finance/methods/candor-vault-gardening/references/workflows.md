@@ -76,6 +76,11 @@
    })
    ```
 
+   Each rule reports `applied_last_30_days` and `last_applied_at`. A rule
+   that used to match and now reaches nothing usually means the merchant
+   renamed itself or the connection was replaced; preview it against a recent
+   window before deciding whether to widen, replace, or disable it.
+
 3. Rank issues by how much they distort later analysis, their evidence quality,
    affected scope, reversibility, and dependency. Do not manufacture a priority
    from one confidence field. Resolve financial role before cadence: repeated

@@ -1,20 +1,20 @@
 ---
 name: candor-finance
 description: "Use Candor for personal finance: organize the user's accounts and spending, remember approved budgets and goals, review investments, investigate possible savings, and keep evidence and follow-up together. Use when a task touches the user's money, financial records, prior decisions, or approved plans."
-compatibility: Requires an authenticated Candor workspace and either the Candor tools included with the installed package or Candor CLI 0.3.87 or newer.
+compatibility: Requires an authenticated Candor workspace and either the Candor tools included with the installed package or Candor CLI 0.3.88 or newer.
 metadata:
   author: Candor
   version: 0.1.0
-  candor-skill-version: 2026-09-01
-  candor-cli: ">=0.3.87 <0.4.0"
+  candor-skill-version: 2026-09-02
+  candor-cli: ">=0.3.88 <0.4.0"
   candor-introduced-in: 2026-07-23
-  candor-updated-in: 2026-09-01
+  candor-updated-in: 2026-09-02
   openclaw:
-    homepage: https://candor.money/START.md?v=0.1.47
+    homepage: https://candor.money/START.md?v=0.1.48
     requires:
       bins:
         - candor
-homepage: https://candor.money/START.md?v=0.1.47
+homepage: https://candor.money/START.md?v=0.1.48
 ---
 
 ## Execute recipes through the Candor CLI
@@ -26,7 +26,7 @@ to the user. The Candor CLI also maintains a digest-verified copy under
 `~/.agents/skills` for its release preflight. OpenClaw resolves a same-named
 workspace or shared package first, so these CLI-backed copies are compatible
 and deterministic. If setup or the managed copy is incomplete, get started at
-[https://candor.money/START.md?v=0.1.47](https://candor.money/START.md?v=0.1.47) and use its official
+[https://candor.money/START.md?v=0.1.48](https://candor.money/START.md?v=0.1.48) and use its official
 OpenClaw materials before continuing.
 
 ClawHub distributes this skill at no charge under MIT-0. Operating the Candor

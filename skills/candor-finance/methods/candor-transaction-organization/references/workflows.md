@@ -125,14 +125,31 @@ approved draft.
        "limit": 100
      }
    })
+   candor_query({
+     "dataset": "categories",
+     "reason": "Read the categories the vault already uses",
+     "task_key": "TASK_KEY",
+     "filters": {
+       "since": "START",
+       "until": "END"
+     }
+   })
    ```
+
+   The categories read says what the vault calls things today and which
+   names exist only because a rule or correction created them. Reuse an
+   existing name before inventing one; budget lines and later reads join on
+   the category name.
 
 2. Prefer more one-record corrections if the selector or exceptions remain
    ambiguous.
 3. Inspect `rules.create` and draft the narrowest selector and effect. Use
    `agent_verified` for exact or narrow evidence-backed interpretation. Use
    `user_approved` when the user supplied the merchant meaning or granted
-   bounded transaction-maintenance authority.
+   bounded transaction-maintenance authority. When the meaning depends on
+   which kind of account the record posted to, such as rent paid through a
+   card, scope the selector by `account_role` rather than by account id; the
+   role survives a reconnect and an account id does not.
 4. Preview before application:
 
    ```text

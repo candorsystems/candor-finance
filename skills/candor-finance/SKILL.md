@@ -1,15 +1,15 @@
 ---
 name: candor-finance
 description: "Use Candor for personal finance: organize the user's accounts and spending, remember approved budgets and goals, review investments, investigate possible savings, and keep evidence and follow-up together. Use when a task touches the user's money, financial records, prior decisions, or approved plans."
-compatibility: Requires an authenticated Candor workspace and either the Candor tools included with the installed package or Candor CLI 0.3.87 or newer.
+compatibility: Requires an authenticated Candor workspace and either the Candor tools included with the installed package or Candor CLI 0.3.88 or newer.
 metadata:
-  candor-package-version: "0.1.47"
+  candor-package-version: "0.1.48"
   author: Candor
   version: "0.1.0"
-  candor-skill-version: "2026-09-01"
-  candor-cli: ">=0.3.87 <0.4.0"
+  candor-skill-version: "2026-09-02"
+  candor-cli: ">=0.3.88 <0.4.0"
   candor-introduced-in: "2026-07-23"
-  candor-updated-in: "2026-09-01"
+  candor-updated-in: "2026-09-02"
 ---
 
 ## Execute recipes through native MCP
@@ -22,7 +22,7 @@ pass its object inline. Call `candor_schema({ operation: "OPERATION_ID" })`
 before changing an unfamiliar projected call or when you need its full schema.
 
 If authenticated Candor MCP tools are not already available, get started at
-[https://candor.money/START.md?v=0.1.47](https://candor.money/START.md?v=0.1.47). Its live materials
+[https://candor.money/START.md?v=0.1.48](https://candor.money/START.md?v=0.1.48). Its live materials
 catalog helps you assemble a complete setup for the harness you actually use.
 
 Native packages identify their version and bootstrap route on each MCP request.
