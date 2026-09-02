@@ -15,7 +15,7 @@ changed and help you follow through.
 
 - Remote MCP: https://api.candor.money/mcp
 - Candor account: https://app.candor.money
-- Documentation: https://candor.money/START.md?v=0.1.45
+- Documentation: https://candor.money/START.md?v=0.1.47
 - Support: https://candor.money/support
 - Privacy: https://candor.money/privacy
 - Terms: https://candor.money/terms
@@ -26,7 +26,10 @@ changed and help you follow through.
 - Agent Plugins 1.0.0 clients use the root `plugin.json`, `skills/`, and
   `mcp.json` portable package.
 - OpenAI/ChatGPT and Claude use the authenticated remote MCP plus the included
-  Candor finance skill.
+  Candor finance skill. Claude on paid plans and Claude Code sync this
+  repository as a plugin marketplace.
+- Grok Bot and other agents with their own computer fetch `skills/candor-finance`
+  and add the remote MCP server themselves.
 - OpenClaw can use the CLI-managed skill it already discovers under
   `~/.agents/skills` while ClawHub review is pending.
 - Hermes can install the root multi-file MCP-native skill directly from GitHub

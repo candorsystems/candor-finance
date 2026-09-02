@@ -3,14 +3,20 @@
   "description": "Official Candor tools for helping an AI agent understand and organize your money.",
   "owner": {
     "name": "Candor",
-    "email": "support@candor.money"
+    "email": "support@candor.money",
+    "url": "https://candor.money"
   },
   "plugins": [
     {
       "name": "candor-finance",
+      "displayName": "Candor Finance",
+      "author": {
+        "name": "Candor",
+        "url": "https://candor.money"
+      },
       "source": "./",
       "description": "Help Claude with personal finance by organizing accounts, spending, budgets, goals, investments, and follow-through.",
-      "version": "0.1.45",
+      "version": "0.1.47",
       "category": "productivity",
       "tags": [
         "finance",

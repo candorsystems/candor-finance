@@ -1,20 +1,20 @@
 ---
 name: candor-finance
 description: "Use Candor for personal finance: organize the user's accounts and spending, remember approved budgets and goals, review investments, investigate possible savings, and keep evidence and follow-up together. Use when a task touches the user's money, financial records, prior decisions, or approved plans."
-compatibility: Requires an authenticated Candor workspace and either the Candor tools included with the installed package or Candor CLI 0.3.82 or newer.
+compatibility: Requires an authenticated Candor workspace and either the Candor tools included with the installed package or Candor CLI 0.3.87 or newer.
 metadata:
   author: Candor
   version: 0.1.0
-  candor-skill-version: 2026-08-31
-  candor-cli: ">=0.3.82 <0.4.0"
+  candor-skill-version: 2026-09-01
+  candor-cli: ">=0.3.87 <0.4.0"
   candor-introduced-in: 2026-07-23
-  candor-updated-in: 2026-08-31
+  candor-updated-in: 2026-09-01
   openclaw:
-    homepage: https://candor.money/START.md?v=0.1.45
+    homepage: https://candor.money/START.md?v=0.1.47
     requires:
       bins:
         - candor
-homepage: https://candor.money/START.md?v=0.1.45
+homepage: https://candor.money/START.md?v=0.1.47
 ---
 
 ## Execute recipes through the Candor CLI
@@ -26,7 +26,7 @@ to the user. The Candor CLI also maintains a digest-verified copy under
 `~/.agents/skills` for its release preflight. OpenClaw resolves a same-named
 workspace or shared package first, so these CLI-backed copies are compatible
 and deterministic. If setup or the managed copy is incomplete, get started at
-[https://candor.money/START.md?v=0.1.45](https://candor.money/START.md?v=0.1.45) and use its official
+[https://candor.money/START.md?v=0.1.47](https://candor.money/START.md?v=0.1.47) and use its official
 OpenClaw materials before continuing.
 
 ClawHub distributes this skill at no charge under MIT-0. Operating the Candor
@@ -71,11 +71,29 @@ moments.
    `untagged_notes`, `financial_position`, `approved_state`,
    `new_since_checkpoint`, and `attention`. Do not turn the opening itself into
    a daily report.
-2. Fulfill the user's request when one is active. Otherwise, use the recorded
-   context to choose one plausibly material factual lead and run one bounded
-   read-only Candor investigation. You do not need permission for that
-   investigation. Do not run a broad review merely because this is the first
-   opening.
+2. Fulfill the user's request when one is active. Otherwise, on the
+   workspace's first opening (`metadata.workspace.first_open`), `next_actions`
+   includes one bounded `transactions.list` read whenever visible transaction
+   history exists; find it by command, follow it into the
+   [`candor-financial-review`](methods/candor-financial-review/METHOD.md) first pass, and report what it supports. The offered
+   read is a convenience, not the only copy: every opening reports the
+   observed window in `financial_position.coverage.transaction_history`, so
+   when the action was consumed before you could act (setup opened first, a
+   new session started) or was built from a snapshot still filling (a refresh
+   in progress), reopen once coverage is current and run the same first pass
+   yourself over the most recent ninety days of that window. When a
+   first opening offers no such read, name the recovery that matches the
+   coverage it reports: a refresh still in progress means the first sync is
+   running, so say so and reopen after it; zero connected institutions means
+   list the connections first, because a source in error or needing relink is
+   not counted as connected and needs reconnecting through the connection
+   recovery flow, not a new source; only no connection at all means connect
+   one; a source whose accounts are all
+   excluded means include one; balances only means say what history would
+   unlock. Do not invent a review. On any later opening, including a setup retried after an earlier successful one,
+   use the recorded context to choose one plausibly material factual lead and
+   run one bounded read-only Candor investigation. You do not need permission
+   for either. Never volunteer a broad review outside that first opening.
 3. On a first opening, process the returned `untagged_notes` and their notes
    continuation before asking a `context_needed` question. Tag only
    explicit user context; never infer topic coverage from note prose. Then use
@@ -264,10 +282,15 @@ incomplete setup step's exact recovery action.
 
 The first useful financial result is part of setup completion. After the first
 successful opening, finish the user's requested finance method. If setup named
-no financial task, orient from the opening and investigate one contextually
-material factual lead instead of forcing a broad review or sending a workspace
-report. Lead with the supported implication, coverage limits, and best next
-move, with setup confirmation kept to one concise line. Never send an early
+no financial task, follow the opening's first-pass action into the
+[`candor-financial-review`](methods/candor-financial-review/METHOD.md) sweep when the opening offers one; when a first
+opening offers none, report coverage and its matching recovery; when the
+opening is no longer the first, run the bounded investigation of one lead
+that any later opening calls for. Never send a workspace report or ask which
+review to run. Lead with the supported implication, coverage limits, and
+best next move, with setup confirmation kept to one concise line. If the
+window is short or coverage is thin, say so plainly and name what more
+coverage would unlock rather than manufacturing a finding. Never send an early
 ready message and a second connector-completion message for the same setup flow.
 
 Background monitoring is not authorized by setup or workspace access. Offer it
