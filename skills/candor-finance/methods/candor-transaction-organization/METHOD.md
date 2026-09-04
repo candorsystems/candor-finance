@@ -26,12 +26,39 @@ justifies a broader normalization rule.
 
 ## Method
 
-- Inspect the canonical record and existing overlays before proposing a
-  correction.
-- Prefer one-record corrections until repeated evidence justifies a broader
-  rule.
-- Preview the affected scope and preserve exact before-and-after state for
-  reversal.
+- Read the transaction list before writing anything. Each row carries the
+  provider's merchant name, the raw description, the source category, where
+  the effective category came from, and the rules applied to it. The
+  `unmatched` filter returns only the records no rule, correction, or split
+  has reached, with a count per label, and returns nothing when there are
+  none.
+- When the user names what a merchant means, write one rule anchored on
+  `merchant_name_contains`. A rule is declarative: while it is active it
+  applies to every record it matches, past and future, pending and posted,
+  refunds included, and disabling it undoes every application it made. Add
+  `direction`, `account_role`, or an amount bound only when the meaning
+  depends on it. A rule needs a subject: a merchant name, description,
+  source classification, current category, or one account. Direction or an
+  amount bound alone is refused.
+- Creating the rule applies it in the background; rows update as it lands,
+  and `rules.get` reports the walk's status and counts. Judge the rule from
+  the rows it reached or from `rules.preview`, a read-only dry run that
+  returns a sample of matching rows with the proposed change and a count per
+  label over every match. A label that should not change means the anchor is
+  too wide: disable the rule and write a narrower one, or add an exception.
+- An exception is a rule with a smaller priority number than the rule it
+  overrides. The default is 50 and a smaller number wins for the label,
+  category, role, and review status; an exact correction beats every rule on
+  those fields. Both rules stay active.
+- On a later pass, read the whole unmatched list again rather than a date
+  window, since a delayed sync can add older records; it stays short once the
+  first pass is done. When the source category is right for a merchant that
+  recurs, record it as a rule so the merchant stops reappearing.
+- Use a one-record correction when the meaning belongs to that record, not
+  the merchant.
+- When a record reads wrong, open it. `rules_considered` on the transaction
+  lists every active rule, whether it matched, which criterion failed,
+  whether it applied, and why a match has not applied yet.
 - Act on high-confidence, bounded interpretation inside the user's explicit
   maintenance scope. Exact or narrow evidence-backed corrections may use
   `agent_verified`; user-confirmed merchant meaning may use `user_approved`.
@@ -39,18 +66,20 @@ justifies a broader normalization rule.
 ## Evidence checklist
 
 - The transaction identity and proposed interpretation are explicit.
-- A broad rule has representative matches and exclusions.
+- The rule's rows or preview sample were read, and any row that should not
+  change was named.
 
 ## Candor query recipes
 
-- For one-record corrections, splits, and promoting repeated evidence to a
-  rule, read [the executable workflows](references/workflows.md).
-- Preview a broad rule against representative matches and exclusions before
-  asking to apply it.
+- For one-record corrections, splits, merchant rules, and explaining a
+  record, read [the executable workflows](references/workflows.md).
 
 ## Caveats
 
-- Merchant text and provider categories can be noisy or change over time.
+- Bank-side records such as transfers, payroll, and card payments carry no
+  merchant name, and their descriptions embed amounts or store numbers, so
+  anchor those on a fragment that stays the same.
+- Provider categories are evidence, not user confirmation.
 
 ## User-facing answer
 
@@ -84,5 +113,6 @@ the user asks how the evidence was obtained.
 
 ## Stopping conditions
 
-- Stop before a broad rule when its affected set is not bounded and reviewable.
+- Stop before a rule whose matches you have not read when the anchor could
+  reach unrelated activity.
 - Stop before overwriting a conflicting approved interpretation.

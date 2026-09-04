@@ -78,8 +78,8 @@
 
    Each rule reports `applied_last_30_days` and `last_applied_at`. A rule
    that used to match and now reaches nothing usually means the merchant
-   renamed itself or the connection was replaced; preview it against a recent
-   window before deciding whether to widen, replace, or disable it.
+   renamed itself or the connection was replaced; read the merchant's recent
+   rows before deciding whether to replace or disable it.
 
 3. Rank issues by how much they distort later analysis, their evidence quality,
    affected scope, reversibility, and dependency. Do not manufacture a priority
@@ -146,36 +146,48 @@ candor_get({
 Representative rule flow:
 
 ```text
-candor_write({
-  "operation": "rules.preview",
-  "reason": "Preview the bounded maintenance rule",
+candor_get({
+  "operation": "transactions.list",
+  "reason": "Read the records no rule has reached",
   "task_key": "TASK_KEY",
-  "parent_action": "ACTION_ID",
   "args": {
-    "rule_id": "RULE_ID",
-    "since": "START",
-    "until": "END"
+    "unmatched": true,
+    "limit": 100
   }
 })
 candor_write({
-  "operation": "rules.apply",
-  "reason": "Apply the reviewed bounded maintenance rule",
+  "operation": "rules.create",
+  "reason": "Record the merchant's meaning",
+  "task_key": "TASK_KEY",
+  "args": {
+    "name": "MERCHANT is CATEGORY",
+    "match_merchant_contains": "MERCHANT",
+    "set_category": "CATEGORY",
+    "basis_reason": "Every MERCHANT record inspected in this pass is CATEGORY."
+  }
+})
+candor_get({
+  "operation": "rules.get",
+  "reason": "Read how far the rule has applied",
   "task_key": "TASK_KEY",
   "parent_action": "ACTION_ID",
   "args": {
-    "rule_id": "RULE_ID",
-    "preview": "PREVIEW_ID"
+    "rule_id": "RULE_ID"
   }
 })
 ```
 
-Record the correction id, rule application batch, split, or recurring-policy
-history needed for recovery. Never infer a broad preference from cleanup scope.
+A rule applies to every record it matches, past and future, in the
+background; there is no date window and no apply step. Read the merchant's
+rows or a preview sample, and disable the rule to undo all of it.
+
+Record the correction id, rule id, split, or recurring-policy history needed
+for recovery. Never infer a broad preference from cleanup scope.
 
 ## Verify the pass and recover mistakes
 
 1. Re-query every affected effective record and compare the actual count and
-   meaning with the reviewed preview.
+   meaning with the rows you read before writing.
 2. Inspect actions under the task key so every root and continuation is
    attributable.
 3. If the after-state exceeds scope or changes the wrong meaning, use the

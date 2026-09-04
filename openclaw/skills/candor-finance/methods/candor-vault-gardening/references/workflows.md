@@ -23,8 +23,8 @@
 
    Each rule reports `applied_last_30_days` and `last_applied_at`. A rule
    that used to match and now reaches nothing usually means the merchant
-   renamed itself or the connection was replaced; preview it against a recent
-   window before deciding whether to widen, replace, or disable it.
+   renamed itself or the connection was replaced; read the merchant's recent
+   rows before deciding whether to replace or disable it.
 
 3. Rank issues by how much they distort later analysis, their evidence quality,
    affected scope, reversibility, and dependency. Do not manufacture a priority
@@ -60,17 +60,22 @@ candor transactions get TRANSACTION_ID --reason "Verify the effective repaired r
 Representative rule flow:
 
 ```sh
-candor rules preview RULE_ID --since START --until END --reason "Preview the bounded maintenance rule" --task-key TASK_KEY --parent-action ACTION_ID
-candor rules apply RULE_ID --preview PREVIEW_ID --reason "Apply the reviewed bounded maintenance rule" --task-key TASK_KEY --parent-action ACTION_ID
+candor transactions list --unmatched --limit 100 --reason "Read the records no rule has reached" --task-key TASK_KEY
+candor rules create --name "MERCHANT is CATEGORY" --match-merchant-contains MERCHANT --set-category CATEGORY --basis-reason "Every MERCHANT record inspected in this pass is CATEGORY." --reason "Record the merchant's meaning" --task-key TASK_KEY
+candor rules get RULE_ID --reason "Read how far the rule has applied" --task-key TASK_KEY --parent-action ACTION_ID
 ```
 
-Record the correction id, rule application batch, split, or recurring-policy
-history needed for recovery. Never infer a broad preference from cleanup scope.
+A rule applies to every record it matches, past and future, in the
+background; there is no date window and no apply step. Read the merchant's
+rows or a preview sample, and disable the rule to undo all of it.
+
+Record the correction id, rule id, split, or recurring-policy history needed
+for recovery. Never infer a broad preference from cleanup scope.
 
 ## Verify the pass and recover mistakes
 
 1. Re-query every affected effective record and compare the actual count and
-   meaning with the reviewed preview.
+   meaning with the rows you read before writing.
 2. Inspect actions under the task key so every root and continuation is
    attributable.
 3. If the after-state exceeds scope or changes the wrong meaning, use the

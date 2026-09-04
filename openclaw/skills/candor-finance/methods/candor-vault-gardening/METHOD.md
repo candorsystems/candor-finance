@@ -48,8 +48,8 @@ effective result.
   correction for one fact, a split for one mixed transaction, a recurring
   policy for one series, and a rule only for repeated evidence with reviewed
   counterexamples.
-- Preview every multi-record effect. Apply in small batches, re-read the
-  effective view, and keep reversal handles.
+- Read the rows a rule reaches before trusting it, re-read the effective
+  view after it lands, and keep the rule and correction ids for reversal.
 - Leave ambiguous records unchanged. Ask for the smallest missing factual
   interpretation or persist a follow-up only when the issue is material.
 - End with what became more reliable, what remains intentionally unresolved,
@@ -86,7 +86,7 @@ unless the user asks how the cleanup worked.
 ## Safe Candor writebacks
 
 - Bounded correction or exact split.
-- Previewed, reversible normalization rule.
+- Reversible normalization rule.
 - Confirmed recurring policy.
 - Linked note for a material unresolved maintenance issue.
 
@@ -108,7 +108,7 @@ unless the user asks how the cleanup worked.
 
 ## Stopping conditions
 
-- Stop before a rule or batch whose full effect cannot be reviewed.
+- Stop before a rule whose matches cannot be reviewed.
 - Stop before overwriting conflicting approved meaning.
 - Stop the pass when remaining items need user interpretation rather than
   allowing cleanup momentum to become guessed state.
