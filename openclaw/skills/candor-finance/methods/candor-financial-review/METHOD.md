@@ -60,6 +60,7 @@ evidence calls for them.
 - `budgets`
 - `goals`
 - `holdings`
+- `properties`
 - `changes`
 - `actions`
 
@@ -121,6 +122,10 @@ evidence calls for them.
   `candor-transaction-organization` and inspect the related transactions,
   corrections, and rules. Do not leave reusable interpretation as chat-only
   context.
+
+- When a property value, home equity, or appraisal is material to the request,
+  use `candor-property-tracking` for its evidence and debt semantics. Property
+  estimates do not establish liquidity or received rental income.
 
 ## Caveats
 

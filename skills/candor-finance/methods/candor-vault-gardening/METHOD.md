@@ -72,6 +72,9 @@ effective result.
 - Load `candor-transaction-organization` for corrections, splits, and rules;
   load `candor-recurring-bills` for recurring-series interpretation.
 
+- For property duplicates, dated appraisals, or mortgage links, use
+  `candor-property-tracking` and retain the canonical property identity.
+
 ## Caveats
 
 - Merchant descriptions and provider categories are noisy evidence.
