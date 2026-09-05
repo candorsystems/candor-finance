@@ -41,27 +41,23 @@
    conflicts. Do not invent missing values, and say which obligations could not
    be dated.
 
-3. Drop everything that is not a live obligation. `recurring list`
-   deliberately returns policy-backed non-active items, so the result mixes
-   live series with `stopped` and corrected ones. Project only `active` and
-   `changed` effective status. Summing the whole list re-animates cancelled
-   subscriptions and false detections as future cash flows, which is the single
-   easiest way to produce a confidently wrong low point.
-4. Place each obligation on a date. The canonical recurring view carries
-   `cadence` and `last_seen_at` but no predicted date, so derive occurrences
-   explicitly by stepping forward from `last_seen_at` until you pass the
-   horizon.
+3. Project only rows whose effective status is `active`. Candidates await
+   judgement; stopped and dismissed series are not future obligations. The
+   default list excludes stopped and dismissed series, but still check status
+   when using filtered reads or saved evidence.
+4. Start with the row's `predicted_next_date` and `predicted_window`, including
+   declarations with no `last_seen_at`. Never reconstruct the next date from
+   posting history: that would override agent-pinned dates. A null predicted
+   date remains undated. A zero `remaining_occurrences` means the series has
+   ended; a null count is not a finite commitment.
 
-   Step weekly and biweekly cadences by 7 and 14 days. Step monthly and annual
-   cadences by calendar month and calendar year, keeping the day of month and
-   clamping to the last day of a shorter month. Fixed-day arithmetic is wrong
-   here: adding 30 days to January 31 lands on March 2 and drops the February
-   bill entirely, which makes the low point optimistic in exactly the month the
-   user asked about. Adding 365 days drifts across leap years the same way.
-
-   Treat any other cadence, including `irregular` and `unknown`, as undated and
-   report those obligations separately rather than assuming a date. Say that
-   dated occurrences are derived estimates, not scheduled dates.
+   If extending an estimate beyond that next date, use the supplied cadence
+   and `anchor_day`, stop at `ends_at` and any finite remaining count, and label
+   the extension as an estimate. Calendar-month steps retain the original
+   anchor after a shorter month, so January 31 becomes February 28 and then
+   March 31, not March 28. Do not invent additional dates when the cadence or
+   supplied bounds cannot support them. A past expected window is not proof
+   that a bill is unpaid.
 5. Confirm completeness before summing. Follow both the `recurring list` and
    `transactions list` cursors to the end rather than treating either first
    page as the full set. An omitted obligation always makes a projection

@@ -74,7 +74,7 @@ loaded.
      "task_key": "TASK_KEY"
    })
    candor_get({
-     "operation": "recurring.candidates",
+     "operation": "recurring.list",
      "reason": "Review recurring outflows",
      "task_key": "TASK_KEY",
      "args": {

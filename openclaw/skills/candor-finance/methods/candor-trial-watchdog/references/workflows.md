@@ -8,7 +8,7 @@
    candor open
    candor coverage get --reason "Verify coverage for the trial payment account" --task-key TASK_KEY
    candor transactions list --merchant MERCHANT --since START --until END --limit 100 --reason "Inspect the trial signup and authorization evidence" --task-key TASK_KEY
-   candor recurring candidates --direction outflow --cashflow-role expense --limit 100 --reason "Check for an existing merchant billing series" --task-key TASK_KEY
+   candor recurring list --direction outflow --cashflow-role expense --limit 100 --reason "Check for an existing merchant billing series" --task-key TASK_KEY
    ```
 
 2. Recover the trial end, expected first billing window, expected price and

@@ -25,7 +25,7 @@
      }
    })
    candor_get({
-     "operation": "recurring.candidates",
+     "operation": "recurring.list",
      "reason": "Check for an existing merchant billing series",
      "task_key": "TASK_KEY",
      "args": {

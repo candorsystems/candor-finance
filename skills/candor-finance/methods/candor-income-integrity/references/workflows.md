@@ -14,7 +14,7 @@
      "task_key": "TASK_KEY"
    })
    candor_get({
-     "operation": "recurring.candidates",
+     "operation": "recurring.list",
      "reason": "Inspect recurring income-shaped deposits",
      "task_key": "TASK_KEY",
      "args": {

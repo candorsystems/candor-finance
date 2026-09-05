@@ -41,8 +41,8 @@ effective result.
 - Treat effective financial role as stronger evidence than repetition. A
   transfer, refund, or debt payment can happen on a cadence without becoming a
   recurring expense or bill. When such a candidate would distort obligation
-  analysis, preserve `not_recurring`; that classifies the candidate, not whether
-  the underlying transactions occurred.
+  analysis, dismiss it; that classifies the series, not whether the
+  underlying transactions occurred.
 - Repair root meaning before downstream presentation. A wrong merchant rule can
   contaminate many categories; a coverage gap cannot be corrected record by
   record.

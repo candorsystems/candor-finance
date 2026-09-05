@@ -40,7 +40,7 @@ loaded.
    ```sh
    candor liquidity summary --reason "Review visible liquidity" --task-key TASK_KEY
    candor debts list --reason "Review visible debt" --task-key TASK_KEY
-   candor recurring candidates --direction outflow --limit 100 --reason "Review recurring outflows" --task-key TASK_KEY
+   candor recurring list --direction outflow --limit 100 --reason "Review recurring outflows" --task-key TASK_KEY
    candor budget status --period PERIOD --reason "Review approved budget variance" --task-key TASK_KEY
    candor goals list --limit 100 --reason "Review approved goal progress" --task-key TASK_KEY
    candor portfolio snapshot --reason "Review visible investment coverage" --task-key TASK_KEY

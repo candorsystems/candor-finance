@@ -36,9 +36,12 @@ looks ahead.
 - Start from current balances, then layer committed obligations: recurring
   items with a confirmed cadence, pending or future-dated transactions, and
   liability due dates.
-- Project only recurring items whose effective status is `active` or `changed`.
-  The recurring view deliberately includes policy-backed `stopped` items, so
-  summing the whole list revives cancelled subscriptions as future cash flows.
+- Project only recurring items whose effective status is `active`, and use
+  the row's `predicted_next_date` as the next date, respecting its
+  `predicted_window`, `ends_at`, and `remaining_occurrences` bounds.
+  The default read already leaves stopped and dismissed series out, and its
+  totals count active series only; candidates await a judgement and are not
+  obligations yet.
 - Take expected income from recurring inflows. Do not average historical
   deposits into forecast income unless the user confirms that basis.
 - Keep committed obligations separate from discretionary spending, and say
@@ -50,12 +53,11 @@ looks ahead.
   it out of a per-account path can hide an overdraft.
 - Read each recurring item's `direction` and `account_identity_id` rather than
   inferring the sign or the affected account from merchant text.
-- Derive occurrence dates from `last_seen_at` and the cadence rather than
-  guessing them, stepping monthly and annual cadences by calendar month and
-  year rather than by fixed days. Adding 30 days to January 31 skips February
-  and drops that month's bill. An irregular or unknown cadence has no reliable
-  interval, so report those obligations as undated and say that dated ones are
-  derived estimates.
+- Do not replace the projected next date with one inferred from `last_seen_at`.
+  Declarations can have no observation, and agent-pinned dates can differ from
+  posting history. A null predicted date is undated, not permission to guess.
+  Keep the supplied calendar anchor and end bounds when extending an estimate
+  over the requested horizon; label that extension as an estimate.
 - Read saved notes for expectations inside the horizon. A planned purchase or
   expected bonus from an earlier run is not in recurring items.
 - Report the lowest projected balance in the horizon and the date it occurs.

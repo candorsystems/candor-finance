@@ -41,10 +41,11 @@
 
    ```text
    candor_get({
-     "operation": "recurring.candidates",
+     "operation": "recurring.list",
      "reason": "Inspect unresolved recurring candidates",
      "task_key": "TASK_KEY",
      "args": {
+       "status": "candidate,active",
        "limit": 100
      }
    })
@@ -95,13 +96,14 @@ Complete when the pass can be reviewed end to end.
 
 For one transaction, inspect effective state and use a correction or exact
 split. For a recurring series, inspect supporting transactions before setting
-`active`, `changed`, `stopped`, or `not_recurring`. For repeated transaction
-meaning, inspect matches and counterexamples before creating a rule.
+`active`, `stopped`, or `dismissed` with `candor_write({"operation":"recurring.update"})`. For
+repeated transaction meaning, inspect matches and counterexamples before
+creating a rule.
 
-Use `not_recurring` when the candidate is not a recurring expense or bill,
+Use `dismissed` when the candidate is not a recurring expense or bill,
 including a role-backed transfer, refund, or debt payment. This does not deny
-that the underlying activity repeats; it prevents the candidate from distorting
-obligation analysis.
+that the underlying activity repeats; it keeps the series out of the schedule
+and the commitment totals.
 
 Representative correction flow:
 

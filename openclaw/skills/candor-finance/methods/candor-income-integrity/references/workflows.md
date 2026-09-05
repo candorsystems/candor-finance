@@ -7,7 +7,7 @@
    ```sh
    candor open
    candor coverage get --reason "Verify observable account history for the expected income" --task-key TASK_KEY
-   candor recurring candidates --direction inflow --cashflow-role income --limit 100 --reason "Inspect recurring income-shaped deposits" --task-key TASK_KEY
+   candor recurring list --direction inflow --cashflow-role income --limit 100 --reason "Inspect recurring income-shaped deposits" --task-key TASK_KEY
    candor transactions list --since START --until END --limit 100 --reason "Inspect exact deposits around the expected income dates" --task-key TASK_KEY
    ```
 

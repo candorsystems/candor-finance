@@ -88,7 +88,7 @@ evidence calls for them.
 - Produce the completion contract's four lists by running the bundled sweep
   program on the downloaded pages. Then test each candidate and classify it as
   supported, unresolved, or ordinary context.
-- Use `recurring` to test recurring candidates. Query other datasets only when
+- Use `recurring` to test detected series and candidates. Query other datasets only when
   a surviving candidate or the request makes them material.
 - After the sweep, rank surviving leads by defensible financial effect,
   deadline, reversibility, and what the user can change. Do not let the first
