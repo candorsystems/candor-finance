@@ -60,7 +60,7 @@
    or store a value the user explicitly approves as an assertion:
 
    ```text
-   candor_get({
+   candor_preview({
      "operation": "account_terms.assertion.preview",
      "reason": "Preview an approved card-term correction",
      "task_key": "TASK_KEY",

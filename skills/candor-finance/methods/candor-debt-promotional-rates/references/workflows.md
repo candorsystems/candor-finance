@@ -52,7 +52,7 @@
    then inspect its version history after writing:
 
    ```text
-   candor_get({
+   candor_preview({
      "operation": "account_terms.assertion.preview",
      "reason": "Preview an approved debt-term correction",
      "task_key": "TASK_KEY",

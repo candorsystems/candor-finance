@@ -206,7 +206,7 @@ approved draft.
    the dry run:
 
    ```text
-   candor_get({
+   candor_preview({
      "operation": "rules.preview",
      "reason": "Read a sample of what the rule reaches",
      "task_key": "TASK_KEY",

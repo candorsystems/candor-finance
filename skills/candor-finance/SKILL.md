@@ -3,13 +3,13 @@ name: candor-finance
 description: "Use Candor for personal finance: organize the user's accounts and spending, remember approved budgets and goals, review investments, investigate possible savings, and keep evidence and follow-up together. Use when a task touches the user's money, financial records, prior decisions, or approved plans."
 compatibility: Requires an authenticated Candor workspace and either the Candor tools included with the installed package or Candor CLI 0.3.94 or newer.
 metadata:
-  candor-package-version: "0.1.59"
+  candor-package-version: "0.1.62"
   author: Candor
   version: "0.1.0"
-  candor-skill-version: "2026-09-05"
+  candor-skill-version: "2026-09-07"
   candor-cli: ">=0.3.94 <0.4.0"
   candor-introduced-in: "2026-07-23"
-  candor-updated-in: "2026-09-05"
+  candor-updated-in: "2026-09-07"
 ---
 
 ## Execute recipes through native MCP
@@ -22,7 +22,7 @@ pass its object inline. Call `candor_schema({ operation: "OPERATION_ID" })`
 before changing an unfamiliar projected call or when you need its full schema.
 
 If authenticated Candor MCP tools are not already available, get started at
-[https://candor.money/START.md?v=0.1.59](https://candor.money/START.md?v=0.1.59). Its live materials
+[https://candor.money/START.md?v=0.1.62](https://candor.money/START.md?v=0.1.62). Its live materials
 catalog helps you assemble a complete setup for the harness you actually use.
 
 Native packages identify their version and bootstrap route on each MCP request.
@@ -33,7 +33,7 @@ not send that informational metadata: compare this skill's
 `metadata.candor-package-version` with the live catalog yourself. Never treat
 a bare MCP connection without this finance skill as a complete setup.
 
-The compact MCP surface is `candor_open`, `candor_schema`, `candor_query`, `candor_get`, `candor_write`, `candor_connections`, `candor_account`, `candor_changes`, `candor_snapshot`, `candor_visualize`.
+The compact MCP surface is `candor_open`, `candor_schema`, `candor_query`, `candor_get`, `candor_preview`, `candor_configure_overview`, `candor_write`, `candor_connections`, `candor_changes`, `candor_snapshot`, `candor_visualize`.
 
 
 # Candor Finance
@@ -312,8 +312,12 @@ Discover rather than memorize:
 
 ```text
 candor_open({})
-candor_open({
-  "acknowledge_checkpoint": "CHECKPOINT"
+candor_write({
+  "operation": "open.acknowledge",
+  "reason": "Record the processed workspace opening",
+  "args": {
+    "checkpoint": "CHECKPOINT"
+  }
 })
 candor_get({
   "operation": "data.list",

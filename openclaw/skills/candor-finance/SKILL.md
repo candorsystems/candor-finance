@@ -5,16 +5,16 @@ compatibility: Requires an authenticated Candor workspace and either the Candor 
 metadata:
   author: Candor
   version: 0.1.0
-  candor-skill-version: 2026-09-05
+  candor-skill-version: 2026-09-07
   candor-cli: ">=0.3.94 <0.4.0"
   candor-introduced-in: 2026-07-23
-  candor-updated-in: 2026-09-05
+  candor-updated-in: 2026-09-07
   openclaw:
-    homepage: https://candor.money/START.md?v=0.1.59
+    homepage: https://candor.money/START.md?v=0.1.62
     requires:
       bins:
         - candor
-homepage: https://candor.money/START.md?v=0.1.59
+homepage: https://candor.money/START.md?v=0.1.62
 ---
 
 ## Execute recipes through the Candor CLI
@@ -26,7 +26,7 @@ to the user. The Candor CLI also maintains a digest-verified copy under
 `~/.agents/skills` for its release preflight. OpenClaw resolves a same-named
 workspace or shared package first, so these CLI-backed copies are compatible
 and deterministic. If setup or the managed copy is incomplete, get started at
-[https://candor.money/START.md?v=0.1.59](https://candor.money/START.md?v=0.1.59) and use its official
+[https://candor.money/START.md?v=0.1.62](https://candor.money/START.md?v=0.1.62) and use its official
 OpenClaw materials before continuing.
 
 ClawHub distributes this skill at no charge under MIT-0. Operating the Candor
@@ -308,7 +308,7 @@ Discover rather than memorize:
 
 ```sh
 candor open
-candor open acknowledge CHECKPOINT
+candor open acknowledge CHECKPOINT --reason "Record the processed workspace opening"
 candor data list --reason "Inspect available financial datasets"
 candor changes list --reason "Inspect factual changes"
 candor notes list --due --reason "Review due financial follow-through"
