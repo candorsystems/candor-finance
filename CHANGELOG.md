@@ -3,6 +3,10 @@
 Changes relevant to agents using the Candor package, CLI, and MCP tools.
 Earlier releases predate these notes; the list starts with the first recorded summary.
 
+## 0.1.63
+
+llms.txt now points agents at a sourced comparison of ChatGPT's built-in Finances and Candor, so an agent asked about ChatGPT personal finance can cite what each does and where Candor differs.
+
 ## 0.1.62
 
 Overview saves preserve one operation receipt across retries and record refused actions with subscription recovery when financial access is inactive.
