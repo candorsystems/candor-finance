@@ -100,10 +100,12 @@ split. For a recurring series, inspect supporting transactions before setting
 repeated transaction meaning, inspect matches and counterexamples before
 creating a rule.
 
-Use `dismissed` when the candidate is not a recurring expense or bill,
-including a role-backed transfer, refund, or debt payment. This does not deny
-that the underlying activity repeats; it keeps the series out of the schedule
-and the commitment totals.
+Use `dismissed` for a verified false detection or redundant obligation.
+An uncurated variable payment can stay a candidate. Preserve existing agent
+placements, and inspect debt-payment meaning: a mortgage installment can
+belong, while a card repayment settles purchases already recorded. Resolve
+conflicting approved meaning before changing it. Dismissal keeps the series
+out of the schedule and commitment totals without deleting transactions.
 
 Representative correction flow:
 

@@ -7,6 +7,41 @@ they are called, and what they mean. Treat a detected series as an
 evidence-backed hypothesis, not proof of a contract or of the user's wish to
 keep or cancel a service.
 
+## Default purpose
+
+Recurring is a curated schedule of predictable obligations: rent, mortgage
+installments, subscriptions, memberships, insurance, and similar bills.
+Repetition alone does not make a transaction belong here. For an initial pass,
+prefer credible cadence and reasonably stable amounts. Do not bulk-confirm
+card repayments, internal transfers, usage-based charges, or repeated
+shopping just because they recur. A mortgage installment can belong even when
+its cashflow role is `debt_payment`; that role alone cannot identify a card
+repayment.
+
+Candor supplies candidates with observed cadence, amounts, uncertainty, and
+supporting transactions. Detection never activates, stops, or dismisses a series, regardless of its
+age, category, or amount stability. Missed windows remain evidence for you to review. You decide what belongs in the schedule and
+confirm or declare it. The candidate pool refreshes from up to 1,000 visible
+posted transactions; an uncurated item can leave that pool as evidence changes
+or moves outside the scan. Transactions remain available for investigation,
+and confirmed items and declarations retain their state. Inspect older history
+and declare missing obligations when the task requires them. Candidates do not
+contribute to commitment totals. Use an initial setup pass to establish the
+schedule and later passes to maintain it.
+
+Preserve existing agent confirmations and declarations, including variable
+payments. Do not remove curated exceptions merely to apply these defaults.
+When the user's purpose supports including a variable bill, confirm it
+explicitly and record why in the approval note. Its amount remains an estimate,
+not a known upcoming statement balance. The current candidate pool is available
+for review and excluded from active commitment totals.
+
+Count each obligation once. A card charge, its payment credit, and the bank
+withdrawal funding it can describe one obligation across accounts. Inspect
+source transactions and financial roles before correcting or dismissing a
+redundant series; matching names, dates, and amounts alone do not prove a
+transfer. Do not override conflicting approved curation without resolving it.
+
 ## Datasets
 
 - `recurring`
@@ -40,8 +75,8 @@ separate from the preference.
   returned. The `due_within: 30` filter answers "what is coming up";
   `status: "candidate"` is what still needs your judgement;
   `status: "stopped,dismissed"` is history.
-- `status` is the lifecycle. `candidate` is a detected pair you have not
-  judged; `active` is expected to keep posting; `stopped` is a real series
+- `status` is the lifecycle. `candidate` is detected activity you have not
+  included; `active` is expected to keep posting; `stopped` is a real series
   that ended; `dismissed` is a false detection. `confirmed` and `source` say
   whether the reading is yours: a confirmed row carries your fields in place
   of the observed ones, and a declared row is one you created.
@@ -67,8 +102,10 @@ separate from the preference.
 - Curate with the verbs, not by hand. Confirm a correct detection with
   `candor recurring update ID --status active`, or any field update, which confirms
   it too; confirm several candidates at once with `candor recurring update --ids A,B,C
-  --status active`. Rename with `merchant_name`, then create the merchant
-  rule the response suggests so the transactions carry the name as well. Pin
+  --status active`. Rename with `merchant_name`. For a detected series, this
+  changes only its display name. Create the suggested merchant normalization
+  rule when postings should group under the approved name; a display rename
+  alone does not join old and new transaction labels. Pin
   a date with `next_expected_date` when the biller's day is known, widen the
   window with `date_tolerance_days` when postings drift, and set `ends_at` on
   a payment plan so remaining occurrences are counted.
@@ -77,11 +114,12 @@ separate from the preference.
   with the account, direction, cadence, amount, and next expected date. The
   response warns when a similar series already exists on that account;
   confirm that one instead of keeping two.
-- Two paths are not obvious. Merchant-name drift that splits one bill into
-  two series is merged by a merchant rule that gives both the same label,
-  because grouping reads the effective label; do not dismiss one half. A bill
-  that moved to another account is two series by design: stop the old one
-  and confirm the new one.
+- Repair merchant-name drift with an evidence-backed merchant normalization
+  rule. Renaming a recurring item changes its display name; it does not create
+  transaction aliases. Inspect affected series after normalization and explicitly
+  retire redundant entries. Preserve separately curated placements unless you
+  have authority and evidence to change them. A bill that moved to another
+  account is two series by design: stop the old one and confirm the new one.
 - Store `stopped` only when a real series ended and `dismissed` only when
   repeated activity was never a series. Both leave the default read; a
   stopped or dismissed series that posts again comes back as a change for you

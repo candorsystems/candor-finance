@@ -4,7 +4,11 @@
 
 ## Keep the list right (scheduled pass or an explicit clean-up)
 
-1. Read what changed and what needs judgement:
+1. Preserve existing confirmations and declarations. For an initial pass,
+   prioritize predictable bills and subscriptions. Leave high-variance payments
+   as candidates unless the user's purpose supports deliberately including
+   them. Do not confuse repeated card repayments with new recurring expenses.
+   Then read what changed and what needs judgement:
 
    ```text
    candor_changes({
@@ -126,8 +130,9 @@
 
    A rename suggests the merchant rule that makes the name stick on the
    transactions; create it when the label should apply to future postings.
-   Merchant-name drift that split one bill into two series is merged by that
-   rule, not by dismissing one half. A bill that moved accounts is a stop on
+   A recurring rename changes the display name; transaction grouping uses the
+   explicit merchant rule. Inspect affected series after it runs, preserve
+   existing confirmations, and explicitly retire redundant entries. A bill that moved accounts is a stop on
    the old series and a confirmation on the new one.
 
 Complete when every candidate and change is either confirmed, declared,

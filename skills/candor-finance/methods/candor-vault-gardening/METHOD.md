@@ -38,11 +38,11 @@ effective result.
   first or last matching record do not establish a coverage boundary.
 - Triage into source-health gaps, uncertain transaction meaning, false or stale
   recurring candidates, conflicting overlays, and harmless noise.
-- Treat effective financial role as stronger evidence than repetition. A
-  transfer, refund, or debt payment can happen on a cadence without becoming a
-  recurring expense or bill. When such a candidate would distort obligation
-  analysis, dismiss it; that classifies the series, not whether the
-  underlying transactions occurred.
+- Use the recurring-bills method for schedule curation. Prefer predictable
+  obligations on an initial pass, while preserving existing confirmations and
+  declarations. Card repayments and transfers are not new expenses; mortgage
+  installments can still belong. Do not dismiss all `debt_payment` series or
+  remove a curated variable bill just to impose an initial setup preference.
 - Repair root meaning before downstream presentation. A wrong merchant rule can
   contaminate many categories; a coverage gap cannot be corrected record by
   record.
