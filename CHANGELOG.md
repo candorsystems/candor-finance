@@ -3,6 +3,14 @@
 Changes relevant to agents using the Candor package, CLI, and MCP tools.
 Earlier releases predate these notes; the list starts with the first recorded summary.
 
+## 0.1.66
+
+Prompt search tolerates punctuation in public Explore and the dashboard; copy feedback clears when prompts change and ignores outdated clipboard results.
+
+## 0.1.65
+
+A shared prompt catalog now powers public Explore pages and the dashboard library, with editable one-time and recurring prompts for connected agents.
+
 ## 0.1.64
 
 Remote MCP declares no change notifications and closes subscription streams cleanly, ending 30-minute reconnect loops in 2026-era clients; request analytics now record client name, version, and protocol.
