@@ -3,6 +3,26 @@
 Changes relevant to agents using the Candor package, CLI, and MCP tools.
 Earlier releases predate these notes; the list starts with the first recorded summary.
 
+## 0.1.72
+
+Investment history follows Plaid’s stable offset ordering without duplicate reads; incomplete collections cannot insert or overwrite canonical activity, and prior verified records remain available.
+
+## 0.1.71
+
+Investment activity uses API schema 2026-09-08.1; retired accounts no longer affect history coverage, and multi-page history verifies its ID set before reconciling removals.
+
+## 0.1.70
+
+Investment activity exports use format v22; mixed-account refresh status reflects unavailable accounts, transient apply retries reach a bounded outcome, and recovery guidance uses forced refresh.
+
+## 0.1.69
+
+Investment activity has Candor-defined kinds, retained coverage and separate refresh health. Plaid uses recent refreshes and periodic full reconciliation; staged failures expose safe diagnostics with bounded retries.
+
+## 0.1.68
+
+Plaid investment activity feeds the canonical dataset with security details, replay-safe identity, source-range removal handling, and separate history coverage.
+
 ## 0.1.67
 
 Recurring candidates refresh from bounded transaction evidence; your agent confirms or declares the durable schedule. Existing curation is preserved, and dashboard setup and review prompts help your agent maintain the list.

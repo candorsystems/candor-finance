@@ -36,6 +36,10 @@ allocation, and trading decisions to the user's agent under explicit authority.
   backfilled; investment_value also anchors on earlier reported balances, so
   its older points are the institution's figures rather than position
   valuations.
+- Read investment activity from `investment_transactions`. Use only `status: active`
+  rows in calculations; removed rows retain withdrawn source evidence. Security
+  names, symbols, and ISINs may be available even for positions no longer held.
+  Check investment-transaction coverage separately from holdings freshness.
 - Source fund expense ratios, advisory fees, and restrictions from current
   authoritative documents.
 - Calculate exposure and fee scenarios as facts. Leave suitability, allocation,
@@ -98,3 +102,24 @@ the user asks how the evidence was obtained.
 - Stop before personalized allocation advice when objectives, tax context, or
   risk preferences are missing.
 - Stop before any trade or account transfer.
+
+## Investment activity evidence
+
+Use `activity_kind` for Candor's shared activity semantics. The original `type`
+and `subtype` remain source evidence. `other` means the source semantics were
+not normalized. A reinvestment or deposit does not establish an external
+contribution for a return calculation. Exclude removed records.
+
+History coverage retains the last successful window when a refresh fails.
+Read `latest_attempt_status` separately from `last_successful_sync_at`. Plaid
+usually refreshes a 90-day overlap and reconciles its available 24-month window
+at least every 30 days when syncing; older retained activity is preserved.
+Corrections outside the recent window can wait until that reconciliation.
+Coverage excludes retired accounts. An incomplete history collection leaves
+prior activity unchanged and reports unavailable coverage for that attempt;
+partially fetched rows do not become new or updated canonical activity.
+
+If coverage reports `refresh_failed`, inspect the sync run's `apply_failure`
+for its safe code, stage, and record counts. Automatic retries are bounded. Use
+`sync.refresh` with `force: true` to resume the staged attempt; repeating refreshes cannot fix
+an invalid record or a resource-limit defect.
