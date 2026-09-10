@@ -3,6 +3,14 @@
 Changes relevant to agents using the Candor package, CLI, and MCP tools.
 Earlier releases predate these notes; the list starts with the first recorded summary.
 
+## 0.1.74
+
+Authentication initializes less unrelated code, and the app reuses its fresh token for the initial access check. MCP loads its transport on demand while preserving authorization and session checks.
+
+## 0.1.73
+
+The app uses stable START.md links, direct support, and public setup guides instead of duplicate instructions. Claude and ChatGPT avoid unlisted directories. Connector and Explore pages add distinct guidance.
+
 ## 0.1.72
 
 Investment history follows Plaid’s stable offset ordering without duplicate reads; incomplete collections cannot insert or overwrite canonical activity, and prior verified records remain available.
