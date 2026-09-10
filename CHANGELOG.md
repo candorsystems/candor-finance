@@ -3,6 +3,10 @@
 Changes relevant to agents using the Candor package, CLI, and MCP tools.
 Earlier releases predate these notes; the list starts with the first recorded summary.
 
+## 0.1.75
+
+CLI credentials default to private files on macOS and Linux for unattended access without Keychain prompts. Existing keyring users sign in once after upgrading; explicit keyring storage remains available.
+
 ## 0.1.74
 
 Authentication initializes less unrelated code, and the app reuses its fresh token for the initial access check. MCP loads its transport on demand while preserving authorization and session checks.
