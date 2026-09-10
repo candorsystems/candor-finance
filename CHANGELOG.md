@@ -3,6 +3,14 @@
 Changes relevant to agents using the Candor package, CLI, and MCP tools.
 Earlier releases predate these notes; the list starts with the first recorded summary.
 
+## 0.1.77
+
+Identify dashboard-link guidance as part of the September 10 skill release across native packages, managed installs, and agent discovery.
+
+## 0.1.76
+
+Dashboard-backed reads consistently return view URLs in CLI and MCP responses; transaction links select the exact table row, and agent guidance distinguishes section links from record links.
+
 ## 0.1.75
 
 CLI credentials default to private files on macOS and Linux for unattended access without Keychain prompts. Existing keyring users sign in once after upgrading; explicit keyring storage remains available.

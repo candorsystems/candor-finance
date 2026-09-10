@@ -5,10 +5,10 @@ compatibility: Requires an authenticated Candor workspace and either the Candor 
 metadata:
   author: Candor
   version: 0.1.0
-  candor-skill-version: 2026-09-07
+  candor-skill-version: 2026-09-10
   candor-cli: ">=0.3.94 <0.4.0"
   candor-introduced-in: 2026-07-23
-  candor-updated-in: 2026-09-07
+  candor-updated-in: 2026-09-10
   openclaw:
     homepage: https://candor.money/START.md
     requires:
@@ -63,6 +63,12 @@ mechanics out of ordinary financial answers unless they affect the result or
 the user asks. Candor account access, source connection, subscription choices,
 preference-bearing records, and every external action remain visible consent
 moments.
+
+Use returned `view_url` values when linking the user to dashboard records or
+views. The response-level `metadata.view_url` opens the related dashboard section
+and may not reproduce every response filter; a per-record `view_url` selects
+that record. Never invent dashboard URLs from record ids. Transaction links open the
+transactions table filtered to that exact record.
 
 ## The shortest useful loop
 

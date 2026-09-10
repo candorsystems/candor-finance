@@ -3,13 +3,13 @@ name: candor-finance
 description: "Use Candor for personal finance: organize the user's accounts and spending, remember approved budgets and goals, review investments, investigate possible savings, and keep evidence and follow-up together. Use when a task touches the user's money, financial records, prior decisions, or approved plans."
 compatibility: Requires an authenticated Candor workspace and either the Candor tools included with the installed package or Candor CLI 0.3.94 or newer.
 metadata:
-  candor-package-version: "0.1.75"
+  candor-package-version: "0.1.77"
   author: Candor
   version: "0.1.0"
-  candor-skill-version: "2026-09-07"
+  candor-skill-version: "2026-09-10"
   candor-cli: ">=0.3.94 <0.4.0"
   candor-introduced-in: "2026-07-23"
-  candor-updated-in: "2026-09-07"
+  candor-updated-in: "2026-09-10"
 ---
 
 ## Execute recipes through native MCP
@@ -65,6 +65,12 @@ mechanics out of ordinary financial answers unless they affect the result or
 the user asks. Candor account access, source connection, subscription choices,
 preference-bearing records, and every external action remain visible consent
 moments.
+
+Use returned `view_url` values when linking the user to dashboard records or
+views. The response-level `metadata.view_url` opens the related dashboard section
+and may not reproduce every response filter; a per-record `view_url` selects
+that record. Never invent dashboard URLs from record ids. Transaction links open the
+transactions table filtered to that exact record.
 
 ## The shortest useful loop
 
