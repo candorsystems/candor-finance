@@ -3,6 +3,18 @@
 Changes relevant to agents using the Candor package, CLI, and MCP tools.
 Earlier releases predate these notes; the list starts with the first recorded summary.
 
+## 0.1.80
+
+Recurring Web and MCP visuals display server-projected paid amounts without calculating payment counts in the renderer; payment and series sections keep their lists without client-derived count badges.
+
+## 0.1.79
+
+Recurring visuals lead with what is left to pay this month over one paid-versus-to-come bar; the page groups expected postings by week with missed ones first, and the Overview card lists the next two weeks the same way.
+
+## 0.1.78
+
+MCP connections that do not report their skill version receive informational metadata instead of a warning or update action. Package guidance survives compact responses; confirmed older versions still receive update instructions.
+
 ## 0.1.77
 
 Identify dashboard-link guidance as part of the September 10 skill release across native packages, managed installs, and agent discovery.
