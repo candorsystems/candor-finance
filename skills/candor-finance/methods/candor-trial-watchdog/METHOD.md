@@ -89,17 +89,11 @@ commands, status literals, or workspace mechanics unless asked.
 - Resolved note after a conclusive financial outcome.
 - Confirmed recurring policy only when the series interpretation is established.
 
-## Approval boundaries
+## Domain decisions
 
-- A request to keep an eye on a named trial authorizes the agent's own linked
-  note and subsequent evidence checks; it does not authorize cancellation.
-- An explicit request to organize the resulting recurring item grants bounded,
-  task-scoped authority for reversible internal writeback after inspection.
-- Confirm choices that reflect the user's values separately. Whether the
-  service is worth keeping and what price is acceptable encode the user's
-  values, so ask rather than deciding from the first charge.
-- Merchant contact, cancellation, purchase, plan change, or dispute needs
-  authority for that external action separately.
+A request to watch a trial authorizes the evidence checks and useful linked
+continuity needed for that outcome. It does not authorize canceling, purchasing
+or changing the service. Use the base scheduling guidance for later checks.
 
 ## Stopping conditions
 

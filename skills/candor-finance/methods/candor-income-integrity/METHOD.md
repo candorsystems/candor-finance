@@ -81,18 +81,11 @@ user asks how the check was performed.
 - Reversible transaction correction or rule only when the user supplied the
   factual meaning and asked to organize it.
 
-## Approval boundaries
+## Domain decisions
 
-- Investigating expected income needs no state-changing approval.
-- An explicit request to fix or organize a bounded misclassification grants
-  task-scoped authority for the inspected, reversible internal correction.
-- Confirm choices that reflect the user's values separately. Which income
-  distinctions should drive planning encode the user's values, so ask rather
-  than inferring them from deposit cadence.
-- Ask before encoding a reusable payer rule when the intended meaning is not
-  explicit or the affected set is broad.
-- External messages, payroll inquiries, disputes, and account changes need
-  authority for those actions separately.
+A deposit cadence does not establish an approved planning baseline. Establish
+payer meaning before encoding a reusable rule, and preserve uncertain or missing
+income as uncertainty rather than a promised receipt.
 
 ## Stopping conditions
 

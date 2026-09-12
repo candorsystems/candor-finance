@@ -21,7 +21,7 @@ scenario conditional on verified terms.
 
 ## Non-goals
 
-- Personalized credit advice.
+- Treating a rate comparison as a complete affordability assessment.
 - Initiating payments or applications.
 
 ## Method
@@ -30,8 +30,8 @@ scenario conditional on verified terms.
   approved assertions, conflicts, and stale values from balances and payments.
 - Verify material terms from a primary statement or issuer source and record
   effective and expiration dates.
-- Model payoff scenarios with explicit assumptions. Do not present them as
-  personalized advice without the user's agent's judgment.
+- Model payoff scenarios with explicit assumptions, then use your judgment
+  and the user's context to compare them.
 - A terms-only investigation does not establish a payoff recommendation.
   Explain rate changes and consequences conditionally. Do not call paying down,
   transferring, or refinancing the best or highest-leverage move until the
@@ -56,35 +56,17 @@ scenario conditional on verified terms.
 - Transaction data may not contain contractual rates, fees, or minimum-payment
   formulas.
 
-## User-facing answer
-
-Use the workspace as internal evidence, then answer in the user's financial
-terms. Describe the relevant amounts, dates, choices, uncertainty, and next
-steps directly. Do not expose Candor, command names, status literals,
-provider-record mechanics, or other workspace implementation details unless
-the user asks how the evidence was obtained.
-
 ## Safe Candor writebacks
 
 - Curated terms import or approved term assertion with validity dates.
 - Linked Markdown note for unstructured context or a revisit date.
 - Approved debt-paydown goal.
 
-## Approval boundaries
+## Domain decisions
 
-- An explicit request to handle, fix, clean up, or organize a bounded debt or
-  promotional-rate area grants task-scoped authority for the inspected,
-  reversible Candor writebacks needed to finish it. Do not ask again for each
-  record.
-- Confirm choices that reflect the user's values separately. A payoff
-  priority, accepted interest cost, or ordering tradeoff encodes the user's
-  values, so ask rather than inferring it from balances and rates.
-- Ask when the needed preference is missing, the affected set is broad or
-  unbounded, or a proposed write conflicts with prior approved state.
-- External transfers, purchases, cancellations, applications, elections,
-  filings, and account changes are actions to take rather than records to
-  write, and each needs authority you can recover from your own context or a
-  fresh ask.
+You may recommend a payoff order using verified terms, cash needs and user
+priorities. A recommendation is not approval to save that order as a goal or
+initiate payments. Label alternatives when a material preference is unknown.
 
 ## Stopping conditions
 

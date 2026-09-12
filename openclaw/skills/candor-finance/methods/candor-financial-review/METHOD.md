@@ -6,21 +6,19 @@ writing, or deepening anything.
 
 ## Completion contract
 
-A first pass is complete only when you have:
+For the scope you claim to have reviewed, establish that you have:
 
 1. bounded coverage and freshness;
 2. combined the complete transaction scope; and
-3. run the bundled sweep program over the combined pages so it emits
-   one capped candidate list for each lens below.
+3. examined each lens below with a compact, evidence-linked candidate ledger.
+   The bundled sweep program is a useful starting point for this analysis.
 
 Together the four lists are the compact candidate ledger. Each reports its
-total count and at most five candidates with source ids. Stdout is model
-context: print only the ledger. Printing even one sample row is shape probing
-and fails the review.
+total count and at most five candidates with source ids. Keep local analysis
+output compact so large raw pages do not crowd out the evidence and reasoning. Inspect exact records when needed to verify a candidate.
 
-If stdout lacks any lens section, the sweep is incomplete; finish it before any
-drilldown. Test baseline, comparator, and counterevidence before ranking or
-writing.
+Check for material gaps across the four lenses. Test baseline, comparator, and
+counterevidence before presenting a finding as supported.
 
 The four lenses are:
 
@@ -77,8 +75,8 @@ evidence calls for them.
 ## Method
 
 - Infer scope from the request and start unless a missing boundary would change
-  what you inspect. This method owns initial triage. Do not load another domain
-  skill for the initial sweep.
+  what you inspect. Use deeper methods when they can resolve a material
+  uncertainty.
 - Process the opening, then establish coverage, freshness, currencies, and
   material blind spots. Read history only when it could change the review. Use
   factual changes only when the opening or a surviving candidate calls for
@@ -86,9 +84,9 @@ evidence calls for them.
 - Query one bounded transaction scope. When it has continuations, download and
   combine every page before analysis. Use the supplied JSON Pointer and JSON
   Schema directly; do not probe the wrapper or record shape.
-- Produce the completion contract's four lists by running the bundled sweep
-  program on the downloaded pages. Then test each candidate and classify it as
-  supported, unresolved, or ordinary context.
+- Use the bundled sweep or equivalent local analysis to inspect the four
+  lenses. Test each candidate and classify it as supported, unresolved, or
+  ordinary context.
 - Use `recurring` to test detected series and candidates. Query other datasets only when
   a surviving candidate or the request makes them material.
 - After the sweep, rank surviving leads by defensible financial effect,
@@ -103,7 +101,7 @@ evidence calls for them.
 - Coverage and the four-list ledger cover the claimed window.
 - Every finding has a baseline or comparator, not a label alone.
 - Missing-inflow claims use the observed window and relevant positive precedent.
-- Full rows stayed out of model-facing output.
+- Analysis stayed bounded, with exact records available for verification.
 - Facts, external research, user context, assumptions, and judgment remain
   distinct.
 
@@ -148,24 +146,18 @@ or method mechanics unless the user asks how the evidence was obtained.
 
 - Linked Markdown note only for a supported unfinished outcome, with exact
   baseline, verification recipe, meaning of each result, owner, and revisit
-  date. Re-read the exact source record before writing and link its actual id;
-  never approximate an identifier. Never preserve a mere missing field or
-  unsupported possibility.
+  date in `revisit_at` and the exact record in the structured `about` link.
+  Reuse verified source evidence already returned; never approximate an
+  identifier. Never preserve a mere missing field or unsupported possibility.
 - User-approved budget or goal version through its typed command.
 - Bounded recurring, correction, or normalization state within the user's
   explicit maintenance scope.
 
-## Approval boundaries
+## Domain decisions
 
-- An explicit request to handle, fix, clean up, or organize a bounded workspace
-  area grants task-scoped authority for inspected, reversible Candor
-  writebacks. Do not ask again for each record.
-- Goals, risk tolerance, priorities, and tradeoffs encode the user's values;
-  confirm their substance rather than inferring it from records.
-- External transfers, purchases, cancellations, applications, elections,
-  filings, trades, messages, and professional engagements are actions to take
-  rather than records to write, and each needs authority you can recover from
-  your own context or a fresh ask.
+Prioritize and recommend from evidence and the context the user has supplied.
+Label a provisional priority when missing preferences could change it. A review
+does not approve new goals, budgets or external actions.
 
 ## Stopping conditions
 

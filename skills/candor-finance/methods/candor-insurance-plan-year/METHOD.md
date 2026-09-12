@@ -45,32 +45,15 @@ coverage scenarios.
 
 - Transactions alone cannot establish coverage or claims adjudication.
 
-## User-facing answer
-
-Use the workspace as internal evidence, then answer in the user's financial
-terms. Describe the relevant amounts, dates, choices, uncertainty, and next
-steps directly. Do not expose Candor, command names, status literals,
-provider-record mechanics, or other workspace implementation details unless
-the user asks how the evidence was obtained.
-
 ## Safe Candor writebacks
 
 - Linked Markdown note with verified policy terms, caveats, or a revisit date.
 
-## Approval boundaries
+## Domain decisions
 
-- An explicit request to handle, fix, clean up, or organize a bounded insurance
-  or plan-year area grants task-scoped authority for the inspected, reversible
-  Candor writebacks needed to finish it. Do not ask again for each record.
-- Confirm choices that reflect the user's values separately. Coverage
-  choices, accepted risk, and deductible tradeoffs encode the user's values, so
-  ask rather than inferring them from claims history.
-- Ask when the needed preference is missing, the affected set is broad or
-  unbounded, or a proposed write conflicts with prior approved state.
-- External transfers, purchases, cancellations, applications, elections,
-  filings, and account changes are actions to take rather than records to
-  write, and each needs authority you can recover from your own context or a
-  fresh ask.
+Recommend coverage tradeoffs from verified policy terms and the user's needs.
+Do not infer their accepted risk or deductible preference from claims history
+or represent a proposed policy choice as approved.
 
 ## Stopping conditions
 

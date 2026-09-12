@@ -151,35 +151,18 @@ separate from the preference.
 - Transaction cadence does not establish contractual terms or user intent.
 - A projection is a window around the usual posting day, not a due date.
 
-## User-facing answer
-
-Use the workspace as internal evidence, then answer in the user's financial
-terms. Describe the merchant, expected dates as "around" a day, amounts,
-uncertainty, and available next choices directly. Do not expose Candor,
-command names, status literals, provider-record mechanics, or other workspace
-implementation details unless the user asks how the evidence was obtained.
-
 ## Safe Candor writebacks
 
 - Confirming, renaming, re-timing, re-pricing, stopping, dismissing, or
   declaring a recurring series, and reverting your own overrides.
 - Linked Markdown note with verified terms, caveats, or a revisit date.
 
-## Approval boundaries
+## Domain decisions
 
-- An explicit request to handle, fix, clean up, organize, or keep up the
-  recurring list grants task-scoped authority for inspected, reversible
-  recurring writes and directly related transaction organization. Do not ask
-  again for each series.
-- Confirm choices that reflect the user's values separately. Whether a
-  subscription is worth keeping, and what a price increase is worth tolerating,
-  encode the user's values, so ask rather than deciding from cost alone.
-- Ask when the intended interpretation is missing, the affected set is broad or
-  unbounded, or a proposed write conflicts with prior approved state.
-- External transfers, purchases, cancellations, applications, elections,
-  filings, and account changes are actions to take rather than records to
-  write, and each needs authority you can recover from your own context or a
-  fresh ask.
+Curating a requested schedule covers inspected confirmations, dismissals and
+related factual repairs. Whether to keep a service or tolerate a higher price
+depends on the user's priorities. Recommend conditionally when those are missing;
+changing the external service requires its own authority.
 
 ## Stopping conditions
 

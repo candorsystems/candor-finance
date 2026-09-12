@@ -2,7 +2,7 @@
 # Property tracking
 
 Keep each physical property, its dated evidence, and its contribution to net
-worth consistent. Use the user's agent judgment to assess estimates; a provider
+worth consistent. Use your judgment to assess estimates; a provider
 estimate is evidence with a date and range, not an appraisal or a sale price.
 
 ## Datasets
@@ -109,17 +109,11 @@ and expenses. Explain missing debt responsibility without inventing a balance.
 - Record verified supporting context as a linked note when it changes how the
   evidence should be interpreted.
 
-## Approval boundaries
+## Domain decisions
 
-- A bounded request to track, update, import, or correct property evidence
-  grants task-scoped authority for the inspected reversible writebacks needed
-  to complete it.
-- Recover ownership and debt responsibility from evidence or prior user context;
-  ask only when a missing fact prevents the requested calculation.
-- Rental strategy and risk tolerance encode the user's values; establish their
-  substance before recording a preference or goal.
-- External sales, refinancing, applications, transfers, and account changes
-  require their own authority.
+Recover ownership and debt responsibility from evidence or prior user context;
+ask when a missing fact prevents the requested calculation. Keep estimates and
+rental-strategy recommendations distinct from approved facts or goals.
 
 ## Stopping conditions
 

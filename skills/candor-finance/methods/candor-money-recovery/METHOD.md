@@ -79,35 +79,18 @@ anything. It is not a description of the answer you give the user.
 - A merchant promise, submitted request, or agent assertion does not prove
   money was received.
 
-## User-facing answer
-
-Use the workspace as internal evidence, then answer in the user's financial
-terms. Describe the relevant amounts, dates, choices, uncertainty, and next
-steps directly. Do not expose Candor, command names, status literals,
-provider-record mechanics, or other workspace implementation details unless
-the user asks how the evidence was obtained.
-
 ## Safe Candor writebacks
 
 - Linked re-check note with the outstanding outcome, exact baseline evidence
   handles, revisit recipe, outcome meanings, and revisit date.
 - User-approved correction only when a transaction interpretation is wrong.
 
-## Approval boundaries
+## Domain decisions
 
-- An investigation is read-only apart from your own linked timed notes. Being
-  asked to look into a charge is not permission to change a record.
-- An explicit request to fix, correct, or clean up a bounded set grants
-  task-scoped authority for the inspected, reversible corrections needed to
-  finish it. Do not ask again for each record.
-- Confirm choices that reflect the user's values separately. Whether a
-  charge is acceptable, worth disputing, or worth the user's time encodes their
-  values, so ask rather than deciding it from the evidence alone.
-- Ask when the needed preference is missing, the affected set is broad or
-  unbounded, or a proposed write conflicts with prior approved state.
-- Disputes, claims, reimbursement submissions, cancellations, negotiations, and
-  messages are actions to take rather than records to write, and each needs
-  authority you can recover from your own context or a fresh ask.
+A request to investigate a charge authorizes evidence gathering and useful
+working notes, not transaction corrections. Recommend a next step based on
+evidence and the user's priorities; sending a claim or message needs authority
+for that external action.
 
 ## Stopping conditions
 

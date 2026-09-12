@@ -3,6 +3,78 @@
 Changes relevant to agents using the Candor package, CLI, and MCP tools.
 Earlier releases predate these notes; the list starts with the first recorded summary.
 
+## 0.1.98
+
+MCP descriptions clarify schema selection, change reads, write arguments, and recovery. Includes hosted checkout and identity-verification improvements while retaining current CLI upgrade guidance.
+
+## 0.1.97
+
+CLI versions before 0.3.118 must upgrade to execute current bounded-read continuations. Change comparisons use request time so default periods and time-based evidence stay current.
+
+## 0.1.96
+
+Explicit task reasons remain visible in agent activity with continuations grouped under them; recurring lists expose calendar anchors, and detected semimonthly schedules retain their slots after February.
+
+## 0.1.95
+
+Budget help describes capped reads as partial results with observed totals and warnings; recurring change coverage counts the records analyzed.
+
+## 0.1.94
+
+Cashflow roles fall back to the effective category at low confidence when no explicit role or recognized Plaid code exists, so existing category-only rules keep their meaning. Budget baselines count synced activity months as covered.
+
+## 0.1.93
+
+Schema orientation uses fixed system reasons. Partial reads expose actual recovery only. Budget guidance distinguishes unspent allocations from spending safety and uses the reported baseline denominator.
+
+## 0.1.92
+
+Partial changes, categories and rule previews expose recovery actions. MCP validates context and comparison dates; CLI retains compatible-response errors. Recurring forecasts preserve month-end anchors.
+
+## 0.1.91
+
+Onboarding distinguishes unattended monitoring from session-only timers. Notes may preserve monitoring context or routine references; the host scheduler remains authoritative for execution.
+
+## 0.1.90
+
+Notes lead with durable context and optional revisit dates; CLI, MCP and skill descriptions distinguish recurring financial postings from host-scheduled agent work.
+
+## 0.1.89
+
+Financial review supports evidence-led analysis without a prescribed tool sequence. Continuity guidance makes dated record links explicit and accepts saved-state proof from write responses.
+
+## 0.1.88
+
+Unknown MCP tools return refresh and schema recovery without ending the connection. Capped action detail and rule preview samples use the shared partial-result warning and recovery pattern.
+
+## 0.1.87
+
+CLI update notices include an executable upgrade action. Linked actions preserve explicit task reasons; MCP accepts omitted reasons on continuations so the backend can inherit them. System orientation reasons remain fixed.
+
+## 0.1.86
+
+Keeps low-confidence classification for source-only imports behind agent roles and Plaid. Partial change recovery preserves account scope; baseline guidance distinguishes observed averages from approved budgets.
+
+## 0.1.85
+
+Financial roles prioritize agent assignments then Plaid, with a limited import fallback. Baselines use available months; partial reads expose recovery. CLI responses warn of updates and require upgrades when incompatible.
+
+## 0.1.84
+
+Financial reads explain calculation scope and preserve useful observed totals. Fixes cover date comparisons, cashflow roles, portfolio values, recurring dates, extraction confidence, and cost cadence.
+
+## 0.1.83
+
+Change descriptions explain raw sample totals, unequal periods and the limit's effect on sampled evidence; write guidance leaves preview prerequisites to the operation contract.
+
+## 0.1.82
+
+Finance skills share a shorter operating contract, compose domain methods around user goals, preserve requested schedules, and clarify recurring candidate curation and verified no-change outcomes.
+
+## 0.1.81
+
+Hosted requests reuse Convex-verified identity while preserving live-session checks; agent OAuth requests retain signature, audience, expiry, and grant-revocation verification.
+
 ## 0.1.80
 
 Recurring Web and MCP visuals display server-projected paid amounts without calculating payment counts in the renderer; payment and series sections keep their lists without client-derived count badges.

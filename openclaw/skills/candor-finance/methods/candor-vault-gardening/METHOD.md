@@ -1,9 +1,9 @@
 
-# Vault gardening
+# Record maintenance
 
-Maintain the workspace in small, reviewable passes. Prioritize defects that
-distort later reasoning, apply the narrowest reversible repair, and verify the
-effective result.
+Establish what is wrong before choosing a repair. Match the pass to the user's
+scope; a broad cleanup can span transactions, recurring series and overlays,
+while one known error needs only its relevant evidence.
 
 ## Datasets
 
@@ -14,104 +14,50 @@ effective result.
 - `changes`
 - `actions`
 
-## Workspace resources
-
-- Use `corrections` for one-record factual interpretation.
-- Use `rules` for repeated, bounded normalization.
-- Use recurring policies for confirmed series meaning.
-- Use `notes` for a material unresolved maintenance check.
-
-## Non-goals
-
-- Maximizing the number of changed records.
-- Imposing categories, preferences, or recurring interpretations from noisy
-  merchant text.
-- Hiding missing coverage or stale sources with cosmetic cleanup.
-
 ## Method
 
-- Start from `candor open`, coverage, factual changes, and due notes. Select a
-  bounded pass that can materially improve later analysis.
-- Read observable history from coverage records. Transaction sparsity and the
-  first or last matching record do not establish a coverage boundary.
-- Triage into source-health gaps, uncertain transaction meaning, false or stale
-  recurring candidates, conflicting overlays, and harmless noise.
-- Use the recurring-bills method for schedule curation. Prefer predictable
-  obligations on an initial pass, while preserving existing confirmations and
-  declarations. Card repayments and transfers are not new expenses; mortgage
-  installments can still belong. Do not dismiss all `debt_payment` series or
-  remove a curated variable bill just to impose an initial setup preference.
-- Repair root meaning before downstream presentation. A wrong merchant rule can
-  contaminate many categories; a coverage gap cannot be corrected record by
-  record.
-- Inspect exact effective records and history before writing. Prefer a
-  correction for one fact, a split for one mixed transaction, a recurring
-  policy for one series, and a rule only for repeated evidence with reviewed
-  counterexamples.
-- Read the rows a rule reaches before trusting it, re-read the effective
-  view after it lands, and keep the rule and correction ids for reversal.
-- Leave ambiguous records unchanged. Ask for the smallest missing factual
-  interpretation or persist a follow-up only when the issue is material.
-- End with what became more reliable, what remains intentionally unresolved,
-  and the next highest-value maintenance area.
+1. Use the opening and relevant coverage to establish the accounts and period.
+   Inspect effective records and existing interpretations before deciding that
+   something is wrong. Missing history is a coverage limit, not a record defect.
+2. Separate factual errors, unresolved meaning and harmless noise. A provider
+   category can be plausible without being confirmed. Repetition proves a
+   pattern, not an intended obligation. No quality flag is not proof of correctness.
+3. Choose the smallest repair that serves the request:
+   - `candor-transaction-organization` owns corrections, splits and rules.
+   - `candor-recurring-bills` owns schedule interpretation and curation.
+   - `candor-property-tracking` owns property evidence and linked mortgages.
+   Combine them when one underlying error affects several views; do not apply
+   parallel fixes to conceal the same incorrect meaning.
+4. Inspect exact matches and counterexamples before writing. A reusable rule
+   can reach past and future activity, so review its actual scope. Preserve
+   existing approved decisions and any narrower approval instructions.
+5. Verify each changed effective record and retain its correction, rule or
+   policy history for reversal. Explain what became more reliable, what remains
+   uncertain and the limits of the inspected scope.
 
-## Evidence checklist
+## Recurring judgment during cleanup
 
-- The pass has an explicit account, period, merchant, or issue boundary.
-- Effective records, existing overlays, representative matches, and exclusions
-  were inspected.
-- Each write has a verified after-state and recovery handle.
-- Remaining ambiguity and coverage gaps are visible rather than normalized away.
+Transaction role and schedule status answer different questions. A transfer
+can be correctly excluded from expenses while its repeating pattern remains an
+uncurated candidate. Candidates already contribute nothing to commitment totals.
+Dismissing a clear false or unwanted schedule candidate preserves that judgment
+and removes it from the default list; it does not fix transaction amounts or
+cancel a real-world payment.
 
-## Candor query recipes
+When the user asks to tidy the schedule, resolve clear candidates within that
+scope and preserve ambiguous ones for clarification. A general cleanup does not
+require a write to a harmless candidate. If leaving it unchanged is appropriate,
+say what was checked and why; do not claim it has been curated or that the whole
+workspace is clean. Do not activate a transfer merely because it repeats, or
+remove an approved placement because your default schedule would differ.
 
-- For triage, bounded repairs, verification, and rollback, read
-  [the executable workflows](references/workflows.md).
-- Load `candor-transaction-organization` for corrections, splits, and rules;
-  load `candor-recurring-bills` for recurring-series interpretation.
+## Completion
 
-- For property duplicates, dated appraisals, or mortgage links, use
-  `candor-property-tracking` and retain the canonical property identity.
+The result matches the requested scope. Every claimed repair has verified
+state and a recovery handle. Uncertain meaning remains unchanged and is visible
+when material. A justified no-change result is complete; a count of successful
+writes is not the objective.
 
-## Caveats
-
-- Merchant descriptions and provider categories are noisy evidence.
-- A clean-looking workspace can still be incomplete; coverage and freshness
-  take precedence over cosmetic consistency.
-
-## User-facing answer
-
-Explain which real-world records became clearer, how many items were affected,
-what was left alone, and any question that still blocks a safe repair. Do not
-expose internal statuses, record ids, command names, or maintenance mechanics
-unless the user asks how the cleanup worked.
-
-## Safe Candor writebacks
-
-- Bounded correction or exact split.
-- Reversible normalization rule.
-- Confirmed recurring policy.
-- Linked note for a material unresolved maintenance issue.
-
-## Approval boundaries
-
-- An explicit request to clean up, organize, or maintain a bounded part of the
-  workspace grants task-scoped authority for inspected, reversible internal
-  repairs in that area.
-- A role-backed exclusion from recurring expenses is factual cleanup within
-  that task scope. Confirming a user's intended budget treatment or priority is
-  a choice that reflects the user's values and remains a separate question.
-- Confirm choices that reflect the user's values separately. How the user
-  wants money grouped and which distinctions matter encode the user's values,
-  so ask rather than imposing a maintenance taxonomy.
-- Ask when the user's intended category or recurring meaning is missing, the
-  affected set is broad or unbounded, or a write conflicts with approved state.
-- Source reconnection, external messages, transfers, cancellations, and account
-  changes need authority for those actions separately.
-
-## Stopping conditions
-
-- Stop before a rule whose matches cannot be reviewed.
-- Stop before overwriting conflicting approved meaning.
-- Stop the pass when remaining items need user interpretation rather than
-  allowing cleanup momentum to become guessed state.
+Read [inspection and verification recipes](references/workflows.md) when needed.
+The specialist methods own the write recipes, so their interpretation rules and
+live schemas remain the source for those operations.

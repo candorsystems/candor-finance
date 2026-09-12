@@ -71,17 +71,6 @@ never present a score, a score change, or bureau contents as observed.
 - Scoring models weigh utilization, but Candor evidence cannot say what this
   user's score is or will be.
 
-## User-facing answer
-
-Use the workspace as internal evidence, then answer in the user's financial
-terms. Lead with the cards that matter now: balance against limit, the exact amount
-in that account's currency to reach a stated threshold, the next due date,
-and estimated interest at the observed rate, labeled as an estimate. State
-uncertainty and the freshness of each figure. Do not
-expose Candor, command names, status literals, provider-record mechanics, or
-other workspace implementation details unless the user asks how the evidence
-was obtained.
-
 ## Safe Candor writebacks
 
 - Curated account-terms import for source-backed statement facts, or a
@@ -90,16 +79,11 @@ was obtained.
 - Linked Markdown note with unstructured context, a paydown baseline, or a
   timed re-check for an expected posted payment.
 
-## Approval boundaries
+## Domain decisions
 
-- An explicit request to review or organize a bounded credit area grants
-  task-scoped authority for the inspected, reversible Candor writebacks needed
-  to finish it. Do not ask again for each record.
-- Which balance to pay first and how much to keep liquid encode the user's
-  values and constraints; confirm rather than inferring them from balances.
-- Payments, transfers, limit requests, disputes, and applications are external
-  actions, and each needs authority you can recover from your own context or
-  a fresh ask.
+Recommend using verified debt terms, cash constraints and known priorities.
+Do not store a payment order or cash buffer as approved merely because the
+current balances make it look attractive.
 
 ## Stopping conditions
 

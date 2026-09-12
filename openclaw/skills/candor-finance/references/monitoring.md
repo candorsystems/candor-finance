@@ -1,104 +1,67 @@
-# Quiet monitoring recipes
+# Scheduled work
 
-Use this recipe only after the first full `candor open` briefing has been
-processed and its checkpoint acknowledged.
+Use the host's durable scheduler for a requested later check or recurring task.
+Recover the user's purpose, cadence, time zone, notification preference and stop
+condition. Ask only for missing choices. An explicit scheduling request is
+already authorization; do not ask the user to opt in again. Setup and workspace
+access alone do not authorize a schedule.
 
-## Ask once
+## Preserve the requested task
 
-Ask one plain question:
+Save a self-contained instruction that retains the financial goal, scope,
+authority, evidence to inspect, prior-decision recovery, requested output and
+when to stop. A weekly briefing should run and report weekly even if no alert is
+present. A quiet refund check should notify on its specified outcome and end
+when resolved. A scheduled cleanup must actually inspect its maintenance scope.
+Do not replace these with a generic pulse or suppress an explicitly requested
+report.
 
-> Would you like me to check your finances quietly in the background? Daily is
-> a good default, or I can check weekly, twice daily, on another schedule, or
-> not at all. I will only contact you when a follow-up actually merits your
-> attention.
+Prefer a durable wake in the same conversation. Use an isolated scheduled run
+when necessary, including enough context to recover relevant notes and evidence.
+If the host cannot run authenticated Candor tools unattended, say what is missing;
+a plain reminder or session-only loop is not background financial work.
 
-Do not configure anything until the user chooses. `Off` means stop with no
-schedule. Treat a custom cadence as a scheduling preference, not permission for
-new financial actions.
+Inspect existing jobs for the same purpose before creating one. Update that job
+when the user changes it; preserve unrelated tasks. Use a task-specific name.
+The host scheduler is authoritative for schedule identity, status and run history.
+Notes may preserve the monitoring purpose, related decisions, or a routine
+reference as context. Saving a note does not create or verify a scheduled run.
+Verify the saved instruction, schedule and target, and run a bounded initial
+check when it is safe and relevant. Confirm the actual schedule to the user.
 
-## Stable recurrence
+## General quiet monitoring
 
-Use the stable job name `candor-finance-pulse`. Prefer, in order:
-
-1. A durable heartbeat or scheduled wake that resumes the same conversation,
-   thread, or persistent monitoring context.
-2. A durable isolated scheduled run when resumption is unavailable.
-3. No background monitoring when the agent cannot run authenticated Candor
-   commands unattended.
-
-Do not substitute a session-start reminder or a continuously running loop for
-a durable recurrence. Create one job, inspect the returned schedule and target,
-and invoke it once immediately as verification. If a job with the stable name
-already exists, inspect and update that job instead of creating a duplicate.
-Keep the job id and cadence in the agent's scheduler. Never write them to a
-Candor note.
-
-Use this job instruction, adapting only the silent-success token named by the
-agent:
+Only for a user-requested general financial check-in, use the stable job name
+`candor-finance-pulse`. Its compact signal can avoid unnecessary reads:
 
 ```text
 Quietly check the user's financial workspace.
 
-1. Run the package's workspace pulse operation: `candor pulse`.
-2. If the call fails or its contract is invalid, report the scheduled-run
-   failure through the agent's scheduler. Never treat failure as no attention.
-3. If `attention` is `none`, emit the agent's silent-success token and
-   stop. Do not notify the user.
-4. If `attention` is `present`, run `candor open`, process and triage the
-   briefing, and acknowledge its checkpoint only after processing it.
-5. Contact the user only if the investigation finds something material or
-   needs their input or authority. Otherwise finish silently.
-
-The pulse is a check-in, not a notification. Do not create another scheduler,
-watch, loop, or Candor note for this recurrence.
+1. Run `candor pulse`.
+2. If the call fails or its contract is invalid, report the scheduled-run failure
+   through the host. Never treat failure as no attention.
+3. If `attention` is `none`, use the host's silent-success behavior and stop.
+4. If attention is present, open the workspace, investigate the relevant evidence,
+   and acknowledge that exact opening after processing it.
+5. Notify only for a supported material finding, changed outcome or needed user
+   input. Otherwise finish silently.
 ```
 
-## OpenClaw
+The pulse is an attention signal, not proof that a requested domain-specific
+check ran. Do not use it to skip an obligation the saved task requires.
 
-Prefer the ongoing main-session heartbeat when its cadence matches the user's
-choice. Otherwise create or update one main-session scheduled wake with the
-stable name. Target the main session so prior monitoring context continues.
-Use OpenClaw's heartbeat-success behavior on `attention: "none"`. If only an
-isolated cron target is available, use it as the fallback and keep the same
-job instruction.
+## Host selection and maintenance
 
-## Hermes
+- OpenClaw: prefer an ongoing main-session heartbeat when the cadence fits;
+  otherwise use a durable scheduled wake, with an isolated run as fallback.
+- Hermes: attach this finance skill to a durable scheduled job and use the
+  host's silent-success convention for quiet checks.
+- Claude Code: use a durable Desktop scheduled task or an authenticated cloud
+  routine. Do not substitute `/loop`, which is session-scoped.
+- ChatGPT or another host: verify scheduled runs can call authenticated Candor
+  tools. If they cannot, report that limitation instead of implying monitoring
+  is configured.
 
-Create or update one stable named cron job and attach the `candor-finance`
-skill. Use `[SILENT]` for `attention: "none"`. Hermes may execute cron jobs in
-a fresh session; that is an acceptable isolated fallback, not a reason to add
-Candor-side schedule state.
-
-## Claude Code
-
-Prefer a durable Desktop scheduled task that resumes the relevant task context.
-Use a cloud routine only when that environment already has authenticated
-access to Candor. Do not use `/loop`: it is session-scoped continuous work, not
-a durable background check-in.
-
-## ChatGPT
-
-If scheduled runs in this environment can call authenticated Candor tools,
-create or update one scheduled task with the stable name. Scheduled tasks run
-isolated and carry no memory between runs, so this is the durable isolated
-fallback and the job instruction must stay self-contained. The platform caps
-cadence at hourly and can pause a task after repeated failures; treat an
-unexpected pause as a scheduled-run failure, not as no attention. If scheduled
-runs cannot reach Candor, tell the user background monitoring was not
-configured instead of scheduling a plain reminder.
-
-## Other agents
-
-Use the agent's closest built-in scheduler. Prefer a same-thread,
-same-conversation, or session-resuming target when available. Otherwise use an
-isolated run with the exact job instruction above. If unattended authenticated
-execution is unavailable, tell the user background monitoring was not
-configured. Do not imply that an in-session reminder is durable monitoring.
-
-## Maintenance
-
-Change or remove the stable job when the user changes their cadence or
-opts out. The scheduler's run history and failure reporting are authoritative
-for scheduler health. Normal Candor visits should not check whether the job
-still exists; inspect it only when setup verification fails, the agent reports
-a scheduler problem, or the user asks to change monitoring.
+The host owns run history and failure reporting. Inspect it when verification
+fails, a run reports an error, or the user asks about the schedule. Stop or change
+only the matching task when its outcome is resolved or the user changes intent.

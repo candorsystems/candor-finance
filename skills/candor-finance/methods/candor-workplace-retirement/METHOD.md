@@ -71,16 +71,6 @@ formulas and limits are never inferred from deposits alone.
 - Match capture is plan-specific; per-period formulas and true-up provisions
   change the answer for the same annual percentage.
 
-## User-facing answer
-
-Use the workspace as internal evidence, then answer in the user's financial
-terms. Lead with what is being captured and what is not, in dollars per year,
-with the verified formula and the exact next step that changes it. State what
-could not be established and what evidence would establish it. Do not expose
-Candor, command names, status literals, provider-record mechanics, or other
-workspace implementation details unless the user asks how the evidence was
-obtained.
-
 ## Safe Candor writebacks
 
 - Linked Markdown note with verified plan terms, a contribution baseline, or
@@ -92,17 +82,11 @@ obtained.
   paystub payroll fields in a linked note as working context with an explicit
   re-verification obligation, not canonical evidence.
 
-## Approval boundaries
+## Domain decisions
 
-- An explicit request to review a bounded retirement area grants task-scoped
-  authority for the inspected, reversible Candor writebacks needed to finish
-  it. Do not ask again for each record.
-- How much to defer, and the taxable-versus-Roth split, encode the user's
-  values and tax situation; present the tradeoffs and confirm rather than
-  choosing.
-- Election changes, transfers, rollovers, and anything filed with an employer
-  or provider are external actions, and each needs authority you can recover
-  from your own context or a fresh ask.
+Use verified plan terms and the user's tax and cash constraints to recommend
+contributions. Confirm the chosen deferral and taxable-versus-Roth split before
+saving it as approved; employer election changes remain external actions.
 
 ## Stopping conditions
 

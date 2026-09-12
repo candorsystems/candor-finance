@@ -24,6 +24,13 @@ the user's priorities or silently turning a scenario into a budget.
 
 ## Method
 
+Choose comparison dates from the user's question. Spending and income changes
+default to the last two complete UTC calendar months; supply both date ranges
+to override them. Totals are not normalized rates. Budget averages divide the
+observed baseline total by months with complete source coverage or observed
+transactions; check the reported denominator and history coverage. Unspent
+flexible and cushion allocations do not establish that cash is safe to spend.
+
 - Confirm the period, account coverage, transfer treatment, and currencies.
 - Separate income, expenses, transfers, refunds, debt payments, and one-time
   items before calculating recurring capacity.
@@ -54,34 +61,17 @@ the user's priorities or silently turning a scenario into a budget.
   are missing.
 - Past spending does not reveal the user's values or preferred tradeoffs.
 
-## User-facing answer
-
-Use the workspace as internal evidence, then answer in the user's financial
-terms. Describe the relevant amounts, dates, choices, uncertainty, and next
-steps directly. Do not expose Candor, command names, status literals,
-provider-record mechanics, or other workspace implementation details unless
-the user asks how the evidence was obtained.
-
 ## Safe Candor writebacks
 
 - Approved budget version.
 - Approved goal version.
 - Linked Markdown note for a decision summary or timed follow-up.
 
-## Approval boundaries
+## Domain decisions
 
-- An explicit request to handle, fix, clean up, or organize a bounded budget or
-  cash-flow area grants task-scoped authority for the inspected, reversible
-  Candor writebacks needed to finish it. Do not ask again for each record.
-- Confirm choices that reflect the user's values separately. A budget
-  target, category priority, or accepted tradeoff encodes the user's values, so
-  ask rather than inferring it from spending history.
-- Ask when the needed preference is missing, the affected set is broad or
-  unbounded, or a proposed write conflicts with prior approved state.
-- External transfers, purchases, cancellations, applications, elections,
-  filings, and account changes are actions to take rather than records to
-  write, and each needs authority you can recover from your own context or a
-  fresh ask.
+Observed spending is a baseline, not a desired budget. Propose exact amounts
+and explain tradeoffs; save only the version the user has approved. Do not treat
+a cleanup request as approval to change their spending priorities.
 
 ## Stopping conditions
 

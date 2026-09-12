@@ -81,7 +81,7 @@ money, row actions, and resulting records have been verified.
 - Treat `statement_reconciled` as an evidence claim, not a transport label: use
   it only when broker or source evidence was faithfully transcribed and
   reconciled. Use `agent_curated_unreconciled` for partial or unreconciled
-  evidence. Omitted extraction confidence appears as `unknown`; it neither
+  evidence. Omitted extraction confidence appears as `null`; it neither
   changes source authority nor becomes a canonical holding field. Observed
   holding value and cost basis are half-even quantized to currency precision
   with preview warnings; `manual_correction` rejects excess precision.
@@ -155,19 +155,12 @@ asks how the evidence was handled.
 - Reverted import batch when recovery or correction requires it.
 - Linked note for material context that cannot safely become typed data.
 
-## Approval boundaries
+## Domain decisions
 
-- Receiving a file does not itself authorize adding it to the workspace.
-- An explicit request to add, import, ingest, or test the supplied evidence
-  grants task-scoped authority for validation, preview, the inspected apply,
-  verification, and a requested or necessary revert.
-- Confirm choices that reflect the user's values separately. Which evidence
-  should remain canonical and how conflicts should be resolved encode the
-  user's values, so ask rather than deciding from file structure alone.
-- Ask when account identity is ambiguous, the file expands beyond the stated
-  scope, or applying would overwrite or conflict with trusted state.
-- External uploads, filings, payments, disputes, and account changes need
-  authority for those actions separately.
+Receiving a file alone does not authorize import. A request to add, import or
+test supplied evidence covers validation, preview, inspected apply, verification
+and a requested or necessary revert. Resolve ambiguous account identity or
+conflicts with trusted state before applying; do not silently expand scope.
 
 ## Stopping conditions
 

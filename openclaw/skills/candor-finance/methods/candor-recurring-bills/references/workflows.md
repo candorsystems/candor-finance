@@ -51,9 +51,12 @@
    existing confirmations, and explicitly retire redundant entries. A bill that moved accounts is a stop on
    the old series and a confirmation on the new one.
 
-Complete when every candidate and change is either confirmed, declared,
-stopped, dismissed, or left with a bounded factual follow-up, and the default
-list reads as the user's schedule.
+For requested schedule curation, complete when the inspected candidates and
+changes have evidence-backed dispositions, with ambiguity clearly left for
+clarification. For an investigation, a supported explanation can be sufficient.
+Do not write or create follow-up merely to satisfy this recipe. Candidates already
+contribute nothing to commitment totals; dismissal preserves exclusion from the
+default schedule without deleting transactions.
 
 ## Answer "what is coming up"
 

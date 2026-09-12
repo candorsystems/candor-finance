@@ -100,14 +100,6 @@ looks ahead.
 - Missing accounts make a projection optimistic, because unmodelled obligations
   never appear in it.
 
-## User-facing answer
-
-Use the workspace as internal evidence, then answer in the user's financial
-terms. Describe the relevant amounts, dates, choices, uncertainty, and next
-steps directly. Do not expose Candor, command names, status literals,
-provider-record mechanics, or other workspace implementation details unless
-the user asks how the evidence was obtained.
-
 ## Safe Candor writebacks
 
 - Linked Markdown note recording the horizon, assumptions, projected low point,
@@ -116,19 +108,11 @@ the user asks how the evidence was obtained.
   plan.
 - Bounded recurring corrections within the user's explicit maintenance scope.
 
-## Approval boundaries
+## Domain decisions
 
-- An explicit request to fix, correct, or clean up recurring items grants
-  task-scoped authority for the inspected, reversible writebacks needed to make
-  the projection accurate. Do not ask again for each record.
-- Confirm choices that reflect the user's values separately. What counts as
-  an acceptable buffer, which spending is discretionary, and how much shortfall
-  risk is tolerable encode the user's values, so ask rather than assuming them.
-- Ask when the needed preference is missing, the affected set is broad or
-  unbounded, or a proposed write conflicts with prior approved state.
-- Transfers, payments, purchases, cancellations, and applications are actions
-  to take rather than records to write, and each needs authority you can
-  recover from your own context or a fresh ask.
+Do not treat an assumed reserve, discretionary-spending classification or
+liquidation scenario as the user's approved plan. A forecast request does not
+authorize repairing recurring state or moving funds unless context grants it.
 
 ## Stopping conditions
 

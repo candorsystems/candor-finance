@@ -53,33 +53,17 @@ the user's preferences about safety, access, and complexity.
 - Rates, insurance limits, eligibility, tax treatment, and withdrawal terms can
   change; search current authoritative sources instead of relying on memory.
 
-## User-facing answer
-
-Use the workspace as internal evidence, then answer in the user's financial
-terms. Describe the relevant amounts, dates, choices, uncertainty, and next
-steps directly. Do not expose Candor, command names, status literals,
-provider-record mechanics, or other workspace implementation details unless
-the user asks how the evidence was obtained.
-
 ## Safe Candor writebacks
 
 - Approved reserve or savings goal.
 - Curated terms import or approved term assertion for the user's own account.
 - Linked Markdown note for external market options and a revisit date.
 
-## Approval boundaries
+## Domain decisions
 
-- An explicit request to handle, fix, clean up, or organize a bounded cash or
-  yield area grants task-scoped authority for the inspected, reversible Candor
-  writebacks needed to finish it. Do not ask again for each record.
-- Confirm choices that reflect the user's values separately. A target
-  buffer, accepted liquidity risk, or institution preference encodes the user's
-  values, so ask rather than inferring it from balances.
-- Ask when the needed preference is missing, the affected set is broad or
-  unbounded, or a proposed write conflicts with prior approved state.
-- Transfers, account openings or closures, purchases, and applications are
-  actions to take rather than records to write, and each needs authority you
-  can recover from your own context or a fresh ask.
+A balance is not a reserve target or authority to move cash. Recommend with
+known liquidity needs and preferences; make missing constraints explicit before
+presenting an allocation as the user's decision.
 
 ## Stopping conditions
 

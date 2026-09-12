@@ -49,32 +49,15 @@ credit decision to reward value alone.
 - A higher modeled reward does not establish that opening, closing, or using a
   card is appropriate.
 
-## User-facing answer
-
-Use the workspace as internal evidence, then answer in the user's financial
-terms. Describe the relevant amounts, dates, choices, uncertainty, and next
-steps directly. Do not expose Candor, command names, status literals,
-provider-record mechanics, or other workspace implementation details unless
-the user asks how the evidence was obtained.
-
 ## Safe Candor writebacks
 
 - Linked Markdown note with verified terms, caveats, or a revisit date.
 
-## Approval boundaries
+## Domain decisions
 
-- An explicit request to handle, fix, clean up, or organize a bounded card or
-  rewards area grants task-scoped authority for the inspected, reversible
-  Candor writebacks needed to finish it. Do not ask again for each record.
-- Confirm choices that reflect the user's values separately. A card
-  preference, redemption choice, or accepted tradeoff encodes the user's
-  values, so ask rather than inferring it from spending patterns.
-- Ask when the needed preference is missing, the affected set is broad or
-  unbounded, or a proposed write conflicts with prior approved state.
-- External transfers, purchases, cancellations, applications, elections,
-  filings, and account changes are actions to take rather than records to
-  write, and each needs authority you can recover from your own context or a
-  fresh ask.
+Compare options using observed spending and verified terms. Do not infer card
+preferences, redemption choices or accepted tradeoffs from spending patterns,
+or save a recommendation as the user's decision.
 
 ## Stopping conditions
 

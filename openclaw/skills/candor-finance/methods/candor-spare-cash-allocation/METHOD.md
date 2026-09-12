@@ -87,16 +87,11 @@ record ids, or workspace boundaries unless asked.
 - Linked note for a sourced changing term or future verification.
 - Curated or user-approved account term with provenance.
 
-## Approval boundaries
+## Domain decisions
 
-- Investigating and comparing options needs no state-changing approval.
-- An explicit request to handle, fix, clean up, or organize a bounded
-  allocation area grants task-scoped authority for inspected, reversible
-  factual Candor writebacks; it does not approve choices that reflect the user's values.
-- Confirm the substance of a reserve target, allocation, payoff priority, or
-  goal before storing it because those choices encode the user's values.
-- Transfers, payments, purchases, applications, account changes, and trades
-  each need authority for that external action.
+Investigate, compare and recommend using the user's stated constraints. Confirm
+a proposed reserve target, allocation or payoff priority before storing it as
+approved. Keep unknown preferences explicit in conditional alternatives.
 
 ## Stopping conditions
 

@@ -3,8 +3,8 @@
 
 # Portfolio and fee analysis
 
-Calculate factual exposures and fee scenarios while leaving suitability,
-allocation, and trading decisions to the user's agent under explicit authority.
+Calculate factual exposures and fee scenarios to inform your recommendations. Distinguish
+measured exposure from suitability judgments and approved trading decisions.
 
 ## Datasets
 
@@ -20,7 +20,7 @@ allocation, and trading decisions to the user's agent under explicit authority.
 
 ## Non-goals
 
-- Investment suitability or allocation advice.
+- Inferring suitability or an approved allocation from holdings alone.
 - Trading or transferring assets.
 
 ## Method
@@ -42,8 +42,8 @@ allocation, and trading decisions to the user's agent under explicit authority.
   Check investment-transaction coverage separately from holdings freshness.
 - Source fund expense ratios, advisory fees, and restrictions from current
   authoritative documents.
-- Calculate exposure and fee scenarios as facts. Leave suitability, allocation,
-  and trade decisions to the user's agent under explicit authority.
+- Calculate exposure and fee scenarios as facts. Use them with the user's
+  context to assess fit; do not present an estimate as an approved allocation.
 
 ## Evidence checklist
 
@@ -70,32 +70,15 @@ allocation, and trading decisions to the user's agent under explicit authority.
   changes whenever the source reports a new value.
 - Fee comparison is not investment advice or a trade recommendation.
 
-## User-facing answer
-
-Use the workspace as internal evidence, then answer in the user's financial
-terms. Describe the relevant amounts, dates, choices, uncertainty, and next
-steps directly. Do not expose Candor, command names, status literals,
-provider-record mechanics, or other workspace implementation details unless
-the user asks how the evidence was obtained.
-
 ## Safe Candor writebacks
 
 - Linked Markdown note with verified fee terms, caveats, or a revisit date.
 
-## Approval boundaries
+## Domain decisions
 
-- An explicit request to handle, fix, clean up, or organize a bounded portfolio
-  or fee area grants task-scoped authority for the inspected, reversible Candor
-  writebacks needed to finish it. Do not ask again for each record.
-- Confirm choices that reflect the user's values separately. Risk tolerance,
-  allocation targets, and accepted cost tradeoffs encode the user's values, so
-  ask rather than inferring them from current holdings.
-- Ask when the needed preference is missing, the affected set is broad or
-  unbounded, or a proposed write conflicts with prior approved state.
-- External transfers, purchases, cancellations, applications, elections,
-  filings, and account changes are actions to take rather than records to
-  write, and each needs authority you can recover from your own context or a
-  fresh ask.
+You assess fit and recommend using the user's objectives, tax context and risk
+preferences. Make missing inputs explicit. Current holdings do not establish
+an approved allocation, and analysis does not authorize a trade.
 
 ## Stopping conditions
 

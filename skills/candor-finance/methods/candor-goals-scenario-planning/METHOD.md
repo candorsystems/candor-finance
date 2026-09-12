@@ -3,8 +3,8 @@
 
 # Goals and scenario planning
 
-Build explicit, attributable scenarios while leaving priority choices and plan
-approval to the user and their agent.
+Build explicit, attributable scenarios and recommend using the user's context.
+Keep recommendations separate from the versions the user approves.
 
 ## Datasets
 
@@ -20,7 +20,7 @@ approval to the user and their agent.
 
 ## Non-goals
 
-- Choosing which goal matters most.
+- Inventing the user's priorities or treating a recommendation as approval.
 - Approving a plan on the user's behalf.
 
 ## Method
@@ -30,7 +30,7 @@ approval to the user and their agent.
 - Model base, conservative, and stretch paths with explicit dates and
   exact-money contributions.
 - Identify collisions with reserves, debt obligations, and other approved goals
-  without choosing priorities for the user.
+  and explain the tradeoffs before recommending a priority.
 
 ## Evidence checklist
 
@@ -50,36 +50,17 @@ approval to the user and their agent.
 - Scenario feasibility is conditional on stated assumptions.
 - Candor does not choose which goal matters more.
 
-## User-facing answer
-
-Use the workspace as internal evidence, then answer in the user's financial
-terms. Describe the relevant amounts, dates, choices, uncertainty, and next
-steps directly. Do not expose Candor, command names, status literals,
-provider-record mechanics, or other workspace implementation details unless
-the user asks how the evidence was obtained.
-
 ## Safe Candor writebacks
 
 - Approved goal version.
 - Goal progress event.
 - Linked Markdown note for a decision summary or timed follow-up.
 
-## Approval boundaries
+## Domain decisions
 
-- An explicit request to handle, fix, clean up, or reorganize a bounded goal or
-  plan area grants task-scoped authority for the inspected, reversible Candor
-  writebacks needed to finish it, such as recomputed progress or corrected
-  linkage. Do not ask again for each record.
-- Confirm the substance of a goal separately. Its target, date, priority
-  against other goals, and accepted tradeoff encode the user's values. Never
-  create or retarget a goal from inferred intent; draft it and have the user
-  approve the version.
-- Ask when the needed preference is missing, the affected set is broad or
-  unbounded, or a proposed write conflicts with prior approved state.
-- External transfers, purchases, cancellations, applications, elections,
-  filings, and account changes are actions to take rather than records to
-  write, and each needs authority you can recover from your own context or a
-  fresh ask.
+You can recommend a target, date or priority. Record it as approved only when
+the user has chosen that substance. Factual progress and linkage repairs do not
+authorize retargeting a goal. Reuse explicit approval rather than asking twice.
 
 ## Stopping conditions
 

@@ -1,205 +1,63 @@
 > Native MCP: calls below are generated from Candor's shared operation catalog. Substitute placeholder values and execute them through MCP; do not invoke a `candor` executable.
 
-# Vault-gardening workflows
+# Maintenance inspection and verification
 
-## Select a bounded maintenance pass
-
-1. Open the workspace and inspect quality signals:
-
-   ```text
-   candor_open({})
-   candor_get({
-     "operation": "coverage.get",
-     "reason": "Inspect record coverage before maintenance",
-     "task_key": "TASK_KEY"
-   })
-   candor_changes({
-     "limit": 100,
-     "reason": "Inspect recent factual changes affecting record quality",
-     "task_key": "TASK_KEY"
-   })
-   candor_get({
-     "operation": "notes.list",
-     "reason": "Recover due record-maintenance follow-up",
-     "task_key": "TASK_KEY",
-     "args": {
-       "due": true,
-       "limit": 100
-     }
-   })
-   candor_get({
-     "operation": "actions.list",
-     "reason": "Recover recent record-maintenance decisions",
-     "task_key": "TASK_KEY",
-     "args": {
-       "limit": 100
-     }
-   })
-   ```
-
-2. Inspect candidate surfaces only as relevant:
-
-   ```text
-   candor_get({
-     "operation": "recurring.list",
-     "reason": "Inspect unresolved recurring candidates",
-     "task_key": "TASK_KEY",
-     "args": {
-       "status": "candidate,active",
-       "limit": 100
-     }
-   })
-   candor_get({
-     "operation": "rules.list",
-     "reason": "Inspect active transaction interpretation rules",
-     "task_key": "TASK_KEY",
-     "args": {
-       "limit": 100
-     }
-   })
-   candor_get({
-     "operation": "corrections.list",
-     "reason": "Inspect existing transaction corrections",
-     "task_key": "TASK_KEY",
-     "args": {
-       "limit": 100
-     }
-   })
-   candor_get({
-     "operation": "transactions.list",
-     "reason": "Inspect bounded transaction-quality issues",
-     "task_key": "TASK_KEY",
-     "args": {
-       "since": "START",
-       "until": "END",
-       "limit": 100
-     }
-   })
-   ```
-
-   Each rule reports `applied_last_30_days` and `last_applied_at`. A rule
-   that used to match and now reaches nothing usually means the merchant
-   renamed itself or the connection was replaced; read the merchant's recent
-   rows before deciding whether to replace or disable it.
-
-3. Rank issues by how much they distort later analysis, their evidence quality,
-   affected scope, reversibility, and dependency. Do not manufacture a priority
-   from one confidence field. Resolve financial role before cadence: repeated
-   transfers, refunds, and debt payments are not recurring expenses merely
-   because their dates form a pattern.
-4. Choose one explicit boundary: account, merchant, period, recurring series,
-   or interpretation class.
-
-Complete when the pass can be reviewed end to end.
-
-## Apply the narrowest repair
-
-For one transaction, inspect effective state and use a correction or exact
-split. For a recurring series, inspect supporting transactions before setting
-`active`, `stopped`, or `dismissed` with `candor_write({"operation":"recurring.update"})`. For
-repeated transaction meaning, inspect matches and counterexamples before
-creating a rule.
-
-Use `dismissed` for a verified false detection or redundant obligation.
-An uncurated variable payment can stay a candidate. Preserve existing agent
-placements, and inspect debt-payment meaning: a mortgage installment can
-belong, while a card repayment settles purchases already recorded. Resolve
-conflicting approved meaning before changing it. Dismissal keeps the series
-out of the schedule and commitment totals without deleting transactions.
-
-Representative correction flow:
+Use only the reads needed for the chosen scope. The opening can already answer
+orientation questions; it does not replace exact records or full source coverage.
 
 ```text
 candor_get({
-  "operation": "transactions.get",
-  "reason": "Inspect the effective record before maintenance",
+  "operation": "coverage.get",
+  "reason": "Establish the observable maintenance scope",
+  "task_key": "TASK_KEY"
+})
+candor_get({
+  "operation": "transactions.list",
+  "reason": "Inspect bounded transaction quality",
   "task_key": "TASK_KEY",
   "args": {
-    "transaction_id": "TRANSACTION_ID"
+    "since": "START",
+    "until": "END",
+    "limit": 100
+  }
+})
+candor_get({
+  "operation": "recurring.list",
+  "reason": "Inspect schedule interpretations",
+  "task_key": "TASK_KEY",
+  "args": {
+    "status": "candidate,active",
+    "limit": 100
+  }
+})
+candor_get({
+  "operation": "rules.list",
+  "reason": "Inspect active transaction rules",
+  "task_key": "TASK_KEY",
+  "args": {
+    "limit": 100
   }
 })
 candor_get({
   "operation": "corrections.list",
-  "reason": "Inspect existing interpretations before maintenance",
+  "reason": "Inspect existing transaction corrections",
   "task_key": "TASK_KEY",
   "args": {
-    "transaction": "TRANSACTION_ID",
     "limit": 100
-  }
-})
-candor_write({
-  "operation": "corrections.create",
-  "reason": "Apply the bounded verified record repair",
-  "task_key": "TASK_KEY",
-  "parent_action": "ACTION_ID",
-  "args": {
-    "transaction_id": "TRANSACTION_ID",
-    "category": "CATEGORY"
-  }
-})
-candor_get({
-  "operation": "transactions.get",
-  "reason": "Verify the effective repaired record",
-  "task_key": "TASK_KEY",
-  "args": {
-    "transaction_id": "TRANSACTION_ID"
   }
 })
 ```
 
-Representative rule flow:
+Follow relevant continuations. When a rule's matches changed, inspect the affected
+rows before replacing it; an empty match set does not establish the cause.
 
-```text
-candor_get({
-  "operation": "transactions.list",
-  "reason": "Read the records no rule has reached",
-  "task_key": "TASK_KEY",
-  "args": {
-    "unmatched": true,
-    "limit": 100
-  }
-})
-candor_write({
-  "operation": "rules.create",
-  "reason": "Record the merchant's meaning",
-  "task_key": "TASK_KEY",
-  "args": {
-    "name": "MERCHANT is CATEGORY",
-    "match_merchant_contains": "MERCHANT",
-    "set_category": "CATEGORY",
-    "basis_reason": "Every MERCHANT record inspected in this pass is CATEGORY."
-  }
-})
-candor_get({
-  "operation": "rules.get",
-  "reason": "Read how far the rule has applied",
-  "task_key": "TASK_KEY",
-  "parent_action": "ACTION_ID",
-  "args": {
-    "rule_id": "RULE_ID"
-  }
-})
-```
+For changes, read `candor-transaction-organization` for corrections, splits and
+rules or `candor-recurring-bills` for recurring curation. Use current schemas and
+previews before unfamiliar writes. The request's authority applies across these
+methods, but a broader method cannot expand it.
 
-A rule applies to every record it matches, past and future, in the
-background; there is no date window and no apply step. Read the merchant's
-rows or a preview sample, and disable the rule to undo all of it.
-
-Record the correction id, rule id, split, or recurring-policy history needed
-for recovery. Never infer a broad preference from cleanup scope.
-
-## Verify the pass and recover mistakes
-
-1. Re-query every affected effective record and compare the actual count and
-   meaning with the rows you read before writing.
-2. Inspect actions under the task key so every root and continuation is
-   attributable.
-3. If the after-state exceeds scope or changes the wrong meaning, use the
-   corresponding correction, split, rule, or recurring-policy revert command,
-   then independently verify restored state.
-4. Persist a note only for a material issue whose answer arrives later. The note
-   must carry the exact baseline, bounded recipe, outcome meanings, and revisit
-   time.
-
-Complete when the pass has a verified result, a recovery path, and an explicit
-list of records intentionally left unresolved.
+After a write, re-read the affected effective state. Compare meaning and scope
+with the before-state and retain its recovery handle. If the result is wrong,
+revert the relevant correction, rule, split or policy and verify restoration.
+For a no-change result, distinguish correct state from unresolved meaning.
+Persist a note only when material follow-through has an observable future check.

@@ -3,8 +3,10 @@
 
 # Transaction organization
 
-Prefer reversible one-record corrections until repeated, bounded evidence
-justifies a broader normalization rule.
+Implement established transaction meaning with the smallest reversible change.
+Use `candor-vault-gardening` when the task is to discover what needs maintenance;
+this method owns correction, split and rule mechanics. Repeated, bounded evidence
+can justify a reusable rule, subject to the user's requested review boundary.
 
 ## Datasets
 
@@ -81,38 +83,29 @@ justifies a broader normalization rule.
   anchor those on a fragment that stays the same.
 - Provider categories are evidence, not user confirmation.
 
-## User-facing answer
-
-Use the workspace as internal evidence, then answer in the user's financial
-terms. Describe the relevant amounts, dates, choices, uncertainty, and next
-steps directly. Do not expose Candor, command names, status literals,
-provider-record mechanics, or other workspace implementation details unless
-the user asks how the evidence was obtained.
-
 ## Safe Candor writebacks
 
 - Approved transaction correction.
 - Approved split.
 - Approved normalization rule.
 
-## Approval boundaries
+## Domain decisions
 
-- An explicit request to handle, fix, clean up, or organize a bounded
-  transaction set grants task-scoped authority for inspected, reversible
-  corrections and rules. Do not ask the user to approve the same interpretation
-  record by record.
-- Confirm choices that reflect the user's values separately. How the user
-  wants their money grouped, and which distinctions matter to them, encode
-  their values, so ask rather than imposing a scheme from merchant data.
-- Ask when the intended category or meaning is missing, the affected set is
-  broad or unbounded, or a proposed write conflicts with prior approved state.
-- External transfers, purchases, cancellations, applications, elections,
-  filings, and account changes are actions to take rather than records to
-  write, and each needs authority you can recover from your own context or a
-  fresh ask.
+A cleanup request covers evidence-backed corrections and rules unless the user
+reserves review of them. Establish merchant meaning and inspect the entire rule
+scope before applying it; do not encode a new grouping preference from bank text.
 
 ## Stopping conditions
 
 - Stop before a rule whose matches you have not read when the anchor could
   reach unrelated activity.
 - Stop before overwriting a conflicting approved interpretation.
+
+
+Category and financial role are independent. Set `set_cashflow_role` explicitly
+when a rule should change income, expense, transfer, debt-payment, or refund
+treatment. `set_category` only changes grouping. With no role override, Candor
+uses Plaid classification. A low-confidence compatibility fallback can preserve
+recognized source-only import categories, but it is not a substitute for agent
+curation. Establish the role through a correction or rule when source evidence
+is missing or the financial meaning needs correction.

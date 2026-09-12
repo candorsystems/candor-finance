@@ -82,18 +82,12 @@ names, or workspace mechanics unless the user asks how the packet was built.
 - Linked note for missing substantiation or preparer questions.
 - Records ready for the user to export from Candor Settings.
 
-## Approval boundaries
+## Domain decisions
 
-- An explicit request to clean up or organize a bounded tax-year record set
-  grants task-scoped authority for inspected, reversible internal organization.
-- Confirm choices that reflect the user's values separately. Which factual
-  groupings and distinctions matter to the user encode the user's values, so
-  ask rather than imposing a tax-preparation scheme.
-- Ask when business purpose, allocation, category meaning, or the intended
-  affected set is missing.
-- Direct the user to Candor Settings when they request the export. Never
-  generate, inspect, send, upload, file, or share the exported file through the
-  agent surface.
+Establish business purpose, allocation and the intended tax-year scope before
+organizing records. Direct the user to Candor Settings for a requested export.
+Never generate, inspect, send, upload, file or share the exported file through
+the agent surface.
 
 ## Stopping conditions
 
