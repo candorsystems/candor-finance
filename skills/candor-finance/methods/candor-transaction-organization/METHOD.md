@@ -52,10 +52,13 @@ can justify a reusable rule, subject to the user's requested review boundary.
   overrides. The default is 50 and a smaller number wins for the label,
   category, role, and review status; an exact correction beats every rule on
   those fields. Both rules stay active.
-- On a later pass, read the whole unmatched list again rather than a date
-  window, since a delayed sync can add older records; it stays short once the
-  first pass is done. When the source category is right for a merchant that
-  recurs, record it as a rule so the merchant stops reappearing.
+- On a later pass, inspect `new_since_checkpoint.transactions.page` on open.
+  Follow its exact continuation before acknowledging. `unmatched` means no
+  rule, correction, or split, not an unresolved category. Accept an adequate
+  source category quietly; do not create a rule just to clear the list.
+  To narrow the same delta, preserve `changed_after` and `changed_through`
+  and use `category_provenance=unclassified` or `source_only_or_missing`.
+  Source-only is provenance, not a request for the user's attention.
 - Use a one-record correction when the meaning belongs to that record, not
   the merchant.
 - When a record reads wrong, open it. `rules_considered` on the transaction

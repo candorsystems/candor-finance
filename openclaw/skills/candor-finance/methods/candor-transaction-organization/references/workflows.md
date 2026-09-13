@@ -68,12 +68,11 @@ approved draft.
    `category_provenance`, and `applied_rules`. The unmatched read adds
    `label_counts` over the returned rows, so read the full first pass at the
    1000 ceiling and work from the top: one rule per label covers the most
-   rows. On a later pass read the whole unmatched list again; it is short
-   once the first pass is done, and `since` filters on the transaction date,
-   so a delayed sync or a backfill can add older records that a date bound
-   would hide. When the source category is right for a merchant that recurs,
-   say so with a rule that sets that same category: the merchant stops
-   reappearing and the meaning survives a provider recategorization. The
+   rows when the user asked for merchant organization. Later routine checks
+   start from the opening's transaction delta, not unmatched history. Follow
+   `next_actions` with the exact change bounds to include late arrivals and
+   corrections. Accept an adequate source category without a write. Use a
+   category rule when a durable household meaning is warranted. The
    categories read says which names exist only because a rule or correction
    created them; reuse an existing name before inventing one, since budget
    lines and later reads join on it.

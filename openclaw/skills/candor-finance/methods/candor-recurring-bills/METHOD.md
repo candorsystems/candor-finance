@@ -69,12 +69,9 @@ separate from the preference.
 
 ## Method
 
-- One read is the whole job: `candor recurring list` returns every series in one
-  shape, sorted overdue first and then by next expected date with candidates
-  last, and carries monthly-equivalent and annual totals over the rows it
-  returned. The `due_within: 30` filter answers "what is coming up";
-  `status: "candidate"` is what still needs your judgement;
-  `status: "stopped,dismissed"` is history.
+- `candor recurring list` returns a bounded, sorted view. Follow `next_actions`
+  through the recurring dataset when incomplete before claiming the review is
+  exhaustive. Each response's totals cover only its returned rows.
 - `status` is the lifecycle. `candidate` is detected activity you have not
   included; `active` is expected to keep posting; `stopped` is a real series
   that ended; `dismissed` is a false detection. `confirmed` and `source` say
@@ -114,12 +111,12 @@ separate from the preference.
   with the account, direction, cadence, amount, and next expected date. The
   response warns when a similar series already exists on that account;
   confirm that one instead of keeping two.
-- Repair merchant-name drift with an evidence-backed merchant normalization
-  rule. Renaming a recurring item changes its display name; it does not create
-  transaction aliases. Inspect affected series after normalization and explicitly
-  retire redundant entries. Preserve separately curated placements unless you
-  have authority and evidence to change them. A bill that moved to another
-  account is two series by design: stop the old one and confirm the new one.
+- Repair recurring merchant-name drift with `associate_from` after inspecting
+  the proposed match. Renaming a recurring item changes its display name;
+  association remembers the observed identity without changing transaction
+  labels. Use normalization rules separately when transaction labels need a
+  correction. A bill that moved to another account is two series by design:
+  stop the old one and confirm the new one.
 - Store `stopped` only when a real series ended and `dismissed` only when
   repeated activity was never a series. Both leave the default read; a
   stopped or dismissed series that posts again comes back as a change for you
@@ -168,3 +165,45 @@ changing the external service requires its own authority.
 
 - Stop before cancellation or merchant contact unless the user separately
   authorizes that external action.
+
+A candidate's `possible_matches` links existing curated series with factual
+matching reasons. Inspect those before confirming a second series. To confirm
+that a new wording belongs to the existing series, update the target id with
+`associate_from` set to the candidate id. This records the observed label as
+an account-scoped association between intact evidence groups, preserving the target's
+cadence and active/stopped/dismissed state. Similarity alone never applies an
+alias. Competing owners or different accounts, currencies, directions, or
+cashflow roles must be resolved first. A dismissal carries across approved
+aliases; it does not suppress unrelated charges from that merchant.
+
+One or two observations do not establish an expected calendar. Unconfirmed
+candidates with that evidence have no projected due window, and candidates
+never report missed obligations. Set the cadence from inspected evidence or
+user context when confirming; do not promote a six-day pair into a weekly bill.
+
+When opening or a recurring list is incomplete, follow its `data.query`
+continuation for the recurring dataset. Dataset pages use stored-record order;
+filters can leave an empty page that still has a continuation. Keep following
+`next_actions` before claiming the scan is complete. Records, calculations,
+and pagination belong to `data.page`. An exact recurring ID remains readable
+independently of the bounded list, and incomplete association proposals are
+explicitly marked.
+
+Approve `amount_min` and `amount_max` together for variable bills. Both use
+Money text in the series currency and must contain the expected `amount`.
+Use historical transactions to choose the range. Candor supplies no percentage
+tolerance. Without a range, matching is exact; setting `amount` alone resets
+an existing range to exact matching. Category or identity updates preserve it.
+
+Approved schedules keep their cadence and date window as postings arrive.
+`payments` identifies the transactions satisfying individual scheduled dates;
+`unmatched_payment_transaction_ids` identifies extra or out-of-bounds evidence
+that did not satisfy a payment. One posting satisfies one occurrence. Later
+payments never erase an earlier miss or silently move the calendar. Resolve
+exceptions by inspecting the transaction and correcting the schedule terms
+when warranted. An older confirmation without a fixed anchor needs an explicit
+`next_expected_date` and `amount` before payment matching can be enabled.
+
+Associating a candidate is a targeted write, independent of the bounded list.
+It preserves the underlying records. Reverting the target drops its overrides
+and associations; the independent observations remain available for curation.

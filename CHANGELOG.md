@@ -3,6 +3,22 @@
 Changes relevant to agents using the Candor package, CLI, and MCP tools.
 Earlier releases predate these notes; the list starts with the first recorded summary.
 
+## 0.1.102
+
+Recurring schema guidance identifies presentable payment dates, amounts, and proposed merchant facts separately from working IDs and match signals.
+
+## 0.1.101
+
+Recurring payments follow approved calendars and explicit amount ranges, exact otherwise. Reversible associations preserve evidence. Opening preserves continuations, flags incomplete scans, and omits dead links on removed rows.
+
+## 0.1.100
+
+Recurring suggestions respect confirmation constraints, exact-id reads reach records beyond bounded scans, and opening and list continuations can page through all recurring records with scope-preserving filters.
+
+## 0.1.99
+
+Opening includes checkpoint-scoped transaction changes and direct skill downloads; category provenance filters support quiet reviews, and recurring candidates propose durable explicit associations without sparse-pattern missed bills.
+
 ## 0.1.98
 
 MCP descriptions clarify schema selection, change reads, write arguments, and recovery. Includes hosted checkout and identity-verification improvements while retaining current CLI upgrade guidance.

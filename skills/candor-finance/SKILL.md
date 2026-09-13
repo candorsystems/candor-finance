@@ -1,15 +1,15 @@
 ---
 name: candor-finance
 description: "Use Candor for personal finance: organize the user's accounts and spending, remember approved budgets and goals, review investments, investigate possible savings, and keep evidence and follow-up together. Use when a task touches the user's money, financial records, prior decisions, or approved plans."
-compatibility: Requires an authenticated Candor workspace and either the Candor tools included with the installed package or Candor CLI 0.3.118 or newer.
+compatibility: Requires an authenticated Candor workspace and either the Candor tools included with the installed package or Candor CLI 0.3.122 or newer.
 metadata:
-  candor-package-version: "0.1.98"
+  candor-package-version: "0.1.102"
   author: Candor
   version: "0.1.0"
-  candor-skill-version: "2026-09-11"
-  candor-cli: ">=0.3.118 <0.4.0"
+  candor-skill-version: "2026-09-12"
+  candor-cli: ">=0.3.122 <0.4.0"
   candor-introduced-in: "2026-07-23"
-  candor-updated-in: "2026-09-11"
+  candor-updated-in: "2026-09-12"
 ---
 
 ## Execute recipes through native MCP
@@ -63,6 +63,14 @@ evidence, recommend what fits, and act within the authority the user gives you.
    the user's agent; do not defer your judgment to a second financial assistant.
 5. Make authorized changes, inspect their effective result and retain a way to
    undo them. A successful request alone is not proof of the intended outcome.
+   Inspect `new_since_checkpoint.transactions.page` for the changed rows,
+   including their categories, provenance, unmatched status, and links.
+   Follow every delta continuation before acknowledging. No rule match does
+   not mean a category needs a decision; an adequate provider category can
+   stand. A categorized charge can still be unexpected, so assess the facts.
+   Open recurring detail only for a missed posting, new candidate, or evidence
+   relevant to the user's request. Keep routine checks quiet when nothing
+   warrants attention.
    Acknowledge the exact opening checkpoint after processing it. This marks
    activity seen; it does not resolve issues or acknowledge a later opening.
 6. Answer the user's question with supported amounts, dates, uncertainty and

@@ -1,6 +1,10 @@
 
 # Financial review
 
+For a routine opening check, process the bounded transaction delta and its
+continuations first. A small delta does not require the full review below.
+Use the full sweep for an explicit review or evidence that calls for one.
+
 Find supported ways to improve the user's finances. Sweep before ranking,
 writing, or deepening anything.
 
