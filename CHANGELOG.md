@@ -3,6 +3,10 @@
 Changes relevant to agents using the Candor package, CLI, and MCP tools.
 Earlier releases predate these notes; the list starts with the first recorded summary.
 
+## 0.1.107
+
+OAuth clients that omit resource receive MCP-bound authorization. Agent connections include consented background access and refresh capability by default. Muse setup uses hosted OAuth and remote MCP instead of CLI loopback login.
+
 ## 0.1.106
 
 Same-day postings no longer form recurring candidates; possible_matches compares compacted labels, reports role and account differences, and names where a missed bill moved; unmatched reads default to changes since the last opening.
