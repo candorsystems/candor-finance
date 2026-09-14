@@ -31,9 +31,15 @@ can justify a reusable rule, subject to the user's requested review boundary.
   the effective category came from, and the rules applied to it. The
   `unmatched` filter returns only the records no rule, correction, or split
   has reached, with a count per label, and returns nothing when there are
-  none.
+  none. After an acknowledged opening it covers records changed since that
+  opening and says so in a warning; rows you already read and left alone are
+  not an inbox. Follow the warning's continuation, or pass `since`, when the
+  user wants the whole history swept again.
 - When the user names what a merchant means, write one rule anchored on
-  `merchant_name_contains`. A rule is declarative: while it is active it
+  `merchant_name_contains`. A merchant the provider tags as a transfer or
+  income when it is plainly a purchase or a refund needs `set_cashflow_role`
+  in the same rule, because budgets and cash flow count the role, not the
+  category. A rule is declarative: while it is active it
   applies to every record it matches, past and future, pending and posted,
   refunds included, and disabling it undoes every application it made. Add
   `direction`, `account_role`, or an amount bound only when the meaning

@@ -82,8 +82,10 @@ separate from the preference.
 - Expected dates are windows, not due dates. `predicted_next_date` is the
   centre of `predicted_window`; a posting anywhere inside the window is on
   time, and `missed_count` only counts windows that closed with nothing
-  posted. Say "around the 3rd", never "due on the 3rd"; contractual due dates
-  live in `account_terms`.
+  posted. A missed series whose `possible_matches` names a related series on
+  another account usually moved cards: stop this series and confirm the other
+  rather than reporting a lapse. Say "around the 3rd", never "due on the
+  3rd"; contractual due dates live in `account_terms`.
 - Subscriptions are your interpretation, not a Candor noun. Narrow the list
   yourself: `direction: "outflow"` with `cashflow_role: "expense"` is the
   subscription-shaped subset, and `transfer`, `debt_payment`, and `refund`
@@ -173,9 +175,12 @@ that a new wording belongs to the existing series, update the target id with
 `associate_from` set to the candidate id. This records the observed label as
 an account-scoped association between intact evidence groups, preserving the target's
 cadence and active/stopped/dismissed state. Similarity alone never applies an
-alias. Competing owners or different accounts, currencies, directions, or
-cashflow roles must be resolved first. A dismissal carries across approved
-aliases; it does not suppress unrelated charges from that merchant.
+alias. Each match lists `differences` the write refuses until they agree: a
+`cashflow_role` difference means correct the role first; an `account_identity`
+difference means the series live on different accounts, so a moved bill is
+stopped on one and confirmed on the other, never associated. Competing owners,
+currencies, and directions must be resolved first. A dismissal carries across
+approved aliases; it does not suppress unrelated charges from that merchant.
 
 One or two observations do not establish an expected calendar. Unconfirmed
 candidates with that evidence have no projected due window, and candidates
