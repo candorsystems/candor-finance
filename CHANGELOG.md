@@ -3,6 +3,10 @@
 Changes relevant to agents using the Candor package, CLI, and MCP tools.
 Earlier releases predate these notes; the list starts with the first recorded summary.
 
+## 0.1.105
+
+transactions.get lists only the rules that matched or applied by default and reports omitted_count; pass rules=all (CLI --rules all) to see every active rule with the criterion it failed.
+
 ## 0.1.104
 
 Every MCP result now returns inline, whatever its size; the short-lived download artifact, resource links, delivery_options, and the inline_response argument are gone, so open and large reads need no extra step.

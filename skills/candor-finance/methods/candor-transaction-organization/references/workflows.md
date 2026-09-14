@@ -272,8 +272,9 @@ candor_get({
 ```
 
 `effective_category.provenance` says whether a rule, the record itself, or
-the source category supplied the value. `rules_considered` lists every active
-rule with `matched`, `failed_criteria`, `applied`, and `not_applied_reason`:
+the source category supplied the value. `rules_considered` lists the rules that
+matched or applied, with `applied` and `not_applied_reason`; set the `rules`
+scope to `all` to list every active rule with `matched` and `failed_criteria`:
 `pending` means the rule matches and its background walk has not reached this
 record yet, so read `rules get` for its progress; `reverted` means an earlier
 application was undone on this record and the rule will not apply to it

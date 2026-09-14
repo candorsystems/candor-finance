@@ -1,12 +1,12 @@
 ---
 name: candor-finance
 description: "Use Candor for personal finance: organize the user's accounts and spending, remember approved budgets and goals, review investments, investigate possible savings, and keep evidence and follow-up together. Use when a task touches the user's money, financial records, prior decisions, or approved plans."
-compatibility: Requires an authenticated Candor workspace and either the Candor tools included with the installed package or Candor CLI 0.3.123 or newer.
+compatibility: Requires an authenticated Candor workspace and either the Candor tools included with the installed package or Candor CLI 0.3.125 or newer.
 metadata:
   author: Candor
   version: 0.1.0
   candor-skill-version: 2026-09-13
-  candor-cli: ">=0.3.123 <0.4.0"
+  candor-cli: ">=0.3.125 <0.4.0"
   candor-introduced-in: 2026-07-23
   candor-updated-in: 2026-09-13
   openclaw:

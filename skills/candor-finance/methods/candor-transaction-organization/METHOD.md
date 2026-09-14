@@ -62,8 +62,10 @@ can justify a reusable rule, subject to the user's requested review boundary.
 - Use a one-record correction when the meaning belongs to that record, not
   the merchant.
 - When a record reads wrong, open it. `rules_considered` on the transaction
-  lists every active rule, whether it matched, which criterion failed,
-  whether it applied, and why a match has not applied yet.
+  lists the rules that matched or applied, whether each applied, and why a
+  match has not applied yet; `omitted_count` says how many active rules did
+  not match. To see those with the criterion each failed, read the record
+  again with the rules scope set to all.
 - Act on high-confidence, bounded interpretation inside the user's explicit
   maintenance scope. Exact or narrow evidence-backed corrections may use
   `agent_verified`; user-confirmed merchant meaning may use `user_approved`.
