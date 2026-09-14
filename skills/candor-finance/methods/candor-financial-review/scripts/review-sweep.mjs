@@ -1,13 +1,13 @@
 #!/usr/bin/env node
-// Financial-review sweep: one deterministic pass over already delivered
-// Candor pages that prints only the four-lens candidate ledger.
+// Financial-review sweep: one deterministic pass over saved Candor pages that
+// prints only the four-lens candidate ledger.
 //
 // Usage: node review-sweep.mjs FILE... [until=YYYY-MM-DD]
 //
 // Pass until= with the requested query boundary; without it, stopped-series
 // and deadline checks run against the newest observed transaction instead.
 //
-// Each FILE is a downloaded Candor response page or artifact payload (JSON).
+// Each FILE is a Candor response page saved to disk as received (JSON).
 // The script classifies every file by shape: rows with a date, an amount, and
 // a direction are transactions; rows with balance fields are balances; rows
 // with rate or term fields are account terms. It never contacts the network,
@@ -200,7 +200,7 @@ const args = process.argv.slice(2);
 const untilArg = args.find((arg) => arg.startsWith("until="));
 const inputPaths = args.filter((arg) => !arg.startsWith("until="));
 if (inputPaths.length === 0) {
-  fail("pass at least one downloaded Candor page file");
+  fail("pass at least one saved Candor page file");
 }
 const requestedEnd = untilArg
   ? parseDay(untilArg.slice("until=".length))
@@ -257,7 +257,7 @@ for (const path of inputPaths) {
   // a continuation is a named gap, never a silent one.
   if (parsed?.data?.page?.pagination?.has_more === true) {
     caveats.push(
-      `${path} has pagination.has_more true; download and pass every continuation page before treating this ledger as complete`
+      `${path} has pagination.has_more true; fetch, save, and pass every continuation page before treating this ledger as complete`
     );
   }
   const hasEmptyPageArray =

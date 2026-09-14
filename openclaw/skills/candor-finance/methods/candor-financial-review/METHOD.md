@@ -85,9 +85,10 @@ evidence calls for them.
   material blind spots. Read history only when it could change the review. Use
   factual changes only when the opening or a surviving candidate calls for
   them; never let a generated label set the review's agenda.
-- Query one bounded transaction scope. When it has continuations, download and
-  combine every page before analysis. Use the supplied JSON Pointer and JSON
-  Schema directly; do not probe the wrapper or record shape.
+- Query one bounded transaction scope. When it has continuations, follow every
+  `next_actions` continuation and save each returned page to a JSON file as
+  received before analysis. Rows live under `data.page`; do not probe or
+  reshape records.
 - Use the bundled sweep or equivalent local analysis to inspect the four
   lenses. Test each candidate and classify it as supported, unresolved, or
   ordinary context.
@@ -112,8 +113,8 @@ evidence calls for them.
 ## Candor query recipes
 
 - The sweep is [the bundled program](scripts/review-sweep.mjs): run it with
-  Node, passing every downloaded page file and until=END for the query
-  boundary. It classifies files by shape and prints only the capped ledger.
+  Node, passing every saved page file and until=END for the query boundary.
+  It classifies files by shape and prints only the capped ledger.
   Add `balances` and `account_terms` pages when balance or term facts are
   material. If it cannot run here, write an equivalent one-pass program to the
   same contract.

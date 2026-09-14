@@ -3,6 +3,10 @@
 Changes relevant to agents using the Candor package, CLI, and MCP tools.
 Earlier releases predate these notes; the list starts with the first recorded summary.
 
+## 0.1.104
+
+Every MCP result now returns inline, whatever its size; the short-lived download artifact, resource links, delivery_options, and the inline_response argument are gone, so open and large reads need no extra step.
+
 ## 0.1.103
 
 feedback.submit (candor feedback) sends a bug, friction, or idea report about Candor itself to the Candor team after the user's task; it leaves the workspace and must carry no financial data.

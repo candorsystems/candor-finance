@@ -15,26 +15,13 @@ in that page, never later pages or the whole requested window. Follow
 `next_actions` for the exact continuation. Do not infer that later pages are
 represented in the current response.
 
-Candor keeps small responses inline. When any tool returns
-`delivery: "resource"`, inspect `data.delivery_options` and use exactly one
-supported path. When resource links work, download the short-lived
-`resource_link` to a relative file in your current writable working directory
-and verify `artifact.digest`. When resource links are unsupported and your
-client can materialize a large tool result into a private code sandbox without
-placing the full payload in model context, immediately repeat the identical
-tool call with `data.delivery_options.inline_response.retry_same_tool_with`.
-Preserve every other argument; do not reduce the query scope or page size as a
-delivery workaround.
-The descriptor already gives you the analysis root as
-`artifact.payload.json_pointer` and its limited, value-free JSON Schema as
-`artifact.payload.schema`: write analysis against that contract immediately
-rather than probing keys, printing sample rows, or using a model-facing fetch
-tool to discover the shape. Treat stdout as model context; emit only counts,
-aggregates, and a capped set of candidate records needed for the next decision.
-Retry transient download failures with the sandbox's retry-capable HTTP client,
-then use the supported inline option or report the evidence gap if the result
-remains unavailable. The delivered result is working evidence, not a user
-export.
+Every Candor response returns whole in the tool result; there is no download
+step and no delivery option to set. Keep responses bounded at the query with
+page limits, cursors, filters, and scoped datasets, and follow `next_actions`
+for the exact continuation. Treat stdout and any file your harness writes for
+a large result as model context: emit only counts, aggregates, and a capped
+set of candidate records needed for the next decision. The delivered result
+is working evidence, not a user export.
 
 When a visual would materially improve the conversation, use the current
 Candor visual operation with one focused panel or the stored Overview. Read the
