@@ -3,6 +3,10 @@
 Changes relevant to agents using the Candor package, CLI, and MCP tools.
 Earlier releases predate these notes; the list starts with the first recorded summary.
 
+## 0.1.113
+
+MCP annotations disclose private action and audit writes. OAuth discovery stops advertising unsupported identity scopes, and inactive MCP accounts receive an access explanation without a subscription purchase link.
+
 ## 0.1.112
 
 Muse and ChatGPT setup guides replace internal test history with connection checks and recovery steps, while public setup and support copy directs users to supported routes.
