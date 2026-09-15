@@ -3,6 +3,18 @@
 Changes relevant to agents using the Candor package, CLI, and MCP tools.
 Earlier releases predate these notes; the list starts with the first recorded summary.
 
+## 0.1.110
+
+Skill release 2026-09-14 gives the reworded product feedback guidance its own identifier, so installed agents are advised to update; no other content changes.
+
+## 0.1.109
+
+Setup prefers remote MCP for any harness and reserves the CLI for hosts where the approving browser shares the shell's machine. Opening descriptions name where the checkpoint lives, and cursor errors say to replay the full next action.
+
+## 0.1.108
+
+Product feedback guidance rewritten: feedback.submit files a report about Candor's software with Candor's feedback endpoint after the user's task, with financial and personal details stripped from the report text.
+
 ## 0.1.107
 
 OAuth clients that omit resource receive MCP-bound authorization. Agent connections include consented background access and refresh capability by default. Muse setup uses hosted OAuth and remote MCP instead of CLI loopback login.
