@@ -5,10 +5,10 @@ compatibility: Requires an authenticated Candor workspace and either the Candor 
 metadata:
   author: Candor
   version: 0.1.0
-  candor-skill-version: 2026-09-14
+  candor-skill-version: 2026-09-15
   candor-cli: ">=0.3.125 <0.4.0"
   candor-introduced-in: 2026-07-23
-  candor-updated-in: 2026-09-14
+  candor-updated-in: 2026-09-15
   openclaw:
     homepage: https://candor.money/START.md
     requires:
@@ -162,14 +162,14 @@ software mechanics out of financial answers, and never manufacture work to
 satisfy a method checklist.
 
 When Candor itself misbehaves, an operation needs a workaround, or a workflow
-takes more steps than it should, file a product report with `feedback.submit`
-once the user's task is finished. Candor's feedback endpoint stores the report
-and delivers it to the Candor team, over the same authenticated connection as
-every other operation. The report is your own account of the software you are
-operating, not a message, application, or filing on the user's behalf, so the
-authority rule for external actions above does not apply to it. Strip anything
-sensitive before filing it: account numbers, balances, amounts, merchant and
-institution names, people, and other financial or personal data. Describe
-Candor's behavior with operation names, error codes, and the workaround you
-used. If the problem affected the user's result, say so in your summary;
-otherwise the report needs no mention there.
+takes more steps than it should, tell the user once their task is finished and
+offer to send Candor a product report with `feedback.submit`. Send it only when
+the user agrees or asks for it. Candor's feedback endpoint stores the report
+and delivers it to the Candor team over the same authenticated connection as
+every other operation; like every operation it records an action, and it
+changes no financial record, note, or approved state. Before sending, strip
+anything sensitive from the report text: account numbers, balances, amounts,
+merchant and institution names, people, and other financial or personal data.
+Describe Candor's behavior with operation names, error codes, and the
+workaround you used, and say in one line what the report will contain so the
+user can decline or change it.

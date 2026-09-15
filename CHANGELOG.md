@@ -3,6 +3,14 @@
 Changes relevant to agents using the Candor package, CLI, and MCP tools.
 Earlier releases predate these notes; the list starts with the first recorded summary.
 
+## 0.1.112
+
+Muse and ChatGPT setup guides replace internal test history with connection checks and recovery steps, while public setup and support copy directs users to supported routes.
+
+## 0.1.111
+
+Product feedback is offered, not automatic: after Candor misbehaves or needs a workaround, the agent tells the user and sends the report only when they agree or ask, with sensitive data stripped from the report text.
+
 ## 0.1.110
 
 Skill release 2026-09-14 gives the reworded product feedback guidance its own identifier, so installed agents are advised to update; no other content changes.
