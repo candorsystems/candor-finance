@@ -3,6 +3,10 @@
 Changes relevant to agents using the Candor package, CLI, and MCP tools.
 Earlier releases predate these notes; the list starts with the first recorded summary.
 
+## 0.1.114
+
+ChatGPT visuals restore nullable fields omitted by the host and receive delayed tool results correctly, so Budget, Recurring, and other panels render while financial data validation stays strict.
+
 ## 0.1.113
 
 MCP annotations disclose private action and audit writes. OAuth discovery stops advertising unsupported identity scopes, and inactive MCP accounts receive an access explanation without a subscription purchase link.
