@@ -4,26 +4,32 @@ The official personal finance package for [Candor](https://candor.money). It
 gives the AI agent you already use an organized view of accounts, spending,
 budgets, goals, investments, notes, and the decisions you approve.
 
-Paste [https://candor.money/START.md](https://candor.money/START.md) into your
-agent. It will inspect its own installation capabilities, choose or assemble a
-complete setup from Candor's official materials, request the normal
-installation and account-access approvals, and handle the rest.
+Give your agent [START.md](https://candor.money/START.md). It has the MCP
+connection, skill download, and supported package options. The agent uses its
+own harness's setup workflow and asks you only for steps it cannot complete.
 
-This package includes the `candor-finance` Agent Skill and the secure Candor
-connection used by OpenAI/ChatGPT, Codex, Claude, Claude Code, Gemini CLI, and
-agents with their own computer such as Grok Bot. Standard
-`plugin.json`, `skills/`, and `mcp.json` files support clients that follow
-the [Agent Plugins 1.0.0](https://agent-plugins.org/specification) format, and
-`server.json` identifies the remote service in the official MCP Registry.
-Agent-specific configuration is included where needed. OpenClaw's manual route
-uses the CLI-managed skill under `~/.agents/skills`; its future ClawHub route
-uses the dedicated CLI-backed skill under `openclaw/skills/`. The Candor CLI
-keeps its managed copy for release preflight in both cases, and OpenClaw's
-documented skill precedence makes the same-named CLI projections deterministic.
-Hermes can install the root MCP-native skill with its remote MCP client; a
-future Hermes ClawHub install instead uses the CLI-backed projection. Do not
-mix skill and tool projections. Candor continues to enforce sign-in, access,
-and every financial-data permission.
+## Connection materials
+
+- **MCP:** `https://api.candor.money/mcp`, Streamable HTTP with OAuth discovery and dynamic
+  client registration. Your harness obtains its own client ID; no shared client
+  secret is needed.
+- **Skill:** the complete [skills/candor-finance](./skills/candor-finance)
+  directory, including its methods and references. START also links a skill ZIP.
+- **Supported packages:** Agent Plugins 1.0.0 (`plugin.json`, `skills/`,
+  `mcp.json`), Claude and Codex marketplaces (`.claude-plugin/` and
+  `.codex-plugin/`), and a Gemini CLI extension (`gemini-extension.json`).
+  Use whichever format your harness supports, or install skill and MCP separately.
+
+Your harness owns installation, authorization, skill locations, and reloads.
+Keep working installations. Once the skill and tools are available, call
+`candor_open` for MCP or run `candor open` for the CLI, then continue into
+the user's financial task. Use a private runtime or per-user account isolation
+before authorizing personal financial access on a shared host.
+
+The root skill uses MCP, including for capable OpenClaw and Hermes hosts.
+The separate `openclaw/skills/` projection uses the Candor CLI and is only for
+CLI installations. Keep the skill matched to the connection it operates.
+Candor continues to enforce sign-in, access, and financial-data permissions.
 
 Manage your Candor account and subscription at
 [app.candor.money](https://app.candor.money). When Candor gives the agent a

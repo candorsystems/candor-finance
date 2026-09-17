@@ -3,6 +3,10 @@
 Changes relevant to agents using the Candor package, CLI, and MCP tools.
 Earlier releases predate these notes; the list starts with the first recorded summary.
 
+## 0.1.115
+
+Setup guides hand the work to the harness and link each vendor's own instructions. The dashboard shows new connections live. A user is never asked for a Client ID; apps that add connections only in a browser say so.
+
 ## 0.1.114
 
 ChatGPT visuals restore nullable fields omitted by the host and receive delayed tool results correctly, so Budget, Recurring, and other panels render while financial data validation stays strict.

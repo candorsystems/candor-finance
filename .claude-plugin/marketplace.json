@@ -16,7 +16,7 @@
       },
       "source": "./",
       "description": "Help Claude with personal finance by organizing accounts, spending, budgets, goals, investments, and follow-through.",
-      "version": "0.1.114",
+      "version": "0.1.115",
       "category": "productivity",
       "tags": [
         "finance",
