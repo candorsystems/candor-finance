@@ -3,6 +3,10 @@
 Changes relevant to agents using the Candor package, CLI, and MCP tools.
 Earlier releases predate these notes; the list starts with the first recorded summary.
 
+## 0.1.131
+
+Transaction labels show the bank's own description unless a rule or a curated import names them; provider merchant enrichment stays a separate hint, and label counts still group by merchant.
+
 ## 0.1.130
 
 Saved conversation results now report policy_version conversation-relevance.v2. Larger workspaces that were refused as over budget get suggestions and attention cards again, so expect refreshed picks after the next evaluation.
