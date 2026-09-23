@@ -2,11 +2,10 @@
 
 ## Keep the list right (scheduled pass or an explicit clean-up)
 
-1. Preserve existing confirmations and declarations. For an initial pass,
-   prioritize predictable bills and subscriptions. Leave high-variance payments
-   as candidates unless the user's purpose supports deliberately including
-   them. Do not confuse repeated card repayments with new recurring expenses.
-   Then read what changed and what needs judgement:
+1. Preserve existing confirmations and declarations. Clear recurring predictions
+   already populate the schedule. Focus on uncertain candidates, new evidence,
+   missing obligations, and requested changes. Do not confuse card repayments
+   with new expenses. Read what changed and what needs judgment:
 
    ```sh
    candor changes list --domain recurring --limit 100 --reason "Inspect recurring changes since the last pass" --task-key TASK_KEY
@@ -46,8 +45,8 @@
 
    A rename suggests the merchant rule that makes the name stick on the
    transactions; create it when the label should apply to future postings.
-   A recurring rename changes the display name; transaction grouping uses the
-   explicit merchant rule. Inspect affected series after it runs, preserve
+   A recurring rename changes the display name. Use a merchant rule when
+   transaction labels also need a correction. Inspect affected series after it runs, preserve
    existing confirmations, and explicitly retire redundant entries. A bill that moved accounts is a stop on
    the old series and a confirmation on the new one.
 

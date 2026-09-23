@@ -1,15 +1,15 @@
 ---
 name: candor-finance
 description: "Use Candor for personal finance: organize the user's accounts and spending, remember approved budgets and goals, review investments, investigate possible savings, and keep evidence and follow-up together. Use when a task touches the user's money, financial records, prior decisions, or approved plans."
-compatibility: Requires an authenticated Candor workspace and either the Candor tools included with the installed package or Candor CLI 0.3.125 or newer.
+compatibility: Requires an authenticated Candor workspace and either the Candor tools included with the installed package or Candor CLI 0.3.136 or newer.
 metadata:
-  candor-package-version: "0.1.115"
+  candor-package-version: "0.1.129"
   author: Candor
   version: "0.1.0"
-  candor-skill-version: "2026-09-15"
-  candor-cli: ">=0.3.125 <0.4.0"
+  candor-skill-version: "2026-09-21"
+  candor-cli: ">=0.3.136 <0.4.0"
   candor-introduced-in: "2026-07-23"
-  candor-updated-in: "2026-09-15"
+  candor-updated-in: "2026-09-21"
 ---
 
 ## Execute recipes through native MCP
@@ -147,6 +147,10 @@ Load detailed recipes only when needed. No method list can enumerate every user 
 - [`candor-evidence-capture`](methods/candor-evidence-capture/METHOD.md): validate, import and verify supplied evidence.
 - [`candor-trial-watchdog`](methods/candor-trial-watchdog/METHOD.md): verify a trial's promised billing outcome.
 
+When the opening says shared context is truncated, follow its context-only note continuation and each returned cursor until none
+remains. These reads exclude ordinary notes; use exact `notes.get` handles when
+a note preview is insufficient. Do not infer an absent constraint from one batch.
+
 ## Load only when relevant
 
 - [Setup and access](references/setup.md): connection, recovery, or an opening
@@ -175,3 +179,30 @@ merchant and institution names, people, and other financial or personal data.
 Describe Candor's behavior with operation names, error codes, and the
 workaround you used, and say in one line what the report will contain so the
 user can decline or change it.
+
+## Suggested conversations and shared context
+
+When the user brings a saved conversation suggestion, use `candor_get({"operation":"conversations.get","args":{"id":"SET_ID"}})` to recover up to five ranked starting points, the saved financial picture,
+attributed notes and authored assignment behind their dashboard card. Without an exact reference, `candor_get({"operation":"conversations.get"})` reads the latest saved set. This is a pure read, not a request
+to generate suggestions. Follow a returned status continuation only while work
+is queued or running. A terminal read has no refresh continuation; repeating it
+cannot start evaluation. An unavailable or stale result is not a current finding.
+
+The same read carries `attention`: the few situations Candor's judgment
+selected from the records and the notes, each with its statement, figures,
+basis handles, and the card the user sees. `disposition` says whether a situation
+is a current card, eligible but not shown (`also`), settled by a recorded user
+statement, or dismissed by the user. When the user brings a card, start from its
+situation and the outcome its button named; read the basis records before
+concluding. A dismissed situation is the user's call; do not reopen it unless
+they ask. `candor_open({})` lists the same situations under `attention` with kind
+`attention.situation`, cards first.
+
+Investigate the question the user selected in light of their current instruction.
+The remaining suggestions are optional starting points, not an assigned task list.
+Suggestions are starting points, not approved plans or proof that a particular
+action is best. You can reject or adapt them and investigate outside the library.
+Onboarding notes are shared memory you can curate through normal note operations.
+Keep original provenance distinct from your interpretation. Platform-generated
+interpretations stay in their result until you or the user deliberately retain
+useful context as an attributed note; a saved inference is not independent proof.

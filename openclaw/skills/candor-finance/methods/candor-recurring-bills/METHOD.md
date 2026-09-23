@@ -18,23 +18,17 @@ shopping just because they recur. A mortgage installment can belong even when
 its cashflow role is `debt_payment`; that role alone cannot identify a card
 repayment.
 
-Candor supplies candidates with observed cadence, amounts, uncertainty, and
-supporting transactions. Detection never activates, stops, or dismisses a series, regardless of its
-age, category, or amount stability. Missed windows remain evidence for you to review. You decide what belongs in the schedule and
-confirm or declare it. The candidate pool refreshes from up to 1,000 visible
-posted transactions; an uncurated item can leave that pool as evidence changes
-or moves outside the scan. Transactions remain available for investigation,
-and confirmed items and declarations retain their state. Inspect older history
-and declare missing obligations when the task requires them. Candidates do not
-contribute to commitment totals. Use an initial setup pass to establish the
-schedule and later passes to maintain it.
+Clear recurring payments appear in Candor automatically. An
+`active` detected row can be unconfirmed; `confirmed` says whether an approved
+agent policy overrides the prediction. Uncertain series remain candidates and
+are excluded from commitment totals. Preserve approved confirmations,
+dismissals, declarations, and associations. Review exceptions and missing
+obligations instead of requiring an initial bulk-confirmation pass.
 
-Preserve existing agent confirmations and declarations, including variable
-payments. Do not remove curated exceptions merely to apply these defaults.
-When the user's purpose supports including a variable bill, confirm it
-explicitly and record why in the approval note. Its amount remains an estimate,
-not a known upcoming statement balance. The current candidate pool is available
-for review and excluded from active commitment totals.
+Follow coverage and freshness caveats on the returned records. Missing history
+does not establish that an agreement ended. Variable bills can be active predictions; their
+amounts are estimates, not upcoming statement balances. Verify contractual
+terms and user intent separately.
 
 Count each obligation once. A card charge, its payment credit, and the bank
 withdrawal funding it can describe one obligation across accounts. Inspect
@@ -72,8 +66,7 @@ separate from the preference.
 - `candor recurring list` returns a bounded, sorted view. Follow `next_actions`
   through the recurring dataset when incomplete before claiming the review is
   exhaustive. Each response's totals cover only its returned rows.
-- `status` is the lifecycle. `candidate` is detected activity you have not
-  included; `active` is expected to keep posting; `stopped` is a real series
+- `status` is the lifecycle. `candidate` is uncertain detected activity awaiting review; `active` is expected to keep posting; `stopped` is a real series
   that ended; `dismissed` is a false detection. `confirmed` and `source` say
   whether the reading is yours: a confirmed row carries your fields in place
   of the observed ones, and a declared row is one you created.
@@ -81,17 +74,14 @@ separate from the preference.
   centre of `predicted_window`; a posting anywhere inside the window is on
   time, and `missed_count` only counts windows that closed with nothing
   posted. A missed series whose `possible_matches` names a related series on
-  another account usually moved cards: stop this series and confirm the other
-  rather than reporting a lapse. Say "around the 3rd", never "due on the
+  another account can indicate a move. Inspect both before changing either
+  schedule. Say "around the 3rd", never "due on the
   3rd"; contractual due dates live in `account_terms`.
 - Subscriptions are your interpretation, not a Candor noun. Narrow the list
   yourself: `direction: "outflow"` with `cashflow_role: "expense"` is the
   subscription-shaped subset, and `transfer`, `debt_payment`, and `refund`
-  roles are not subscriptions however regular they look. Weigh subscription
-  likelihood separately from cadence: prefer `monthly` or `annual`, a low
-  `amount_variance_ratio`, and an `observed_count` of three or more, and treat
-  groceries, transport, or general retail as weak evidence even when the
-  cadence is perfect.
+  roles are not subscriptions however regular they look. Verify the agreement
+  from its evidence before describing contractual terms or recommending changes.
 - Subscription-shaped outflows are where quiet money sits: a price rise nobody
   agreed to, a duplicate service, a trial that converted, a charge that
   continued after cancellation. Compare `last_amount` against
@@ -168,23 +158,21 @@ changing the external service requires its own authority.
 - Stop before cancellation or merchant contact unless the user separately
   authorizes that external action.
 
-A candidate's `possible_matches` links existing curated series with factual
-matching reasons. Inspect those before confirming a second series. To confirm
+A candidate's `possible_matches` can identify existing curated series worth
+inspecting. Inspect those before confirming a second series. To confirm
 that a new wording belongs to the existing series, update the target id with
 `associate_from` set to the candidate id. This records the observed label as
 an account-scoped association between intact evidence groups, preserving the target's
-cadence and active/stopped/dismissed state. Similarity alone never applies an
-alias. Each match lists `differences` the write refuses until they agree: a
+cadence and active/stopped/dismissed state. Use an explicit association when the evidence establishes an alias. Each match lists `differences` the write refuses until they agree: a
 `cashflow_role` difference means correct the role first; an `account_identity`
 difference means the series live on different accounts, so a moved bill is
 stopped on one and confirmed on the other, never associated. Competing owners,
 currencies, and directions must be resolved first. A dismissal carries across
 approved aliases; it does not suppress unrelated charges from that merchant.
 
-One or two observations do not establish an expected calendar. Unconfirmed
-candidates with that evidence have no projected due window, and candidates
-never report missed obligations. Set the cadence from inspected evidence or
-user context when confirming; do not promote a six-day pair into a weekly bill.
+Automatic predictions and candidates do not establish missed obligations.
+Use inspected evidence or authoritative user context before asserting a contract
+or pinning an approved payment calendar.
 
 When opening or a recurring list is incomplete, follow its `data.query`
 continuation for the recurring dataset. Dataset pages use stored-record order;

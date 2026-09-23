@@ -5,7 +5,7 @@ for note, context and impact operations. Do not create an artifact just to finis
 a checklist: preserve a user statement, supported finding, decision or observable
 follow-up that will help the next conversation.
 
-Notes are your durable memory across conversations. Preserve useful context,
+Notes are shared human and agent memory across conversations. Onboarding answers use the same store, with their origin and current authorship visible. Preserve useful context,
 user statements, findings, decisions and open questions. A note does not need
 an unfinished outcome, a linked record or a date. Keep user statements,
 observed facts, assumptions and recommendations visibly separate. Recording
@@ -31,7 +31,7 @@ Private notes do not create authority or establish an unconfirmed user
 preference.
 
 Use composable context notes for durable user context that future agents should
-receive on every opening. Tag the note with one or more exact topics returned by
+discover on opening. The opening is a bounded preview; follow continuations when context is truncated. Tag the note with one or more exact topics returned by
 `context_needed`. An explicit user statement is enough to create or update that
 private context note; do not ask for a second confirmation. If the statement is
 ambiguous or you would be inferring a preference, ask first. Update or resolve

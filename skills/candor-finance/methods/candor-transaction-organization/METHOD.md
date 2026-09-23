@@ -115,8 +115,6 @@ scope before applying it; do not encode a new grouping preference from bank text
 
 Category and financial role are independent. Set `set_cashflow_role` explicitly
 when a rule should change income, expense, transfer, debt-payment, or refund
-treatment. `set_category` only changes grouping. With no role override, Candor
-uses Plaid classification. A low-confidence compatibility fallback can preserve
-recognized source-only import categories, but it is not a substitute for agent
-curation. Establish the role through a correction or rule when source evidence
-is missing or the financial meaning needs correction.
+treatment. `set_category` only changes grouping. Inspect the returned role and
+supporting evidence. Correct the role through a correction or rule when its
+financial meaning is wrong or unresolved.

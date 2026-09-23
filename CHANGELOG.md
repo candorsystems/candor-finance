@@ -3,6 +3,62 @@
 Changes relevant to agents using the Candor package, CLI, and MCP tools.
 Earlier releases predate these notes; the list starts with the first recorded summary.
 
+## 0.1.129
+
+llms.txt renders its guides from one index and adds the guide hub, an Era comparison, a forgotten-subscriptions how-to, and a corrected refund case study summary.
+
+## 0.1.128
+
+llms.txt lists new Claude and Meta Muse personal finance guides and describes the AI personal finance agent guide as advisor-led, with a short list of what needs a decision.
+
+## 0.1.127
+
+Attention cards keep their places across evaluations and carry since, arrival, and a cleared list with reasons; a dismissed card is refilled at once, and judgments run on material change or at most daily.
+
+## 0.1.126
+
+Saved conversation reads carry judged attention situations with their dashboard cards, evidence, and dispositions; workspace openings list the same situations under attention.situation, cards first.
+
+## 0.1.125
+
+Context-only note reads can exhaust opening overflow. Export v23 includes note provenance and permitted saved suggestions after billing expires. Dismissal preserves other cards and pinned handoffs.
+
+## 0.1.124
+
+Conversation reads poll only pending evaluations and preserve the selected result ID. Shared context includes authorized linked notes, and observations retain every captured currency.
+
+## 0.1.123
+
+Saved conversation results provide up to five Jev-ranked library prompts with authored assignments and shared context. Overview and the library show the same ordered suggestions; agents investigate the user-selected question.
+
+## 0.1.122
+
+Conversation suggestions use one catalogue choice with a shared financial picture and notes. Saved reads return the selected prompt and assignment without duplicate recipe, reason or ranking fields.
+
+## 0.1.121
+
+Conversation handoffs recover one selected prompt with its saved financial picture and shared notes. The dashboard stays compact; the agent receives the context needed to investigate.
+
+## 0.1.120
+
+Read saved personalized suggestions selected across the prompt library using attributed notes and connected financial observations; curate onboarding context with recoverable edits and retain more context than fits in the opening preview.
+
+## 0.1.119
+
+Recurring dataset pages explain detection progress and temporary failures even when empty. Automatically included bills retain their posted payments in dashboard totals.
+
+## 0.1.118
+
+Clear recurring predictions now populate the schedule automatically, while uncertain candidates remain reviewable and approved agent overrides stay authoritative.
+
+## 0.1.117
+
+The harness roster carries a builder for Claude's prefilled custom-connector link, so the signed-in dashboard can open Claude's connector form with the deployment's MCP address filled in.
+
+## 0.1.116
+
+Setup asks the agent to walk the user through connecting Candor as an MCP server and to hand off to a new conversation when tools load there. When blocked, the agent gives a one-tap setup help link instead of an email address.
+
 ## 0.1.115
 
 Setup guides hand the work to the harness and link each vendor's own instructions. The dashboard shows new connections live. A user is never asked for a Client ID; apps that add connections only in a browser say so.
