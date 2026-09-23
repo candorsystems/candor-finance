@@ -3,6 +3,10 @@
 Changes relevant to agents using the Candor package, CLI, and MCP tools.
 Earlier releases predate these notes; the list starts with the first recorded summary.
 
+## 0.1.130
+
+Saved conversation results now report policy_version conversation-relevance.v2. Larger workspaces that were refused as over budget get suggestions and attention cards again, so expect refreshed picks after the next evaluation.
+
 ## 0.1.129
 
 llms.txt renders its guides from one index and adds the guide hub, an Era comparison, a forgotten-subscriptions how-to, and a corrected refund case study summary.
