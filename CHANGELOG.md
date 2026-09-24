@@ -3,6 +3,22 @@
 Changes relevant to agents using the Candor package, CLI, and MCP tools.
 Earlier releases predate these notes; the list starts with the first recorded summary.
 
+## 0.1.136
+
+Candor's MCP and API requests respond faster: access tokens verify without a network round trip and large catalogs load only on the routes that use them. Tools, arguments, and results are unchanged.
+
+## 0.1.135
+
+No change to CLI commands, MCP tools, or responses. The hosted API's Stripe webhook now also accepts invoice.paid so a subscription's first paid charge is recorded for ad conversion reporting.
+
+## 0.1.134
+
+New agent connections include candor:connections, so candor_connections can refresh accounts the user already connected; connecting and removing accounts stay in the web app. Every tool description now says when to use it.
+
+## 0.1.133
+
+MCP tool and parameter descriptions now state what each tool does, when to use it, and what it accepts, without naming other tools or instructing the model; continuations stay in next_actions and navigation in the skill.
+
 ## 0.1.132
 
 To set an attention card aside until a date, write a note about its situation (about resource situations) with revisit_at; the card leaves at once, reads as deferred, and returns on that date if it still applies.
