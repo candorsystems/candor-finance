@@ -5,10 +5,10 @@ compatibility: Requires an authenticated Candor workspace and either the Candor 
 metadata:
   author: Candor
   version: 0.1.0
-  candor-skill-version: 2026-09-21
+  candor-skill-version: 2026-09-24
   candor-cli: ">=0.3.136 <0.4.0"
   candor-introduced-in: 2026-07-23
-  candor-updated-in: 2026-09-21
+  candor-updated-in: 2026-09-24
   openclaw:
     homepage: https://candor.money/START.md
     requires:
@@ -192,10 +192,14 @@ The same read carries `attention`: the few situations Candor's judgment
 selected from the records and the notes, each with its statement, figures,
 basis handles, and the card the user sees. `disposition` says whether a situation
 is a current card, eligible but not shown (`also`), settled by a recorded user
-statement, or dismissed by the user. When the user brings a card, start from its
+statement, dismissed by the user, or `deferred` to a date. When the user brings a card, start from its
 situation and the outcome its button named; read the basis records before
 concluding. A dismissed situation is the user's call; do not reopen it unless
-they ask. `candor open` lists the same situations under `attention` with kind
+they ask. When the user wants a situation set aside until a date, record it in a
+note about that situation, `about: {"resource": "situations", "id": SITUATION_ID}`,
+with the user's words and `revisit_at` set to that date. The card leaves the
+dashboard at once and returns on that date if it still applies; resolving the
+note or clearing its revisit date brings it back sooner. `candor open` lists the same situations under `attention` with kind
 `attention.situation`, cards first.
 
 Investigate the question the user selected in light of their current instruction.

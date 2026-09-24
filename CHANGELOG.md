@@ -3,6 +3,10 @@
 Changes relevant to agents using the Candor package, CLI, and MCP tools.
 Earlier releases predate these notes; the list starts with the first recorded summary.
 
+## 0.1.132
+
+To set an attention card aside until a date, write a note about its situation (about resource situations) with revisit_at; the card leaves at once, reads as deferred, and returns on that date if it still applies.
+
 ## 0.1.131
 
 Transaction labels show the bank's own description unless a rule or a curated import names them; provider merchant enrichment stays a separate hint, and label counts still group by merchant.
