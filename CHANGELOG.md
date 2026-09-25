@@ -3,6 +3,10 @@
 Changes relevant to agents using the Candor package, CLI, and MCP tools.
 Earlier releases predate these notes; the list starts with the first recorded summary.
 
+## 0.1.141
+
+The other-agents setup references point to the open Model Context Protocol and Agent Skills documentation instead of a list of coding tools, which also drops Roo Code (shut down in May 2026). Tools and the finance skill are unchanged.
+
 ## 0.1.140
 
 The package adds an MIT-licensed Cursor Marketplace plugin for Grok Bot that pairs the finance skill with Candor's remote MCP server. Tools and the finance skill are unchanged.
