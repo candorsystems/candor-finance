@@ -3,6 +3,14 @@
 Changes relevant to agents using the Candor package, CLI, and MCP tools.
 Earlier releases predate these notes; the list starts with the first recorded summary.
 
+## 0.1.140
+
+The package adds an MIT-licensed Cursor Marketplace plugin for Grok Bot that pairs the finance skill with Candor's remote MCP server. Tools and the finance skill are unchanged.
+
+## 0.1.139
+
+Plugin marketplace listings now use the same name and tagline as Candor's ChatGPT and Claude directory listings, and open with the same description. Tools and the finance skill are unchanged.
+
 ## 0.1.138
 
 ChatGPT and Codex install steps for the Candor Finance plugin now include selecting Connect when prompted, before signing in to Candor. Tools and the finance skill are unchanged.

@@ -1,0 +1,123 @@
+> Native MCP: calls below are generated from Candor's shared operation catalog. Substitute placeholder values and execute them through MCP; do not invoke a `candor` executable.
+
+
+# Cash-flow projection
+
+Project forward only as far as the evidence supports, and keep a baseline
+projection separate from any hypothetical the user is considering.
+
+`candor-budgeting-cashflow` reconstructs what already happened. This skill
+looks ahead.
+
+## Datasets
+
+- `balances`
+- `recurring`
+- `transactions`
+- `accounts`
+- `budgets`
+- `goals`
+- `coverage`
+- `account_terms`
+
+## Workspace resources
+
+- Use `notes` for one-off expectations the user confirms, such as a bonus or a
+  planned large purchase, so the next projection can reuse them.
+
+## Non-goals
+
+- Presenting a projection as a guarantee or a commitment.
+- Letting a hypothetical scenario become the baseline or approved state.
+- Projecting past the horizon the recurring and liability evidence supports.
+
+## Method
+
+- Establish the horizon and the accounts in scope before calculating anything.
+  Confirm currencies and coverage first.
+- Start from current balances, then layer committed obligations: recurring
+  items with a confirmed cadence, pending or future-dated transactions, and
+  liability due dates.
+- Project only recurring items whose effective status is `active`, and use
+  the row's `predicted_next_date` as the next date, respecting its
+  `predicted_window`, `ends_at`, and `remaining_occurrences` bounds.
+  The default read already leaves stopped and dismissed series out, and its
+  totals count active series only; candidates await a judgement and are not
+  obligations yet.
+- Take expected income from recurring inflows. Do not average historical
+  deposits into forecast income unless the user confirms that basis.
+- Keep committed obligations separate from discretionary spending, and say
+  which is which. Only the committed side is evidence-backed.
+- Prevent double counting. A recurring item already showing as a pending or
+  future-dated transaction is one obligation, not two.
+- Apply each leg of an internal transfer to its own account. A transfer nets to
+  zero across the household but still moves one account's balance, so netting
+  it out of a per-account path can hide an overdraft.
+- Read each recurring item's `direction` and `account_identity_id` rather than
+  inferring the sign or the affected account from merchant text.
+- Do not replace the projected next date with one inferred from `last_seen_at`.
+  Declarations can have no observation, and agent-pinned dates can differ from
+  posting history. A null predicted date is undated, not permission to guess.
+  Keep the supplied calendar anchor and end bounds when extending an estimate
+  over the requested horizon; label that extension as an estimate.
+- Read saved notes for expectations inside the horizon. A planned purchase or
+  expected bonus from an earlier run is not in recurring items.
+- Report the lowest projected balance in the horizon and the date it occurs.
+  That is usually the answer behind the question actually asked.
+
+## Evidence checklist
+
+- Recurring and liability coverage is deep enough that the projection is not
+  dominated by obligations Candor cannot see.
+- Every projected obligation traces to a recurring item, a pending transaction,
+  or a user-confirmed expectation.
+- Bounded reads were followed to completion, because an omitted obligation
+  always makes a projection optimistic. Balances are bounded too, so the row
+  count was reconciled against the known account count before projecting.
+- Saved expectations carry a `revisit_at`, since the recovery read is a
+  revisit-time window and an undated note never returns.
+- Liability due dates and minimums came from effective account terms. Conflicts,
+  stale values, and uncovered accounts remain explicit.
+- Transfers, refunds, and reversals are not counted as income or spend.
+- Exact currency units are preserved. Mixed currencies are converted only with
+  a stated rate and date, or reported separately.
+
+## Candor query recipes
+
+- For a baseline projection, a shortfall check, and a scenario comparison, read
+  [the executable workflows](references/workflows.md).
+- Check freshness before projecting. A projection built on stale balances
+  misleads even when the arithmetic is correct.
+- When the user names a one-off amount or date, record it as a linked timed
+  note rather than leaving it as chat-only context.
+
+## Caveats
+
+- A projection is a bounded estimate from known obligations, not a forecast of
+  the user's behavior.
+- Irregular income, variable bills, and discretionary spending degrade accuracy
+  quickly as the horizon lengthens.
+- Missing accounts make a projection optimistic, because unmodelled obligations
+  never appear in it.
+
+## Safe Candor writebacks
+
+- Linked Markdown note recording the horizon, assumptions, projected low point,
+  and revisit date.
+- User-approved budget or goal version when a projection changes an approved
+  plan.
+- Bounded recurring corrections within the user's explicit maintenance scope.
+
+## Domain decisions
+
+Do not treat an assumed reserve, discretionary-spending classification or
+liquidation scenario as the user's approved plan. A forecast request does not
+authorize repairing recurring state or moving funds unless context grants it.
+
+## Stopping conditions
+
+- Stop and report the gap when recurring or liability coverage is too thin to
+  support the requested horizon.
+- Stop before presenting a projection as a guarantee of what will happen.
+- Stop before acting on a projected shortfall. Surface it and let the user
+  decide.

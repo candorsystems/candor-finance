@@ -1,6 +1,6 @@
 {
   "name": "candor-finance",
-  "version": "0.1.138",
+  "version": "0.1.140",
   "description": "Help ChatGPT and Codex with personal finance by organizing accounts, spending, budgets, goals, investments, and follow-through.",
   "author": {
     "name": "Candor",
@@ -22,7 +22,7 @@
     "candor": {
       "http_headers": {
         "Candor-Agent-Package-Route": "codex-marketplace",
-        "Candor-Agent-Package-Version": "0.1.138"
+        "Candor-Agent-Package-Version": "0.1.140"
       },
       "type": "http",
       "url": "https://api.candor.money/mcp",
@@ -31,8 +31,8 @@
   },
   "interface": {
     "displayName": "Candor Finance",
-    "shortDescription": "Watch over and improve your financial life",
-    "longDescription": "Help your agent with personal finance by organizing accounts, spending, budgets, goals, investments, notes, and prior decisions so it can find problems, explain changes, and help you follow through.",
+    "shortDescription": "Your financial workspace",
+    "longDescription": "Candor is your financial workspace for budgets, goals, recurring bills, and the decisions you want to keep. Connect your accounts on Candor, then use your agent to review your finances with the records and context in one place.",
     "developerName": "Candor",
     "category": "Finance",
     "capabilities": [

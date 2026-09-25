@@ -1,0 +1,36 @@
+{
+  "name": "candor-finance",
+  "displayName": "Candor Finance",
+  "version": "0.1.140",
+  "minClientVersions": {
+    "cursor": "never",
+    "grokbot": "0.52.0",
+    "sand": "0.52.0"
+  },
+  "description": "Candor is your financial workspace for budgets, goals, recurring bills, and the decisions you want to keep. Connect your accounts on Candor, then use Grok to review your finances with the records and context in one place.",
+  "author": {
+    "name": "Candor",
+    "email": "support@candor.money"
+  },
+  "homepage": "https://candor.money",
+  "repository": "https://github.com/candorsystems/candor-finance",
+  "license": "MIT",
+  "logo": "assets/logo.svg",
+  "keywords": [
+    "candor",
+    "finance",
+    "personal-finance",
+    "budgeting",
+    "spending",
+    "subscriptions",
+    "mcp"
+  ],
+  "category": "integrations",
+  "tags": [
+    "candor",
+    "finance",
+    "mcp"
+  ],
+  "mcpServers": "./mcp.json",
+  "skills": "./skills/"
+}

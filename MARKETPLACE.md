@@ -4,12 +4,12 @@
 
 **Name:** Candor Finance
 
-**Short description:** Watch over and improve your financial life.
+**Short description:** Your financial workspace.
 
-**Description:** Help the AI agent you already use with personal finance.
-Candor organizes connected read-only accounts, spending, budgets, goals,
-investments, notes, and prior decisions so your agent can understand what
-changed and help you follow through.
+**Description:** Candor is your financial workspace for budgets, goals,
+recurring bills, and the decisions you want to keep. Connect your accounts on
+Candor, then use your agent to review your finances with the records and
+context in one place.
 
 ## Service endpoints
 

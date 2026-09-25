@@ -1,0 +1,172 @@
+> Native MCP: calls below are generated from Candor's shared operation catalog. Substitute placeholder values and execute them through MCP; do not invoke a `candor` executable.
+
+
+# Financial review
+
+For a routine opening check, process the bounded transaction delta and its
+continuations first. A small delta does not require the full review below.
+Use the full sweep for an explicit review or evidence that calls for one.
+
+Find supported ways to improve the user's finances. Sweep before ranking,
+writing, or deepening anything.
+
+## Completion contract
+
+For the scope you claim to have reviewed, establish that you have:
+
+1. bounded coverage and freshness;
+2. combined the complete transaction scope; and
+3. examined each lens below with a compact, evidence-linked candidate ledger.
+   The bundled sweep program is a useful starting point for this analysis.
+
+Together the four lists are the compact candidate ledger. Each reports its
+total count and at most five candidates with source ids. Keep local analysis
+output compact so large raw pages do not crowd out the evidence and reasoning. Inspect exact records when needed to verify a candidate.
+
+Check for material gaps across the four lenses. Test baseline, comparator, and
+counterevidence before presenting a finding as supported.
+
+The four lenses are:
+
+- **Avoidable outflows:** duplicates, fees, reversals, and charges whose nearby
+  baseline makes avoidability plausible.
+- **Expected inflows:** large or irregular debits with no later offset, plus
+  relevant matched debit-credit precedents for refunds, reimbursements, or
+  income. Each candidate shows the debit, the comparable debit, and its later
+  inflow. Text and category are signals, not proof that an inflow was owed.
+- **Recurring changes:** level, cadence, or count changes against the same
+  merchant or service's observed baseline.
+- **Actual mismatches:** observed current cash, debt, cost, payment, deadline,
+  term, or liquidity facts that conflict. Missing fields do not create one.
+
+A missing field by itself is a coverage caveat, not a surviving lead. A
+candidate survives only when current evidence establishes at least one of:
+observed avoidable or recoverable cost; a missed expected outcome with a
+comparator; a baseline discontinuity; or present exposure paired with an
+observed term, deadline, or requirement. A generic risk, plausible bad outcome,
+or missing fact cannot supply the missing half. Prefer observed value over
+unquantified possibility. Notes preserve a supported finding awaiting an
+observable outcome; they do not promote speculation into work. A historical
+one-off with no observed ongoing or recoverable effect is ordinary context.
+If a required observed fact is absent, remove the candidate rather than
+flagging it as a watch item.
+
+## Datasets
+
+Start with `coverage`, `transactions`, and `recurring`. Query others only when
+evidence calls for them.
+
+- `coverage`
+- `accounts`
+- `balances`
+- `transactions`
+- `recurring`
+- `budgets`
+- `goals`
+- `holdings`
+- `properties`
+- `changes`
+- `actions`
+
+## Workspace resources
+
+- Use `notes` for supported unfinished outcomes with observable revisit dates.
+
+## Non-goals
+
+- Loading every record, method, or external source.
+- Inferring the user's goals, risk preferences, or tradeoffs.
+- Treating broad triage as professional or implementation authority.
+
+## Method
+
+- Infer scope from the request and start unless a missing boundary would change
+  what you inspect. Use deeper methods when they can resolve a material
+  uncertainty.
+- Process the opening, then establish coverage, freshness, currencies, and
+  material blind spots. Read history only when it could change the review. Use
+  factual changes only when the opening or a surviving candidate calls for
+  them; never let a generated label set the review's agenda.
+- Query one bounded transaction scope. When it has continuations, follow every
+  `next_actions` continuation and save each returned page to a JSON file as
+  received before analysis. Rows live under `data.page`; do not probe or
+  reshape records.
+- Use the bundled sweep or equivalent local analysis to inspect the four
+  lenses. Test each candidate and classify it as supported, unresolved, or
+  ordinary context.
+- Use `recurring` to test detected series and candidates. Query other datasets only when
+  a surviving candidate or the request makes them material.
+- After the sweep, rank surviving leads by defensible financial effect,
+  deadline, reversibility, and what the user can change. Do not let the first
+  plausible story end triage.
+- Load one deeper method only when its procedure could change a surviving
+  answer. Define the next action, owner, authority, observable outcome, and
+  revisit trigger for each material unfinished lead.
+
+## Evidence checklist
+
+- Coverage and the four-list ledger cover the claimed window.
+- Every finding has a baseline or comparator, not a label alone.
+- Missing-inflow claims use the observed window and relevant positive precedent.
+- Analysis stayed bounded, with exact records available for verification.
+- Facts, external research, user context, assumptions, and judgment remain
+  distinct.
+
+## Candor query recipes
+
+- The sweep is [the bundled program](scripts/review-sweep.mjs): run it with
+  Node, passing every saved page file and until=END for the query boundary.
+  It classifies files by shape and prints only the capped ledger.
+  Add `balances` and `account_terms` pages when balance or term facts are
+  material. If it cannot run here, write an equivalent one-pass program to the
+  same contract.
+- This method is complete for a first pass. For a periodic review, life event,
+  or formal recommendation handoff, read
+  [the extended review workflows](references/workflows.md).
+- When the user explains what a merchant or transaction means, load
+  `candor-transaction-organization` and inspect the related transactions,
+  corrections, and rules. Do not leave reusable interpretation as chat-only
+  context.
+
+- When a property value, home equity, or appraisal is material to the request,
+  use `candor-property-tracking` for its evidence and debt semantics. Property
+  estimates do not establish liquidity or received rental income.
+
+## Caveats
+
+A broad review is bounded triage; absent accounts or context limit conclusions.
+
+## User-facing answer
+
+Lead with the few supported findings that could improve the user's financial
+life. For each, give the exact amount and date, the baseline or comparator, why
+it matters, uncertainty, and the next action. Omit unsupported candidates;
+ordinary context is not a lower-priority finding.
+
+Do not advertise setup, monitoring, budgets, goals, files, memory writes, or
+the workspace itself unless they materially answer the request. Describe your
+follow-through as what you will remember or check, not the mechanism you used.
+Never expose Candor, provider names, command names, status literals, record ids,
+or method mechanics unless the user asks how the evidence was obtained.
+
+## Safe Candor writebacks
+
+- Linked Markdown note only for a supported unfinished outcome, with exact
+  baseline, verification recipe, meaning of each result, owner, and revisit
+  date in `revisit_at` and the exact record in the structured `about` link.
+  Reuse verified source evidence already returned; never approximate an
+  identifier. Never preserve a mere missing field or unsupported possibility.
+- User-approved budget or goal version through its typed command.
+- Bounded recurring, correction, or normalization state within the user's
+  explicit maintenance scope.
+
+## Domain decisions
+
+Prioritize and recommend from evidence and the context the user has supplied.
+Label a provisional priority when missing preferences could change it. A review
+does not approve new goals, budgets or external actions.
+
+## Stopping conditions
+
+Stop when missing user or regulated-domain facts determine the recommendation,
+or before acting when responsibility, authority, or exact terms are unclear.

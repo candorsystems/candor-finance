@@ -1,0 +1,17 @@
+{
+  "name": "candor",
+  "owner": {
+    "name": "Candor",
+    "email": "support@candor.money"
+  },
+  "metadata": {
+    "description": "Candor Finance for Grok Bot"
+  },
+  "plugins": [
+    {
+      "name": "candor-finance",
+      "source": "cursor",
+      "description": "Candor is your financial workspace for budgets, goals, recurring bills, and the decisions you want to keep. Connect your accounts on Candor, then use Grok to review your finances with the records and context in one place."
+    }
+  ]
+}

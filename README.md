@@ -26,6 +26,10 @@ Keep working installations. Once the skill and tools are available, call
 the user's financial task. Use a private runtime or per-user account isolation
 before authorizing personal financial access on a shared host.
 
+Grok Bot installs the `cursor/` plugin from the Cursor Marketplace. It pairs
+the same MCP-based skill with the remote MCP server and is listed for Grok Bot
+only; `.cursor-plugin/marketplace.json` points the marketplace at it.
+
 The root skill uses MCP, including for capable OpenClaw and Hermes hosts.
 The separate `openclaw/skills/` projection uses the Candor CLI and is only for
 CLI installations. Keep the skill matched to the connection it operates.
@@ -41,8 +45,9 @@ secure account link, it explains the required step and opens that exact page.
 - [Terms](https://candor.money/terms)
 - [Security](https://candor.money/security)
 
-Except for the scoped MIT-0 OpenClaw skill subtree, Copyright 2026 Candor
-Systems, Inc. All rights reserved. See [LICENSE](LICENSE).
+Except for the scoped MIT-0 OpenClaw skill subtree and the scoped MIT
+`cursor/` plugin, Copyright 2026 Candor Systems, Inc. All rights reserved.
+See [LICENSE](LICENSE).
 
 ## Release notes
 
