@@ -26,7 +26,8 @@ changed and help you follow through.
 - Agent Plugins 1.0.0 clients use the root `plugin.json`, `skills/`, and
   `mcp.json` portable package.
 - OpenAI/ChatGPT and Claude use the authenticated remote MCP plus the included
-  Candor finance skill. Claude on paid plans and Claude Code sync this
+  Candor finance skill. ChatGPT installs both from the Candor Finance listing
+  in its plugin directory. Claude on paid plans and Claude Code sync this
   repository as a plugin marketplace.
 - Grok Bot and other agents with their own computer fetch `skills/candor-finance`
   and add the remote MCP server themselves.

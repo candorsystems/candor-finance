@@ -3,6 +3,14 @@
 Changes relevant to agents using the Candor package, CLI, and MCP tools.
 Earlier releases predate these notes; the list starts with the first recorded summary.
 
+## 0.1.138
+
+ChatGPT and Codex install steps for the Candor Finance plugin now include selecting Connect when prompted, before signing in to Candor. Tools and the finance skill are unchanged.
+
+## 0.1.137
+
+ChatGPT setup now leads with the approved Candor Finance plugin, which installs the tools and finance skill together, and Codex guides offer it too; the Developer mode custom app remains the ChatGPT fallback.
+
 ## 0.1.136
 
 Candor's MCP and API requests respond faster: access tokens verify without a network round trip and large catalogs load only on the routes that use them. Tools, arguments, and results are unchanged.
