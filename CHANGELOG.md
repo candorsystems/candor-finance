@@ -3,6 +3,10 @@
 Changes relevant to agents using the Candor package, CLI, and MCP tools.
 Earlier releases predate these notes; the list starts with the first recorded summary.
 
+## 0.1.145
+
+The dashboard and Connections page now give users one setup message for any agent, and a follow-up when setup stalls asks you to check what is missing against START and name the one next step. Skills and tools are unchanged.
+
 ## 0.1.144
 
 Plugin listings describe Candor as the finance app for your AI agent that tells it what matters most. Skills and tools are unchanged.
