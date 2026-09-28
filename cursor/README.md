@@ -1,6 +1,6 @@
 # Candor Finance for Grok Bot
 
-Candor is your financial workspace for budgets, goals, recurring bills, and the decisions you want to keep. Connect your accounts on Candor, then use Grok to review your finances with the records and context in one place.
+Candor is the finance app for your AI agent: budgets, goals, recurring bills, and the decisions you want to keep, and it tells your agent what matters most. Connect your accounts on Candor, then use Grok to review your finances with the records and context in one place.
 
 Requires an existing Candor account with active access. Financial accounts are
 connected on Candor's website; Grok can refresh accounts you already connected.

@@ -3,6 +3,18 @@
 Changes relevant to agents using the Candor package, CLI, and MCP tools.
 Earlier releases predate these notes; the list starts with the first recorded summary.
 
+## 0.1.144
+
+Plugin listings describe Candor as the finance app for your AI agent that tells it what matters most. Skills and tools are unchanged.
+
+## 0.1.143
+
+Claude setup now leads with the Candor Finance connector in Claude's connector directory, open on every plan; the finance skill still loads separately and the custom connector remains the fallback. Tools are unchanged.
+
+## 0.1.142
+
+The hosted llms.txt now describes Candor as the platform you use to look after the user's whole financial life, and its source moves to its own module. Tools and the finance skill are unchanged.
+
 ## 0.1.141
 
 The other-agents setup references point to the open Model Context Protocol and Agent Skills documentation instead of a list of coding tools, which also drops Roo Code (shut down in May 2026). Tools and the finance skill are unchanged.

@@ -4,12 +4,12 @@
 
 **Name:** Candor Finance
 
-**Short description:** Your financial workspace.
+**Short description:** The finance app for your AI agent.
 
-**Description:** Candor is your financial workspace for budgets, goals,
-recurring bills, and the decisions you want to keep. Connect your accounts on
-Candor, then use your agent to review your finances with the records and
-context in one place.
+**Description:** Candor is the finance app for your AI agent: budgets, goals,
+recurring bills, and the decisions you want to keep, and it tells your agent
+what matters most. Connect your accounts on Candor, then use your agent to
+review your finances with the records and context in one place.
 
 ## Service endpoints
 
@@ -27,8 +27,10 @@ context in one place.
   `mcp.json` portable package.
 - OpenAI/ChatGPT and Claude use the authenticated remote MCP plus the included
   Candor finance skill. ChatGPT installs both from the Candor Finance listing
-  in its plugin directory. Claude on paid plans and Claude Code sync this
-  repository as a plugin marketplace.
+  in its plugin directory. Claude connects the tools from the Candor Finance
+  listing in its connector directory on every plan and loads the skill
+  separately. Claude on paid plans and Claude Code sync this repository as a
+  plugin marketplace, which brings the tools and skill together.
 - Grok Bot and other agents with their own computer fetch `skills/candor-finance`
   and add the remote MCP server themselves.
 - OpenClaw uses the root finance skill with native MCP and OAuth where its
