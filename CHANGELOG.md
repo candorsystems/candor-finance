@@ -3,6 +3,14 @@
 Changes relevant to agents using the Candor package, CLI, and MCP tools.
 Earlier releases predate these notes; the list starts with the first recorded summary.
 
+## 0.1.147
+
+When the attention review cannot tell whether a check applies, it names the household fact your notes are missing. candor open lists the top two in context_needed with how_to_answer, and a fact you infer from the records counts.
+
+## 0.1.146
+
+No change to CLI commands, MCP tools, or responses. An agent connection can now carry the Candor workspaces the user chose at consent; connections to one workspace behave exactly as before.
+
 ## 0.1.145
 
 The dashboard and Connections page now give users one setup message for any agent, and a follow-up when setup stalls asks you to check what is missing against START and name the one next step. Skills and tools are unchanged.

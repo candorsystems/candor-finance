@@ -2,7 +2,7 @@
   "mcpServers": {
     "candor": {
       "headers": {
-        "Candor-Agent-Package-Version": "0.1.145"
+        "Candor-Agent-Package-Version": "0.1.147"
       },
       "type": "http",
       "url": "https://api.candor.money/mcp",

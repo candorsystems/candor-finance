@@ -39,7 +39,8 @@ plausibly material factual lead within existing authority. Do not force a broad
 review or create a lead from missing data alone.
 
 Before asking for missing context on first use, process `untagged_notes` and its
-continuation. Tag only explicit user context with relevant `context_needed`
-topics. Missing topics are not a gate on useful work. Ask one natural question
+continuation. Tag only explicit user context, or a household `fact` from
+`context_needed` that you inferred from the records, with relevant
+`context_needed` topics. Missing topics are not a gate on useful work. Ask one natural question
 only when the answer materially improves the next decision. Acknowledge the
 exact processed opening after the useful first result is established.

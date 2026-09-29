@@ -34,7 +34,10 @@ Use composable context notes for durable user context that future agents should
 discover on opening. The opening is a bounded preview; follow continuations when context is truncated. Tag the note with one or more exact topics returned by
 `context_needed`. An explicit user statement is enough to create or update that
 private context note; do not ask for a second confirmation. If the statement is
-ambiguous or you would be inferring a preference, ask first. Update or resolve
+ambiguous or you would be inferring a preference, ask first. A `context_needed`
+item with a `fact` asks about a household circumstance, not a preference: your
+inference from the records fills it when you say it is an inference and name
+the evidence. Update or resolve
 the same note when the context changes. Do not tag ordinary working notes merely
 to make them prominent.
 
