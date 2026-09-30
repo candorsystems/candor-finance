@@ -3,6 +3,26 @@
 Changes relevant to agents using the Candor package, CLI, and MCP tools.
 Earlier releases predate these notes; the list starts with the first recorded summary.
 
+## 0.1.152
+
+Errors now lead to a runnable step: a mistyped operation offers the one it likely meant, an MCP CLI hint becomes a schema describe or search, and an abandoned write offers action history. CLI 0.3.140 drops em-dashes.
+
+## 0.1.151
+
+Reads now offer their next steps: recurring confirm and dismiss, debt terms, account activity, term previews, holding history, and change evidence as actions; a partial refresh returns partial_success with its recovery reads.
+
+## 0.1.150
+
+Over MCP, each offered next step's shell is now the tool call that runs it, lineage included, and a write can offer its request body as a template in args.input that the gateway lifts. The response schema is unchanged.
+
+## 0.1.149
+
+Offered next steps now run as given: MCP accepts parent_action inside args, data.query steps nest their filters, a missing id offers the read that lists current ids, a rejected body offers its schema, and paged reads say continue.
+
+## 0.1.148
+
+The notes.create description now matches context_topics: tag durable user context, including a household fact that open lists in context_needed and you inferred from the records. Commands and tools are unchanged.
+
 ## 0.1.147
 
 When the attention review cannot tell whether a check applies, it names the household fact your notes are missing. candor open lists the top two in context_needed with how_to_answer, and a fact you infer from the records counts.
