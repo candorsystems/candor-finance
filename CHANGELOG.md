@@ -3,6 +3,10 @@
 Changes relevant to agents using the Candor package, CLI, and MCP tools.
 Earlier releases predate these notes; the list starts with the first recorded summary.
 
+## 0.1.153
+
+The attention review raises more of what a planner would, such as student loans, Medicare, and required withdrawals. Debt situations offer debts.list, which now returns every term, including a loan's repayment plan.
+
 ## 0.1.152
 
 Errors now lead to a runnable step: a mistyped operation offers the one it likely meant, an MCP CLI hint becomes a schema describe or search, and an abandoned write offers action history. CLI 0.3.140 drops em-dashes.
