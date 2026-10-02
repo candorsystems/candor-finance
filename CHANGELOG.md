@@ -3,6 +3,14 @@
 Changes relevant to agents using the Candor package, CLI, and MCP tools.
 Earlier releases predate these notes; the list starts with the first recorded summary.
 
+## 0.1.155
+
+Opening attention items say what each rests on: stated_in_notes cites the notes that answer it, and a check still missing a fact names it in missing_facts. evidence_detail says what that means next.
+
+## 0.1.154
+
+New workspaces can start with an "About my household" context note: the user's own onboarding answers on work, dependents, coming changes, age, housing, workplace plan, and health coverage. Read it before asking.
+
 ## 0.1.153
 
 The attention review raises more of what a planner would, such as student loans, Medicare, and required withdrawals. Debt situations offer debts.list, which now returns every term, including a loan's repayment plan.
