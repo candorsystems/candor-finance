@@ -3,6 +3,22 @@
 Changes relevant to agents using the Candor package, CLI, and MCP tools.
 Earlier releases predate these notes; the list starts with the first recorded summary.
 
+## 0.1.162
+
+Openings lead with agent_brief, standing instructions for the agent's own upkeep with stable codes. The first asks the agent to fill open household facts from the records and save them before asking the user.
+
+## 0.1.161
+
+Agents on an older package are no longer told to update: Candor's responses carry the current contract and win where a skill differs. Only a package below the supported minimum gets agent_package_unsupported.
+
+## 0.1.160
+
+Operation detail in candor_schema gives each query argument's type, allowed values, example, and meaning. transactions.list accepts cashflow_role, and action history says when a continuation shares its root.
+
+## 0.1.159
+
+attention.list reads every attention situation by state with its reason, and attention.update records the user's decision to defer, dismiss, settle, or restore one. A deferral note whose date passed no longer settles its card.
+
 ## 0.1.158
 
 Openings keep the published attention cards while a re-review is on its way, a held review returns current notes, and a person who asks what they might be missing gets one card from their account records.

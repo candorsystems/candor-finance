@@ -1,15 +1,15 @@
 ---
 name: candor-finance
 description: "Use Candor for personal finance: organize the user's accounts and spending, remember approved budgets and goals, review investments, investigate possible savings, and keep evidence and follow-up together. Use when a task touches the user's money, financial records, prior decisions, or approved plans."
-compatibility: Requires an authenticated Candor workspace and either the Candor tools included with the installed package or Candor CLI 0.3.136 or newer.
+compatibility: Requires an authenticated Candor workspace and either the Candor tools included with the installed package or Candor CLI 0.3.143 or newer.
 metadata:
-  candor-package-version: "0.1.158"
+  candor-package-version: "0.1.162"
   author: Candor
   version: "0.1.0"
-  candor-skill-version: "2026-10-02"
-  candor-cli: ">=0.3.136 <0.4.0"
+  candor-skill-version: "2026-10-03"
+  candor-cli: ">=0.3.143 <0.4.0"
   candor-introduced-in: "2026-07-23"
-  candor-updated-in: "2026-10-02"
+  candor-updated-in: "2026-10-03"
 ---
 
 ## Execute recipes through native MCP
@@ -25,13 +25,13 @@ If authenticated Candor MCP tools are not already available, get started at
 [https://candor.money/START.md](https://candor.money/START.md). Its live materials
 catalog helps you assemble a complete setup for the harness you actually use.
 
-Native packages identify their version and bootstrap route on each MCP request.
-When `candor_open` returns `agent_package_update_available`, finish only work
-that remains compatible, run its exact `agent_package.update` next actions in
-order, then reload or start a new session when directed. A manual connector may
-not send that informational metadata: compare this skill's
-`metadata.candor-package-version` with the live catalog yourself. Never treat
-a bare MCP connection without this finance skill as a complete setup.
+Candor's responses carry the current contract. Where a response's next actions
+or warnings differ from this skill, follow the response. A package behind the
+latest release needs no update. Only when `candor_open` returns
+`agent_package_unsupported`, finish work that remains compatible, run its exact
+`agent_package.update` next actions in order once the user agrees, then reload
+or start a new session when directed. Never treat a bare MCP connection without
+this finance skill as a complete setup.
 
 The compact MCP surface is `candor_open`, `candor_schema`, `candor_query`, `candor_get`, `candor_preview`, `candor_configure_overview`, `candor_write`, `candor_connections`, `candor_changes`, `candor_snapshot`, `candor_visualize`.
 
@@ -192,15 +192,14 @@ cannot start evaluation. An unavailable or stale result is not a current finding
 The same read carries `attention`: the few situations Candor's judgment
 selected from the records and the notes, each with its statement, figures,
 basis handles, and the card the user sees. `disposition` says whether a situation
-is a current card, eligible but not shown (`also`), settled by a recorded user
-statement, dismissed by the user, or `deferred` to a date. When the user brings a card, start from its
-situation and the outcome its button named; read the basis records before
-concluding. A dismissed situation is the user's call; do not reopen it unless
-they ask. When the user wants a situation set aside until a date, record it in a
-note about that situation, `about: {"resource": "situations", "id": SITUATION_ID}`,
-with the user's words and `revisit_at` set to that date. The card leaves the
-dashboard at once and returns on that date if it still applies; resolving the
-note or clearing its revisit date brings it back sooner. `candor_open({})` lists the same situations under `attention` with kind
+is a current card, eligible but not shown (`also`), settled, dismissed by the
+user, or `deferred` to a date; a decided one carries the user's words. When the
+user brings a card, start from its situation and the outcome its button named;
+read the basis records before concluding. A dismissed situation is the user's
+call; do not reopen it unless they ask. When the user decides something about a
+situation, record it with `candor_write({"operation":"attention.update","input":"<contents of DECISION.json>"})` in their
+words: defer it to a date, dismiss it, mark it settled, or restore it. `candor_get({"operation":"attention.list"})` reads every situation by state with its reason and return date.
+`candor_open({})` lists the cards and eligible situations under `attention` with kind
 `attention.situation`, cards first.
 
 Investigate the question the user selected in light of their current instruction.
