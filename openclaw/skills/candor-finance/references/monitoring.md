@@ -42,7 +42,7 @@ Quietly check the user's financial workspace.
    through the host. Never treat failure as no attention.
 3. If `attention` is `none`, use the host's silent-success behavior and stop.
 4. If attention is present, open the workspace, investigate the relevant evidence,
-   and acknowledge that exact opening after processing it.
+   and run its `open.acknowledge` action, when offered, after processing it.
 5. Notify only for a supported material finding, changed outcome or needed user
    input. Otherwise finish silently.
 ```

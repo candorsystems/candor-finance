@@ -35,8 +35,11 @@ const PROMO_DEADLINE_HORIZON_DAYS = 45;
 // An expiry far in the past is historical context, not a current deadline.
 const PROMO_DEADLINE_LOOKBACK_DAYS = 60;
 const DAY_MS = 86_400_000;
-const FEE_PATTERN =
-  /\b(fee|fees|overdraft|penalty|late charge|service charge|finance charge|interest charge)\b/i;
+// A bank fee is what the provider classifies as one (its detailed code
+// starts BANK_FEES_), or what an approved category files under Bank Fees.
+// Words in a label are not evidence: "HOA FEE" and "TUITION FEES" are bills.
+const BANK_FEE_CODE_PREFIX = "BANK_FEES_";
+const BANK_FEE_CATEGORY = "Bank Fees";
 
 function fail(message) {
   process.stderr.write(`review-sweep: ${message}\n`);
@@ -124,8 +127,26 @@ function asTransaction(row) {
     pending: row.status === "pending",
     label: normalizedLabel(row),
     role: row.effective_cashflow_role ?? row.cashflow_role,
-    text: `${row.label ?? row.effective_label ?? row.merchant_name ?? row.description ?? ""} ${row.effective_category ?? row.category ?? ""}`,
+    bankFee: isBankFee(row),
   };
+}
+
+function isBankFee(row) {
+  const category = row.effective_category ?? row.category;
+  const effective =
+    category && typeof category === "object" ? category.value : category;
+  if (effective !== undefined && effective !== null) {
+    return effective === BANK_FEE_CATEGORY;
+  }
+  const codes = [
+    row.source_category_detail,
+    ...(Array.isArray(row.source_classifications)
+      ? row.source_classifications.map((c) => c?.detailed)
+      : []),
+  ];
+  return codes.some(
+    (code) => typeof code === "string" && code.startsWith(BANK_FEE_CODE_PREFIX)
+  );
 }
 
 // Canonical balances rows carry role, currency, and the exact-money
@@ -367,7 +388,7 @@ for (const bucket of byLabelAmount.values()) {
 }
 const feeTotals = new Map();
 for (const t of charges) {
-  if (FEE_PATTERN.test(t.text)) {
+  if (t.bankFee) {
     const key = `${t.label}|${t.currency}`;
     const bucket = feeTotals.get(key) ?? {
       cents: 0,

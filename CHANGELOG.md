@@ -3,6 +3,14 @@
 Changes relevant to agents using the Candor package, CLI, and MCP tools.
 Earlier releases predate these notes; the list starts with the first recorded summary.
 
+## 0.1.157
+
+The review sweep's fee lens counts only charges the provider classifies as bank fees or filed under Bank Fees, so HOA dues and tuition no longer read as avoidable. Transaction rows drop the description-based sign flags.
+
+## 0.1.156
+
+First openings carry a compact first pass: 24 months of cash flow, accounts with rates and due dates, recurring series, and each situation's aim. Recurring marks lapsed series; refused filters list the accepted ones.
+
 ## 0.1.155
 
 Opening attention items say what each rests on: stated_in_notes cites the notes that answer it, and a check still missing a fact names it in missing_facts. evidence_detail says what that means next.

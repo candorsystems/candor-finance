@@ -19,12 +19,12 @@ incomplete setup's recovery action.
 ## A useful first result
 
 When setup names no financial task, open the workspace and use its coverage to
-choose a bounded first pass with `candor-financial-review`. On the first opening,
-`next_actions` offers a recent transaction read when history is visible. That
-read is a convenience: every opening also exposes
-`financial_position.coverage.transaction_history`. If setup consumed the action
-or a sync was still filling, reopen once current and use the latest ninety days
-of the observed window. Follow pagination for the chosen scope and report only
+choose a bounded first pass with `candor-financial-review`. The first opening
+carries `first_pass` when history is visible: monthly totals, accounts with
+their debt terms, and recurring series. Open records only for what those rows
+leave open. Every opening also exposes
+`financial_position.coverage.transaction_history`. If a sync was still filling,
+reopen once current. Follow pagination for the chosen scope and report only
 what it supports. Do not promise a fixed number of findings.
 
 If no history read is possible, distinguish the recovery:
@@ -44,5 +44,5 @@ Before asking for missing context on first use, process `untagged_notes` and its
 continuation. Tag only explicit user context, or a household `fact` from
 `context_needed` that you inferred from the records, with relevant
 `context_needed` topics. Missing topics are not a gate on useful work. Ask one natural question
-only when the answer materially improves the next decision. Acknowledge the
-exact processed opening after the useful first result is established.
+only when the answer materially improves the next decision. When the opening
+offers `open.acknowledge`, run it after the useful first result is established.
