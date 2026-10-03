@@ -3,6 +3,10 @@
 Changes relevant to agents using the Candor package, CLI, and MCP tools.
 Earlier releases predate these notes; the list starts with the first recorded summary.
 
+## 0.1.158
+
+Openings keep the published attention cards while a re-review is on its way, a held review returns current notes, and a person who asks what they might be missing gets one card from their account records.
+
 ## 0.1.157
 
 The review sweep's fee lens counts only charges the provider classifies as bank fees or filed under Bank Fees, so HOA dues and tuition no longer read as avoidable. Transaction rows drop the description-based sign flags.
