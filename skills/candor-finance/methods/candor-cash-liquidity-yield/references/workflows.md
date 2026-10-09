@@ -57,7 +57,7 @@ times, currencies, and coverage gaps without calling any amount idle.
 
 1. Ask which obligations and risks the reserve is intended to cover; do not
    invent a universal number of months.
-2. Inspect observed outflows, recurring commitments, debt obligations, approved
+2. Inspect observed outflows, recurring commitments, debt obligations, saved
    budgets, and goals:
 
    ```text
@@ -85,7 +85,7 @@ times, currencies, and coverage gaps without calling any amount idle.
    })
    candor_get({
      "operation": "budget.context",
-     "reason": "Inspect approved cash allocations",
+     "reason": "Inspect saved cash allocations",
      "task_key": "TASK_KEY",
      "args": {
        "period": "PERIOD"
@@ -93,7 +93,7 @@ times, currencies, and coverage gaps without calling any amount idle.
    })
    candor_get({
      "operation": "goals.list",
-     "reason": "Inspect approved reserve and savings goals",
+     "reason": "Inspect saved reserve and savings goals",
      "task_key": "TASK_KEY",
      "args": {
        "limit": 100
@@ -103,7 +103,9 @@ times, currencies, and coverage gaps without calling any amount idle.
 
 3. Separate essential, flexible, seasonal, and one-time needs. Present a range
    when income stability or expense coverage is uncertain.
-4. Ask the user to approve any reserve target before storing a goal.
+4. Save a reserve goal once the conversation settles a target, using only
+   figures the user gave or the records support, and tell the user what you
+   saved.
 
 Complete when the reserve range is traceable to stated risks, observed
 obligations, assumptions, and coverage—not a generic rule of thumb.

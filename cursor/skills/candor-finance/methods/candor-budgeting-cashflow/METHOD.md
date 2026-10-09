@@ -3,8 +3,8 @@
 
 # Budgeting and cash flow
 
-Use Candor facts and approved plan versions to model cash flow without choosing
-the user's priorities or silently turning a scenario into a budget.
+Use Candor facts and saved plan versions to model cash flow without choosing
+the user's priorities or saving a scenario the conversation has not settled on.
 
 ## Datasets
 
@@ -15,14 +15,14 @@ the user's priorities or silently turning a scenario into a budget.
 
 ## Workspace resources
 
-- Use `budgets` for user-approved allocation state.
+- Use `budgets` for the user's saved allocation state.
 - Use `notes` for material assumptions or timed follow-up that does not belong
   in the budget contract.
 
 ## Non-goals
 
 - Choosing the user's priorities.
-- Treating an unapproved scenario as a budget.
+- Saving a scenario you are only exploring as the user's budget.
 
 ## Method
 
@@ -36,12 +36,13 @@ flexible and cushion allocations do not establish that cash is safe to spend.
 - Confirm the period, account coverage, transfer treatment, and currencies.
 - Separate income, expenses, transfers, refunds, debt payments, and one-time
   items before calculating recurring capacity.
-- Compare observed facts with approved budget and goal versions. Present
-  assumptions and scenarios rather than silently changing state.
-- Revise an existing plan line by line with `budget.update` once the user
-  approves the change; restate the whole plan with `budget.create` only when
-  the plan itself is new. Budget status carries each line's spending, the
-  month's pace against the plan, and unbudgeted categories.
+- Compare observed facts with the current budget and goal versions. Present
+  scenarios you are only exploring as scenarios; save the plan the person
+  asks for, and say what you saved.
+- Revise an existing plan line by line with `budget.update` once the
+  conversation settles the change; restate the whole plan with `budget.create`
+  only when the plan itself is new. Budget status carries each line's
+  spending, the month's pace against the plan, and unbudgeted categories.
 
 ## Evidence checklist
 
@@ -61,22 +62,29 @@ flexible and cushion allocations do not establish that cash is safe to spend.
 
 - A transaction sample is not a complete income statement when sources or dates
   are missing.
-- Past spending does not reveal the user's values or preferred tradeoffs.
+- Past spending is where a budget starts, not a statement of the user's
+  values; their reactions to the starting split say what to change.
 
 ## Safe Candor writebacks
 
-- Approved budget version.
-- Approved goal version.
+- Saved budget version.
+- Saved goal version.
 - Linked Markdown note for a decision summary or timed follow-up.
 
 ## Domain decisions
 
-Observed spending is a baseline, not a desired budget. Propose exact amounts
-and explain tradeoffs; save only the version the user has approved. Do not treat
-a cleanup request as approval to change their spending priorities.
+Observed spending is the starting split. When the person wants a plan to hold
+to, with or without a total, or is still working one out with you, save a
+budget drafted from their records that fits what they said, without waiting
+for a yes to each line: say plainly that it is a starting split from their
+records, and adjust lines as they react. You maintain the budget from then on.
+Ask only when their intent is genuinely unclear and the choice matters. Use
+only amounts the user gave or the records support, and do not save a budget
+nobody asked for. Do not treat a cleanup request as a decision to change their
+spending priorities.
 
 ## Stopping conditions
 
 - Stop and surface the gap when coverage, currency, or transfer classification
   would materially change the result.
-- Stop before treating a draft scenario as an approved plan.
+- Stop before saving a scenario you are only exploring as the user's plan.

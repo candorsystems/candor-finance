@@ -113,7 +113,7 @@ and expenses. Explain missing debt responsibility without inventing a balance.
 
 Recover ownership and debt responsibility from evidence or prior user context;
 ask when a missing fact prevents the requested calculation. Keep estimates and
-rental-strategy recommendations distinct from approved facts or goals.
+rental-strategy recommendations distinct from verified facts or saved goals.
 
 ## Stopping conditions
 

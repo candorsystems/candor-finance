@@ -14,13 +14,13 @@
 
 2. Confirm the candidate amount, currency, source, recurrence, restrictions, and
    observation time. Inspect nearby activity for transfers or pending items.
-3. Inspect obligations and approved state:
+3. Inspect obligations and saved plans:
 
    ```sh
    candor transactions list --since START --until END --reason "Estimate observed cash needs before allocation" --task-key TASK_KEY
    candor recurring list --limit 100 --reason "Inspect recurring commitments before allocation" --task-key TASK_KEY
-   candor budget status --period PERIOD --reason "Inspect approved budget commitments before allocation" --task-key TASK_KEY
-   candor goals list --limit 100 --reason "Inspect approved goals before allocation" --task-key TASK_KEY
+   candor budget status --period PERIOD --reason "Inspect saved budget commitments before allocation" --task-key TASK_KEY
+   candor goals list --limit 100 --reason "Inspect saved goals before allocation" --task-key TASK_KEY
    ```
 
 Complete when the candidate cash is net of known near-term needs and excluded
@@ -39,7 +39,7 @@ candor budget context --period PERIOD --reason "Inspect budget context for a pos
 Include only material options:
 
 - retain liquidity under a stated reserve assumption;
-- fund an already approved goal;
+- fund an already saved goal;
 - reduce debt with verified balance, APR, minimums, and promotional deadline;
 - preserve cash for a known near-term obligation;
 - evaluate another path that fits the user's stated goals.
@@ -65,11 +65,12 @@ If one option fits the user's known priorities, recommend it with the facts,
 assumptions, and what would change the answer. Otherwise ask the smallest
 preference question and preserve the conditional frame.
 
-## Preserve approved state and verify action
+## Save the plan and verify action
 
-After the user approves a target or allocation, inspect the current goal or
-budget contract and write only that approved state. Re-read it and preserve the
-action that produced it for history. This does not move money.
+Once the conversation settles a target or allocation, inspect the current goal
+or budget contract and save it, using only figures the user gave or the records
+support. Tell the user what you saved, re-read it, and preserve the action that
+produced it for history. This does not move money.
 
 Any transfer, payment, purchase, application, or trade is a separate external
 action. Recover or ask for authority, carry it out only through the available

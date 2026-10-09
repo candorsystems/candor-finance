@@ -37,13 +37,13 @@ classification policy, and evidence handles.
 
 1. Start from a reconstructed period, then compare multiple representative
    periods when seasonality or irregular income could matter.
-2. Inspect current obligations and approved plans:
+2. Inspect current obligations and saved plans:
 
    ```sh
    candor recurring list --limit 100 --reason "Inspect recurring cash obligations" --task-key TASK_KEY
    candor debts list --reason "Inspect visible debt obligations" --task-key TASK_KEY
-   candor budget context --period PERIOD --reason "Compare the approved budget with observed cash flow" --task-key TASK_KEY
-   candor goals list --limit 100 --reason "Inspect approved goals competing for cash" --task-key TASK_KEY
+   candor budget context --period PERIOD --reason "Compare the saved budget with observed cash flow" --task-key TASK_KEY
+   candor goals list --limit 100 --reason "Inspect saved goals competing for cash" --task-key TASK_KEY
    ```
 
 3. Present at least a baseline and a downside case. State which income,
@@ -57,30 +57,37 @@ existing goals, and the amount that remains unallocated in each currency.
 ## Propose or revise a budget
 
 1. Read the active budget, relevant goal versions, and the actions that changed them.
-2. Draft the proposed allocation outside Candor and show before/after amounts,
-   rationale, tradeoffs, and effective period.
+2. Draft the allocation from the records and what the user said, and show
+   before/after amounts and the effective period when revising.
+   `budget.preview` can compute what a draft implies; it is optional.
 3. Inspect the current write contract:
 
    ```sh
    candor catalog describe budget.create --json
    ```
 
-4. Ask for explicit approval of the exact draft. A budget reflects the user's values
-   state, so the substance is the user's call. Only then write it:
+4. Save the budget once the person wants a plan to hold to, or is working one
+   out with you; do not ask for a yes to an exact draft. Start from their records (`budget.context`, or a
+   draft a goal write offers) and fit it to what they said: their total,
+   their amounts where they named any, and observed spending for the rest.
+   Use only figures the user gave or the records support. Pass the user's own
+   words as `approval_note` when they said something relevant; otherwise omit
+   it. Tell the user briefly what you saved, that it is a starting split from
+   their records, and that you will adjust lines as they react:
 
    ```sh
-   candor budget create --file BUDGET.json --reason "Store the user-approved budget" --task-key TASK_KEY --parent-action ACTION_ID
+   candor budget create --file BUDGET.json --reason "Save the budget from this conversation" --task-key TASK_KEY --parent-action ACTION_ID
    ```
 
-   When the user approves a change to a few lines of a plan that already
-   exists, revise those lines instead of restating the whole plan. Name only
-   the lines that change (and any categories to remove); Candor carries every
-   other line forward into the new approved version and returns the per-line
-   changes it made:
+   When a few lines of an existing plan change, revise those lines instead
+   of restating the whole plan. Name only the lines that change (and any
+   categories to remove); Candor carries every other line forward into the
+   new version and returns the per-line changes it made, so the user can see
+   and correct them:
 
    ```sh
    candor catalog describe budget.update --json
-   candor budget update --file BUDGET_UPDATE.json --reason "Raise the approved groceries line" --task-key TASK_KEY --parent-action ACTION_ID
+   candor budget update --file BUDGET_UPDATE.json --reason "Raise the groceries line" --task-key TASK_KEY --parent-action ACTION_ID
    ```
 
 5. Read the resulting budget status and preserve its action id. The status
@@ -89,5 +96,7 @@ existing goals, and the amount that remains unallocated in each currency.
    `daily_actuals`. The dashboard's Budget page shows the same month as a
    shared visual when the user wants to see it.
 
-Complete when the stored version exactly matches the approved draft, or when
-the analysis ends as an explicitly labeled unapproved scenario.
+Complete when the saved version matches what the person asked for and the
+user knows what was saved, or when the analysis ends as an explicitly labeled
+scenario that was not saved. Keep the budget current afterward: revise lines
+as spending, goals, or what the person says changes.

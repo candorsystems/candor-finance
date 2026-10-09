@@ -39,10 +39,10 @@ terms, and omitted obligations are explicit.
 
 ## Model payoff scenarios
 
-1. Inspect the user's approved cash constraints:
+1. Inspect the user's saved cash constraints:
 
    ```sh
-   candor budget context --period PERIOD --reason "Inspect approved cash constraints for debt scenarios" --task-key TASK_KEY
+   candor budget context --period PERIOD --reason "Inspect saved cash constraints for debt scenarios" --task-key TASK_KEY
    candor goals list --limit 100 --reason "Inspect goals that interact with debt payoff" --task-key TASK_KEY
    candor transactions list --since START --until END --limit 100 --reason "Inspect observed debt payments" --task-key TASK_KEY
    ```
@@ -56,7 +56,8 @@ terms, and omitted obligations are explicit.
 4. Compare debt and cash yield only with current sourced terms and explicit tax,
    liquidity, reserve, and risk assumptions.
 5. Leave prioritization to the user's agent using the user's goals and broader
-   context. Ask before storing a debt-paydown goal.
+   context. Save a debt-paydown goal once the conversation settles on one, and
+   tell the user what you saved.
 
 Complete when the user can reproduce the scenarios and see the current course,
 alternatives, material uncertainty, and cash-flow conflicts.

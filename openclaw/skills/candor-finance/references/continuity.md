@@ -8,8 +8,9 @@ follow-up that will help the next conversation.
 Notes are shared human and agent memory across conversations. Onboarding answers use the same store, with their origin and current authorship visible. Preserve useful context,
 user statements, findings, decisions and open questions. A note does not need
 an unfinished outcome, a linked record or a date. Keep user statements,
-observed facts, assumptions and recommendations visibly separate. Recording
-an assumption does not turn it into a fact or an approved plan.
+observed facts, assumptions and recommendations visibly separate. Save an
+inference you make labeled as your own reading, never as something the user
+said. Recording an assumption does not turn it into a fact or a decided plan.
 
 Use the optional structured `about` link when the note concerns an exact
 financial record; an id in Markdown alone is not a record link. If the context

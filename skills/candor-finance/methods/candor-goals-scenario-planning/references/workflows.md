@@ -4,9 +4,10 @@
 
 ## Create a goal proposal
 
-1. Ask the user to define the objective, target amount and currency, target
-   date, contribution cadence, priority relationships, and what flexibility is
-   acceptable. Do not infer the goal from spending.
+1. Establish from the conversation the objective, target amount and currency,
+   target date, contribution cadence, priority relationships, and what
+   flexibility is acceptable. Ask only for what is missing and material. Do not
+   infer the goal from spending.
 2. Inspect existing goals, visible balances, cash-flow context, and conflicts:
 
    ```text
@@ -28,7 +29,7 @@
    })
    candor_get({
      "operation": "budget.context",
-     "reason": "Inspect approved allocation constraints",
+     "reason": "Inspect saved allocation constraints",
      "task_key": "TASK_KEY",
      "args": {
        "period": "PERIOD"
@@ -47,7 +48,8 @@
 3. Present baseline, conservative, and stretch paths when uncertainty is
    material. State contribution timing, assumed return or no-return policy,
    inflation or price assumptions, one-time funding, and collisions.
-4. Draft the goal outside Candor. Inspect the current schema:
+4. Draft the goal. Inspect the current schema; `goals.preview` can compute what
+   the plan implies and is optional:
 
    ```text
    candor_schema({
@@ -55,21 +57,24 @@
    })
    ```
 
-5. Ask the user to approve the exact target, dates, contribution plan, and
-   assumptions. Only then write:
+5. Save the goal once the conversation settles it; do not ask for a yes to an
+   exact draft. Use the user's words and only figures and dates they gave or the
+   records show. Pass the user's own words as `approval_note` when they said
+   something relevant; otherwise omit it. Tell the user briefly what you saved:
 
    ```text
    candor_write({
      "operation": "goals.create",
-     "reason": "Store the user-approved goal",
+     "reason": "Save the goal from this conversation",
      "task_key": "TASK_KEY",
      "parent_action": "ACTION_ID",
      "input": "<contents of GOAL.json>"
    })
    ```
 
-Complete when the stored goal exactly matches the approved proposal, or the
-work ends as an explicitly unapproved scenario.
+Complete when the saved goal matches what the conversation settled and the user
+knows what was saved, or the work ends as an explicitly labeled scenario that
+was not saved.
 
 ## Revise or reconcile a goal
 
@@ -104,21 +109,21 @@ work ends as an explicitly unapproved scenario.
 
    The goal's `progress` states the facts a scenario starts from: `started_on`,
    `days_elapsed` and `days_remaining`, `required_contribution` (what each
-   remaining period must add to meet the date at the approved cadence),
-   `projected_completion_date` at the approved contribution,
+   remaining period must add to meet the date at the planned cadence),
+   `projected_completion_date` at the planned contribution,
    `observed_this_period`, and the running `series`. Compare the required and
-   approved contributions before proposing a change; the dashboard's Goals
+   planned contributions before proposing a change; the dashboard's Goals
    page shows the same trajectory as a shared visual.
 
 2. Compare observed progress with the current version without silently changing
    target, timing, or contribution assumptions.
-3. Show the current course and revised alternatives, including which approved
+3. Show the current course and revised alternatives, including which saved
    goal or budget constraints collide.
-4. Inspect `goals.update`, draft the exact new version, and obtain approval
-   before writing it.
+4. Inspect `goals.update` and save the new version once the conversation
+   settles it. Record what changed so the user can see and correct it.
 
 Complete when the user can see what changed, why the prior plan no longer fits,
-the alternatives, and the exact approved version if one was stored.
+the alternatives, and the exact version if one was saved.
 
 ## Record observed progress
 
@@ -132,10 +137,10 @@ the alternatives, and the exact approved version if one was stored.
    })
    ```
 
-3. Ask for approval when the progress event is agent-curated rather than a
-   deterministic Candor observation, then record the exact amount, kind, and
-   occurrence time.
-4. Re-read the goal and report progress against the current approved version.
+3. Record the exact amount, kind, and occurrence time. When the event is
+   agent-curated rather than a deterministic Candor observation, cite its
+   evidence and tell the user what you recorded.
+4. Re-read the goal and report progress against the current goal version.
 
 Complete when the progress event cites its evidence and the action that produced it and is not
 double-counted.

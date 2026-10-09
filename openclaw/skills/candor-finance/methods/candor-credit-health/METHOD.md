@@ -80,8 +80,9 @@ never present a score, a score change, or bureau contents as observed.
 ## Domain decisions
 
 Recommend using verified debt terms, cash constraints and known priorities.
-Do not store a payment order or cash buffer as approved merely because the
-current balances make it look attractive.
+Do not save a payment order or cash buffer as the user's plan merely because
+the current balances make it look attractive; save it once the conversation
+settles on it.
 
 ## Stopping conditions
 

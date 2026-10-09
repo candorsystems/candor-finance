@@ -61,8 +61,9 @@ from a sufficiently covered period, or scheduled for a specific recheck.
 3. Compare current contributions with alternative schedules. Keep tax effects
    conditional on verified jurisdiction and user circumstances.
 4. Check cash-flow and goal collisions with the budgeting skill.
-5. Ask for explicit approval before storing a contribution goal; changing an
-   election, payroll setting, or account remains external.
+5. Save a contribution goal once the conversation settles it and tell the user
+   what you saved; changing an election, payroll setting, or account remains
+   external.
 
 Complete when the scenario states the current sourced rules, user facts,
 contribution assumptions, cash-flow effect, deadline, and external action

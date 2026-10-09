@@ -27,7 +27,7 @@ the user's preferences about safety, access, and complexity.
 ## Method
 
 - Confirm account ownership, role, currency, balance time, and data coverage.
-- Estimate near-term needs and approved reserves before labeling cash idle.
+- Estimate near-term needs and saved reserves before labeling cash idle.
 - Read deposit APY and account constraints from effective account terms where
   present. Research missing or stale terms from authoritative sources at
   decision time.
@@ -37,7 +37,7 @@ the user's preferences about safety, access, and complexity.
 ## Evidence checklist
 
 - Visible cash and unavailable or excluded cash are separated.
-- Near-term obligations, approved goals, and reserve assumptions are explicit.
+- Near-term obligations, saved goals, and reserve assumptions are explicit.
 - Every rate has field-level provenance, an effective or retrieval date,
   applicability, and a caveat.
 
@@ -55,7 +55,7 @@ the user's preferences about safety, access, and complexity.
 
 ## Safe Candor writebacks
 
-- Approved reserve or savings goal.
+- Reserve or savings goal the conversation settled.
 - Curated terms import or approved term assertion for the user's own account.
 - Linked Markdown note for external market options and a revisit date.
 

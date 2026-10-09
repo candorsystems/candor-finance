@@ -83,8 +83,9 @@ formulas and limits are never inferred from deposits alone.
 ## Domain decisions
 
 Use verified plan terms and the user's tax and cash constraints to recommend
-contributions. Confirm the chosen deferral and taxable-versus-Roth split before
-saving it as approved; employer election changes remain external actions.
+contributions. Save the deferral and taxable-versus-Roth split once the
+conversation settles them, and tell the user what you saved; employer election
+changes remain external actions.
 
 ## Stopping conditions
 

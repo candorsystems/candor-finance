@@ -48,13 +48,14 @@ and jurisdictional rules before applying them to the user.
 ## Safe Candor writebacks
 
 - Linked Markdown note with the source, caveat, or follow-up date.
-- Approved reimbursement or contribution goal.
+- Reimbursement or contribution goal the conversation settled.
 
 ## Domain decisions
 
 Recommend elections using verified eligibility, limits and the user's needs.
-An election amount or accepted tradeoff becomes approved state only after the
-user chooses it; external enrollment and claims need their own authority.
+Save a contribution goal once the conversation settles the amount, using only
+figures the user gave or the records support, and tell them what you saved.
+External elections, enrollment and claims need their own authority.
 
 ## Stopping conditions
 

@@ -108,8 +108,8 @@ yes or no.
    amount, a delayed deposit, a new recurring cost.
 3. Present both, labelled, with the delta in the low point and the ending
    balance. Never present the scenario alone.
-4. A scenario becomes durable state only through an approved budget or goal
-   version, and only when the user approves that substance explicitly.
+4. A scenario becomes durable state only through a saved budget or goal
+   version, and only when the conversation settles on it as the user's plan.
 
 Complete when both projections are visible, labelled, and the difference is
 attributed to the specific change that produced it.

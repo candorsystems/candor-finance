@@ -1,9 +1,9 @@
 ---
 name: candor-finance
-description: "Use Candor for personal finance: organize the user's accounts and spending, remember approved budgets and goals, review investments, investigate possible savings, and keep evidence and follow-up together. Use when a task touches the user's money, financial records, prior decisions, or approved plans."
+description: "Use Candor for personal finance: organize the user's accounts and spending, remember budgets and goals, review investments, investigate possible savings, and keep evidence and follow-up together. Use when a task touches the user's money, financial records, prior decisions, or saved plans."
 compatibility: Requires an authenticated Candor workspace and either the Candor tools included with the installed package or Candor CLI 0.3.143 or newer.
 metadata:
-  candor-package-version: "0.1.162"
+  candor-package-version: "0.1.206"
   author: Candor
   version: "0.1.0"
   candor-skill-version: "2026-10-03"
@@ -30,8 +30,7 @@ or warnings differ from this skill, follow the response. A package behind the
 latest release needs no update. Only when `candor_open` returns
 `agent_package_unsupported`, finish work that remains compatible, run its exact
 `agent_package.update` next actions in order once the user agrees, then reload
-or start a new session when directed. Never treat a bare MCP connection without
-this finance skill as a complete setup.
+or start a new session when directed.
 
 The compact MCP surface is `candor_open`, `candor_schema`, `candor_query`, `candor_get`, `candor_preview`, `candor_configure_overview`, `candor_write`, `candor_connections`, `candor_changes`, `candor_snapshot`, `candor_visualize`.
 
@@ -40,12 +39,12 @@ The compact MCP surface is `candor_open`, `candor_schema`, `candor_query`, `cand
 
 This file is already loaded from the selected Candor package. Use the Candor
 tools supplied by the selected package to operate your financial memory for the user.
-Candor stores facts, calculations, approved state and history. You interpret the
+Candor stores facts, calculations, saved state and history. You interpret the
 evidence, recommend what fits, and act within the authority the user gives you.
 
 ## Work from the user's goal
 
-1. Open the workspace with `candor_open({})`. Recover relevant context, approved
+1. Open the workspace with `candor_open({})`. Recover relevant context, saved
    state, coverage, freshness and unfinished follow-through. Reuse evidence
    already returned when it answers the question; inspect deeper records when
    it does not. An opening's attention list is not the full scope of a task.
@@ -90,11 +89,18 @@ area authorizes inspected, reversible internal repairs needed for that task.
 Honor narrower instructions, such as reviewing new rules before creating them.
 A request to review or explain does not itself authorize changing records.
 
-An explicit user statement is enough to record that same context or approved
-state; do not ask again. Do not infer approval for a proposed budget, goal,
-priority or preference. Keep recommendations and hypothetical scenarios distinct
-from the user's decisions. Resolve ambiguous meaning or conflicts with approved
-state before changing it. Access and reasons never expand authority.
+An explicit user statement is enough to record that same context or saved
+state; do not ask again. Save goals and budgets, with their priority, measure
+and next step, as you work them out with the user, including a starting
+version they are still shaping (a goal you suggest is saved as proposed); do
+not ask for a yes to an exact draft. Use the user's words and only figures and
+dates they gave or the records show, say plainly what you saved, and adjust it
+as they react. Do not save one the user said they don't want or one nobody
+asked for. Save an inference you make labeled as your own reading, never as
+something the user said. Keep scenarios you are only exploring distinct from the user's
+decisions. Ask only when their intent is genuinely unclear and the choice
+matters, and resolve conflicts with saved state before changing it. Access and
+reasons never expand authority.
 
 External payments, transfers, trades, cancellations, messages, applications,
 elections and filings require authority for that action from context or a fresh
@@ -138,7 +144,7 @@ Load detailed recipes only when needed. No method list can enumerate every user 
 - [`candor-debt-promotional-rates`](methods/candor-debt-promotional-rates/METHOD.md): verify debt terms and compare payoff scenarios.
 - [`candor-spare-cash-allocation`](methods/candor-spare-cash-allocation/METHOD.md): compare competing uses of available money.
 - [`candor-goals-scenario-planning`](methods/candor-goals-scenario-planning/METHOD.md): model targets, dates and contributions;
-  preserve approved goals and their history.
+  keep saved goals and their history current.
 - [`candor-portfolio-fees`](methods/candor-portfolio-fees/METHOD.md): analyze holdings, exposure, value history and costs.
 - [`candor-card-rewards`](methods/candor-card-rewards/METHOD.md) and [`candor-credit-health`](methods/candor-credit-health/METHOD.md): card economics and credit.
 - [`candor-benefits-fsa-hsa`](methods/candor-benefits-fsa-hsa/METHOD.md), [`candor-insurance-plan-year`](methods/candor-insurance-plan-year/METHOD.md) and
@@ -174,7 +180,7 @@ offer to send Candor a product report with `feedback.submit`. Send it only when
 the user agrees or asks for it. Candor's feedback endpoint stores the report
 and delivers it to the Candor team over the same authenticated connection as
 every other operation; like every operation it records an action, and it
-changes no financial record, note, or approved state. Before sending, strip
+changes no financial record, note, or saved state. Before sending, strip
 anything sensitive from the report text: account numbers, balances, amounts,
 merchant and institution names, people, and other financial or personal data.
 Describe Candor's behavior with operation names, error codes, and the

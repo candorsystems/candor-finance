@@ -154,7 +154,7 @@ or method mechanics unless the user asks how the evidence was obtained.
   date in `revisit_at` and the exact record in the structured `about` link.
   Reuse verified source evidence already returned; never approximate an
   identifier. Never preserve a mere missing field or unsupported possibility.
-- User-approved budget or goal version through its typed command.
+- A settled budget or goal, through its typed command.
 - Bounded recurring, correction, or normalization state within the user's
   explicit maintenance scope.
 
@@ -162,7 +162,7 @@ or method mechanics unless the user asks how the evidence was obtained.
 
 Prioritize and recommend from evidence and the context the user has supplied.
 Label a provisional priority when missing preferences could change it. A review
-does not approve new goals, budgets or external actions.
+saves only settled goals or budgets, never external actions.
 
 ## Stopping conditions
 

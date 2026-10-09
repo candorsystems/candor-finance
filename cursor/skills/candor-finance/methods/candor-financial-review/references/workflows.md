@@ -13,8 +13,9 @@ loaded.
 2. **Circumstances.** Gather only material qualitative context from the user or
    their agent and quantitative facts from Candor. Do not infer values, family
    facts, tax status, risk preferences, or legal circumstances from spending.
-3. **Goals.** Confirm which objectives are user-approved and surface conflicts
-   without resolving preference tradeoffs on the user's behalf.
+3. **Goals.** Establish which objectives the user holds and which are saved,
+   and surface conflicts without resolving preference tradeoffs on the user's
+   behalf.
 4. **Analysis.** Compare the current course with credible alternatives. Show
    assumptions, sensitivities, benefits, costs, risks, timing, and dependencies.
 5. **Recommendation.** Explain why the proposed path fits the stated context,
@@ -84,7 +85,7 @@ loaded.
    })
    candor_get({
      "operation": "budget.status",
-     "reason": "Review approved budget variance",
+     "reason": "Review budget variance",
      "task_key": "TASK_KEY",
      "args": {
        "period": "PERIOD"
@@ -92,7 +93,7 @@ loaded.
    })
    candor_get({
      "operation": "goals.list",
-     "reason": "Review approved goal progress",
+     "reason": "Review goal progress",
      "task_key": "TASK_KEY",
      "args": {
        "limit": 100

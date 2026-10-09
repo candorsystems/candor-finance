@@ -21,7 +21,7 @@ an automatic recommendation.
 ## Workspace resources
 
 - Use `notes` for sourced external terms or a timed verification.
-- Use goals or budgets only for user-approved targets and allocations.
+- Use goals or budgets for targets and allocations the conversation settles.
 
 ## Non-goals
 
@@ -39,11 +39,11 @@ an automatic recommendation.
   and any restrictions. Keep currencies separate.
 - Read observable history from coverage records. Transaction sparsity and the
   first or last matching record do not establish a coverage boundary.
-- Subtract near-term obligations, expected irregular outflows, approved budget
+- Subtract near-term obligations, expected irregular outflows, saved budget
   allocations, and goal commitments before calling anything available.
 - Inspect debt balances and effective terms, current cash yield and constraints,
-  and user-approved goals. Treat missing or stale terms as an evidence gap.
-- Present a compact option set: keep liquid, fund an approved goal, reduce
+  and saved goals. Treat missing or stale terms as an evidence gap.
+- Present a compact option set: keep liquid, fund a saved goal, reduce
   verified-cost debt, preserve for a known near-term use, or consider another
   user-relevant path. Include current course.
 - Compare options on amount, timing, reversibility, liquidity, verified return
@@ -85,15 +85,16 @@ record ids, or workspace boundaries unless asked.
 
 ## Safe Candor writebacks
 
-- User-approved goal or budget state.
+- Goal or budget state the conversation settled.
 - Linked note for a sourced changing term or future verification.
 - Curated or user-approved account term with provenance.
 
 ## Domain decisions
 
-Investigate, compare and recommend using the user's stated constraints. Confirm
-a proposed reserve target, allocation or payoff priority before storing it as
-approved. Keep unknown preferences explicit in conditional alternatives.
+Investigate, compare and recommend using the user's stated constraints. Save a
+reserve target, allocation or payoff priority once the conversation settles it,
+using only figures the user gave or the records support, and tell them what you
+saved. Keep unknown preferences explicit in conditional alternatives.
 
 ## Stopping conditions
 

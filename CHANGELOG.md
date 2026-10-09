@@ -3,6 +3,182 @@
 Changes relevant to agents using the Candor package, CLI, and MCP tools.
 Earlier releases predate these notes; the list starts with the first recorded summary.
 
+## 0.1.206
+
+Agents save the budget, goals, and priorities they work out with the person, say what they saved, and adjust as they react. MCP and the CLI pass each body to the service's validator, so input passes or fails as over HTTP.
+
+## 0.1.205
+
+A changed goal amount offers its budget line's update; cap drafts keep spent lines and name the room left; reads take account_name, a next_step sentence, and situation; goal_not_tracked names recorded progress.
+
+## 0.1.204
+
+budget.status pace reads budget lines only, like the dashboard (new pace_actual_to_date). A saved goal that takes money monthly or caps spending offers a ready budget draft or goal line; budget saves offer lines for goals missing one.
+
+## 0.1.203
+
+Asked findings stop coming back as held; refusals carry the corrected call; transaction reads take search, account_id, and direction; payee searches offer a linked re-check note; local today dates are accepted; Money schemas are smaller.
+
+## 0.1.202
+
+Findings carry the facts their dashboard lines use (fee dates, usual amounts, months, account names); two cash findings get distinct titles. Overview is fixed, led by what to know today; candor_configure_overview is retired, saving nothing.
+
+## 0.1.201
+
+Openings name each large arrival's payee history and count from the last opening when none was acknowledged; months show money moved out; grown debts read as added; goal names that read as notes get a warning.
+
+## 0.1.200
+
+A goal measured by a tag no rule sets yet now saves, warning goal_measure_tag_unset with the tagging rule offered, instead of being refused and losing the goal.
+
+## 0.1.199
+
+rules.preview checks a draft rule before it is saved; changes carry transaction_count with the first 10 ids; budget reads offer one category read; finding statements give posting sizes, not signed amounts.
+
+## 0.1.198
+
+Agent-suggested goals save with proposed true; the opening leads with goal steps that came due; a stopped recurring series that charges again keeps the posting (charged_after_stop) instead of a new candidate.
+
+## 0.1.197
+
+A note's watch can be an account balance floor (watch.crossed while below) or any transaction over an amount (watch.seen), so low-balance and large-charge alerts need no recomputing.
+
+## 0.1.196
+
+Catalog search finds common intents (remind me later, cancel a subscription, split, mark as transfer, debts); budget lines take money text; splits and account policies need no approval note; wrong-tool errors name the right tool.
+
+## 0.1.195
+
+Recorded progress on a measured goal warns goal_progress_not_counted; account share and account-taken refusals name the goals holding the account and what is left.
+
+## 0.1.194
+
+Notes refuse links to nothing and take goal keys; held findings offer reads of balances and payments due; transactions.list filters by tag; MCP reads args from input when misplaced; spending and watches are in server instructions.
+
+## 0.1.193
+
+goal_id takes a goal_key; one rule matches a list of payees; refusals carry the accounts or goals to retry with; revisit_at takes a date; actions nested in data inherit the parent action; goals.list reads at dashboard level.
+
+## 0.1.192
+
+Goal reads show what feeds a measure: a tagged goal's rules, whether each is still applying, and its transaction count; account names; baselines. goals.list carries each figure; rules name the goals that read their tags.
+
+## 0.1.191
+
+Monthly goal targets take target_bound (at_least or at_most) and may be zero; tagged measures count net, in, or out; a spending measure reads household spending; goal.moved reports a monthly goal's month so far.
+
+## 0.1.190
+
+Stopping a recurring charge offers a no_charge watch; tagging rules offer goals.create when no goal exists; rules.create describes its shorthand; openings count arrivals apart from retagged history and stop asking for goals once saved.
+
+## 0.1.189
+
+next_step takes a structured check Candor renders for the person and a private note. Notes take a watch. Openings lead with what a watch came to: watch.seen, watch.broken, watch.missed, or watch.held.
+
+## 0.1.188
+
+Untracked goals warn and offer ready measures; openings show each goal figure and goal.moved; tagged goals add this month so far; workspace_not_opened greets a returning connection; candor_write keeps what settles.
+
+## 0.1.187
+
+The goal measure tagged tracks the monthly net of transactions your rules tag; cover tracks months of spending covered; parent_goal_id groups goals as parts of one ambition; rules that add tags offer measuring a goal.
+
+## 0.1.186
+
+After asked, an adviser check's follow-up offers settled, not confirmed. Situations drawn from postings offer a transactions.get read of their basis. A starting amount on a recorded goal is an adjustment, not a contribution.
+
+## 0.1.185
+
+Goal saves warn goal_plan_missing without a monthly amount and refuse a past target date; held findings ask you to check postings before confirming; next steps are one plain sentence about what you check or ask.
+
+## 0.1.184
+
+Held findings are explicit at each step: opening, acknowledge, attention.update (on_dashboard, held_remaining, next), and goal and budget writes. A check is a question: settled once answered, never confirmed.
+
+## 0.1.183
+
+attention.update takes confirmed, with what shows a finding holds: the dashboard states a finding only once an agent confirms it, and processing an opening no longer releases it. Only findings, not adviser checks, show under a goal.
+
+## 0.1.182
+
+Findings wait for the agent: the opening marks held ones, and attention.update state asked records its question to the user. Measures take held_elsewhere (saved_so_far fills it); a plan short of its target warns goal_plan_short.
+
+## 0.1.181
+
+Goals and budgets need no approval: agents save and edit them from the conversation and say what they saved. approval_note is optional, previews take the save body, and skills, prompts, and the opening act instead of asking for a yes.
+
+## 0.1.180
+
+goals.preview and goals.create take saved_so_far, money the user already has toward a goal: the draft takes it off the target, and the saved goal starts from it. The preview names it until the user says.
+
+## 0.1.179
+
+Attention items the records or the user show do not hold can be dismissed with what shows it, so the dashboard stops raising them; the opening and attention list say so.
+
+## 0.1.178
+
+A note about what the user wants offers goals.preview to save the goal it states, in their words, before it has numbers; the opening asks to save each named goal once they agree, adding figures later.
+
+## 0.1.177
+
+Once a goal is saved, the focus card leads with the person's first-ranked goal, its reason, figures from its measure or plan, and its saved next step; the opening links saved goals and carries their priority.
+
+## 0.1.176
+
+Goals can be measured by the accounts that hold them, a share of one account, or the cards or loans they pay down; progress and monthly pace then come from balances, and goal lists show priority and next step.
+
+## 0.1.175
+
+Goals take the person's priority, reason, and a dated next step; priority or next step alone needs no approval, and goal writes ask for both. The CLI now sends null fields, so clearing a value works.
+
+## 0.1.174
+
+The first-pass conversation asks for up to three things worth talking through, and to say so when nothing needs it, instead of always naming three.
+
+## 0.1.173
+
+A saved goal or budget offers notes.create for the user's words, decisions, and next step with a revisit date, about the saved record. The intent says why: the review and the dashboard read notes, not the agent's own memory.
+
+## 0.1.172
+
+goals.preview and budget.preview show a draft and what it implies without writing; the save continuation waits for the user's yes. The brief asks agents to show the draft first and use only figures and dates the user gave.
+
+## 0.1.171
+
+The opening leads with the user's goals (attention.focus_card), also in conversations.get. Until something is built toward a known goal, the brief asks agents to save settled targets and plans as goals and budgets with approval.
+
+## 0.1.170
+
+A user can ask for just the essentials: preferences.update saves it, the opening carries help_depth, and the brief stops goal and household questions. Money issues a note already took up are not raised again.
+
+## 0.1.169
+
+llms.txt and discovery copy describe Candor as honest help with hard money questions across the whole financial life: ask what the user is working toward, then pick up what Candor raises as worth talking through.
+
+## 0.1.168
+
+Prompt library entries and conversation cards are named as the questions people ask ("Can we afford to move?", "Could we handle a setback?"), and the first pass leads with what is worth talking through.
+
+## 0.1.167
+
+Onboarding starting points are the hard questions people bring, "Not sure yet", or the user's own words. A goal stated there gets goals.understand_what_they_want: one natural follow-up that makes it concrete.
+
+## 0.1.166
+
+The opening's agent brief adds goals.ask_what_they_want: after anything that needs action now, ask one natural question about what the user is working toward and keep their answer in a note. context_needed lists that topic first.
+
+## 0.1.165
+
+Situations the review could not confirm or rule out from their postings reach the agent, not a card: evidence unclear_in_postings in the opening and reason postings_unclear in attention.list. Read the postings before raising one.
+
+## 0.1.164
+
+attention.list adds the not_supported cleared reason: the review read the postings behind a detected situation and found they do not show it, such as an introductory price ending.
+
+## 0.1.163
+
+Candor's MCP tools are a complete setup without the finance skill, now recommended for its methods. Server instructions say to start each visit with candor_open and keep pending checks in notes with revisit dates.
+
 ## 0.1.162
 
 Openings lead with agent_brief, standing instructions for the agent's own upkeep with stable codes. The first asks the agent to fill open household facts from the records and save them before asking the user.

@@ -60,13 +60,14 @@ scenario conditional on verified terms.
 
 - Curated terms import or approved term assertion with validity dates.
 - Linked Markdown note for unstructured context or a revisit date.
-- Approved debt-paydown goal.
+- Debt-paydown goal the conversation settled.
 
 ## Domain decisions
 
 You may recommend a payoff order using verified terms, cash needs and user
-priorities. A recommendation is not approval to save that order as a goal or
-initiate payments. Label alternatives when a material preference is unknown.
+priorities. Save that order as a goal only once the conversation settles on it,
+and tell the user what you saved; a recommendation never initiates payments.
+Label alternatives when a material preference is unknown.
 
 ## Stopping conditions
 

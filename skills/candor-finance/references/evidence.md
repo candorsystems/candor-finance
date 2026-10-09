@@ -43,5 +43,5 @@ claim. Follow the returned `next_actions` to continue or narrow the read. A page
 calculation covers that page; an incomplete source aggregate does not establish
 a complete-period total. When recovery cannot supply the missing evidence,
 retain that limit in the answer rather than treating omitted records as zero.
-For budget baselines, use the disclosed months and estimate flag. The agent
-chooses the budget; an observed-data average does not approve a spending plan.
+For budget baselines, use the disclosed months and estimate flag. An
+observed-data average is a baseline, not the user's spending plan.

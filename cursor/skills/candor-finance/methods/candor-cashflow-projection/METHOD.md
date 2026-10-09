@@ -28,7 +28,7 @@ looks ahead.
 ## Non-goals
 
 - Presenting a projection as a guarantee or a commitment.
-- Letting a hypothetical scenario become the baseline or approved state.
+- Letting a hypothetical scenario become the baseline or saved state.
 - Projecting past the horizon the recurring and liability evidence supports.
 
 ## Method
@@ -104,14 +104,14 @@ looks ahead.
 
 - Linked Markdown note recording the horizon, assumptions, projected low point,
   and revisit date.
-- User-approved budget or goal version when a projection changes an approved
+- Budget or goal version when the conversation settles a change to a saved
   plan.
 - Bounded recurring corrections within the user's explicit maintenance scope.
 
 ## Domain decisions
 
 Do not treat an assumed reserve, discretionary-spending classification or
-liquidation scenario as the user's approved plan. A forecast request does not
+liquidation scenario as the user's plan. A forecast request does not
 authorize repairing recurring state or moving funds unless context grants it.
 
 ## Stopping conditions

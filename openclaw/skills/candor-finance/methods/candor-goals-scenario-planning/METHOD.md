@@ -2,7 +2,7 @@
 # Goals and scenario planning
 
 Build explicit, attributable scenarios and recommend using the user's context.
-Keep recommendations separate from the versions the user approves.
+Keep scenarios you are exploring separate from the goals you save.
 
 ## Datasets
 
@@ -18,8 +18,8 @@ Keep recommendations separate from the versions the user approves.
 
 ## Non-goals
 
-- Inventing the user's priorities or treating a recommendation as approval.
-- Approving a plan on the user's behalf.
+- Inventing the user's priorities, figures or dates.
+- Saving a scenario you are only exploring as the user's plan.
 
 ## Method
 
@@ -27,7 +27,7 @@ Keep recommendations separate from the versions the user approves.
   a change.
 - Model base, conservative, and stretch paths with explicit dates and
   exact-money contributions.
-- Identify collisions with reserves, debt obligations, and other approved goals
+- Identify collisions with reserves, debt obligations, and other saved goals
   and explain the tradeoffs before recommending a priority.
 
 ## Evidence checklist
@@ -50,17 +50,20 @@ Keep recommendations separate from the versions the user approves.
 
 ## Safe Candor writebacks
 
-- Approved goal version.
+- Saved goal version.
 - Goal progress event.
 - Linked Markdown note for a decision summary or timed follow-up.
 
 ## Domain decisions
 
-You can recommend a target, date or priority. Record it as approved only when
-the user has chosen that substance. Factual progress and linkage repairs do not
-authorize retargeting a goal. Reuse explicit approval rather than asking twice.
+You can recommend a target, date or priority. Save the goal as the conversation
+settles it, without asking for a yes to an exact draft: use the user's words and
+only figures and dates they gave or the records show, tell them briefly what
+you saved, and edit it when it changes. Factual progress and linkage repairs do
+not retarget a goal on their own.
 
 ## Stopping conditions
 
 - Stop when a missing preference would determine the recommended tradeoff.
-- Stop before replacing the current approved goal version without approval.
+- Stop before saving a goal the user said they don't want, or a target or date
+  neither the user nor the records supplied.
