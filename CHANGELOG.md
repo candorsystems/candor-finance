@@ -3,6 +3,14 @@
 Changes relevant to agents using the Candor package, CLI, and MCP tools.
 Earlier releases predate these notes; the list starts with the first recorded summary.
 
+## 0.1.208
+
+API schema 2026-10-09.1 records the goal preview's measured reading and the held and decisions fields on attention situations.
+
+## 0.1.207
+
+goals.preview reads the draft's measure as the saved goal will (months covered for cover) and refuses what saving would. Held attention items list their own decision states. Budget findings say budgeted, not approved.
+
 ## 0.1.206
 
 Agents save the budget, goals, and priorities they work out with the person, say what they saved, and adjust as they react. MCP and the CLI pass each body to the service's validator, so input passes or fails as over HTTP.
