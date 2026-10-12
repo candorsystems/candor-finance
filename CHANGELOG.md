@@ -3,6 +3,10 @@
 Changes relevant to agents using the Candor package, CLI, and MCP tools.
 Earlier releases predate these notes; the list starts with the first recorded summary.
 
+## 0.1.209
+
+No change for agents: the development deployment gains a secret-gated Stripe test-mode fixture route that end-to-end tests use to exercise trials, cancellation, and declined charges.
+
 ## 0.1.208
 
 API schema 2026-10-09.1 records the goal preview's measured reading and the held and decisions fields on attention situations.
