@@ -3,6 +3,10 @@
 Changes relevant to agents using the Candor package, CLI, and MCP tools.
 Earlier releases predate these notes; the list starts with the first recorded summary.
 
+## 0.1.210
+
+No change for agents: the package README now opens with what Candor does for people and where to add it, and keeps the connection materials under a section for agents.
+
 ## 0.1.209
 
 No change for agents: the development deployment gains a secret-gated Stripe test-mode fixture route that end-to-end tests use to exercise trials, cancellation, and declined charges.
