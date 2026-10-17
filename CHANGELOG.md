@@ -3,6 +3,14 @@
 Changes relevant to agents using the Candor package, CLI, and MCP tools.
 Earlier releases predate these notes; the list starts with the first recorded summary.
 
+## 0.1.212
+
+An unknown operation name no longer slows schema suggestions: closest-operation matching skips names that cannot be within two edits. Suggestions, tools, and finance skills are unchanged.
+
+## 0.1.211
+
+The marketplace logo now uses smooth vector contours while preserving the Candor mark, colors, and white background plate. Tools and finance skills are unchanged.
+
 ## 0.1.210
 
 No change for agents: the package README now opens with what Candor does for people and where to add it, and keeps the connection materials under a section for agents.
