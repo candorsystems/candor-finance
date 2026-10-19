@@ -3,6 +3,34 @@
 Changes relevant to agents using the Candor package, CLI, and MCP tools.
 Earlier releases predate these notes; the list starts with the first recorded summary.
 
+## 0.1.219
+
+candor reviews list and reviews update print each area's id, records, and outcome in Markdown, and candor open keeps the whole review ahead of the first pass.
+
+## 0.1.218
+
+With CLI 0.3.152, candor open shows each review area's id, records, full text, and own reviews.update. Quiet reviews say why, gaps no longer count as open work, and retired attention calls point to reviews.update.
+
+## 0.1.217
+
+candor open keeps the weekly review, what your watches came to, and your notes come due in sections of their own, each with a line on what it is for, apart from Candor's factual signals. Needs Candor CLI 0.3.151 or newer.
+
+## 0.1.216
+
+The development eval seed route for focus cards is removed; evals seed the weekly review instead.
+
+## 0.1.215
+
+Record what came of a weekly review area with candor reviews update: looked into, with what you found, or set aside, with why. The dashboard shows it and the next review reads it. Needs Candor CLI 0.3.150 or newer.
+
+## 0.1.214
+
+The attention engine is removed: attention.list and attention.update answer attention_retired, and Candor's weekly review is what the opening and dashboard raise.
+
+## 0.1.213
+
+Candor's weekly review replaces attention cards: the opening lists areas and gaps that point at their records, candor reviews list reads past reviews, and attention.list and attention.update are retired.
+
 ## 0.1.212
 
 An unknown operation name no longer slows schema suggestions: closest-operation matching skips names that cannot be within two edits. Suggestions, tools, and finance skills are unchanged.

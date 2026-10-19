@@ -156,9 +156,9 @@ alternatives, material uncertainty, and cash-flow conflicts.
    transfer, or refinance action without the user's cash constraints, goals,
    alternatives, and preferences.
 3. Work backward from the deadline using a conservative processing buffer.
-4. Store the verified expiry as a curated term or approved assertion so opening
-   attention can enforce the deadline. Create a timed note only for additional
-   unstructured follow-up:
+4. Store the verified expiry as a curated term or approved assertion so the
+   opening's factual attention raises it within 30 days of the deadline. Create
+   a timed note only for additional unstructured follow-up:
 
    ```text
    candor_schema({

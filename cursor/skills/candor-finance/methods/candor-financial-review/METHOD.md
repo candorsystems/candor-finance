@@ -84,9 +84,10 @@ evidence calls for them.
   what you inspect. Use deeper methods when they can resolve a material
   uncertainty.
 - Process the opening, then establish coverage, freshness, currencies, and
-  material blind spots. Start from its `first_pass` rows when present. Read history only when it could change the review. Use
-  factual changes only when the opening or a surviving candidate calls for
-  them; never let a generated label set the review's agenda.
+  material blind spots. Start from its `first_pass` rows and open `review`
+  areas. Read history only when it could change your review. Use factual changes only when the opening or a
+  surviving candidate calls for them; never let a category label set your
+  review's agenda.
 - Query one bounded transaction scope. When it has continuations, follow every
   `next_actions` continuation and save each returned page to a JSON file as
   received before analysis. Rows live under `data.page`; do not probe or

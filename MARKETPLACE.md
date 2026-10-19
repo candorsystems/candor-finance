@@ -7,9 +7,10 @@
 **Short description:** The finance app for your AI agent.
 
 **Description:** Candor is the finance app for your AI agent: budgets, goals,
-recurring bills, and the decisions you want to keep, and it tells your agent
-what matters most. Connect your accounts on Candor, then use your agent to
-review your finances with the records and context in one place.
+recurring bills, and the decisions you want to keep. Once a week it reviews
+your records and tells your agent what's worth talking through. Connect your
+accounts on Candor, then use your agent to review your finances with the
+records and context in one place.
 
 ## Service endpoints
 

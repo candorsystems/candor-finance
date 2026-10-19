@@ -42,7 +42,9 @@ Quietly check the user's financial workspace.
    through the host. Never treat failure as no attention.
 3. If `attention` is `none`, use the host's silent-success behavior and stop.
 4. If attention is present, open the workspace, investigate the relevant evidence,
-   and run its `open.acknowledge` action, when offered, after processing it.
+   record what came of each review area you looked into with its `reviews.update`
+   action, and run its `open.acknowledge` action, when offered, after processing
+   it. Open review areas keep the pulse present until their outcome is recorded.
 5. Notify only for a supported material finding, changed outcome or needed user
    input. Otherwise finish silently.
 ```

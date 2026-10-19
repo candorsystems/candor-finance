@@ -1,14 +1,14 @@
 ---
 name: candor-finance
 description: "Use Candor for personal finance: organize the user's accounts and spending, remember budgets and goals, review investments, investigate possible savings, and keep evidence and follow-up together. Use when a task touches the user's money, financial records, prior decisions, or saved plans."
-compatibility: Requires an authenticated Candor workspace and either the Candor tools included with the installed package or Candor CLI 0.3.143 or newer.
+compatibility: Requires an authenticated Candor workspace and either the Candor tools included with the installed package or Candor CLI 0.3.151 or newer.
 metadata:
   author: Candor
   version: 0.1.0
-  candor-skill-version: 2026-10-03
-  candor-cli: ">=0.3.143 <0.4.0"
+  candor-skill-version: 2026-10-19
+  candor-cli: ">=0.3.151 <0.4.0"
   candor-introduced-in: 2026-07-23
-  candor-updated-in: 2026-10-03
+  candor-updated-in: 2026-10-19
   openclaw:
     homepage: https://candor.money/START.md
     requires:
@@ -44,9 +44,11 @@ evidence, recommend what fits, and act within the authority the user gives you.
 ## Work from the user's goal
 
 1. Open the workspace with `candor open`. Recover relevant context, saved
-   state, coverage, freshness and unfinished follow-through. Reuse evidence
-   already returned when it answers the question; inspect deeper records when
-   it does not. An opening's attention list is not the full scope of a task.
+   state, this week's review, coverage, freshness and unfinished
+   follow-through. Reuse evidence already returned when it answers the
+   question; inspect deeper records when it does not. The opening's review,
+   watches, due notes, and attention are a starting point; a task can reach
+   past them.
 2. Choose and combine the methods and operations needed for this request.
    Methods are reusable guidance, not a required sequence or a limit on possible
    goals. A focused question does not require a broad review. A user request
@@ -186,6 +188,25 @@ Describe Candor's behavior with operation names, error codes, and the
 workaround you used, and say in one line what the report will contain so the
 user can decline or change it.
 
+## Candor's weekly review
+
+Once a week, and once right after a new workspace's first records land,
+Candor reviews the household's records and the notes you and the person have
+kept. It raises up to five areas worth your attention (a problem, an
+opportunity, or a question) and up to three gaps that keep its picture wrong.
+`candor open` lists them in its `review` section as `review.area` and
+`review.gap` items, apart from what your own watches came to (`watches`), your
+notes come due (`due_notes`), and Candor's factual signals (`attention`). Each
+area names the records behind it and states no figures: read those records
+before you raise one, and settle a gap from the records and notes before you
+ask. Once you have looked at an area, record what came of it with
+`candor reviews update --file OUTCOME.json`: looked into, with what you found,
+or set aside, with why it does not apply. The next review reads that outcome
+and carries the area forward, updates it, or marks it settled. Save a note
+about the record only when there is a follow-up or something to revisit. The
+person sees the areas and what came of them on their dashboard, and can set
+one aside there. `candor reviews list` reads earlier reviews.
+
 ## Suggested conversations and shared context
 
 When the user brings a saved conversation suggestion, use `candor conversations
@@ -195,20 +216,6 @@ conversations get` reads the latest saved set. This is a pure read, not a reques
 to generate suggestions. Follow a returned status continuation only while work
 is queued or running. A terminal read has no refresh continuation; repeating it
 cannot start evaluation. An unavailable or stale result is not a current finding.
-
-The same read carries `attention`: the few situations Candor's judgment
-selected from the records and the notes, each with its statement, figures,
-basis handles, and the card the user sees. `disposition` says whether a situation
-is a current card, eligible but not shown (`also`), settled, dismissed by the
-user, or `deferred` to a date; a decided one carries the user's words. When the
-user brings a card, start from its situation and the outcome its button named;
-read the basis records before concluding. A dismissed situation is the user's
-call; do not reopen it unless they ask. When the user decides something about a
-situation, record it with `candor attention update --file DECISION.json` in their
-words: defer it to a date, dismiss it, mark it settled, or restore it. `candor
-attention list` reads every situation by state with its reason and return date.
-`candor open` lists the cards and eligible situations under `attention` with kind
-`attention.situation`, cards first.
 
 Investigate the question the user selected in light of their current instruction.
 The remaining suggestions are optional starting points, not an assigned task list.

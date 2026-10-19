@@ -1,6 +1,6 @@
 # Setup, access and openings without a named task
 
-The user's financial request takes precedence over a default first review.
+The user's financial request takes precedence over a default first pass.
 After connecting, complete that task and include a short setup confirmation in
 the same answer. Do not send a ready message followed by a separate setup report.
 
@@ -17,7 +17,9 @@ incomplete setup's recovery action.
 ## A useful first result
 
 When setup names no financial task, open the workspace and use its coverage to
-choose a bounded first pass with `candor-financial-review`. The first opening
+choose a bounded first pass with `candor-financial-review`, reading any weekly
+review areas the first opening carries alongside its `first_pass` rows. The
+first opening
 carries `first_pass` when history is visible: monthly totals, accounts with
 their debt terms, and recurring series. Open records only for what those rows
 leave open. Every opening also exposes
@@ -34,8 +36,9 @@ If no history read is possible, distinguish the recovery:
 - Balances only: say which question transaction history would answer.
 - No connection: use the connection flow.
 
-On a later opening without a named task, use saved context to investigate one
-plausibly material factual lead within existing authority. Do not force a broad
+On a later opening without a named task, start from an open area of the
+opening's weekly review when there is one; otherwise use saved context to
+investigate one plausibly material factual lead within existing authority. Do not force a broad
 review or create a lead from missing data alone.
 
 Before asking for missing context on first use, process `untagged_notes` and its

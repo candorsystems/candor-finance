@@ -6,9 +6,9 @@ Tell ChatGPT, Claude, or the agent you already use what you want with your
 money, like paying off the cards or buying a home, even if you haven't worked
 it out yet. With Candor, it builds the plan from your real accounts: goals
 with a pace, a budget that pays for them, and every charge sorted to match.
-Then it keeps you on it. Candor finds what's worth talking through and tells
-your agent why, so a goal slipping or a bill that went up comes up before it
-costs you.
+Then it keeps you on it. Once a week Candor reviews your records and tells
+your agent what's worth talking through and why, like a goal slipping or a
+bill that went up.
 
 **[Start free trial](https://app.candor.money/signup)** ·
 [See how it works](https://candor.money) ·
