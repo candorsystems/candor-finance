@@ -99,7 +99,7 @@
    default list excludes stopped and dismissed series, but still check status
    when using filtered reads or saved evidence.
 4. Start with the row's `predicted_next_date` and `predicted_window`, including
-   declarations with no `last_seen_at`. Never reconstruct the next date from
+   declarations with no `last_paid_at`. Never reconstruct the next date from
    posting history: that would override agent-pinned dates. A null predicted
    date remains undated. A zero `remaining_occurrences` means the series has
    ended; a null count is not a finite commitment.

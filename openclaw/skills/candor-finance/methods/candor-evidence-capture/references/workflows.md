@@ -91,11 +91,11 @@ could change the target, money, dates, or coverage.
 
 ## Apply and independently verify
 
-1. Apply only after recovering the user's authority from the request or current
-   context:
+1. Apply once the preview reconciles to the source and the user's request or
+   current context covers this import:
 
    ```sh
-   candor imports apply IMPORT_BATCH_ID --approval-note "The inspected supplied evidence is approved for this bounded import." --approved-by AGENT --reason "Apply the verified supplied evidence" --task-key TASK_KEY --parent-action PREVIEW_ACTION_ID
+   candor imports apply IMPORT_BATCH_ID --set-by AGENT --reason "Apply the verified supplied evidence" --task-key TASK_KEY --parent-action PREVIEW_ACTION_ID
    ```
 
 2. Inspect the stored batch and independently query the resulting records:
@@ -109,11 +109,11 @@ could change the target, money, dates, or coverage.
 
 3. Compare canonical account ownership, holding identity, quantities when
    present, values, dates when known, currencies, transaction descriptions, and
-   record counts to the approved preview. Follow each returned
+   record counts to the preview you applied. Follow each returned
    `pagination.next_cursor` until `pagination.has_more` is false before
    declaring the account complete. Report exceptions in user terms.
 
-Complete only when the separate read matches the approved preview.
+Complete only when the separate read matches the applied preview.
 
 ## Revert and verify recovery
 

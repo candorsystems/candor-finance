@@ -126,7 +126,7 @@ existing goals, and the amount that remains unallocated in each currency.
    draft a goal write offers) and fit it to what they said: their total,
    their amounts where they named any, and observed spending for the rest.
    Use only figures the user gave or the records support. Pass the user's own
-   words as `approval_note` when they said something relevant; otherwise omit
+   words as `note` when they said something relevant; otherwise omit
    it. Tell the user briefly what you saved, that it is a starting split from
    their records, and that you will adjust lines as they react:
 

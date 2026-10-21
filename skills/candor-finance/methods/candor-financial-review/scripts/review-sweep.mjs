@@ -36,7 +36,7 @@ const PROMO_DEADLINE_HORIZON_DAYS = 45;
 const PROMO_DEADLINE_LOOKBACK_DAYS = 60;
 const DAY_MS = 86_400_000;
 // A bank fee is what the provider classifies as one (its detailed code
-// starts BANK_FEES_), or what an approved category files under Bank Fees.
+// starts BANK_FEES_), or what a saved category files under Bank Fees.
 // Words in a label are not evidence: "HOA FEE" and "TUITION FEES" are bills.
 const BANK_FEE_CODE_PREFIX = "BANK_FEES_";
 const BANK_FEE_CATEGORY = "Bank Fees";
@@ -165,7 +165,7 @@ function looksLikeBalance(row) {
 
 // Canonical account_terms rows group typed values under fields, each entry
 // carrying its own resolution status. terms_kind is optional (an account can
-// carry only user-approved assertions), so identity plus fields decides.
+// carry only term assertions), so identity plus fields decides.
 function looksLikeTerms(row) {
   return (
     row &&

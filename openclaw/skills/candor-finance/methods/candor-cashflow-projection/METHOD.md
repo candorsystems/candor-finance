@@ -48,12 +48,17 @@ looks ahead.
   which is which. Only the committed side is evidence-backed.
 - Prevent double counting. A recurring item already showing as a pending or
   future-dated transaction is one obligation, not two.
+- Recurring card payments and transfers (`kind` `card_payment` or
+  `transfer`) are cash movements: commitment totals leave them out, and the
+  recurring totals carry them in `cash_movements`. They still move the paying
+  account's balance, so apply them in a per-account path without counting
+  the card's purchases a second time.
 - Apply each leg of an internal transfer to its own account. A transfer nets to
   zero across the household but still moves one account's balance, so netting
   it out of a per-account path can hide an overdraft.
 - Read each recurring item's `direction` and `account_identity_id` rather than
   inferring the sign or the affected account from merchant text.
-- Do not replace the projected next date with one inferred from `last_seen_at`.
+- Do not replace the projected next date with one inferred from `last_paid_at`.
   Declarations can have no observation, and agent-pinned dates can differ from
   posting history. A null predicted date is undated, not permission to guess.
   Keep the supplied calendar anchor and end bounds when extending an estimate

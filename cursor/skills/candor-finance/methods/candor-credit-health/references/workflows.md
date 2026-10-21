@@ -46,8 +46,8 @@
    `corroborated`, and read its provenance before letting it order payments:
    status records resolution, not authority. A value backed only by an
    unverified external claim or an unreconciled curated import stays
-   unverified even when marked observed, and a user-approved assertion is the
-   user's word, not issuer verification; re-source those before they set
+   unverified even when marked observed, and a term assertion (provenance
+   kind `assertion`) is the user's word, not issuer verification; re-source those before they set
    payment order or timing. A `stale` or `conflicted` APR, minimum, or due
    date is likewise unverified evidence, and `unknown_terms` entries are
    unverified, not zero. Name accounts
@@ -57,18 +57,18 @@
    issuer's current statement, agreement, or account page as authorized. Route
    the verified fact into typed terms so later reads and calculations can use
    it: preview and apply a curated import for source-backed statement facts,
-   or store a value the user explicitly approves as an assertion:
+   or store a value the user stated as an assertion:
 
    ```text
    candor_preview({
      "operation": "account_terms.assertion.preview",
-     "reason": "Preview an approved card-term correction",
+     "reason": "Preview the card-term correction the user gave",
      "task_key": "TASK_KEY",
      "input": "<contents of ASSERTION.json>"
    })
    candor_write({
      "operation": "account_terms.assertion.set",
-     "reason": "Store an approved card-term correction",
+     "reason": "Save the card-term correction the user gave",
      "task_key": "TASK_KEY",
      "parent_action": "ACTION_ID",
      "input": "<contents of ASSERTION.json>"
@@ -96,8 +96,8 @@ named reason it could not be computed.
 3. When the user asks how utilization is generally weighed, research a current
    authoritative source and label the guidance as general. Do not convert it
    into a predicted score change for this user.
-4. Present the sequence as a draft. Record the approved baseline in a linked
-   note only after the user chooses.
+4. Present the sequence as a draft. Record the chosen baseline in a linked
+   note once the user chooses.
 
 Complete when the user can see, per card, what a chosen payment achieves in
 observed amounts in that card's own currency and dates, with unknowns named.

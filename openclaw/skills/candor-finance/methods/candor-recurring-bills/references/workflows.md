@@ -13,8 +13,8 @@
    candor recurring list --limit 100 --reason "Review the expected schedule" --task-key TASK_KEY
    ```
 
-   A change names its series and the `candor recurring get` handle to inspect. A
-   missed window is often a late payment or a card change; a series that
+   A change names its series and the `candor recurring get` handle to inspect. An
+   overdue series is often a late payment or a card change; a series that
    posted after being stopped or dismissed may be real after all; a series
    posting past its end date may have been extended.
 
@@ -26,10 +26,11 @@
 
    Follow the returned `transactions.get` actions in `next_actions` to the
    exact postings using their supplied arguments, preserving the task and
-   parent-action context. Do not substitute a merchant search:
-   normalized labels can differ from source labels, and one merchant can
-   have multiple series. The shortcuts cover recent evidence; for older
-   evidence, read the transaction IDs in the detail's `basis.transactionIds`.
+   parent-action context. They cover the series' recent payments. For older
+   history, list transactions by the series' `match_rule` payee, account, and
+   dates; that read can include another series billed by the same payee, so
+   check amounts against the rule's `price_levels` before counting a posting
+   as this series'.
 
 3. Persist the judgement with the verbs, under the user's task-scoped
    authority:

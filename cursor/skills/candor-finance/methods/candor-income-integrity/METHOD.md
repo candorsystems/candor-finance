@@ -83,7 +83,7 @@ user asks how the check was performed.
 
 ## Domain decisions
 
-A deposit cadence does not establish an approved planning baseline. Establish
+A deposit cadence alone does not set a planning baseline the user has chosen. Establish
 payer meaning before encoding a reusable rule, and preserve uncertain or missing
 income as uncertainty rather than a promised receipt.
 

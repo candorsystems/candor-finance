@@ -27,7 +27,7 @@ scenario conditional on verified terms.
 ## Method
 
 - Read effective account terms first. Separate source-backed observations,
-  approved assertions, conflicts, and stale values from balances and payments.
+  term assertions you set, conflicts, and stale values from balances and payments.
 - Verify material terms from a primary statement or issuer source and record
   effective and expiration dates.
 - Model payoff scenarios with explicit assumptions, then use your judgment
@@ -48,7 +48,7 @@ scenario conditional on verified terms.
 - For debt baselines, payoff scenarios, and promotional deadlines, read
   [the executable workflows](references/workflows.md).
 - Missing terms are collection work: curate a structured terms import from an
-  authoritative statement or set a user-approved assertion. Never estimate
+  authoritative statement or set an assertion of the value the user stated. Never estimate
   them from transactions.
 
 ## Caveats
@@ -58,7 +58,7 @@ scenario conditional on verified terms.
 
 ## Safe Candor writebacks
 
-- Curated terms import or approved term assertion with validity dates.
+- Curated terms import or term assertion with validity dates.
 - Linked Markdown note for unstructured context or a revisit date.
 - Debt-paydown goal the conversation settled.
 

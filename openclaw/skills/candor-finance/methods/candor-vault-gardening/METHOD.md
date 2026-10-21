@@ -30,7 +30,8 @@ while one known error needs only its relevant evidence.
    parallel fixes to conceal the same incorrect meaning.
 4. Inspect exact matches and counterexamples before writing. A reusable rule
    can reach past and future activity, so review its actual scope. Preserve
-   existing approved decisions and any narrower approval instructions.
+   decisions the user already made and any narrower instructions they gave,
+   such as reviewing new rules before you create them.
 5. Verify each changed effective record and retain its correction, rule or
    policy history for reversal. Explain what became more reliable, what remains
    uncertain and the limits of the inspected scope.
@@ -49,7 +50,7 @@ scope and preserve ambiguous ones for clarification. A general cleanup does not
 require a write to a harmless candidate. If leaving it unchanged is appropriate,
 say what was checked and why; do not claim it has been curated or that the whole
 workspace is clean. Do not activate a transfer merely because it repeats, or
-remove an approved placement because your default schedule would differ.
+remove a saved placement because your default schedule would differ.
 
 ## Completion
 

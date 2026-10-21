@@ -19,12 +19,12 @@
    covers the inspected reversible correction; do not ask again.
 4. Verify the exact before/after effective category, cash-flow role, label,
    tags, and review state. Surface it to the user when it materially clarifies
-   the work, not as a mandatory approval ceremony.
+   the work; it needs no separate yes.
 5. Inspect the current command contract and create only the authorized fields:
 
    ```sh
    candor catalog describe corrections.create --json
-   candor corrections create TRANSACTION_ID --category CATEGORY --reason "Apply the user-approved transaction correction" --task-key TASK_KEY --parent-action ACTION_ID
+   candor corrections create TRANSACTION_ID --category CATEGORY --reason "Apply the transaction correction the user described" --task-key TASK_KEY --parent-action ACTION_ID
    ```
 
 6. Re-read the transaction and preserve the action that changed it and the prior value for
@@ -39,19 +39,19 @@ and no unrelated field changed.
 2. Ask the user to define each part's exact amount, currency, category or role,
    and rationale. Validate that parts reconcile exactly to the source amount
    under the current money contract.
-3. Inspect `transactions.split.set`, draft the input file, and show the exact
-   split for approval.
+3. Inspect `transactions.split.set` and draft the input file from the parts
+   the user gave. Pass their words as `note` when they said why.
 4. Apply the split:
 
    ```sh
-   candor transactions split set --file SPLIT.json --reason "Store the user-approved transaction split" --task-key TASK_KEY --parent-action ACTION_ID
+   candor transactions split set --file SPLIT.json --reason "Save the transaction split the user described" --task-key TASK_KEY --parent-action ACTION_ID
    ```
 
 5. Re-read the split and downstream effective transaction view. Use
-   `transactions.split.revert` if the user later approves reversal.
+   `transactions.split.revert` if the user later asks to undo it.
 
 Complete when the parts reconcile exactly and the stored split matches the
-approved draft.
+parts the user gave.
 
 ## Make a merchant mean something
 
@@ -82,10 +82,10 @@ approved draft.
    add `direction` or an account bound unless the meaning depends on it.
 
    ```sh
-   candor rules create --name "MERCHANT is CATEGORY" --match-merchant-contains MERCHANT --set-category CATEGORY --authority user_approved --basis-reason "The user said MERCHANT is CATEGORY." --reason "Record the user's meaning for this merchant" --task-key TASK_KEY
+   candor rules create --name "MERCHANT is CATEGORY" --match-merchant-contains MERCHANT --set-category CATEGORY --authority person_stated --basis-reason "The user said MERCHANT is CATEGORY." --reason "Record the user's meaning for this merchant" --task-key TASK_KEY
    ```
 
-   Use `user_approved` when the user supplied the meaning and
+   Use `person_stated` when the user supplied the meaning and
    `agent_verified` when inspected evidence did. When the meaning depends on
    which kind of account the record posted to, such as rent paid through a
    card, add the `account_role` criterion; the role survives a reconnect and

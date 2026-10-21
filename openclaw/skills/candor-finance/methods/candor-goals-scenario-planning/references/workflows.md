@@ -27,7 +27,7 @@
 
 5. Save the goal once the conversation settles it; do not ask for a yes to an
    exact draft. Use the user's words and only figures and dates they gave or the
-   records show. Pass the user's own words as `approval_note` when they said
+   records show. Pass the user's own words as `note` when they said
    something relevant; otherwise omit it. Tell the user briefly what you saved:
 
    ```sh

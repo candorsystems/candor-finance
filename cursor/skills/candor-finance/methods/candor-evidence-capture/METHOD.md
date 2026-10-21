@@ -151,7 +151,7 @@ asks how the evidence was handled.
 ## Safe Candor writebacks
 
 - Validated and previewed import batch.
-- Approved canonical import and its reversible batch history.
+- Applied canonical import and its reversible batch history.
 - Reverted import batch when recovery or correction requires it.
 - Linked note for material context that cannot safely become typed data.
 

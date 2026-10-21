@@ -47,20 +47,20 @@
    due-date, fee, and promotional terms.
 3. For missing fields, obtain a current statement, agreement, or official
    servicer source. Preview and apply a curated import for source-backed facts;
-   use `account-terms assertion set` only for a value the user explicitly
-   approves. Preserve effective and expiry dates. Preview that assertion first,
+   use `account-terms assertion set` only for a value the user stated, with
+   their words as `note`. Preserve effective and expiry dates. Preview that assertion first,
    then inspect its version history after writing:
 
    ```text
    candor_preview({
      "operation": "account_terms.assertion.preview",
-     "reason": "Preview an approved debt-term correction",
+     "reason": "Preview the debt-term correction the user gave",
      "task_key": "TASK_KEY",
      "input": "<contents of ASSERTION.json>"
    })
    candor_write({
      "operation": "account_terms.assertion.set",
-     "reason": "Store an approved debt-term correction",
+     "reason": "Save the debt-term correction the user gave",
      "task_key": "TASK_KEY",
      "parent_action": "ACTION_ID",
      "input": "<contents of ASSERTION.json>"
@@ -84,7 +84,7 @@
    ```text
    candor_write({
      "operation": "account_terms.assertion.revert",
-     "reason": "Revert the approved debt-term correction",
+     "reason": "Revert the saved debt-term correction",
      "task_key": "TASK_KEY",
      "parent_action": "ACTION_ID",
      "args": {
@@ -156,7 +156,7 @@ alternatives, material uncertainty, and cash-flow conflicts.
    transfer, or refinance action without the user's cash constraints, goals,
    alternatives, and preferences.
 3. Work backward from the deadline using a conservative processing buffer.
-4. Store the verified expiry as a curated term or approved assertion so the
+4. Store the verified expiry as a curated term or term assertion so the
    opening's factual attention raises it within 30 days of the deadline. Create
    a timed note only for additional unstructured follow-up:
 

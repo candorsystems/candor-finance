@@ -87,7 +87,8 @@ record ids, or workspace boundaries unless asked.
 
 - Goal or budget state the conversation settled.
 - Linked note for a sourced changing term or future verification.
-- Curated or user-approved account term with provenance.
+- Curated account term, or an assertion of a term the user stated, with
+  provenance.
 
 ## Domain decisions
 

@@ -16,7 +16,7 @@ never present a score, a score change, or bureau contents as observed.
 ## Workspace resources
 
 - Route verified terms into typed account-terms state (curated import or a
-  user-approved assertion); use `notes` for unstructured context, paydown
+  term assertion of a value the user stated); use `notes` for unstructured context, paydown
   baselines, and timed re-checks.
 
 ## Non-goals
@@ -72,7 +72,7 @@ never present a score, a score change, or bureau contents as observed.
 ## Safe Candor writebacks
 
 - Curated account-terms import for source-backed statement facts, or a
-  user-approved account-terms assertion, so verified terms become typed
+  account-terms assertion of a value the user stated, so verified terms become typed
   evidence rather than note prose.
 - Linked Markdown note with unstructured context, a paydown baseline, or a
   timed re-check for an expected posted payment.

@@ -15,15 +15,18 @@ Recurring is a curated schedule of predictable obligations: rent, mortgage
 installments, subscriptions, memberships, insurance, and similar bills.
 Repetition alone does not make a transaction belong here. For an initial pass,
 prefer credible cadence and reasonably stable amounts. Do not bulk-confirm
-card repayments, internal transfers, usage-based charges, or repeated
-shopping just because they recur. A mortgage installment can belong even when
-its cashflow role is `debt_payment`; that role alone cannot identify a card
-repayment.
+usage-based charges or repeated shopping just because they recur. Each series
+carries a `kind`: `bill`, `subscription`, `loan_payment`, and `income` are
+commitments and count toward commitment totals; `card_payment` and `transfer`
+are cash movements, totaled apart in `cash_movements` and never added to
+commitments, because the purchases a card payment settles were already
+counted. A mortgage installment is a `loan_payment` even when its cashflow
+role is `debt_payment`; that role alone cannot identify a card repayment.
 
 Clear recurring payments appear in Candor automatically. An
-`active` detected row can be unconfirmed; `confirmed` says whether an approved
-agent policy overrides the prediction. Uncertain series remain candidates and
-are excluded from commitment totals. Preserve approved confirmations,
+`active` detected row can be unconfirmed; `confirmed` says whether a policy
+the agent set overrides the prediction. Uncertain series remain candidates and
+are excluded from commitment totals. Preserve saved confirmations,
 dismissals, declarations, and associations. Review exceptions and missing
 obligations instead of requiring an initial bulk-confirmation pass.
 
@@ -36,7 +39,7 @@ Count each obligation once. A card charge, its payment credit, and the bank
 withdrawal funding it can describe one obligation across accounts. Inspect
 source transactions and financial roles before correcting or dismissing a
 redundant series; matching names, dates, and amounts alone do not prove a
-transfer. Do not override conflicting approved curation without resolving it.
+transfer. Do not override a conflicting saved policy without resolving it.
 
 ## Datasets
 
@@ -74,9 +77,12 @@ separate from the preference.
   of the observed ones, and a declared row is one you created.
 - Expected dates are windows, not due dates. `predicted_next_date` is the
   centre of `predicted_window`; a posting anywhere inside the window is on
-  time, and `missed_count` only counts windows that closed with nothing
-  posted. A missed series whose `possible_matches` names a related series on
-  another account can indicate a move. Inspect both before changing either
+  time. `overdue` is true only when a window closed with no posting matched
+  to the series, judged up to the day its accounts last synced, and
+  `overdue_since` names that window's date. `paid_this_cycle` says the
+  current occurrence is already paid. An overdue series whose
+  `possible_matches` names a related series on another account can indicate
+  a move. Inspect both before changing either
   schedule. Say "around the 3rd", never "due on the
   3rd"; contractual due dates live in `account_terms`.
 - Subscriptions are your interpretation, not a Candor noun. Narrow the list
@@ -87,14 +93,22 @@ separate from the preference.
 - Subscription-shaped outflows are where quiet money sits: a price rise nobody
   agreed to, a duplicate service, a trial that converted, a charge that
   continued after cancellation. Compare `last_amount` against
-  `average_amount` to catch a rise, and read `missed_count` and the changes
+  `average_amount` to catch a rise, and read `overdue` and the changes
   domain to catch a series that stopped. Confirm a change from the exact
   transactions before describing it.
+- `kind` is detection's reading of what the series is. When it is wrong (a
+  card payment read as a bill, a transfer read as income), set it with
+  `candor_write({"operation":"recurring.update","args":{"recurring_item_id":"ID","kind":"card_payment"}})`; detection keeps your kind
+  on later runs, and a declaration takes `kind` too.
+- A series keeps only its latest matched postings: `last_paid_at` and
+  `last_amount` are the newest. Read its history with `transactions.list`
+  for the payee in `match_rule` (on its account when the rule names one);
+  `recurring.get` offers that read and the latest postings as next steps.
 - Curate with the verbs, not by hand. Confirm a correct detection with
   `candor_write({"operation":"recurring.update","args":{"recurring_item_id":"ID","status":"active"}})`, or any field update, which confirms
   it too; confirm several candidates at once with `candor_write({"operation":"recurring.update","args":{"ids":"A,B,C","status":"active"}})`. Rename with `merchant_name`. For a detected series, this
   changes only its display name. Create the suggested merchant normalization
-  rule when postings should group under the approved name; a display rename
+  rule when postings should group under the saved name; a display rename
   alone does not join old and new transaction labels. Pin
   a date with `next_expected_date` when the biller's day is known, widen the
   window with `date_tolerance_days` when postings drift, and set `ends_at` on
@@ -160,7 +174,10 @@ changing the external service requires its own authority.
   authorizes that external action.
 
 A candidate's `possible_matches` can identify existing curated series worth
-inspecting. Inspect those before confirming a second series. To confirm
+inspecting. Inspect those before confirming a second series. A
+`same_amount_and_cadence` reason means the same exact amount on the same
+account and a compatible schedule under a different label; read both
+series' postings before treating them as one charge. To confirm
 that a new wording belongs to the existing series, update the target id with
 `associate_from` set to the candidate id. This records the observed label as
 an account-scoped association between intact evidence groups, preserving the target's
@@ -169,11 +186,11 @@ cadence and active/stopped/dismissed state. Use an explicit association when the
 difference means the series live on different accounts, so a moved bill is
 stopped on one and confirmed on the other, never associated. Competing owners,
 currencies, and directions must be resolved first. A dismissal carries across
-approved aliases; it does not suppress unrelated charges from that merchant.
+associated aliases; it does not suppress unrelated charges from that merchant.
 
 Automatic predictions and candidates do not establish missed obligations.
 Use inspected evidence or authoritative user context before asserting a contract
-or pinning an approved payment calendar.
+or pinning a payment calendar.
 
 When opening or a recurring list is incomplete, follow its `data.query`
 continuation for the recurring dataset. Dataset pages use stored-record order;
@@ -183,20 +200,22 @@ and pagination belong to `data.page`. An exact recurring ID remains readable
 independently of the bounded list, and incomplete association proposals are
 explicitly marked.
 
-Approve `amount_min` and `amount_max` together for variable bills. Both use
-Money text in the series currency and must contain the expected `amount`.
-Use historical transactions to choose the range. Candor supplies no percentage
-tolerance. Without a range, matching is exact; setting `amount` alone resets
-an existing range to exact matching. Category or identity updates preserve it.
+Postings join a series as they are written, by its `match_rule`: an exact
+payee key, the series' direction and currency, and its account when the rule
+names one. Without a saved range, a posting joins when its amount is one of
+the rule's `price_levels` or falls near the series' own recent amounts. Set
+`amount_min` and `amount_max` together to replace that range, wider or
+narrower; a posting outside your range does not join the series. Both use Money text in the series currency and must contain the
+expected `amount`. Use historical transactions to choose the range. Setting
+`amount` alone drops a saved range back to the history default. Category
+or identity updates preserve it.
 
-Approved schedules keep their cadence and date window as postings arrive.
-`payments` identifies the transactions satisfying individual scheduled dates;
-`unmatched_payment_transaction_ids` identifies extra or out-of-bounds evidence
-that did not satisfy a payment. One posting satisfies one occurrence. Later
-payments never erase an earlier miss or silently move the calendar. Resolve
-exceptions by inspecting the transaction and correcting the schedule terms
-when warranted. An older confirmation without a fixed anchor needs an explicit
-`next_expected_date` and `amount` before payment matching can be enabled.
+Pinned schedules keep their cadence and date window as postings arrive. The
+next date projects from the last matched posting, or from a pinned
+`next_expected_date` while it is later. Each posting joins at most one
+series. When a payment you expected did not join (a renamed payee, an amount
+outside your range), inspect the transaction and correct the schedule terms
+or the range when warranted.
 
 Associating a candidate is a targeted write, independent of the bounded list.
 It preserves the underlying records. Reverting the target drops its overrides

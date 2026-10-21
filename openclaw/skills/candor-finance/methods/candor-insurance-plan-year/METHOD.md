@@ -51,7 +51,7 @@ coverage scenarios.
 
 Recommend coverage tradeoffs from verified policy terms and the user's needs.
 Do not infer their accepted risk or deductible preference from claims history
-or represent a proposed policy choice as approved.
+or represent a proposed policy choice as one the user made.
 
 ## Stopping conditions
 

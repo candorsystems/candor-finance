@@ -49,7 +49,7 @@ loaded.
 
    Run only commands relevant to the user's scope and available coverage.
 3. Classify findings as: factual maintenance, missing context, decision needed,
-   external research needed, approved action ready, or monitor only.
+   external research needed, action the user already chose, or monitor only.
 4. Rank by user-stated importance, materiality, deadline, reversibility, and
    dependency—not by a Candor-generated priority.
 5. Load one domain skill for each finding that survives triage. Avoid parallel

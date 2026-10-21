@@ -3,6 +3,58 @@
 Changes relevant to agents using the Candor package, CLI, and MCP tools.
 Earlier releases predate these notes; the list starts with the first recorded summary.
 
+## 0.1.232
+
+The base and recurring-bills skills call a series whose expected window closed unpaid overdue rather than missed, matching recurring_overdue and the overdue field.
+
+## 0.1.231
+
+Recurring reads swap payments, missed_count, observed_count, and seen dates for last_paid_at, paid_this_cycle, overdue, kind, and match_rule (export v25); create and update take kind (--kind); cash movements total apart; recurring_overdue.
+
+## 0.1.230
+
+A declared series without cashflow_role takes its postings' role, so draws over own-account transfers total as transfers; change cursors keep their window; misses start at the first record; revert names a kept declaration.
+
+## 0.1.229
+
+Saved state is labeled by who wrote it: saved_state, saved_plan, behind_plan, note with note_from, and person_stated rule authority; old input names still work. Requires CLI 0.3.155.
+
+## 0.1.228
+
+Pages fill past filtered-out rows and say scan_reached when a sparse search stops early, cursors are sealed to their filters (cursor_filters_changed), and every cut-off read offers its own continuation.
+
+## 0.1.227
+
+Household figures come from one shared calculation with each figure's basis, an exact or needs_review status, and uncertain reasons naming the records to check; the weekly review adds debt payments.
+
+## 0.1.226
+
+A provider re-sending a record or a reconnect no longer marks history as changed; changed transactions list arrivals first with change_kind and first_seen_at, and the opening counts arrivals apart from updates.
+
+## 0.1.225
+
+Every surface reads aliases like start_date the same way and refuses unknown arguments with unsupported_arguments naming the accepted ones; limits past a read's declared max_limit are refused, and bad ids name their argument.
+
+## 0.1.224
+
+The weekly review reads computed figures (spending, income, cash, card interest and paid-in-full months, savings rates, properties), labels who wrote each note, and reviews.list keeps one review per day.
+
+## 0.1.223
+
+Recurring payments match within a range learned from each series' own amounts, a confirmed series absorbs merchant name variants, and possible_matches lists same-account series with the same amount and cadence.
+
+## 0.1.222
+
+Creating a rule you already have returns it, a rule duplicating another's effect names the older one to disable, candor_open lists recent releases, and catalog search finds merchant renames, rule removal, and goal archiving.
+
+## 0.1.221
+
+Goal spending and months of cover now read the cashflow dataset's spending over the same months, leaving out debt payments and moves between own accounts, and recurring totals report transfers apart from inflow and outflow.
+
+## 0.1.220
+
+Reads, including candor_query and previews, always run fresh and record their own action, and each MCP call runs as a new operation unless you pass the same idempotency_key to retry one call.
+
 ## 0.1.219
 
 candor reviews list and reviews update print each area's id, records, and outcome in Markdown, and candor open keeps the whole review ahead of the first pass.

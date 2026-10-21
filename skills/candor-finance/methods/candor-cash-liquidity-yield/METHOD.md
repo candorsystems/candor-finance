@@ -58,7 +58,7 @@ the user's preferences about safety, access, and complexity.
 ## Safe Candor writebacks
 
 - Reserve or savings goal the conversation settled.
-- Curated terms import or approved term assertion for the user's own account.
+- Curated terms import or term assertion for the user's own account.
 - Linked Markdown note for external market options and a revisit date.
 
 ## Domain decisions

@@ -54,7 +54,7 @@ obligations, assumptions, and coverage—not a generic rule of thumb.
    source-backed current APY obtained from a statement or official disclosure,
    use the curated-import preview/apply flow so it enters the same canonical
    term history as a connected source. Use an account-term assertion only for
-   a value the user explicitly approves, and preview it before writing. Prefer
+   a value the user stated, and preview it before writing. Prefer
    the institution's official deposit page and disclosures; use regulator or
    government sources for protection rules; use an official prospectus for a
    fund or security.

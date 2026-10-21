@@ -1,13 +1,13 @@
 ---
 name: candor-finance
 description: "Use Candor for personal finance: organize the user's accounts and spending, remember budgets and goals, review investments, investigate possible savings, and keep evidence and follow-up together. Use when a task touches the user's money, financial records, prior decisions, or saved plans."
-compatibility: Requires an authenticated Candor workspace and either the Candor tools included with the installed package or Candor CLI 0.3.151 or newer.
+compatibility: Requires an authenticated Candor workspace and either the Candor tools included with the installed package or Candor CLI 0.3.155 or newer.
 metadata:
-  candor-package-version: "0.1.219"
+  candor-package-version: "0.1.232"
   author: Candor
   version: "0.1.0"
   candor-skill-version: "2026-10-19"
-  candor-cli: ">=0.3.151 <0.4.0"
+  candor-cli: ">=0.3.155 <0.4.0"
   candor-introduced-in: "2026-07-23"
   candor-updated-in: "2026-10-19"
 ---
@@ -69,7 +69,7 @@ evidence, recommend what fits, and act within the authority the user gives you.
    Follow every delta continuation before acknowledging. No rule match does
    not mean a category needs a decision; an adequate provider category can
    stand. A categorized charge can still be unexpected, so assess the facts.
-   Open recurring detail only for a missed posting, new candidate, or evidence
+   Open recurring detail only for an overdue series, new candidate, or evidence
    relevant to the user's request. Keep routine checks quiet when nothing
    warrants attention.
    When the opening offers `open.acknowledge`, run it after processing the
@@ -85,8 +85,8 @@ continuation. Orientation operations retain their fixed system reasons.
 
 ## Authority
 
-Investigation, comparison, recommendations and drafts do not require approval
-of the recommendation first. A request to fix, organize or maintain a bounded
+Investigation, comparison, recommendations and drafts need no go-ahead on the
+recommendation first. A request to fix, organize or maintain a bounded
 area authorizes inspected, reversible internal repairs needed for that task.
 Honor narrower instructions, such as reviewing new rules before creating them.
 A request to review or explain does not itself authorize changing records.
@@ -218,7 +218,7 @@ cannot start evaluation. An unavailable or stale result is not a current finding
 
 Investigate the question the user selected in light of their current instruction.
 The remaining suggestions are optional starting points, not an assigned task list.
-Suggestions are starting points, not approved plans or proof that a particular
+Suggestions are starting points. They are not plans the user chose or proof that a particular
 action is best. You can reject or adapt them and investigate outside the library.
 Onboarding notes are shared memory you can curate through normal note operations.
 Keep original provenance distinct from your interpretation. Platform-generated

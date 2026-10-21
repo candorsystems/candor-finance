@@ -83,7 +83,7 @@ anything. It is not a description of the answer you give the user.
 
 - Linked re-check note with the outstanding outcome, exact baseline evidence
   handles, revisit recipe, outcome meanings, and revisit date.
-- User-approved correction only when a transaction interpretation is wrong.
+- Transaction correction only when a transaction interpretation is wrong.
 
 ## Domain decisions
 

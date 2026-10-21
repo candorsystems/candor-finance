@@ -74,7 +74,7 @@ can justify a reusable rule, subject to the user's requested review boundary.
   again with the rules scope set to all.
 - Act on high-confidence, bounded interpretation inside the user's explicit
   maintenance scope. Exact or narrow evidence-backed corrections may use
-  `agent_verified`; user-confirmed merchant meaning may use `user_approved`.
+  `agent_verified`; merchant meaning the user stated may use `person_stated`.
 
 ## Evidence checklist
 
@@ -96,9 +96,9 @@ can justify a reusable rule, subject to the user's requested review boundary.
 
 ## Safe Candor writebacks
 
-- Approved transaction correction.
-- Approved split.
-- Approved normalization rule.
+- Transaction correction.
+- Split.
+- Normalization rule.
 
 ## Domain decisions
 
@@ -110,7 +110,8 @@ scope before applying it; do not encode a new grouping preference from bank text
 
 - Stop before a rule whose matches you have not read when the anchor could
   reach unrelated activity.
-- Stop before overwriting a conflicting approved interpretation.
+- Stop before overwriting a conflicting interpretation the user stated or an
+  earlier session saved.
 
 
 Category and financial role are independent. Set `set_cashflow_role` explicitly

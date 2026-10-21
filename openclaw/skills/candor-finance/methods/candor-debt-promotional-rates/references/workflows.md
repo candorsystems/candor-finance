@@ -16,13 +16,13 @@
    due-date, fee, and promotional terms.
 3. For missing fields, obtain a current statement, agreement, or official
    servicer source. Preview and apply a curated import for source-backed facts;
-   use `account-terms assertion set` only for a value the user explicitly
-   approves. Preserve effective and expiry dates. Preview that assertion first,
+   use `account-terms assertion set` only for a value the user stated, with
+   their words as `note`. Preserve effective and expiry dates. Preview that assertion first,
    then inspect its version history after writing:
 
    ```sh
-   candor account-terms assertion preview --file ASSERTION.json --reason "Preview an approved debt-term correction" --task-key TASK_KEY
-   candor account-terms assertion set --file ASSERTION.json --reason "Store an approved debt-term correction" --task-key TASK_KEY --parent-action ACTION_ID
+   candor account-terms assertion preview --file ASSERTION.json --reason "Preview the debt-term correction the user gave" --task-key TASK_KEY
+   candor account-terms assertion set --file ASSERTION.json --reason "Save the debt-term correction the user gave" --task-key TASK_KEY --parent-action ACTION_ID
    candor account-terms assertion history ACCOUNT_IDENTITY_ID FIELD --limit 25 --reason "Verify debt-term assertion history" --task-key TASK_KEY --parent-action ACTION_ID
    ```
 
@@ -30,7 +30,7 @@
    source evidence:
 
    ```sh
-   candor account-terms assertion revert ACCOUNT_IDENTITY_ID FIELD --reason "Revert the approved debt-term correction" --task-key TASK_KEY --parent-action ACTION_ID
+   candor account-terms assertion revert ACCOUNT_IDENTITY_ID FIELD --reason "Revert the saved debt-term correction" --task-key TASK_KEY --parent-action ACTION_ID
    ```
 4. Surface debts missing terms or balances rather than assigning defaults.
 
@@ -72,7 +72,7 @@ alternatives, material uncertainty, and cash-flow conflicts.
    transfer, or refinance action without the user's cash constraints, goals,
    alternatives, and preferences.
 3. Work backward from the deadline using a conservative processing buffer.
-4. Store the verified expiry as a curated term or approved assertion so the
+4. Store the verified expiry as a curated term or term assertion so the
    opening's factual attention raises it within 30 days of the deadline. Create
    a timed note only for additional unstructured follow-up:
 

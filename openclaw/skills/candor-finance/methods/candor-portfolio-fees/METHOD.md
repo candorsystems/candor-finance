@@ -2,7 +2,7 @@
 # Portfolio and fee analysis
 
 Calculate factual exposures and fee scenarios to inform your recommendations. Distinguish
-measured exposure from suitability judgments and approved trading decisions.
+measured exposure from suitability judgments and trading decisions the user made.
 
 ## Datasets
 
@@ -18,7 +18,7 @@ measured exposure from suitability judgments and approved trading decisions.
 
 ## Non-goals
 
-- Inferring suitability or an approved allocation from holdings alone.
+- Inferring suitability or a chosen target allocation from holdings alone.
 - Trading or transferring assets.
 
 ## Method
@@ -41,7 +41,7 @@ measured exposure from suitability judgments and approved trading decisions.
 - Source fund expense ratios, advisory fees, and restrictions from current
   authoritative documents.
 - Calculate exposure and fee scenarios as facts. Use them with the user's
-  context to assess fit; do not present an estimate as an approved allocation.
+  context to assess fit; do not present an estimate as an allocation the user chose.
 
 ## Evidence checklist
 
@@ -76,7 +76,7 @@ measured exposure from suitability judgments and approved trading decisions.
 
 You assess fit and recommend using the user's objectives, tax context and risk
 preferences. Make missing inputs explicit. Current holdings do not establish
-an approved allocation, and analysis does not authorize a trade.
+a target allocation the user chose, and analysis does not authorize a trade.
 
 ## Stopping conditions
 
