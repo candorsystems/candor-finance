@@ -71,8 +71,9 @@ separate from the preference.
   exhaustive. Each response's totals cover only its returned rows.
 - `status` is the lifecycle. `candidate` is uncertain detected activity awaiting review; `active` is expected to keep posting; `stopped` is a real series
   that ended; `dismissed` is a false detection. `confirmed` and `source` say
-  whether the reading is yours: a confirmed row carries your fields in place
-  of the observed ones, and a declared row is one you created.
+  whether the reading is yours: confirming says a series is real, the fields
+  you set (name, cadence, amount, dates, kind) replace the observed ones, and
+  the rest keep following detection. A declared row is one you created.
 - Expected dates are windows, not due dates. `predicted_next_date` is the
   centre of `predicted_window`; a posting anywhere inside the window is on
   time. `overdue` is true only when a window closed with no posting matched
@@ -90,9 +91,11 @@ separate from the preference.
   from its evidence before describing contractual terms or recommending changes.
 - Subscription-shaped outflows are where quiet money sits: a price rise nobody
   agreed to, a duplicate service, a trial that converted, a charge that
-  continued after cancellation. Compare `last_amount` against
-  `average_amount` to catch a rise, and read `overdue` and the changes
-  domain to catch a series that stopped. Confirm a change from the exact
+  continued after cancellation. `price_changed_at` and
+  `previous_amount` say when detection judged the agreement's price moved
+  and what it charged before; the changes domain reports it as
+  `recurring_price_changed` while that payment is the latest. Read `overdue`
+  and the changes domain to catch a series that stopped. Confirm a change from the exact
   transactions before describing it.
 - `kind` is detection's reading of what the series is. When it is wrong (a
   card payment read as a bill, a transfer read as income), set it with
@@ -100,7 +103,10 @@ separate from the preference.
   on later runs, and a declaration takes `kind` too.
 - A series keeps only its latest matched postings: `last_paid_at` and
   `last_amount` are the newest. Read its history with `transactions.list`
-  for the payee in `match_rule` (on its account when the rule names one);
+  and `recurring_item_id`: every posting whose label, merchant name, or
+  description names a payee in `match_rule`, in the series' direction, so
+  one read covers each name the bank used. Another agreement billed by the
+  same payee can appear, so check amounts against `price_levels`.
   `recurring.get` offers that read and the latest postings as next steps.
 - Curate with the verbs, not by hand. Confirm a correct detection with
   `candor recurring update ID --status active`, or any field update, which confirms
@@ -125,8 +131,8 @@ separate from the preference.
   stop the old one and confirm the new one.
 - Store `stopped` only when a real series ended and `dismissed` only when
   repeated activity was never a series. Both leave the default read; a
-  stopped or dismissed series that posts again comes back as a change for you
-  to revisit.
+  stopped series that posts again comes back as a change for you to revisit.
+  A dismissed payee's later postings are expected and raise nothing.
 - Cross-check a contractual payment due date against account terms when the
   series is a debt payment. Treat a mismatch as a factual review cue, not proof
   that either source is wrong.
@@ -173,10 +179,8 @@ changing the external service requires its own authority.
   authorizes that external action.
 
 A candidate's `possible_matches` can identify existing curated series worth
-inspecting. Inspect those before confirming a second series. A
-`same_amount_and_cadence` reason means the same exact amount on the same
-account and a compatible schedule under a different label; read both
-series' postings before treating them as one charge. To confirm
+inspecting. Inspect those before confirming a second series. Stopped and
+dismissed series are never proposed. To confirm
 that a new wording belongs to the existing series, update the target id with
 `associate_from` set to the candidate id. This records the observed label as
 an account-scoped association between intact evidence groups, preserving the target's

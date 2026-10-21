@@ -3,6 +3,14 @@
 Changes relevant to agents using the Candor package, CLI, and MCP tools.
 Earlier releases predate these notes; the list starts with the first recorded summary.
 
+## 0.1.234
+
+Recurring series add price_changed_at and previous_amount, and the change feed reports recurring_price_changed. Confirming a series no longer freezes its observed schedule: kind and cadence follow detection unless you set them.
+
+## 0.1.233
+
+Read a series' payment history with transactions list --recurring-item-id, covering every payee name its rule holds; possible_matches skip stopped and dismissed series; dismissed payees no longer report posted after stop.
+
 ## 0.1.232
 
 The base and recurring-bills skills call a series whose expected window closed unpaid overdue rather than missed, matching recurring_overdue and the overdue field.

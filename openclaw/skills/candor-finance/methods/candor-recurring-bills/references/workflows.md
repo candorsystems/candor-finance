@@ -15,8 +15,8 @@
 
    A change names its series and the `candor recurring get` handle to inspect. An
    overdue series is often a late payment or a card change; a series that
-   posted after being stopped or dismissed may be real after all; a series
-   posting past its end date may have been extended.
+   posted after being stopped may have restarted; a series posting past its
+   end date may have been extended.
 
 2. For a candidate or a change worth a decision, inspect the exact postings:
 
