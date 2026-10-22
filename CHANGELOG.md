@@ -3,6 +3,14 @@
 Changes relevant to agents using the Candor package, CLI, and MCP tools.
 Earlier releases predate these notes; the list starts with the first recorded summary.
 
+## 0.1.236
+
+The CLI now runs on Bun 1.4.4, which checks TLS server names strictly and verifies servers during the handshake, and its bundled dependencies carry this week's security fixes.
+
+## 0.1.235
+
+Prompts mark the ones meant to repeat; goal month bars carry title, figure, and note; budget lines flag sitting at their limit; cash flow names where records start; MCP App charts and lists update live.
+
 ## 0.1.234
 
 Recurring series add price_changed_at and previous_amount, and the change feed reports recurring_price_changed. Confirming a series no longer freezes its observed schedule: kind and cadence follow detection unless you set them.

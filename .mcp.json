@@ -3,7 +3,7 @@
     "candor": {
       "headers": {
         "Candor-Agent-Package-Route": "claude-code-marketplace",
-        "Candor-Agent-Package-Version": "0.1.234"
+        "Candor-Agent-Package-Version": "0.1.236"
       },
       "type": "http",
       "url": "https://api.candor.money/mcp"
