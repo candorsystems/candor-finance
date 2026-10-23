@@ -3,6 +3,30 @@
 Changes relevant to agents using the Candor package, CLI, and MCP tools.
 Earlier releases predate these notes; the list starts with the first recorded summary.
 
+## 0.1.242
+
+Workflows now learn the person through the opening's missing context topics and save answers by topic, tie findings back to goals and the budget, open Candor once per conversation, and show example bodies for common writes.
+
+## 0.1.241
+
+The weekly check-in resolves a watched note only once its outcome is settled; after a missed or broken watch it updates the note and its revisit date instead.
+
+## 0.1.240
+
+Billing, bank link, and export routes now count against the same API request quota as other calls, so a 429 from them carries the usual Retry-After and RateLimit headers.
+
+## 0.1.239
+
+Credit card terms now include penalty APRs and cash advance limits, and an APR type Candor does not recognize is flagged on the account instead of saved under a blank field. The MCP App moves to MCP Apps SDK 2.
+
+## 0.1.238
+
+ChatGPT and Codex run the get-started workflow when the plugin is set up, and the plugin listing carries its support link and the Candor logo.
+
+## 0.1.237
+
+Candor ships as ten skills: a front door plus workflows to get started, plan a goal, budget, check in weekly, run a full checkup, sort transactions, find money, prep taxes, and add records, using note watches and goal measures.
+
 ## 0.1.236
 
 The CLI now runs on Bun 1.4.4, which checks TLS server names strictly and verifies servers during the handshake, and its bundled dependencies carry this week's security fixes.

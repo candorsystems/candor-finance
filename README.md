@@ -1,6 +1,6 @@
 # Candor Finance
 
-[![Stay on top of your money with your AI agent](https://candor.money/og/candor-og-home.png)](https://candor.money)
+[![Reach your money goals with your AI agent](https://candor.money/og/candor-og-home.png)](https://candor.money)
 
 Tell ChatGPT, Claude, or the agent you already use what you want with your
 money, like paying off the cards or buying a home, even if you haven't worked
@@ -42,9 +42,12 @@ Setup guides for each agent are at
 
 ## For agents: connection materials
 
-The official personal finance package for [Candor](https://candor.money). It
-gives the AI agent you already use an organized view of accounts, spending,
-budgets, goals, investments, notes, and the decisions you approve.
+The official package for [Candor](https://candor.money). It gives the AI agent
+you already use the person's records, the figures Candor computes from them,
+the goals, budget, rules, and notes it keeps, and Candor's weekly review, plus
+one skill per job: getting started, planning a goal, budgeting, weekly
+check-ins, a full checkup, sorting transactions, finding money, tax prep, and
+adding records.
 
 Give your agent [START.md](https://candor.money/START.md). It has the MCP
 connection, skill download, and supported package options. The agent uses its
@@ -53,8 +56,9 @@ own harness's setup workflow and asks you only for steps it cannot complete.
 - **MCP:** `https://api.candor.money/mcp`, Streamable HTTP with OAuth discovery and dynamic
   client registration. Your harness obtains its own client ID; no shared client
   secret is needed.
-- **Skill:** the complete [skills/candor-finance](./skills/candor-finance)
-  directory, including its methods and references. START also links a skill ZIP.
+- **Skills:** every directory under [skills/](./skills). `candor-finance` is the
+  front door and the rest are workflows. START also links a single-skill ZIP
+  that carries all of them for hosts that upload one skill.
 - **Supported packages:** Agent Plugins 1.0.0 (`plugin.json`, `skills/`,
   `mcp.json`), Claude and Codex marketplaces (`.claude-plugin/` and
   `.codex-plugin/`), and a Gemini CLI extension (`gemini-extension.json`).

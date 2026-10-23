@@ -4,13 +4,15 @@
 
 **Name:** Candor Finance
 
-**Short description:** The finance app for your AI agent.
+**Short description:** Reach your money goals with your AI agent.
 
-**Description:** Candor is the finance app for your AI agent: budgets, goals,
-recurring bills, and the decisions you want to keep. Once a week it reviews
-your records and tells your agent what's worth talking through. Connect your
-accounts on Candor, then use your agent to review your finances with the
-records and context in one place.
+**Description:** Tell your agent what you want with your money, like paying off the cards or buying a home, even if you haven't worked it out yet. With Candor it builds the plan from your real accounts: goals with a pace, a budget that pays for them, and every charge sorted to match. Every week Candor reviews your records and tells your agent what's worth talking through, like a goal slipping or a bill that went up. Candor never moves money.
+
+**Starter prompts:**
+
+- Help me pay off my credit cards.
+- Where does my money go each month?
+- What should I know about my money this week?
 
 ## Service endpoints
 
@@ -27,12 +29,12 @@ records and context in one place.
 - Agent Plugins 1.0.0 clients use the root `plugin.json`, `skills/`, and
   `mcp.json` portable package.
 - OpenAI/ChatGPT and Claude use the authenticated remote MCP plus the included
-  Candor finance skill. ChatGPT installs both from the Candor Finance listing
+  Candor skills. ChatGPT installs both from the Candor Finance listing
   in its plugin directory. Claude connects the tools from the Candor Finance
   listing in its connector directory on every plan and loads the skill
   separately. Claude on paid plans and Claude Code sync this repository as a
   plugin marketplace, which brings the tools and skill together.
-- Grok Bot and other agents with their own computer fetch `skills/candor-finance`
+- Grok Bot and other agents with their own computer fetch `skills/`
   and add the remote MCP server themselves.
 - OpenClaw uses the root finance skill with native MCP and OAuth where its
   installed host supports them. Reuse a working CLI-managed installation;

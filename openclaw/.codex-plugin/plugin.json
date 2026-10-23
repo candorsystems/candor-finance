@@ -1,7 +1,7 @@
 {
   "name": "candor-finance",
-  "version": "0.1.236",
-  "description": "Help OpenClaw with personal finance by organizing accounts, spending, budgets, goals, investments, and follow-through.",
+  "version": "0.1.242",
+  "description": "Reach your money goals with OpenClaw. It plans from your real accounts, with goals that track themselves and a budget that pays for them, and every week Candor tells it what's worth talking through.",
   "author": {
     "name": "Candor",
     "email": "support@candor.money",
