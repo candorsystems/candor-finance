@@ -1,8 +1,8 @@
 {
   "name": "candor-finance",
   "displayName": "Candor Finance",
-  "version": "0.1.242",
-  "description": "Reach your money goals with Claude. It plans from your real accounts, with goals that track themselves and a budget that pays for them, and every week Candor tells it what's worth talking through.",
+  "version": "1.1.0",
+  "description": "Reach your money goals with Claude: goals and a budget from your real accounts, and a weekly review of what's worth talking through.",
   "author": {
     "name": "Candor",
     "email": "support@candor.money",
@@ -11,6 +11,11 @@
   "homepage": "https://candor.money",
   "repository": "https://github.com/candorsystems/candor-finance",
   "license": "Proprietary",
+  "icon": "./assets/logo.svg",
+  "documentationUrl": "https://candor.money/connect/claude",
+  "supportUrl": "https://candor.money/support",
+  "privacyPolicyUrl": "https://candor.money/privacy",
+  "termsOfServiceUrl": "https://candor.money/terms",
   "keywords": [
     "finance",
     "personal-finance",

@@ -97,6 +97,28 @@ through. You advise and act; Candor keeps the facts and the plan.
 - **The response wins.** Where a response's `next_actions` or warnings differ
   from this skill, follow the response.
 
+### When Candor gets in your way
+
+An error, a confusing contract, a workaround, more steps than it should take,
+or a result that looks wrong: you can tell the Candor team who build it, so
+they fix it. The report goes to them, not into the person's workspace. Once
+the person's task is done, offer once to send it, and send it only if they
+agree. Name operations and error codes; leave out account
+numbers, amounts, merchant and institution names, and people.
+
+```sh
+candor feedback --file FEEDBACK.json --reason "Send the report the person agreed to"
+```
+
+```json
+{
+  "kind": "friction",
+  "about_operation": "transactions.list",
+  "title": "transactions.list needed three retries to filter one month",
+  "body": "A one-month read with a category filter returned internal_error twice before it worked."
+}
+```
+
 ## Start here
 
 1. Run `candor open`. Read, in order: what changed since the last opening,
@@ -201,13 +223,3 @@ The person's dashboard has a Prompts page of conversations Candor suggests.
 When they bring one, read it with `candor conversations get --id SET_ID --reason "Read the suggested conversation the person picked"`,
 or `candor conversations get --reason "Read the latest suggested conversations"` for the latest set. Investigate the one they picked; the
 rest are optional. A suggestion is a place to start, not a plan they chose.
-
-## When Candor misbehaves
-
-If Candor errors, needs a workaround, or takes more steps than it should,
-finish the person's task first, then offer to send Candor a product report
-with `candor feedback --file FEEDBACK.json --reason "Send the product report the person agreed to"`. Send it only if they agree.
-Strip account numbers, balances, amounts, merchant and institution names,
-people, and other personal data from it; describe what Candor did using
-operation names and error codes, and tell them in one line what the report
-will say.

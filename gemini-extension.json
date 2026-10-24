@@ -1,15 +1,15 @@
 {
   "name": "candor-finance",
-  "version": "0.1.242",
-  "description": "Reach your money goals with Gemini. It plans from your real accounts, with goals that track themselves and a budget that pays for them, and every week Candor tells it what's worth talking through.",
+  "version": "1.1.0",
+  "description": "Candor is a personal finance app that helps you reach your money goals with Gemini. Your agent works from your real bank, card, loan, and investment accounts: it sets up goals and a budget with you, finds money you are losing to fees, price increases, or missed refunds, and remembers your plan and decisions between conversations. Every week Candor reviews your spending, bills, debt, savings, and investments and tells your agent what's worth talking through and why. Candor never moves money.",
   "mcpServers": {
     "candor": {
       "headers": {
         "Candor-Agent-Package-Route": "gemini-extension",
-        "Candor-Agent-Package-Version": "0.1.242"
+        "Candor-Agent-Package-Version": "1.1.0"
       },
       "httpUrl": "https://api.candor.money/mcp",
-      "description": "Candor personal-finance workspace"
+      "description": "Candor is a personal finance app that helps you reach your money goals with Gemini."
     }
   }
 }

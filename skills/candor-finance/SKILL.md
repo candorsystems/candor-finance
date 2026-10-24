@@ -3,7 +3,7 @@ name: candor-finance
 description: "Opens the person's Candor workspace, says where their money stands, and routes to the right Candor workflow. Use when the person asks about their money, spending, balances, bills, debts, goals, or plans and no more specific Candor skill fits, including a quick question about a balance, a bill, or a charge, or a life decision that costs or earns money even when money is not named."
 compatibility: Requires an authenticated Candor workspace and either the Candor tools included with the installed package or Candor CLI 0.3.158 or newer.
 metadata:
-  candor-package-version: "0.1.242"
+  candor-package-version: "1.1.0"
   author: Candor
   version: "0.3.0"
   candor-skill-version: "2026-10-23"
@@ -87,6 +87,28 @@ through. You advise and act; Candor keeps the facts and the plan.
 - **Give every call a short `reason`** the person can read in their history.
 - **The response wins.** Where a response's `next_actions` or warnings differ
   from this skill, follow the response.
+
+### When Candor gets in your way
+
+An error, a confusing contract, a workaround, more steps than it should take,
+or a result that looks wrong: you can tell the Candor team who build it, so
+they fix it. The report goes to them, not into the person's workspace. Once
+the person's task is done, offer once to send it, and send it only if they
+agree. Name operations and error codes; leave out account
+numbers, amounts, merchant and institution names, and people.
+
+```text
+candor_write({
+  "operation": "feedback.submit",
+  "reason": "Send the report the person agreed to",
+  "input": {
+    "kind": "friction",
+    "about_operation": "transactions.list",
+    "title": "transactions.list needed three retries to filter one month",
+    "body": "A one-month read with a category filter returned internal_error twice before it worked."
+  }
+})
+```
 
 ## Start here
 
@@ -192,13 +214,3 @@ The person's dashboard has a Prompts page of conversations Candor suggests.
 When they bring one, read it with `candor_get({"operation":"conversations.get","reason":"Read the suggested conversation the person picked","args":{"id":"SET_ID"}})`,
 or `candor_get({"operation":"conversations.get","reason":"Read the latest suggested conversations"})` for the latest set. Investigate the one they picked; the
 rest are optional. A suggestion is a place to start, not a plan they chose.
-
-## When Candor misbehaves
-
-If Candor errors, needs a workaround, or takes more steps than it should,
-finish the person's task first, then offer to send Candor a product report
-with `candor_write({"operation":"feedback.submit","reason":"Send the product report the person agreed to","input":"<feedback.submit input object; candor_schema lists its fields>"})`. Send it only if they agree.
-Strip account numbers, balances, amounts, merchant and institution names,
-people, and other personal data from it; describe what Candor did using
-operation names and error codes, and tell them in one line what the report
-will say.

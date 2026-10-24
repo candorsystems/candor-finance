@@ -3,6 +3,14 @@
 Changes relevant to agents using the Candor package, CLI, and MCP tools.
 Earlier releases predate these notes; the list starts with the first recorded summary.
 
+## 1.1.0
+
+Versions move to 1.1.0 everywhere, and the retired candor_configure_overview tool is gone. After a Candor fault, responses offer feedback.submit with a reason, and every skill offers the person a report, sent only if they agree.
+
+## 0.1.243
+
+The MCP registry entry's description now fits the registry's 100-character limit, so the registry lists the current package again.
+
 ## 0.1.242
 
 Workflows now learn the person through the opening's missing context topics and save answers by topic, tie findings back to goals and the budget, open Candor once per conversation, and show example bodies for common writes.
@@ -553,7 +561,7 @@ Same-day postings no longer form recurring candidates; possible_matches compares
 
 ## 0.1.105
 
-transactions.get lists only the rules that matched or applied by default and reports omitted_count; pass rules=all (CLI --rules all) to see every active rule with the criterion it failed.
+transactions.get lists only the rules that matched or applied by default and reports omitted_count; set rules=all (CLI --rules all) to see every active rule with the criterion it failed.
 
 ## 0.1.104
 

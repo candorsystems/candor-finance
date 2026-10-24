@@ -1,18 +1,18 @@
 # Candor Finance
 
-[![Reach your money goals with your AI agent](https://candor.money/og/candor-og-home.png)](https://candor.money)
+Candor is a personal finance app that helps you reach your money goals with ChatGPT, Claude, or the AI agent you already use. Your agent works from your real bank, card, loan, and investment accounts: it sets up goals and a budget with you, finds money you are losing to fees, price increases, or missed refunds, and remembers your plan and decisions between conversations. Every week Candor reviews your spending, bills, debt, savings, and investments and tells your agent what's worth talking through and why. Candor never moves money.
 
-Tell ChatGPT, Claude, or the agent you already use what you want with your
-money, like paying off the cards or buying a home, even if you haven't worked
-it out yet. With Candor, it builds the plan from your real accounts: goals
-with a pace, a budget that pays for them, and every charge sorted to match.
-Then it keeps you on it. Once a week Candor reviews your records and tells
-your agent what's worth talking through and why, like a goal slipping or a
-bill that went up.
+[![Reach your money goals with your AI agent](https://candor.money/og/candor-og-home.png)](https://candor.money)
 
 **[Start free trial](https://app.candor.money/signup)** ·
 [See how it works](https://candor.money) ·
 [Security](https://candor.money/security)
+
+- Works with ChatGPT, Codex, Claude, Claude Code, Grok Bot, Gemini CLI,
+  OpenClaw, Hermes, and any agent that supports MCP and Agent Skills.
+- US accounts connect read-only on Candor's website.
+- Your data is not sold or used to train models.
+- Every agent action is recorded with its reason.
 
 ## Add Candor to your agent
 
@@ -39,6 +39,27 @@ Setup guides for each agent are at
   its reason, and your plans and decisions stay saved when you switch agents.
 - **Your data isn't sold or used to train models.** No ads. You're the
   customer. See [Privacy](https://candor.money/privacy).
+
+## What this plugin runs and sends
+
+- **No hooks, commands, agents, or background processes.** The plugin adds
+  skills and one MCP server, nothing else.
+- **Skills are instructions.** Each skill is Markdown. The full checkup skill
+  also includes `scripts/review-sweep.mjs`, a helper the agent can run with
+  Node on Candor responses it saved. It reads only the files it is given,
+  prints a summary, and makes no network requests.
+- **One MCP server, Candor's own.** It is the hosted server at
+  `https://api.candor.money/mcp`, which your agent authorizes with OAuth. Through it the
+  agent reads and saves your Candor workspace. It cannot move money or change
+  anything at a financial institution.
+- **Two non-secret headers.** Requests to that server carry
+  `Candor-Agent-Package-Version` and, where the host supports it,
+  `Candor-Agent-Package-Route`, naming the package version and where it
+  was installed from. Neither holds a credential or personal data.
+- **No local secrets.** The plugin reads no environment variables,
+  credentials, or local files beyond those the agent hands the helper script.
+- **`openclaw/` is separate.** That subtree is a CLI-based skill for OpenClaw
+  only and is not part of this plugin.
 
 ## For agents: connection materials
 

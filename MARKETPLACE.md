@@ -6,7 +6,7 @@
 
 **Short description:** Reach your money goals with your AI agent.
 
-**Description:** Tell your agent what you want with your money, like paying off the cards or buying a home, even if you haven't worked it out yet. With Candor it builds the plan from your real accounts: goals with a pace, a budget that pays for them, and every charge sorted to match. Every week Candor reviews your records and tells your agent what's worth talking through, like a goal slipping or a bill that went up. Candor never moves money.
+**Description:** Candor is a personal finance app that helps you reach your money goals with ChatGPT, Claude, or the AI agent you already use. Your agent works from your real bank, card, loan, and investment accounts: it sets up goals and a budget with you, finds money you are losing to fees, price increases, or missed refunds, and remembers your plan and decisions between conversations. Every week Candor reviews your spending, bills, debt, savings, and investments and tells your agent what's worth talking through and why. Candor never moves money.
 
 **Starter prompts:**
 

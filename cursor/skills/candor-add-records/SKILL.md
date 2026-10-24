@@ -3,7 +3,7 @@ name: candor-add-records
 description: "Adds financial records the bank connection does not supply to Candor: statements, CSV exports, screenshots of balances or holdings, manual accounts such as cash or an account elsewhere, single transactions, card or loan terms from a statement, and property values. Checks each import against the source before and after it lands, and can undo it. Use when the person shares a statement, file, or screenshot, says an account is missing, wants to add cash or a manual account, or wants to track a home or rental property."
 compatibility: Requires Candor CLI 0.3.158 or newer, or the Candor MCP server, and an authenticated Candor workspace.
 metadata:
-  candor-package-version: "0.1.242"
+  candor-package-version: "1.1.0"
   author: Candor
   version: "0.3.0"
   candor-domain-id: add-records
@@ -68,6 +68,28 @@ through. You advise and act; Candor keeps the facts and the plan.
 - **Give every call a short `reason`** the person can read in their history.
 - **The response wins.** Where a response's `next_actions` or warnings differ
   from this skill, follow the response.
+
+### When Candor gets in your way
+
+An error, a confusing contract, a workaround, more steps than it should take,
+or a result that looks wrong: you can tell the Candor team who build it, so
+they fix it. The report goes to them, not into the person's workspace. Once
+the person's task is done, offer once to send it, and send it only if they
+agree. Name operations and error codes; leave out account
+numbers, amounts, merchant and institution names, and people.
+
+```text
+candor_write({
+  "operation": "feedback.submit",
+  "reason": "Send the report the person agreed to",
+  "input": {
+    "kind": "friction",
+    "about_operation": "transactions.list",
+    "title": "transactions.list needed three retries to filter one month",
+    "body": "A one-month read with a category filter returned internal_error twice before it worked."
+  }
+})
+```
 
 ## Workflow
 

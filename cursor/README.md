@@ -1,6 +1,6 @@
 # Candor Finance for Grok Bot
 
-Reach your money goals with Grok. It plans from your real accounts, with goals that track themselves and a budget that pays for them, and every week Candor tells it what's worth talking through.
+Candor is a personal finance app that helps you reach your money goals with ChatGPT, Claude, or the AI agent you already use. Your agent works from your real bank, card, loan, and investment accounts: it sets up goals and a budget with you, finds money you are losing to fees, price increases, or missed refunds, and remembers your plan and decisions between conversations. Every week Candor reviews your spending, bills, debt, savings, and investments and tells your agent what's worth talking through and why. Candor never moves money.
 
 Requires an existing Candor account with active access. Financial accounts are
 connected on Candor's website; Grok can refresh accounts you already connected.

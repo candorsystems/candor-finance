@@ -1,6 +1,6 @@
 {
   "name": "candor",
-  "description": "Official Candor plugin: reach your money goals with Claude.",
+  "description": "Reach your money goals with Claude.",
   "owner": {
     "name": "Candor",
     "email": "support@candor.money",
@@ -15,8 +15,8 @@
         "url": "https://candor.money"
       },
       "source": "./",
-      "description": "Reach your money goals with Claude. It plans from your real accounts, with goals that track themselves and a budget that pays for them, and every week Candor tells it what's worth talking through.",
-      "version": "0.1.242",
+      "description": "Reach your money goals with Claude: goals and a budget from your real accounts, and a weekly review of what's worth talking through.",
+      "version": "1.1.0",
       "category": "productivity",
       "tags": [
         "finance",
