@@ -1,15 +1,15 @@
 ---
 name: candor-budget
 description: "Shows where the person's money goes from their real records and saves a budget they can hold to, built from what they actually spend and fit to what they say, then keeps it current. Use when the person asks where their money goes, what they spend each month, how much they can save, why they are over this month, or wants a budget, a spending plan, or to change a budget line. For saving toward a specific goal, use candor-plan-a-goal."
-compatibility: Requires Candor CLI 0.3.158 or newer, or the Candor MCP server, and an authenticated Candor workspace.
+compatibility: Requires Candor CLI 0.3.165 or newer, or the Candor MCP server, and an authenticated Candor workspace.
 metadata:
-  candor-package-version: "1.1.0"
+  candor-package-version: "1.2.0"
   author: Candor
   version: "0.3.0"
   candor-domain-id: budget
   candor-intents: budget, make me a budget, spending plan, where does my money go, where is my money going, monthly spending, what do i spend, how much can i save, savings capacity, over budget, budget check, change my budget, cash flow, spending breakdown
   candor-introduced-in: "2026-10-22"
-  candor-updated-in: "2026-10-23"
+  candor-updated-in: "2026-11-01"
 ---
 
 > The calls below are Candor MCP tool calls. Replace placeholders such as `TRANSACTION_ID` with values from earlier responses; where an `input` names an operation instead of showing an object, `candor_schema` lists its fields.

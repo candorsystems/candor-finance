@@ -1,15 +1,15 @@
 ---
 name: candor-find-money
 description: "Finds money the person is losing or is owed, gets it back with their okay, and has Candor watch the records until it lands. Use when they ask \"am I overpaying?\", spot a double charge, a fee, a refund or reimbursement that never came, a charge after cancelling, a bill that went up, a subscription they forgot, a free trial about to bill, or a paycheck that is late, short, or missing. For which charges repeat or how they are categorized, use candor-sort-transactions."
-compatibility: Requires Candor CLI 0.3.158 or newer, or the Candor MCP server, and an authenticated Candor workspace.
+compatibility: Requires Candor CLI 0.3.165 or newer, or the Candor MCP server, and an authenticated Candor workspace.
 metadata:
-  candor-package-version: "1.1.0"
+  candor-package-version: "1.2.0"
   author: Candor
   version: "0.3.0"
   candor-domain-id: find-money
   candor-intents: find money, am i overpaying, save money, double charge, duplicate charge, charged twice, bank fee, overdraft fee, missing refund, refund never came, reimbursement, charged after cancelling, price increase, bill went up, forgotten subscription, cancel subscription, free trial, trial ending, missing paycheck, paycheck late, paycheck smaller, money recovery
   candor-introduced-in: "2026-10-22"
-  candor-updated-in: "2026-10-23"
+  candor-updated-in: "2026-11-01"
 ---
 
 > The calls below are Candor MCP tool calls. Replace placeholders such as `TRANSACTION_ID` with values from earlier responses; where an `input` names an operation instead of showing an object, `candor_schema` lists its fields.

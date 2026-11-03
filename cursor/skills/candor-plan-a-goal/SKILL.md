@@ -1,15 +1,15 @@
 ---
 name: candor-plan-a-goal
 description: "Turns what the person wants from their money into a plan Candor tracks: goals with a measure, a pace, and a next step, plus the budget that pays for them, with a straight answer on what works and what does not yet. Use when the person wants to pay off debt, save for something, build an emergency fund, buy a home or car, work less, take time off, help family, or asks whether they can afford something, even when the goal is vague or has no numbers yet."
-compatibility: Requires Candor CLI 0.3.158 or newer, or the Candor MCP server, and an authenticated Candor workspace.
+compatibility: Requires Candor CLI 0.3.165 or newer, or the Candor MCP server, and an authenticated Candor workspace.
 metadata:
-  candor-package-version: "1.1.0"
+  candor-package-version: "1.2.0"
   author: Candor
   version: "0.3.0"
   candor-domain-id: plan-a-goal
   candor-intents: savings goal, pay off debt, pay off my cards, emergency fund, save for, down payment, can i afford, afford it, work less, quit my job, runway, sabbatical, am i saving enough, retirement goal, goal check in, on track, scenario planning, what if
   candor-introduced-in: "2026-10-22"
-  candor-updated-in: "2026-10-23"
+  candor-updated-in: "2026-11-01"
 ---
 
 > The calls below are Candor MCP tool calls. Replace placeholders such as `TRANSACTION_ID` with values from earlier responses; where an `input` names an operation instead of showing an object, `candor_schema` lists its fields.

@@ -1,15 +1,15 @@
 ---
 name: candor-add-records
 description: "Adds financial records the bank connection does not supply to Candor: statements, CSV exports, screenshots of balances or holdings, manual accounts such as cash or an account elsewhere, single transactions, card or loan terms from a statement, and property values. Checks each import against the source before and after it lands, and can undo it. Use when the person shares a statement, file, or screenshot, says an account is missing, wants to add cash or a manual account, or wants to track a home or rental property."
-compatibility: Requires Candor CLI 0.3.158 or newer, or the Candor MCP server, and an authenticated Candor workspace.
+compatibility: Requires Candor CLI 0.3.165 or newer, or the Candor MCP server, and an authenticated Candor workspace.
 metadata:
-  candor-package-version: "1.1.0"
+  candor-package-version: "1.2.0"
   author: Candor
   version: "0.3.0"
   candor-domain-id: add-records
   candor-intents: import statement, upload statement, add a csv, screenshot of my portfolio, add an account, manual account, add cash, account is missing, add a transaction, import holdings, add my 401k, card terms from statement, track my house, home value, rental property, property value, undo import
   candor-introduced-in: "2026-10-22"
-  candor-updated-in: "2026-10-23"
+  candor-updated-in: "2026-11-01"
 ---
 
 > The calls below are Candor MCP tool calls. Replace placeholders such as `TRANSACTION_ID` with values from earlier responses; where an `input` names an operation instead of showing an object, `candor_schema` lists its fields.

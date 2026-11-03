@@ -3,6 +3,10 @@
 Changes relevant to agents using the Candor package, CLI, and MCP tools.
 Earlier releases predate these notes; the list starts with the first recorded summary.
 
+## 1.2.0
+
+Save report pages with reports.save, live or snapshot; reports.preview draws a draft, reports.pin keeps one in the sidebar, and candor open shows a page's error. Reads say what each money figure counts and what a period's totals leave out.
+
 ## 1.1.0
 
 Versions move to 1.1.0 everywhere, and the retired candor_configure_overview tool is gone. After a Candor fault, responses offer feedback.submit with a reason, and every skill offers the person a report, sent only if they agree.

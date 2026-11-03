@@ -1,15 +1,15 @@
 ---
 name: candor-full-checkup
 description: "Runs an adviser-style review of the person's whole financial life from their Candor records, covering spending leaks, debt and credit, cash and reserves, goals and budget, investments and retirement, benefits, and insurance, and ends with the one to three things most worth doing. Use when the person asks to review their finances, for a financial checkup or annual review, what they should focus on or what to fix first, or after a life event. For a weekly what-changed check or a quick how-am-I-doing, use candor-weekly-check-in."
-compatibility: Requires Candor CLI 0.3.158 or newer, or the Candor MCP server, and an authenticated Candor workspace.
+compatibility: Requires Candor CLI 0.3.165 or newer, or the Candor MCP server, and an authenticated Candor workspace.
 metadata:
-  candor-package-version: "1.1.0"
+  candor-package-version: "1.2.0"
   author: Candor
   version: "0.3.0"
   candor-domain-id: full-checkup
   candor-intents: financial review, full review, financial checkup, annual review, check my finances, review my finances, what should i focus on, what should i fix first, what deserves attention, life event, new job, new baby, getting married, investment fees, 401k match, retirement contributions, credit utilization, card rewards, hsa, fsa, insurance renewal
   candor-introduced-in: "2026-10-22"
-  candor-updated-in: "2026-10-23"
+  candor-updated-in: "2026-11-01"
 ---
 
 > The calls below are Candor MCP tool calls. Replace placeholders such as `TRANSACTION_ID` with values from earlier responses; where an `input` names an operation instead of showing an object, `candor_schema` lists its fields.

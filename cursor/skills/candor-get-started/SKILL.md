@@ -1,15 +1,15 @@
 ---
 name: candor-get-started
 description: "Runs the first conversation after the person connects Candor: a first look at their money from the real records, what is worth a closer look, and what they want, saved in their words, so the next conversation starts from a plan. Use when Candor was just connected or installed, when the person says set up, get started, take a look, or what can you do with my money, or when the workspace has records but no goals or notes yet."
-compatibility: Requires Candor CLI 0.3.158 or newer, or the Candor MCP server, and an authenticated Candor workspace.
+compatibility: Requires Candor CLI 0.3.165 or newer, or the Candor MCP server, and an authenticated Candor workspace.
 metadata:
-  candor-package-version: "1.1.0"
+  candor-package-version: "1.2.0"
   author: Candor
   version: "0.3.0"
   candor-domain-id: get-started
   candor-intents: get started, set up candor, first look, just connected, take a look at my finances, what can you do, new account review, onboarding, first review, first pass
   candor-introduced-in: "2026-10-22"
-  candor-updated-in: "2026-10-23"
+  candor-updated-in: "2026-11-01"
 ---
 
 > The calls below are Candor MCP tool calls. Replace placeholders such as `TRANSACTION_ID` with values from earlier responses; where an `input` names an operation instead of showing an object, `candor_schema` lists its fields.

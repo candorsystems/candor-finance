@@ -1,15 +1,15 @@
 ---
 name: candor-weekly-check-in
 description: "Runs a returning check-in on the person's money: what changed since last time, how each goal moved, notes and watches that came due, and each area Candor's weekly review raised, looked into and recorded. Also sets up recurring check-ins on hosts that can schedule them. Use when the person comes back, asks what changed, how they are doing, how things are going, or what this week's review raised, or asks for a weekly or regular money check-in."
-compatibility: Requires Candor CLI 0.3.158 or newer, or the Candor MCP server, and an authenticated Candor workspace.
+compatibility: Requires Candor CLI 0.3.165 or newer, or the Candor MCP server, and an authenticated Candor workspace.
 metadata:
-  candor-package-version: "1.1.0"
+  candor-package-version: "1.2.0"
   author: Candor
   version: "0.3.0"
   candor-domain-id: weekly-check-in
   candor-intents: what changed, check in, weekly check in, how am i doing, this week's review, what did the review raise, anything i should know, weekly briefing, monthly check in, schedule a check in, recurring check
   candor-introduced-in: "2026-10-22"
-  candor-updated-in: "2026-10-23"
+  candor-updated-in: "2026-11-01"
 ---
 
 > The calls below are Candor MCP tool calls. Replace placeholders such as `TRANSACTION_ID` with values from earlier responses; where an `input` names an operation instead of showing an object, `candor_schema` lists its fields.

@@ -1,15 +1,15 @@
 ---
 name: candor-tax-prep
 description: "Gathers a tax year's records into a packet for the person's preparer or tax software: candidate records grouped and tagged, gaps and missing receipts listed, and the questions a preparer will ask. Use when the person says \"get my taxes ready\", \"what can I deduct\", \"pull my business expenses\", \"charitable donations\", \"medical expenses\", \"1099 income\", or asks what their accountant needs. It organizes records and never decides what is deductible."
-compatibility: Requires Candor CLI 0.3.158 or newer, or the Candor MCP server, and an authenticated Candor workspace.
+compatibility: Requires Candor CLI 0.3.165 or newer, or the Candor MCP server, and an authenticated Candor workspace.
 metadata:
-  candor-package-version: "1.1.0"
+  candor-package-version: "1.2.0"
   author: Candor
   version: "0.3.0"
   candor-domain-id: tax-prep
   candor-intents: taxes, tax prep, tax preparation, get my taxes ready, what can i deduct, deductions, business expenses, charitable donations, medical expenses, 1099 income, accountant, tax preparer, tax year, schedule c, estimated taxes
   candor-introduced-in: "2026-10-22"
-  candor-updated-in: "2026-10-23"
+  candor-updated-in: "2026-11-01"
 ---
 
 > The calls below are Candor MCP tool calls. Replace placeholders such as `TRANSACTION_ID` with values from earlier responses; where an `input` names an operation instead of showing an object, `candor_schema` lists its fields.

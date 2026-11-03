@@ -1,15 +1,15 @@
 ---
 name: candor-sort-transactions
 description: "Makes the person's records read right: fixes categories, splits mixed purchases, writes rules so a merchant always means the same thing, tags money a goal tracks, and curates which charges repeat. Use when the person says a category is wrong, asks to clean up or organize transactions, explains what a merchant is, wants a side business or trip tracked, or asks to tidy subscriptions and bills on the recurring list. For price increases or stopping a charge, use candor-find-money."
-compatibility: Requires Candor CLI 0.3.158 or newer, or the Candor MCP server, and an authenticated Candor workspace.
+compatibility: Requires Candor CLI 0.3.165 or newer, or the Candor MCP server, and an authenticated Candor workspace.
 metadata:
-  candor-package-version: "1.1.0"
+  candor-package-version: "1.2.0"
   author: Candor
   version: "0.3.0"
   candor-domain-id: sort-transactions
   candor-intents: fix category, wrong category, recategorize, categorize transactions, clean up transactions, organize my transactions, split a transaction, merchant rule, always categorize, tag transactions, track side business, recurring list, confirm subscriptions, tidy my bills, record maintenance, cleanup
   candor-introduced-in: "2026-10-22"
-  candor-updated-in: "2026-10-23"
+  candor-updated-in: "2026-11-01"
 ---
 
 > The calls below are Candor MCP tool calls. Replace placeholders such as `TRANSACTION_ID` with values from earlier responses; where an `input` names an operation instead of showing an object, `candor_schema` lists its fields.

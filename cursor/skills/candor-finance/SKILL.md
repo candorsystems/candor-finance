@@ -1,15 +1,15 @@
 ---
 name: candor-finance
 description: "Opens the person's Candor workspace, says where their money stands, and routes to the right Candor workflow. Use when the person asks about their money, spending, balances, bills, debts, goals, or plans and no more specific Candor skill fits, including a quick question about a balance, a bill, or a charge, or a life decision that costs or earns money even when money is not named."
-compatibility: Requires an authenticated Candor workspace and either the Candor tools included with the installed package or Candor CLI 0.3.158 or newer.
+compatibility: Requires an authenticated Candor workspace and either the Candor tools included with the installed package or Candor CLI 0.3.165 or newer.
 metadata:
-  candor-package-version: "1.1.0"
+  candor-package-version: "1.2.0"
   author: Candor
   version: "0.3.0"
-  candor-skill-version: "2026-10-23"
-  candor-cli: ">=0.3.158 <0.4.0"
+  candor-skill-version: "2026-11-01"
+  candor-cli: ">=0.3.165 <0.4.0"
   candor-introduced-in: "2026-07-23"
-  candor-updated-in: "2026-10-23"
+  candor-updated-in: "2026-11-01"
 ---
 
 ## Candor tools
@@ -176,7 +176,8 @@ call: `candor_visualize({"reason":"Show the overview"})`,
 `candor_visualize({"panel":"goals","reason":"Show goal progress"})`,
 `candor_visualize({"panel":"budget-status","period":"YYYY-MM","reason":"Show this month's budget"})`,
 or `candor_visualize({"panel":"coming-up","reason":"Show upcoming bills"})`. Read the panel's text before you talk about it; never rebuild a
-chart or its figures yourself.
+chart or its figures yourself. When they want a page to keep or come back
+to, save it as a report in Candor, not in the chat; read Reports below first.
 
 ## Gotchas
 
@@ -204,6 +205,9 @@ chart or its figures yourself.
   charge, deposit, or balance.
 - [Reading records](references/reading-records.md): large reads, pagination,
   coverage gaps, partial results, and visuals.
+- [Reports](references/reports.md): the person wants a page to come back to,
+  a dashboard of what they watch or a review of a period, or an artifact
+  brought into Candor.
 - [Access and recovery](references/access-and-recovery.md): Candor tools
   missing, an opening that needs an account step, a sync still running, or a
   broken connection.

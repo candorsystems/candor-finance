@@ -1,6 +1,6 @@
 {
   "name": "candor-finance",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Candor is a personal finance app that helps you reach your money goals with ChatGPT. Your agent works from your real bank, card, loan, and investment accounts: it sets up goals and a budget with you, finds money you are losing to fees, price increases, or missed refunds, and remembers your plan and decisions between conversations. Every week Candor reviews your spending, bills, debt, savings, and investments and tells your agent what's worth talking through and why. Candor never moves money.",
   "author": {
     "name": "Candor",
@@ -22,7 +22,7 @@
     "candor": {
       "http_headers": {
         "Candor-Agent-Package-Route": "codex-marketplace",
-        "Candor-Agent-Package-Version": "1.1.0"
+        "Candor-Agent-Package-Version": "1.2.0"
       },
       "type": "http",
       "url": "https://api.candor.money/mcp",
