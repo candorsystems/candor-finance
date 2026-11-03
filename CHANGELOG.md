@@ -3,6 +3,10 @@
 Changes relevant to agents using the Candor package, CLI, and MCP tools.
 Earlier releases predate these notes; the list starts with the first recorded summary.
 
+## 1.3.0
+
+Imported and hand-entered rows can say kind: interest, so a statement's interest counts as interest charged or earned, and a statement's terms stay current for one cycle instead of reading as stale.
+
 ## 1.2.0
 
 Save report pages with reports.save, live or snapshot; reports.preview draws a draft, reports.pin keeps one in the sidebar, and candor open shows a page's error. Reads say what each money figure counts and what a period's totals leave out.
