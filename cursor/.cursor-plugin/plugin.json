@@ -1,7 +1,7 @@
 {
   "name": "candor-finance",
   "displayName": "Candor Finance",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "minClientVersions": {
     "cursor": "never",
     "grokbot": "0.52.0",

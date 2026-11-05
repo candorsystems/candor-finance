@@ -3,6 +3,10 @@
 Changes relevant to agents using the Candor package, CLI, and MCP tools.
 Earlier releases predate these notes; the list starts with the first recorded summary.
 
+## 1.3.1
+
+The budget-status visual adds the pace of flexible and cushion lines alone: what left to spend counts down, with bills and goal funding set aside, and the package adds SECURITY.md for vulnerability reports.
+
 ## 1.3.0
 
 Imported and hand-entered rows can say kind: interest, so a statement's interest counts as interest charged or earned, and a statement's terms stay current for one cycle instead of reading as stale.
