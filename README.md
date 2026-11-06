@@ -44,10 +44,7 @@ Setup guides for each agent are at
 
 - **No hooks, commands, agents, or background processes.** The plugin adds
   skills and one MCP server, nothing else.
-- **Skills are instructions.** Each skill is Markdown. The full checkup skill
-  also includes `scripts/review-sweep.mjs`, a helper the agent can run with
-  Node on Candor responses it saved. It reads only the files it is given,
-  prints a summary, and makes no network requests.
+- **Skills are instructions.** Each skill is Markdown, with no scripts.
 - **One MCP server, Candor's own.** It is the hosted server at
   `https://api.candor.money/mcp`, which your agent authorizes with OAuth. Through it the
   agent reads and saves your Candor workspace. It cannot move money or change
@@ -57,7 +54,7 @@ Setup guides for each agent are at
   `Candor-Agent-Package-Route`, naming the package version and where it
   was installed from. Neither holds a credential or personal data.
 - **No local secrets.** The plugin reads no environment variables,
-  credentials, or local files beyond those the agent hands the helper script.
+  credentials, or local files.
 - **`openclaw/` is separate.** That subtree is a CLI-based skill for OpenClaw
   only and is not part of this plugin.
 

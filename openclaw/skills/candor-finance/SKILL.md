@@ -5,10 +5,10 @@ compatibility: Requires an authenticated Candor workspace and either the Candor 
 metadata:
   author: Candor
   version: 0.3.0
-  candor-skill-version: 2026-11-05
+  candor-skill-version: 2026-11-06
   candor-cli: ">=0.3.165 <0.4.0"
   candor-introduced-in: 2026-07-23
-  candor-updated-in: 2026-11-05
+  candor-updated-in: 2026-11-06
   openclaw:
     homepage: https://candor.money/START.md
     requires:

@@ -1,7 +1,7 @@
 {
   "name": "candor-finance",
   "displayName": "Candor Finance",
-  "version": "1.3.2",
+  "version": "1.3.3",
   "minClientVersions": {
     "cursor": "never",
     "grokbot": "0.52.0",
@@ -15,7 +15,7 @@
   "homepage": "https://candor.money",
   "repository": "https://github.com/candorsystems/candor-finance",
   "license": "MIT",
-  "logo": "assets/logo.svg",
+  "logo": "assets/logo.png",
   "keywords": [
     "candor",
     "finance",

@@ -3,13 +3,13 @@ name: candor-full-checkup
 description: "Runs an adviser-style review of the person's whole financial life from their Candor records, covering spending leaks, debt and credit, cash and reserves, goals and budget, investments and retirement, benefits, and insurance, and ends with the one to three things most worth doing. Use when the person asks to review their finances, for a financial checkup or annual review, what they should focus on or what to fix first, or after a life event. For a weekly what-changed check or a quick how-am-I-doing, use candor-weekly-check-in."
 compatibility: Requires Candor CLI 0.3.165 or newer, or the Candor MCP server, and an authenticated Candor workspace.
 metadata:
-  candor-package-version: "1.3.2"
+  candor-package-version: "1.3.3"
   author: Candor
   version: "0.3.0"
   candor-domain-id: full-checkup
   candor-intents: financial review, full review, financial checkup, annual review, check my finances, review my finances, what should i focus on, what should i fix first, what deserves attention, life event, new job, new baby, getting married, investment fees, 401k match, retirement contributions, credit utilization, card rewards, hsa, fsa, insurance renewal
   candor-introduced-in: "2026-10-22"
-  candor-updated-in: "2026-11-01"
+  candor-updated-in: "2026-11-06"
 ---
 
 > The calls below are Candor MCP tool calls. Replace placeholders such as `TRANSACTION_ID` with values from earlier responses; where an `input` names an operation instead of showing an object, `candor_schema` lists its fields.
@@ -99,7 +99,7 @@ Work through these steps in order:
 ```text
 - [ ] 1. Open, set the scope, and note coverage
 - [ ] 2. Read the records behind each open weekly review area
-- [ ] 3. Sweep everyday money with the bundled script
+- [ ] 3. Sweep everyday money
 - [ ] 4. Check each adviser area the records can support
 - [ ] 5. Shortlist candidates and test each one
 - [ ] 6. Choose one to three; give the rest a reason
@@ -181,8 +181,7 @@ Follow every `next_actions` continuation. As pages arrive, build four short
 lists: avoidable outflows, expected inflows that never came, recurring
 changes, and mismatches such as debt carried beside idle cash or a promo
 ending within 30 days, each with its total and up to five candidates with
-record ids. If you can run code, the bundled sweep builds them for you (see
-Go deeper).
+record ids.
 
 **4. Check each adviser area.** Read only what coverage supports, and say
 which areas you could not check:
@@ -293,13 +292,6 @@ Say in one line what you recorded. Leave out tool names, ids, and mechanics.
 
 ## Go deeper
 
-- [The sweep](scripts/review-sweep.mjs): when you can run code, save each
-  page as JSON and run it with Node over them, passing the end of the period
-  as `until=YYYY-MM-DD`:
-  `node scripts/review-sweep.mjs transactions-1.json transactions-2.json recurring.json balances.json terms.json until=2026-10-31`.
-  It reads only the files you give it, prints only the capped ledger, and
-  says when a page still has more to fetch. Pass recurring pages so its
-  recurring list agrees with Candor's series.
 - [Investments and retirement](references/investments-and-retirement.md):
   holdings, value over time, fund fees, cash drag, employer match,
   contribution limits.
