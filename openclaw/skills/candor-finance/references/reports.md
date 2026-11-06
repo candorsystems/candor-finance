@@ -1,10 +1,12 @@
 # Reports
 
 A report is a page you save for the person in Candor. They open it on the
-Reports tab, labelled as written by you, instead of a page left behind in a
-chat. Use one when they want something to come back to: a dashboard of what
-they watch (live), or a review of a period to keep (snapshot). A one-off
-answer belongs in the chat; a follow-up belongs in a note.
+Reports tab, on the web and in the app, labelled as written by you, instead
+of a page left behind in a chat. Use one when your answer is something they
+will come back to or want to explore, whether or not they asked for a page:
+a dashboard of what they watch (live), a projection with controls they can
+change, or a review of a period to keep (snapshot). Link it in your answer.
+A one-off answer belongs in the chat; a follow-up belongs in a note.
 
 - **Live** reads Candor's figures each time they open it. Compute relative
   dates in the page (this month, the last 90 days).

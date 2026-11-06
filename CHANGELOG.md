@@ -3,6 +3,10 @@
 Changes relevant to agents using the Candor package, CLI, and MCP tools.
 Earlier releases predate these notes; the list starts with the first recorded summary.
 
+## 1.3.2
+
+Budget-status lines add what each was expected to have spent by today and how far off pace it is; the skill and CLI opening say when an answer is worth saving as a report, even unasked.
+
 ## 1.3.1
 
 The budget-status visual adds the pace of flexible and cushion lines alone: what left to spend counts down, with bills and goal funding set aside, and the package adds SECURITY.md for vulnerability reports.
