@@ -6,7 +6,9 @@
 
 **Short description:** Reach your money goals with your AI agent.
 
-**Description:** Candor is a personal finance app that helps you reach your money goals with ChatGPT, Claude, or the AI agent you already use. Your agent works from your real bank, card, loan, and investment accounts: it sets up goals and a budget with you, finds money you are losing to fees, price increases, or missed refunds, and remembers your plan and decisions between conversations. Every week Candor reviews your spending, bills, debt, savings, and investments and tells your agent what's worth talking through and why. Candor never moves money.
+**Description:** Candor is a personal finance app that helps you reach your money goals with ChatGPT, Claude, or the AI agent you already use. Your agent works from your real bank, card, loan, and investment accounts: it sets up goals and a budget with you, finds money you are losing to fees, price increases, or missed refunds, and remembers your plan and decisions between conversations. Candor reviews your spending, bills, debt, savings, and investments and tells your agent what's worth talking through and why. Candor never moves money.
+
+**Pricing:** Free to try with your own transactions. The Personal plan connects your US banks, cards, and brokerages so everything comes in automatically.
 
 **Starter prompts:**
 
@@ -50,6 +52,8 @@ asks for a Client ID, leave it blank. Manual connection values are on
 [Agent Connections](https://app.candor.money/agents).
 [Email us](mailto:support@candor.money) if setup remains blocked.
 
-Billing operations are not exposed to the model. If account access is inactive,
-Candor returns a secure page where the user can finish account or subscription
-setup.
+Billing operations are not exposed to the model. A Candor account opens the
+whole workspace without a plan; only connecting US banks needs the Personal
+plan, which the person starts on Candor's website. When a step happens on the
+website, such as finishing sign-up or connecting a bank, Candor returns the
+exact page to open.

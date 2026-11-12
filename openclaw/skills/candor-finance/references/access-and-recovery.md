@@ -8,12 +8,13 @@ has the connection details and package for every supported agent.
 
 ## The opening asks for an account step
 
-Some openings return an action instead of records: the account is not set up,
-the trial has not started, or access lapsed. Pass through the exact
+Some openings return an action instead of records: the account is not set
+up, or a business workspace's access lapsed. Pass through the exact
 `safe_url` or `recovery_url` Candor returned, say in one sentence what the
 person needs to do there, and try again once they are back. Account setup,
 subscriptions, payment, and connecting banks happen only on secure
-`https://app.candor.money` pages; with no specific link, use
+`https://app.candor.money` pages. With no specific link, banks are connected
+and reconnected on `https://app.candor.money/accounts`, and the rest is on
 `https://app.candor.money/settings`. Never ask for passwords, codes, or
 account numbers in chat.
 
@@ -21,14 +22,19 @@ account numbers in chat.
 
 - **A sync is still running:** say the first sync is filling in, and open
   again once it finishes. Do not report empty months as no spending.
-- **No account connected:** list connections before suggesting a new one. A
+- **No accounts yet:** a free workspace starts here. Add the person's
+  accounts and history from what they share (see `candor-add-records`);
+  Candor works from those records the same way. Connecting banks is optional, US
+  institutions only, on the Personal plan the person starts on the web.
+- **A bank that stopped:** list connections before suggesting a new one. A
   connection that errored needs repair on the web, not a second connection.
 - **Every account is excluded:** an account needs including. Check its
   inclusion with `candor accounts policy get ACCOUNT_ID --reason "Check whether the account is included"`; set it with
   `candor accounts policy set --file POLICY_FILE --reason "Set the account role the person described"` when the person says to.
 - **Balances only:** say which question transaction history would answer.
-- **Nothing connected on purpose:** the person can add records through you
-  instead (see `candor-add-records`).
+- **Accounts kept by hand:** each is current only through its
+  `records_through` date in the opening's coverage. When one runs behind, ask
+  for its newer statement or export; there is nothing to refresh.
 
 ## An outdated package
 

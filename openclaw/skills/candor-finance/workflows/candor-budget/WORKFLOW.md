@@ -30,8 +30,9 @@ candor goals list --limit 100 --reason "Read goals the budget needs to pay for"
 
 `budget context` carries the months it averaged over, whether each figure is
 an estimate, the recurring bills and income, and the categories the records
-use. Check the reported months and coverage: an account missing, or a first
-sync that has not reached back far, makes the averages low. From the
+use. Check the reported months and coverage: an account missing, a first
+sync that has not reached back far, or an account kept by hand whose
+statements stop early makes the averages low. From the
 opening's `agent_context`, read what shapes a budget: what they protect
 (`constraints_and_protected_resources`), how they fund the month and
 reserves, especially on irregular income (`operating_plan`), and what they

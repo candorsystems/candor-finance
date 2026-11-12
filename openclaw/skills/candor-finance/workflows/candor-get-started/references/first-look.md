@@ -20,18 +20,21 @@ behind it, for example the largest category in a month or a card's terms.
 - **A sync is filling in:** do the first look on what has landed and say
   which accounts are still coming.
 - **Some accounts are missing:** name what the picture cannot see, such as a
-  partner's card or a 401(k), and ask whether they want to connect it or add
-  it by hand.
+  partner's card or a retirement account, and offer to add it from a
+  statement or export; connecting it is their choice on the web.
 - **Balances only:** say what transaction history would answer (where the
   money goes, what repeats).
 - **Every account excluded:** check inclusion with
   `candor accounts policy get ACCOUNT_ID --reason "Check whether the account is included"` before anything else.
-- **No accounts on purpose:** offer to import statements with
-  `candor-add-records`.
+- **Accounts kept by hand:** say how far each one's records reach
+  (`records_through` in the opening's coverage) and read nothing after that
+  date as a change in their money.
 
 ## What the household answers unlock
 
-The weekly review weighs adviser checks against these answers. Use them to
+Candor's review weighs adviser checks against these answers. The
+retirement and health questions use US terms; outside the US, read them as
+the local equivalents. Use them to
 choose what to look at, and ask only about the ones they skipped when it
 changes what you would look at next.
 

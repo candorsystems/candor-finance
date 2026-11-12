@@ -14,7 +14,7 @@ context topics. Save notes yourself; do not ask whether to.
   `people_and_responsibilities`, `operating_plan`,
   `constraints_and_protected_resources`, `decision_preferences`.
 - **What you found** about a record and what came of it, linked with `about`,
-  so the next weekly review reads it instead of raising the same thing.
+  so the next review reads it instead of raising the same thing.
 - **What they decided**, including a decision not to pursue something.
 - **A follow-up** that depends on something later: a refund still to post, a
   charge that should stop, a first paycheck, a promo rate ending.

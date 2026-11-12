@@ -1,16 +1,20 @@
 # Candor Finance
 
-Candor is a personal finance app that helps you reach your money goals with ChatGPT, Claude, or the AI agent you already use. Your agent works from your real bank, card, loan, and investment accounts: it sets up goals and a budget with you, finds money you are losing to fees, price increases, or missed refunds, and remembers your plan and decisions between conversations. Every week Candor reviews your spending, bills, debt, savings, and investments and tells your agent what's worth talking through and why. Candor never moves money.
+Candor is a personal finance app that helps you reach your money goals with ChatGPT, Claude, or the AI agent you already use. Your agent works from your real bank, card, loan, and investment accounts: it sets up goals and a budget with you, finds money you are losing to fees, price increases, or missed refunds, and remembers your plan and decisions between conversations. Candor reviews your spending, bills, debt, savings, and investments and tells your agent what's worth talking through and why. Candor never moves money.
 
 [![Reach your money goals with your AI agent](https://candor.money/og/candor-og-home.png)](https://candor.money)
 
-**[Start free trial](https://app.candor.money/signup)** ·
+**[Start free](https://app.candor.money/signup)** ·
 [See how it works](https://candor.money) ·
 [Security](https://candor.money/security)
 
 - Works with ChatGPT, Codex, Claude, Claude Code, Grok Bot, Gemini CLI,
   OpenClaw, Hermes, and any agent that supports MCP and Agent Skills.
-- US accounts connect read-only on Candor's website.
+- Free to try with your own transactions. Bring your history
+  over from Monarch, YNAB, Copilot, or any bank, and your agent adds your
+  accounts from the file.
+- The Personal plan connects your US banks, cards, and brokerages read-only,
+  so everything comes in automatically. [See pricing](https://candor.money/#pricing).
 - Your data is not sold or used to train models.
 - Every agent action is recorded with its reason.
 
@@ -62,9 +66,9 @@ Setup guides for each agent are at
 
 The official package for [Candor](https://candor.money). It gives the AI agent
 you already use the person's records, the figures Candor computes from them,
-the goals, budget, rules, and notes it keeps, and Candor's weekly review, plus
-one skill per job: getting started, planning a goal, budgeting, weekly
-check-ins, a full checkup, sorting transactions, finding money, tax prep, and
+the goals, budget, rules, and notes it keeps, and Candor's review of what's
+worth talking through, plus one skill per job: getting started, planning a
+goal, budgeting, check-ins, a full checkup, sorting transactions, finding money, tax prep, and
 adding records.
 
 Give your agent [START.md](https://candor.money/START.md). It has the MCP

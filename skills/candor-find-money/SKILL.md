@@ -3,13 +3,13 @@ name: candor-find-money
 description: "Finds money the person is losing or is owed, gets it back with their okay, and has Candor watch the records until it lands. Use when they ask \"am I overpaying?\", spot a double charge, a fee, a refund or reimbursement that never came, a charge after cancelling, a bill that went up, a subscription they forgot, a free trial about to bill, or a paycheck that is late, short, or missing. For which charges repeat or how they are categorized, use candor-sort-transactions."
 compatibility: Requires Candor CLI 0.3.165 or newer, or the Candor MCP server, and an authenticated Candor workspace.
 metadata:
-  candor-package-version: "1.3.3"
+  candor-package-version: "1.3.4"
   author: Candor
   version: "0.3.0"
   candor-domain-id: find-money
   candor-intents: find money, am i overpaying, save money, double charge, duplicate charge, charged twice, bank fee, overdraft fee, missing refund, refund never came, reimbursement, charged after cancelling, price increase, bill went up, forgotten subscription, cancel subscription, free trial, trial ending, missing paycheck, paycheck late, paycheck smaller, money recovery
   candor-introduced-in: "2026-10-22"
-  candor-updated-in: "2026-11-01"
+  candor-updated-in: "2026-11-11"
 ---
 
 > The calls below are Candor MCP tool calls. Replace placeholders such as `TRANSACTION_ID` with values from earlier responses; where an `input` names an operation instead of showing an object, `candor_schema` lists its fields.
@@ -28,12 +28,14 @@ the money actually lands.
 
 Candor is the person's financial workspace and your memory of it: their
 records, the figures Candor computes from them, the goals, budget, rules, and
-notes you keep there, and a weekly review that tells you what is worth talking
-through. You advise and act; Candor keeps the facts and the plan.
+notes you keep there, and a review that tells you what is worth talking
+through. Give the person the date the opening states for the next review
+(`review.next_review_on`), not an interval. You advise and act; Candor keeps
+the facts and the plan.
 
 - **Open first, once.** Run `candor_open({})` at the start of any conversation
   about money, before answering. Read what changed since the last opening
-  (`new_since_checkpoint`), due notes, `watches`, and this week's `review`
+  (`new_since_checkpoint`), due notes, `watches`, and the latest `review`
   first, so nothing rests on figures remembered from an earlier conversation.
   When you move into another workflow, keep working from that opening
   instead of opening again.

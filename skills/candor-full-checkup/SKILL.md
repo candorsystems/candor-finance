@@ -3,13 +3,13 @@ name: candor-full-checkup
 description: "Runs an adviser-style review of the person's whole financial life from their Candor records, covering spending leaks, debt and credit, cash and reserves, goals and budget, investments and retirement, benefits, and insurance, and ends with the one to three things most worth doing. Use when the person asks to review their finances, for a financial checkup or annual review, what they should focus on or what to fix first, or after a life event. For a weekly what-changed check or a quick how-am-I-doing, use candor-weekly-check-in."
 compatibility: Requires Candor CLI 0.3.165 or newer, or the Candor MCP server, and an authenticated Candor workspace.
 metadata:
-  candor-package-version: "1.3.3"
+  candor-package-version: "1.3.4"
   author: Candor
   version: "0.3.0"
   candor-domain-id: full-checkup
   candor-intents: financial review, full review, financial checkup, annual review, check my finances, review my finances, what should i focus on, what should i fix first, what deserves attention, life event, new job, new baby, getting married, investment fees, 401k match, retirement contributions, credit utilization, card rewards, hsa, fsa, insurance renewal
   candor-introduced-in: "2026-10-22"
-  candor-updated-in: "2026-11-06"
+  candor-updated-in: "2026-11-11"
 ---
 
 > The calls below are Candor MCP tool calls. Replace placeholders such as `TRANSACTION_ID` with values from earlier responses; where an `input` names an operation instead of showing an object, `candor_schema` lists its fields.
@@ -27,12 +27,14 @@ selectively.
 
 Candor is the person's financial workspace and your memory of it: their
 records, the figures Candor computes from them, the goals, budget, rules, and
-notes you keep there, and a weekly review that tells you what is worth talking
-through. You advise and act; Candor keeps the facts and the plan.
+notes you keep there, and a review that tells you what is worth talking
+through. Give the person the date the opening states for the next review
+(`review.next_review_on`), not an interval. You advise and act; Candor keeps
+the facts and the plan.
 
 - **Open first, once.** Run `candor_open({})` at the start of any conversation
   about money, before answering. Read what changed since the last opening
-  (`new_since_checkpoint`), due notes, `watches`, and this week's `review`
+  (`new_since_checkpoint`), due notes, `watches`, and the latest `review`
   first, so nothing rests on figures remembered from an earlier conversation.
   When you move into another workflow, keep working from that opening
   instead of opening again.
@@ -98,7 +100,7 @@ Work through these steps in order:
 
 ```text
 - [ ] 1. Open, set the scope, and note coverage
-- [ ] 2. Read the records behind each open weekly review area
+- [ ] 2. Read the records behind each open review area
 - [ ] 3. Sweep everyday money
 - [ ] 4. Check each adviser area the records can support
 - [ ] 5. Shortlist candidates and test each one
@@ -134,7 +136,7 @@ in `context_needed` would change which moves lead (dependents before an
 insurance call, a job change before a reserve), ask that one question before
 you choose.
 
-**2. Start from the weekly review.** For each open `review.area`, read the
+**2. Start from the latest review.** For each open `review.area`, read the
 records it names (transactions, accounts, recurring series, notes) before you
 judge it. The review points; it does not prove. Settle a `review.gap` from
 the records and notes before you ask the person.
@@ -239,7 +241,7 @@ does not apply. Then make each move part of the plan:
 - A one-off (a refund, a cancellation) gets a note about the record with a
   watch (see the `candor-find-money` workflow).
 - A candidate you ruled out gets a note about its record saying why ("two
-  separate Costco trips on Sep 9"), so the weekly review and the next checkup
+  separate Costco trips on Sep 9"), so the next review and the next checkup
   do not raise it again.
 
 Hand spending leaks to `candor-find-money` and debt, cash, or savings plans

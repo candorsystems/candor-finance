@@ -1,10 +1,10 @@
 
-# Weekly check-in
+# Check-in
 
-Once a week Candor reviews the household's records and every note you and the
-person have kept, and raises up to five areas worth talking through (a
-problem, an opportunity, or a question) and up to three gaps that keep its
-picture wrong. A check-in turns that, plus what changed since last time, into
+On its own schedule, Candor
+reviews the household's records and every note you and the person have kept,
+and raises up to five areas worth talking through (a problem, an
+opportunity, or a question) and up to three gaps that keep its picture wrong. A check-in turns that, plus what changed since last time, into
 a short conversation: what moved, what you found in each area, and what needs
 their answer. Every area you look into gets an outcome recorded, so the next
 review builds on it.
@@ -87,9 +87,9 @@ watch when the records will show the answer.
 
 **5. Gaps.** Each `review.gap` says what to settle, which area it changes,
 and how the answer is recorded (a rule, a note on a record, an account
-connected). Settle it from the records and notes first. Ask the person only
+added: from the person's statements, or connected when they choose to). Settle it from the records and notes first. Ask the person only
 what is left, in one plain question, and save the answer the way the gap
-says. When nothing else needs their answer this week, one question from
+says. When nothing else needs their answer this time, one question from
 `context_needed` is a good use of the slot.
 
 **6. Acknowledge.** Run `open.acknowledge` when the opening offers it, after
@@ -98,7 +98,7 @@ you have processed everything above.
 **7. Send the check-in.** See below. A scheduled check-in with nothing worth
 saying stays silent unless the person asked for a report every time.
 
-Earlier reviews and what came of them: `candor reviews list --reason "Read earlier weekly reviews"`.
+Earlier reviews and what came of them: `candor reviews list --reason "Read earlier reviews"`.
 
 ## How to answer
 
@@ -121,7 +121,7 @@ Should your partner's card count toward the household budget?
   areas without opening their records, and when one told the person an area
   was resolved after the write had failed.
 - Record an outcome for every area you looked into, including one that did
-  not hold up. An area without an outcome comes back next week.
+  not hold up. An area without an outcome comes back in the next review.
 - Read `new_since_checkpoint` before saying "nothing new". Evals failed when
   a return visit missed a $684 payment that had landed in between.
 - `found` is for the person: "Your phone bill went up $20 in October", not

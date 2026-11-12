@@ -27,6 +27,32 @@ filling in, say so, do the parts that do not need history, and open again
 when it finishes. If the person asked something specific during setup, do
 that task first and fold the setup confirmation into the answer.
 
+**A free start with no accounts yet** (the opening's `coverage.missing`): the
+first look starts with building the picture. Ask which accounts they have,
+starting with the one most of their money moves through, and bring the
+records in with `candor-add-records` (its migration reference for a move):
+
+- A CSV or another finance app's export (Monarch, Copilot, YNAB, Mint,
+  Quicken), of any size, comes in as an upload: create one and give them its
+  link to drop the file into Candor on the device that has it. A CSV already
+  attached in the chat goes through the link too. Files they already dropped
+  show in the opening as `uploads.waiting`. When they are not sure how to
+  download one, give them `https://candor.money/how-to-export-your-transactions`.
+- A PDF statement or a screenshot already in the chat is read there and
+  imported inline.
+- With no file to hand, start lighter: ask what each account holds or owes,
+  roughly, and add the accounts by hand with those balances. That gives a
+  first picture of what they have and owe. Candor's first review needs
+  transactions, so it waits until a statement or export comes in; say so.
+
+Sort what landed with no category, then give the first look from the
+records. Candor works from records kept by hand the same way it works from a
+bank's. Connected banks (US institutions, on the Personal plan, set up on the
+web) keep every account and transaction current on their own; records kept
+by hand suit trying Candor first. Every opening names the page where a bank
+connection starts (`financial_position.coverage.accounts_url`), for when the
+person wants that.
+
 **2. Read what they already told Candor.** During signup the person chose a
 starting point and may have answered up to seven household questions (work,
 dependents, upcoming changes, age, housing, workplace retirement plan, health
@@ -48,10 +74,15 @@ The first opening carries `first_pass`: monthly
 income, spending, debt payments, and net; each account with its balance and
 debt terms; and the recurring series. Turn it into three or four plain lines
 the person would care about: what comes in, what goes out, what they owe, and
-what repeats. Say which months and accounts it covers.
+what repeats. Say which months and accounts it covers. Where your host draws
+Candor's panels in the chat, show the same picture with
+`candor visual overview --reason "Show the first look"`, and read the
+panel's text before you talk about it. If the opening offers to keep the
+first look as a report, save it once it lands and link it; the person opens
+it from their Reports tab and it stays current.
 
-**4. Check what is worth raising.** Summaries point; records prove. Read this
-week's review areas if the first review has landed, then look in the
+**4. Check what is worth raising.** Summaries point; records prove. Read the
+review's areas if the first review has landed, then look in the
 transactions themselves:
 
 ```sh
@@ -96,7 +127,7 @@ raises how they cover bills and reserves meanwhile (`operating_plan`); kids
 or parents raise `people_and_responsibilities`; "but not the vacation fund"
 is `constraints_and_protected_resources`. Two or three topics is plenty for a
 first conversation. Save each answer with its topic as it comes; the rest
-wait for later conversations, where the weekly review's gaps and the other
+wait for later conversations, where the review's gaps and the other
 workflows pick them up.
 
 If they say they want lighter help, record it:
@@ -111,7 +142,10 @@ candor preferences update --file PREFERENCES.json --reason "The person asked for
 them, set one up with `candor-weekly-check-in`.
 
 **7. Acknowledge.** When the opening offers `open.acknowledge`, run it after
-the first look is done.
+the first look is done. On a free start that opened empty, acknowledge once
+you have asked for the records; when they land, open again for the first
+look, since the first opening after a workspace's first records carries
+`first_pass` however few there are.
 
 ## How to answer
 
@@ -135,12 +169,14 @@ What do you want your money to do in the next year or two?
 
 - No Candor tools in this session: send them to
   `https://candor.money/START.md`.
-- The opening returns an account step (no account yet, trial not started,
-  access lapsed): pass through the exact `safe_url` or `recovery_url` and say
-  what to do there. Banks, subscriptions, and payment are handled only on
-  `https://app.candor.money`.
-- No connected account: they can connect on the web, or add records through
-  you with `candor-add-records`.
+- The opening returns an account step (no account yet, or a business
+  workspace's access lapsed): pass
+  through the exact `safe_url` or `recovery_url` and say what to do there.
+  Banks, plans, and payment are handled only on `https://app.candor.money`.
+- No bank connected: you keep their records with `candor-add-records`, and
+  Candor works from them, amounts stored as entered with no conversion. Connecting US banks on the Personal plan, on the web, keeps
+  every account and transaction current with no statements to send; mention
+  it once, when it fits.
 
 ## Gotchas
 

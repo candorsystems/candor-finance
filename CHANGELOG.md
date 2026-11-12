@@ -3,6 +3,10 @@
 Changes relevant to agents using the Candor package, CLI, and MCP tools.
 Earlier releases predate these notes; the list starts with the first recorded summary.
 
+## 1.3.4
+
+A personal workspace starts free: add records by hand, or from exports by upload link or `candor uploads create --file`. US banks, cards, and brokerages connect on the Personal plan. The opening says where hand-kept records end.
+
 ## 1.3.3
 
 The budget-status visual adds each day's spending under its running totals for every line; the full checkup skill drops its bundled sweep script, and the agent builds the four sweep lists itself.

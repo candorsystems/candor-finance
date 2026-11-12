@@ -3,13 +3,13 @@ name: candor-budget
 description: "Shows where the person's money goes from their real records and saves a budget they can hold to, built from what they actually spend and fit to what they say, then keeps it current. Use when the person asks where their money goes, what they spend each month, how much they can save, why they are over this month, or wants a budget, a spending plan, or to change a budget line. For saving toward a specific goal, use candor-plan-a-goal."
 compatibility: Requires Candor CLI 0.3.165 or newer, or the Candor MCP server, and an authenticated Candor workspace.
 metadata:
-  candor-package-version: "1.3.3"
+  candor-package-version: "1.3.4"
   author: Candor
   version: "0.3.0"
   candor-domain-id: budget
   candor-intents: budget, make me a budget, spending plan, where does my money go, where is my money going, monthly spending, what do i spend, how much can i save, savings capacity, over budget, budget check, change my budget, cash flow, spending breakdown
   candor-introduced-in: "2026-10-22"
-  candor-updated-in: "2026-11-01"
+  candor-updated-in: "2026-11-11"
 ---
 
 > The calls below are Candor MCP tool calls. Replace placeholders such as `TRANSACTION_ID` with values from earlier responses; where an `input` names an operation instead of showing an object, `candor_schema` lists its fields.
@@ -26,12 +26,14 @@ it current from then on, so they never manage category sliders.
 
 Candor is the person's financial workspace and your memory of it: their
 records, the figures Candor computes from them, the goals, budget, rules, and
-notes you keep there, and a weekly review that tells you what is worth talking
-through. You advise and act; Candor keeps the facts and the plan.
+notes you keep there, and a review that tells you what is worth talking
+through. Give the person the date the opening states for the next review
+(`review.next_review_on`), not an interval. You advise and act; Candor keeps
+the facts and the plan.
 
 - **Open first, once.** Run `candor_open({})` at the start of any conversation
   about money, before answering. Read what changed since the last opening
-  (`new_since_checkpoint`), due notes, `watches`, and this week's `review`
+  (`new_since_checkpoint`), due notes, `watches`, and the latest `review`
   first, so nothing rests on figures remembered from an earlier conversation.
   When you move into another workflow, keep working from that opening
   instead of opening again.
@@ -124,8 +126,9 @@ candor_get({
 
 `budget context` carries the months it averaged over, whether each figure is
 an estimate, the recurring bills and income, and the categories the records
-use. Check the reported months and coverage: an account missing, or a first
-sync that has not reached back far, makes the averages low. From the
+use. Check the reported months and coverage: an account missing, a first
+sync that has not reached back far, or an account kept by hand whose
+statements stop early makes the averages low. From the
 opening's `agent_context`, read what shapes a budget: what they protect
 (`constraints_and_protected_resources`), how they fund the month and
 reserves, especially on irregular income (`operating_plan`), and what they

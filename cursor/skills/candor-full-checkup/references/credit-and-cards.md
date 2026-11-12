@@ -59,8 +59,9 @@ so in `why`.
 Payments happen outside Candor with the person's okay. Save a note with the
 baseline balance and limit, the expected change, and a `revisit_at`, or a
 watch on the card's payee. On revisit, check balances are newer than the
-payment (`candor_connections({"operation":"sync.refresh","reason":"Refresh before checking the payment"})`
-if not), recompute utilization, and resolve the note only when the posted
+payment (for a connected card, `candor_connections({"operation":"sync.refresh","reason":"Refresh before checking the payment"})`;
+for a card kept by hand, its newer statement or the balance the person
+reads you), recompute utilization, and resolve the note only when the posted
 balance shows it.
 
 ## Rewards and annual fees

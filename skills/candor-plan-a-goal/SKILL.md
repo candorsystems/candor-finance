@@ -3,13 +3,13 @@ name: candor-plan-a-goal
 description: "Turns what the person wants from their money into a plan Candor tracks: goals with a measure, a pace, and a next step, plus the budget that pays for them, with a straight answer on what works and what does not yet. Use when the person wants to pay off debt, save for something, build an emergency fund, buy a home or car, work less, take time off, help family, or asks whether they can afford something, even when the goal is vague or has no numbers yet."
 compatibility: Requires Candor CLI 0.3.165 or newer, or the Candor MCP server, and an authenticated Candor workspace.
 metadata:
-  candor-package-version: "1.3.3"
+  candor-package-version: "1.3.4"
   author: Candor
   version: "0.3.0"
   candor-domain-id: plan-a-goal
   candor-intents: savings goal, pay off debt, pay off my cards, emergency fund, save for, down payment, can i afford, afford it, work less, quit my job, runway, sabbatical, am i saving enough, retirement goal, goal check in, on track, scenario planning, what if
   candor-introduced-in: "2026-10-22"
-  candor-updated-in: "2026-11-01"
+  candor-updated-in: "2026-11-11"
 ---
 
 > The calls below are Candor MCP tool calls. Replace placeholders such as `TRANSACTION_ID` with values from earlier responses; where an `input` names an operation instead of showing an object, `candor_schema` lists its fields.
@@ -27,12 +27,14 @@ have to change.
 
 Candor is the person's financial workspace and your memory of it: their
 records, the figures Candor computes from them, the goals, budget, rules, and
-notes you keep there, and a weekly review that tells you what is worth talking
-through. You advise and act; Candor keeps the facts and the plan.
+notes you keep there, and a review that tells you what is worth talking
+through. Give the person the date the opening states for the next review
+(`review.next_review_on`), not an interval. You advise and act; Candor keeps
+the facts and the plan.
 
 - **Open first, once.** Run `candor_open({})` at the start of any conversation
   about money, before answering. Read what changed since the last opening
-  (`new_since_checkpoint`), due notes, `watches`, and this week's `review`
+  (`new_since_checkpoint`), due notes, `watches`, and the latest `review`
   first, so nothing rests on figures remembered from an earlier conversation.
   When you move into another workflow, keep working from that opening
   instead of opening again.
@@ -139,7 +141,7 @@ goal's `note`: what they will not give up
 (`constraints_and_protected_resources`), who it is for
 (`people_and_responsibilities`), how they trade speed against safety
 (`decision_preferences`), how they cover bills meanwhile (`operating_plan`).
-The budget, the weekly review, and later plans read those. Skip what
+The budget, Candor's review, and later plans read those. Skip what
 `agent_context` already answers.
 
 **3. Read capacity from the records.** Use Candor's figures; do not rebuild
@@ -288,8 +290,8 @@ once `candor_get({"operation":"rules.get","reason":"Check the shop tag has appli
 
 **8. Keep them on it.** Save a note tagged `objectives_and_time_horizons`
 with what they want and why, if it is not already kept, and the other topic
-notes from step 2. Candor's weekly
-review raises a goal that slips; each goal's next step comes back on its
+notes from step 2. Candor's review
+raises a goal that slips; each goal's next step comes back on its
 date. Offer a recurring check-in only if they want one.
 
 ## How to answer

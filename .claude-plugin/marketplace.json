@@ -15,8 +15,8 @@
         "url": "https://candor.money"
       },
       "source": "./",
-      "description": "Reach your money goals with Claude: goals and a budget from your real accounts, and a weekly review of what's worth talking through.",
-      "version": "1.3.3",
+      "description": "Reach your money goals with Claude: goals and a budget from your real accounts, and a review that raises what's worth talking through.",
+      "version": "1.3.4",
       "category": "productivity",
       "tags": [
         "finance",

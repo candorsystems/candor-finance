@@ -33,8 +33,10 @@
   transactions are not the coverage boundary.
 - A missing record is uncertainty, not hidden spending, income, or a
   preference.
-- When a sync is old for the question, `candor sync refresh --reason "Refresh balances that are too old for the question"` asks for new
-  data from connected accounts; connecting new ones happens on the web.
+- When a connected bank's sync is old for the question, `candor sync refresh --reason "Refresh balances that are too old for the question"` asks for new
+  data; connecting new ones happens on the web. An account kept by hand has
+  nothing to refresh: it is current through its `records_through` date, and
+  newer records come from the person's next statement or export.
 - A partial result carries a warning and its scope. Keep that limit in the
   answer instead of treating omitted records as zero.
 

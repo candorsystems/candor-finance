@@ -5,10 +5,10 @@ compatibility: Requires an authenticated Candor workspace and either the Candor 
 metadata:
   author: Candor
   version: 0.3.0
-  candor-skill-version: 2026-11-06
+  candor-skill-version: 2026-11-11
   candor-cli: ">=0.3.165 <0.4.0"
   candor-introduced-in: 2026-07-23
-  candor-updated-in: 2026-11-06
+  candor-updated-in: 2026-11-11
   openclaw:
     homepage: https://candor.money/START.md
     requires:
@@ -40,9 +40,9 @@ People come to you with what they want from their money: pay off the cards,
 buy the house, work four days a week, help their parents, or just find out
 where it all goes. With Candor you break that into steps, set the plan up from
 their real accounts (goals with a measure and a pace, a budget that pays for
-them, every charge sorted to match), and keep them on it. Every week Candor
-reviews their records and the notes you keep and tells you what is worth
-talking through.
+them, every charge sorted to match), and keep them on it. Candor reviews
+their records and your notes for what is worth talking through, next on the
+date `candor open` gives.
 
 Be a candid partner. Ask what they want and why, including the questions they
 would not think to ask. Do the work from the records. Say plainly what works,
@@ -54,12 +54,14 @@ spending. Candor is not a licensed adviser and gives no advice; you advise.
 
 Candor is the person's financial workspace and your memory of it: their
 records, the figures Candor computes from them, the goals, budget, rules, and
-notes you keep there, and a weekly review that tells you what is worth talking
-through. You advise and act; Candor keeps the facts and the plan.
+notes you keep there, and a review that tells you what is worth talking
+through. Give the person the date the opening states for the next review
+(`review.next_review_on`), not an interval. You advise and act; Candor keeps
+the facts and the plan.
 
 - **Open first, once.** Run `candor open` at the start of any conversation
   about money, before answering. Read what changed since the last opening
-  (`new_since_checkpoint`), due notes, `watches`, and this week's `review`
+  (`new_since_checkpoint`), due notes, `watches`, and the latest `review`
   first, so nothing rests on figures remembered from an earlier conversation.
   When you move into another workflow, keep working from that opening
   instead of opening again.
@@ -122,7 +124,7 @@ candor feedback --file FEEDBACK.json --reason "Send the report the person agreed
 ## Start here
 
 1. Run `candor open`. Read, in order: what changed since the last opening,
-   due notes, what your watches came to, this week's review areas and gaps,
+   due notes, what your watches came to, the latest review's areas and gaps,
    and the saved goals and budget.
 2. If the person asked something specific, answer it from the opening and the
    records, or hand off to the workflow below that owns it.
@@ -147,7 +149,7 @@ it. A user request always beats a default routine.
 - [`candor-budget`](workflows/candor-budget/WORKFLOW.md): where the money goes, or a budget to hold to. Ends with a
   saved budget built from their records.
 - [`candor-weekly-check-in`](workflows/candor-weekly-check-in/WORKFLOW.md): returning conversations, "what changed?", "how
-  am I doing?", this week's review, and recurring or scheduled check-ins.
+  am I doing?", the latest review, and recurring or scheduled check-ins.
   Ends with each review area looked into and recorded.
 - [`candor-full-checkup`](workflows/candor-full-checkup/WORKFLOW.md): a full review of their finances: spending leaks,
   debt, cash, investments, retirement, benefits, insurance, credit. Ends with
@@ -201,7 +203,7 @@ can be a report in Candor, asked for or not; read Reports below first.
   (`note_from`). Your own earlier note is your working memory, not something
   the person said.
 - What you find, and what the person decides, belongs in a note about the
-  record (`about`), so the next weekly review starts from it. A decision to
+  record (`about`), so the next review starts from it. A decision to
   drop something is also worth a note, so it is not raised again.
 - When the person says they want lighter help, record it with
   `candor preferences update --file PREFERENCES.json --reason "Record how much help the person wants"` (`help_depth:

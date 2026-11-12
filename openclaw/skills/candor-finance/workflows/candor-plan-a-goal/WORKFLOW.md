@@ -48,7 +48,7 @@ goal's `note`: what they will not give up
 (`constraints_and_protected_resources`), who it is for
 (`people_and_responsibilities`), how they trade speed against safety
 (`decision_preferences`), how they cover bills meanwhile (`operating_plan`).
-The budget, the weekly review, and later plans read those. Skip what
+The budget, Candor's review, and later plans read those. Skip what
 `agent_context` already answers.
 
 **3. Read capacity from the records.** Use Candor's figures; do not rebuild
@@ -154,8 +154,8 @@ once `candor rules get RULE_ID --reason "Check the shop tag has applied"` report
 
 **8. Keep them on it.** Save a note tagged `objectives_and_time_horizons`
 with what they want and why, if it is not already kept, and the other topic
-notes from step 2. Candor's weekly
-review raises a goal that slips; each goal's next step comes back on its
+notes from step 2. Candor's review
+raises a goal that slips; each goal's next step comes back on its
 date. Offer a recurring check-in only if they want one.
 
 ## How to answer

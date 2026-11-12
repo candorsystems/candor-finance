@@ -13,7 +13,7 @@ Work through these steps in order:
 
 ```text
 - [ ] 1. Open, set the scope, and note coverage
-- [ ] 2. Read the records behind each open weekly review area
+- [ ] 2. Read the records behind each open review area
 - [ ] 3. Sweep everyday money
 - [ ] 4. Check each adviser area the records can support
 - [ ] 5. Shortlist candidates and test each one
@@ -40,7 +40,7 @@ in `context_needed` would change which moves lead (dependents before an
 insurance call, a job change before a reserve), ask that one question before
 you choose.
 
-**2. Start from the weekly review.** For each open `review.area`, read the
+**2. Start from the latest review.** For each open `review.area`, read the
 records it names (transactions, accounts, recurring series, notes) before you
 judge it. The review points; it does not prove. Settle a `review.gap` from
 the records and notes before you ask the person.
@@ -114,7 +114,7 @@ does not apply. Then make each move part of the plan:
 - A one-off (a refund, a cancellation) gets a note about the record with a
   watch (see the `candor-find-money` workflow).
 - A candidate you ruled out gets a note about its record saying why ("two
-  separate Costco trips on Sep 9"), so the weekly review and the next checkup
+  separate Costco trips on Sep 9"), so the next review and the next checkup
   do not raise it again.
 
 Hand spending leaks to `candor-find-money` and debt, cash, or savings plans

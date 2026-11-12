@@ -39,7 +39,8 @@ against `price_levels` before counting a posting as this series'.
 `predicted_next_date` is the center of `predicted_window`; a posting anywhere
 in the window is on time. Say "around the 3rd", never "due on the 3rd";
 contractual due dates live in account terms. `overdue` is true only when a
-window closed with no matching posting, judged up to the last sync.
+window closed with no matching posting, judged up to the last sync, or for
+an account kept by hand up to the end of its latest imported period.
 `paid_this_cycle` says this occurrence is already paid.
 
 ## Confirm, rename, re-time

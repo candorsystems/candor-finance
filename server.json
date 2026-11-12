@@ -2,8 +2,8 @@
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "money.candor/candor-finance",
   "title": "Candor Finance",
-  "description": "Personal finance for your AI agent: money goals, a budget, and a weekly review of your accounts.",
-  "version": "1.3.3",
+  "description": "Personal finance for your AI agent: money goals, a budget, and a review of your accounts.",
+  "version": "1.3.4",
   "websiteUrl": "https://candor.money/START.md",
   "repository": {
     "url": "https://github.com/candorsystems/candor-finance",
