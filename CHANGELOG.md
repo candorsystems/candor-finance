@@ -3,6 +3,10 @@
 Changes relevant to agents using the Candor package, CLI, and MCP tools.
 Earlier releases predate these notes; the list starts with the first recorded summary.
 
+## 1.3.5
+
+The budget-status visual adds how far flexible and cushion spending is from its pace today, and a net worth change that holds a newly added account says how many arrived and what the change is without their first balances.
+
 ## 1.3.4
 
 A personal workspace starts free: add records by hand, or from exports by upload link or `candor uploads create --file`. US banks, cards, and brokerages connect on the Personal plan. The opening says where hand-kept records end.
