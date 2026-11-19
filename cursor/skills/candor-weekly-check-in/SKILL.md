@@ -3,13 +3,13 @@ name: candor-weekly-check-in
 description: "Runs a returning check-in on the person's money: what changed since last time, how each goal moved, notes and watches that came due, and each area Candor's latest review raised, looked into and recorded. Also sets up recurring check-ins on hosts that can schedule them. Use when the person comes back, asks what changed, how they are doing, how things are going, or what the latest review raised, or asks for a weekly or regular money check-in."
 compatibility: Requires Candor CLI 0.3.165 or newer, or the Candor MCP server, and an authenticated Candor workspace.
 metadata:
-  candor-package-version: "1.3.5"
+  candor-package-version: "1.3.6"
   author: Candor
   version: "0.3.0"
   candor-domain-id: weekly-check-in
   candor-intents: what changed, check in, weekly check in, how am i doing, latest review, what did the review raise, anything i should know, weekly briefing, monthly check in, schedule a check in, recurring check
   candor-introduced-in: "2026-10-22"
-  candor-updated-in: "2026-11-11"
+  candor-updated-in: "2026-11-18"
 ---
 
 > The calls below are Candor MCP tool calls. Replace placeholders such as `TRANSACTION_ID` with values from earlier responses; where an `input` names an operation instead of showing an object, `candor_schema` lists its fields.
@@ -76,22 +76,36 @@ the facts and the plan.
 
 ### When Candor gets in your way
 
-An error, a confusing contract, a workaround, more steps than it should take,
-or a result that looks wrong: you can tell the Candor team who build it, so
-they fix it. The report goes to them, not into the person's workspace. Once
-the person's task is done, offer once to send it, and send it only if they
-agree. Name operations and error codes; leave out account
-numbers, amounts, merchant and institution names, and people.
+Send the Candor team a short report, and tell the person you did, when
+Candor errored, refused a call its contract seemed to allow, returned
+something that looks wrong, or took more steps or guesswork than it should,
+and a feature request (`kind` idea) when you or the person wanted Candor to
+do something it does not, or more directly. A request costs nothing; the
+team who build Candor read every one, and nothing is saved in the workspace.
+A one-line title is a whole report; `about_action_id` points at the request,
+so say what the logs cannot: what you tried, expected, and did instead.
+
+Send the person to the web portal only for bank connections, subscription
+changes, and account deletion. Anything else Candor cannot do, tell them
+plainly it does not do yet, and do not send them looking for it.
+
+With the opening's `product_reports` at `send`, the default, send it once
+the person's task is done and name it in your reply in one line. While
+`chosen` is false, the first time you name one, also say they can change this
+in Candor's settings or by telling you. With `ask`, ask before each report;
+with `off`, send one only when they ask. Describe what Candor did and leave
+out their money: no amounts, account numbers, merchant or institution names,
+or people.
 
 ```text
 candor_write({
   "operation": "feedback.submit",
-  "reason": "Send the report the person agreed to",
+  "reason": "Tell the Candor team what got in the way",
   "input": {
-    "kind": "friction",
-    "about_operation": "transactions.list",
-    "title": "transactions.list needed three retries to filter one month",
-    "body": "A one-month read with a category filter returned internal_error twice before it worked."
+    "kind": "bug",
+    "about_action_id": "ACTION_ID",
+    "title": "recurring.list shows a series overdue a week after its payment posted",
+    "body": "I was checking which bills were still due and matched the payment by hand."
   }
 })
 ```
@@ -164,10 +178,16 @@ categories to `candor-sort-transactions`. If the area does not hold up in the
 records, say so; that is an outcome too.
 
 **4. Record each outcome.** For every area you looked into, send the area id
-from the opening, `outcome` (`looked_into` or `set_aside`), and `found`: what
-the records or the person showed, or why it does not apply. The person reads
-`found` on their dashboard, so write it in their words, with no ids or
-jargon.
+from the opening, `outcome`, and `found`. Use `looked_into` when what you
+found settles it, `set_aside` when it does not apply, and `waiting_on_person`
+only when it cannot move until the person decides, answers, or acts. A wait
+on money arriving, a third party, or a date is `looked_into`, with a note and
+a watch. `found` is one or two short sentences to the person, who reads them
+on their dashboard, with no ids or jargon: where it stands, then what you
+found; for `waiting_on_person`, what you need from them first. An area
+waiting on the person stays in the opening. Once their answer settles it,
+record `looked_into` or `set_aside`; if something still needs them, record
+`waiting_on_person` again with what is left.
 
 ```text
 candor_write({
@@ -176,7 +196,7 @@ candor_write({
   "input": {
     "area": "AREA_ID",
     "outcome": "looked_into",
-    "found": "Your phone bill went from $65 to $85 in October. It is a price increase, not a one-off."
+    "found": "It is a price increase, not a one-off. Your phone bill went from $65 to $85 in October."
   }
 })
 ```
@@ -197,7 +217,11 @@ says. When nothing else needs their answer this time, one question from
 you have processed everything above.
 
 **7. Send the check-in.** See below. A scheduled check-in with nothing worth
-saying stays silent unless the person asked for a report every time.
+saying stays silent unless the person asked for a report every time. A
+scheduled run sends the Candor team a report only when `product_reports` is
+`send`, the default, and then tells the person in its message, even one it
+would otherwise not send. With `ask` or `off` it sends none: nobody is there
+to ask.
 
 Earlier reviews and what came of them: `candor_get({"operation":"reviews.list","reason":"Read earlier reviews"})`.
 

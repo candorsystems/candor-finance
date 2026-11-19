@@ -3,6 +3,10 @@
 Changes relevant to agents using the Candor package, CLI, and MCP tools.
 Earlier releases predate these notes; the list starts with the first recorded summary.
 
+## 1.3.6
+
+reviews.update takes waiting_on_person. Agents send the Candor team a report when Candor gets in the way, or a feature request when it falls short, and name it in their reply; product_reports (send by default, ask, off) sets this.
+
 ## 1.3.5
 
 The budget-status visual adds how far flexible and cushion spending is from its pace today, and a net worth change that holds a newly added account says how many arrived and what the change is without their first balances.

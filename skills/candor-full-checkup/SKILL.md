@@ -3,13 +3,13 @@ name: candor-full-checkup
 description: "Runs an adviser-style review of the person's whole financial life from their Candor records, covering spending leaks, debt and credit, cash and reserves, goals and budget, investments and retirement, benefits, and insurance, and ends with the one to three things most worth doing. Use when the person asks to review their finances, for a financial checkup or annual review, what they should focus on or what to fix first, or after a life event. For a weekly what-changed check or a quick how-am-I-doing, use candor-weekly-check-in."
 compatibility: Requires Candor CLI 0.3.165 or newer, or the Candor MCP server, and an authenticated Candor workspace.
 metadata:
-  candor-package-version: "1.3.5"
+  candor-package-version: "1.3.6"
   author: Candor
   version: "0.3.0"
   candor-domain-id: full-checkup
   candor-intents: financial review, full review, financial checkup, annual review, check my finances, review my finances, what should i focus on, what should i fix first, what deserves attention, life event, new job, new baby, getting married, investment fees, 401k match, retirement contributions, credit utilization, card rewards, hsa, fsa, insurance renewal
   candor-introduced-in: "2026-10-22"
-  candor-updated-in: "2026-11-11"
+  candor-updated-in: "2026-11-18"
 ---
 
 > The calls below are Candor MCP tool calls. Replace placeholders such as `TRANSACTION_ID` with values from earlier responses; where an `input` names an operation instead of showing an object, `candor_schema` lists its fields.
@@ -74,22 +74,36 @@ the facts and the plan.
 
 ### When Candor gets in your way
 
-An error, a confusing contract, a workaround, more steps than it should take,
-or a result that looks wrong: you can tell the Candor team who build it, so
-they fix it. The report goes to them, not into the person's workspace. Once
-the person's task is done, offer once to send it, and send it only if they
-agree. Name operations and error codes; leave out account
-numbers, amounts, merchant and institution names, and people.
+Send the Candor team a short report, and tell the person you did, when
+Candor errored, refused a call its contract seemed to allow, returned
+something that looks wrong, or took more steps or guesswork than it should,
+and a feature request (`kind` idea) when you or the person wanted Candor to
+do something it does not, or more directly. A request costs nothing; the
+team who build Candor read every one, and nothing is saved in the workspace.
+A one-line title is a whole report; `about_action_id` points at the request,
+so say what the logs cannot: what you tried, expected, and did instead.
+
+Send the person to the web portal only for bank connections, subscription
+changes, and account deletion. Anything else Candor cannot do, tell them
+plainly it does not do yet, and do not send them looking for it.
+
+With the opening's `product_reports` at `send`, the default, send it once
+the person's task is done and name it in your reply in one line. While
+`chosen` is false, the first time you name one, also say they can change this
+in Candor's settings or by telling you. With `ask`, ask before each report;
+with `off`, send one only when they ask. Describe what Candor did and leave
+out their money: no amounts, account numbers, merchant or institution names,
+or people.
 
 ```text
 candor_write({
   "operation": "feedback.submit",
-  "reason": "Send the report the person agreed to",
+  "reason": "Tell the Candor team what got in the way",
   "input": {
-    "kind": "friction",
-    "about_operation": "transactions.list",
-    "title": "transactions.list needed three retries to filter one month",
-    "body": "A one-month read with a category filter returned internal_error twice before it worked."
+    "kind": "bug",
+    "about_action_id": "ACTION_ID",
+    "title": "recurring.list shows a series overdue a week after its payment posted",
+    "body": "I was checking which bills were still due and matched the payment by hand."
   }
 })
 ```
@@ -220,8 +234,10 @@ proven one. Every other row ends in "what else we checked" with a real
 reason: "fees are $4 a year", "already refunded on the 12th", "no limit on
 file, so utilization is unknown".
 
-**7. Record.** For each review area you looked into, record what came of it
-in plain words; the person reads `found` on their dashboard:
+**7. Record.** For each review area you looked into, record what came of it.
+The person reads `found` on their dashboard, so write one or two short
+sentences to them: where it stands, then what you found; for
+`waiting_on_person`, what you need from them first:
 
 ```text
 candor_write({
@@ -231,8 +247,13 @@ candor_write({
 })
 ```
 
-Use `looked_into` with what the records showed, or `set_aside` with why it
-does not apply. Then make each move part of the plan:
+Use `looked_into` when what you found settles it, `set_aside` when it does
+not apply, and `waiting_on_person` only when it cannot move until the person
+decides, answers, or acts. A wait on money arriving, a third party, or a date
+is `looked_into`, with a note and a watch. An area waiting on the person
+stays in the opening. Once their answer settles it, record `looked_into` or
+`set_aside`; if something still needs them, record `waiting_on_person` again
+with what is left. Then make each move part of the plan:
 
 - A move that is a plan over time (a reserve, a payoff, a savings rate) is a
   goal with a measure and a next step, saved with `proposed: true` until they

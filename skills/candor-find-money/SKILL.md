@@ -3,7 +3,7 @@ name: candor-find-money
 description: "Finds money the person is losing or is owed, gets it back with their okay, and has Candor watch the records until it lands. Use when they ask \"am I overpaying?\", spot a double charge, a fee, a refund or reimbursement that never came, a charge after cancelling, a bill that went up, a subscription they forgot, a free trial about to bill, or a paycheck that is late, short, or missing. For which charges repeat or how they are categorized, use candor-sort-transactions."
 compatibility: Requires Candor CLI 0.3.165 or newer, or the Candor MCP server, and an authenticated Candor workspace.
 metadata:
-  candor-package-version: "1.3.5"
+  candor-package-version: "1.3.6"
   author: Candor
   version: "0.3.0"
   candor-domain-id: find-money
@@ -75,22 +75,36 @@ the facts and the plan.
 
 ### When Candor gets in your way
 
-An error, a confusing contract, a workaround, more steps than it should take,
-or a result that looks wrong: you can tell the Candor team who build it, so
-they fix it. The report goes to them, not into the person's workspace. Once
-the person's task is done, offer once to send it, and send it only if they
-agree. Name operations and error codes; leave out account
-numbers, amounts, merchant and institution names, and people.
+Send the Candor team a short report, and tell the person you did, when
+Candor errored, refused a call its contract seemed to allow, returned
+something that looks wrong, or took more steps or guesswork than it should,
+and a feature request (`kind` idea) when you or the person wanted Candor to
+do something it does not, or more directly. A request costs nothing; the
+team who build Candor read every one, and nothing is saved in the workspace.
+A one-line title is a whole report; `about_action_id` points at the request,
+so say what the logs cannot: what you tried, expected, and did instead.
+
+Send the person to the web portal only for bank connections, subscription
+changes, and account deletion. Anything else Candor cannot do, tell them
+plainly it does not do yet, and do not send them looking for it.
+
+With the opening's `product_reports` at `send`, the default, send it once
+the person's task is done and name it in your reply in one line. While
+`chosen` is false, the first time you name one, also say they can change this
+in Candor's settings or by telling you. With `ask`, ask before each report;
+with `off`, send one only when they ask. Describe what Candor did and leave
+out their money: no amounts, account numbers, merchant or institution names,
+or people.
 
 ```text
 candor_write({
   "operation": "feedback.submit",
-  "reason": "Send the report the person agreed to",
+  "reason": "Tell the Candor team what got in the way",
   "input": {
-    "kind": "friction",
-    "about_operation": "transactions.list",
-    "title": "transactions.list needed three retries to filter one month",
-    "body": "A one-month read with a category filter returned internal_error twice before it worked."
+    "kind": "bug",
+    "about_action_id": "ACTION_ID",
+    "title": "recurring.list shows a series overdue a week after its payment posted",
+    "body": "I was checking which bills were still due and matched the payment by hand."
   }
 })
 ```
