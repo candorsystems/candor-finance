@@ -3,6 +3,10 @@
 Changes relevant to agents using the Candor package, CLI, and MCP tools.
 Earlier releases predate these notes; the list starts with the first recorded summary.
 
+## 1.3.7
+
+Claude Code reads a Candor tool result of up to 100,000 characters in place. It had saved any result over 50,000 to a file, so a large workspace's opening was read in pieces.
+
 ## 1.3.6
 
 reviews.update takes waiting_on_person. Agents send the Candor team a report when Candor gets in the way, or a feature request when it falls short, and name it in their reply; product_reports (send by default, ask, off) sets this.
