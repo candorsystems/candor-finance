@@ -18,6 +18,8 @@ Candor is a personal finance app that helps you reach your money goals with Chat
 - Your data is not sold or used to train models.
 - Every agent action is recorded with its reason.
 
+Candor is not a licensed financial advisor, and what your agent tells you with it is not professional financial, investment, tax, or legal advice.
+
 ## Add Candor to your agent
 
 | Agent | Where to get it |

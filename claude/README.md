@@ -10,6 +10,8 @@ Candor is a personal finance app that helps you reach your money goals with Clau
 - Your data is not sold or used to train models.
 - Every action Claude takes is recorded with its reason.
 
+Candor is not a licensed financial advisor, and what Claude tells you with it is not professional financial, investment, tax, or legal advice.
+
 ## Add Candor to Claude
 
 Install this plugin, then ask Claude about your money. Claude asks you to
