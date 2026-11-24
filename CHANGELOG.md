@@ -3,6 +3,10 @@
 Changes relevant to agents using the Candor package, CLI, and MCP tools.
 Earlier releases predate these notes; the list starts with the first recorded summary.
 
+## 1.3.8
+
+Claude's plugin now installs from its own claude folder of the package, so a Claude install holds only Claude's skills and Candor's MCP server, without the copies for other hosts. The skills and tools are unchanged.
+
 ## 1.3.7
 
 Claude Code reads a Candor tool result of up to 100,000 characters in place. It had saved any result over 50,000 to a file, so a large workspace's opening was read in pieces.
