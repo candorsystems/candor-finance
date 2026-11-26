@@ -3,6 +3,10 @@
 Changes relevant to agents using the Candor package, CLI, and MCP tools.
 Earlier releases predate these notes; the list starts with the first recorded summary.
 
+## 1.3.10
+
+Multi-workspace connections take workspace (MCP), --workspace (CLI), or X-Candor-Workspace-Id (HTTP); CLI Markdown, visuals, open, status, setup, and doctor carry workspace context, and skills point sharing to Settings > People.
+
 ## 1.3.9
 
 The package README and the Claude plugin's README now say Candor is not a licensed financial advisor and that what the agent tells the person is not professional advice. The skills and tools are unchanged.
